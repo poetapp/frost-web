@@ -1,0 +1,15 @@
+.Checkbox {
+    label {
+        color: #2E2E2E;	
+        font-family: "Open Sans";	
+        font-size: 10px;	
+        line-height: 14px;
+        margin-left: 10px;
+    }
+    
+    &__Input {
+        height: auto;        
+        width: auto;
+        margin-bottom: 10px;
+    }
+}

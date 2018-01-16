@@ -1,0 +1,16 @@
+.Button {
+    cursor: pointer;
+    height: 40px;	
+    width: 100%;	
+    border-radius: 4px;	
+    background-color: #449BF3;
+
+    color: #FFFFFF;	
+    font-family: "Open Sans";	
+    font-size: 12px;	
+    font-weight: bold;	
+    text-align: center;
+    &:focus {
+        outline: none;
+    }
+}

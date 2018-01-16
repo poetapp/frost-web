@@ -3,11 +3,11 @@ import { Route } from 'react-router';
 import { Action } from 'redux';
 
 import PageLoader, { ReducerDescription } from '../../components/PageLoader';
-import { Layout } from './Login.layout';
+import { RegisterLoginLayout } from './RegisterLogin.layout';
 
-export class Login extends PageLoader<Object, Object> {
+export class RegisterLogin extends PageLoader<Object, Object> {
 
-  component = Layout;
+  component = RegisterLoginLayout;
 
   initialState(): Object {
     return {};

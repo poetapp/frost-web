@@ -1,0 +1,40 @@
+import * as React from 'react';
+import { LogoFrost } from '../../components/LogoFrost/LogoFrost';
+import { SignUp } from '../../components/Forms/SignUp/SignUp';
+import { SignIn } from '../../components/Forms/SignIn/SignIn';
+import './RegisterLogin.style.scss';
+
+
+
+export interface LoginProps {
+}
+
+export class RegisterLoginLayout extends React.Component<LoginProps, undefined> {
+  onSubmitSignUp(data: object) {
+    console.log("data: ",data);
+  }
+
+  onSubmitSignIn(data: object) {
+    console.log("data: ",data);
+  }
+
+  render() {
+    return (
+      <div className="RegisterLogin">
+        <LogoFrost className="RegisterLogin__LogoFrost" />
+        <h1 className="RegisterLogin__title">Frost is an open API for publishers and content creators to interact with the Po.et Network.</h1>
+        <div className={'row'}>
+          <div className={'col-4'}>
+            <SignUp onSubmit={this.onSubmitSignUp} />
+          </div>
+          <div className={'col-2'}>
+            <hr className={'RegisterLogin__vertical-line'}/>
+          </div>
+          <div className={'col-4 RegisterLogin__signUp'}>
+            <SignIn onSubmit={this.onSubmitSignIn} />
+          </div>
+        </div>
+      </div>
+    )
+  }
+}

@@ -3,6 +3,16 @@ html, body, #app {
     height: 100%;
 }
 
+body, html {
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 #app {
     max-width: 960px;
     margin: auto;

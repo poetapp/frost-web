@@ -1,5 +1,5 @@
-import { Login } from './Login/Login.loader'
+import { RegisterLogin } from './RegisterLogin/RegisterLogin.loader'
 
 export default [
-    Login,
+    RegisterLogin,
 ]

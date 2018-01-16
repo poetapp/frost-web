@@ -3,12 +3,12 @@ const webpackDevServer = require('webpack-dev-server')
 const config = require("./webpack.config.js")
 const isDockerized = process.env.DOCKER
 
-const PORT_WEBPACK_SERVER = 4000
+const PORT_WEBPACK_SERVER = process.env.PORT_WEBPACK_SERVER || 4000
 const HOST_WEBPACK_SERVER = '0.0.0.0'
 const PORT_API = 8080
 const HOST_API_PROXY = isDockerized ? 'nginx' : HOST_WEBPACK_SERVER
 
-const compiler = webpack(config(PORT_WEBPACK_SERVER))
+const compiler = webpack(config)
 const server = new webpackDevServer(compiler, {
   hot: true,
   noInfo: true,

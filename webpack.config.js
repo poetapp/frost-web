@@ -74,12 +74,12 @@ function getPlugins(environment) {
   ]
 }
 
-module.exports = (port) => ({
+module.exports = {
   entry: {
     app: [
       './src/bootstrap.ts',
       './src/index.tsx',
-      ...(development ? [`webpack-dev-server/client?http://localhost:${port}`, 'webpack/hot/dev-server' ]: [])
+      ...(development ? [`webpack-dev-server/client?http://localhost:${process.env.PORT_WEBPACK_SERVER || 4000}`, 'webpack/hot/dev-server' ]: [])
     ],
     vendor
   },
@@ -140,4 +140,4 @@ module.exports = (port) => ({
   },
 
   plugins: getPlugins(environment)
-});
+};
