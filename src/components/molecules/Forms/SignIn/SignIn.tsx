@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Input } from '../../../atoms/Input/Input';
 import { Button } from '../../../atoms/Button/Button';
 import { Checkbox } from '../../../molecules/Checkbox/Checkbox';
-import { Form } from '../../../templates/Form/Form';
+import { Form } from '../../../molecules/Form/Form';
 
 interface SignInProps {
     onSubmit(event: any): void;

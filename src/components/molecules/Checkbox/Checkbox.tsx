@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Label } from '../../templates/Label/Label';
+import { Label } from '../../molecules/Label/Label';
 import { Input } from '../../atoms/Input/Input';
 import './Checkbox.scss'
 
