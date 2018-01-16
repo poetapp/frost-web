@@ -6,7 +6,7 @@ import './extensions/Array';
 
 import PageLoader from './components/PageLoader';
 
-import pageCreators from "./pages";
+import pageCreators from "./components/pages";
 import sagaList from './sagas'
 import reducers from './reducers';
 import { Actions } from './actions/index'

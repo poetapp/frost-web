@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import * as classNames from 'classnames'
-import { Label } from '../Label/Label';
-import { Input } from '../Input/Input';
+import { Label } from '../../templates/Label/Label';
+import { Input } from '../../atoms/Input/Input';
 import './Checkbox.scss'
 
 interface CheckboxProps {

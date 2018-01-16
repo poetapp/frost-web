@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from "react-router";
 
 import { createPoetStore } from './store';
-import { Layout } from './components/Root/Root';
+import { Layout } from './components/Root';
 
 import './reset.scss'
 

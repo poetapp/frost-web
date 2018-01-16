@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import * as classNames from 'classnames'
-import { Button } from '../Button/Button';
+import { Button } from '../../atoms/Button/Button';
 import './Form.scss'
 
 interface FormProps {

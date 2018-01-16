@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Route } from 'react-router';
 import { Action } from 'redux';
 
-import PageLoader, { ReducerDescription } from '../../components/PageLoader';
+import PageLoader, { ReducerDescription } from '../../PageLoader';
 import { RegisterLoginLayout } from './RegisterLogin.layout';
 
 export class RegisterLogin extends PageLoader<Object, Object> {

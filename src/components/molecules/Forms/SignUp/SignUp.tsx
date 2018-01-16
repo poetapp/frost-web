@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { Input } from '../../Input/Input';
-import { Checkbox } from '../../Checkbox/Checkbox';
-import { Button } from '../../Button/Button';
-import { Form } from '../../Form/Form';
+import { Input } from '../../../atoms/Input/Input';
+import { Button } from '../../../atoms/Button/Button';
+import { Checkbox } from '../../../molecules/Checkbox/Checkbox';
+import { Form } from '../../../templates/Form/Form';
 
 interface SignUpProps {
     onSubmit(event: any): void;

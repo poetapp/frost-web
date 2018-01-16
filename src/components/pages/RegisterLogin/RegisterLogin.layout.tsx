@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { LogoFrost } from '../../components/LogoFrost/LogoFrost';
-import { SignUp } from '../../components/Forms/SignUp/SignUp';
-import { SignIn } from '../../components/Forms/SignIn/SignIn';
+import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost';
+import { SignUp } from '../../molecules/Forms/SignUp/SignUp';
+import { SignIn } from '../../molecules/Forms/SignIn/SignIn';
 import './RegisterLogin.style.scss';
 
 
