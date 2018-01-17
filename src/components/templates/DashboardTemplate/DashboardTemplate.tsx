@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost';
 import { BoxButton } from '../../atoms/BoxButton/BoxButton';
+import { NavigationList } from '../../atoms/NavigationList/NavigationList';
+import { Toggle } from '../../atoms/Toggle/Toggle';
+import { Logout } from '../../atoms/Logout/Logout';
 import './DashboardTemplate.scss';
 
 interface DashboardTemplatetProps {
     readonly className?: string;
+    readonly children?: any;
 }
 
 export const DashboardTemplate = (props: DashboardTemplatetProps) => 
@@ -13,29 +17,15 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) =>
             <header className={'Dashboard__nav__header'}>
                 <LogoFrost className={'Dashboard__nav__header__logo'} />
             </header>
+            <NavigationList className={'Dashboard__nav__navigation-list'} />
         </nav>
         <section className={'Dashboard__body'}>
-            <header className={'Dashboard__body__header'}></header>
-            <div className={'Dashboard__body__message d-flex justify-content-start align-items-center'}>
-                <div>
-                    <h2>Frost is still on testnet, so it is not proof of existence yet</h2>
-                    <p>The thing above is a horiontal rule</p>
+            <header className={'Dashboard__body__header'}>
+                <div className={'Dashboard__body__header__content d-flex align-items-center justify-content-between'}>
+                    <Toggle />
+                    <Logout />
                 </div>
-            </div>
-            <section className={'Dashboard__body__actions'}>
-                <div className={'Dashboard__body__actions__welcome'}>
-                    <h2>Welcome to Frost</h2>
-                    <p>The thing above is a horiontal rule</p>
-                </div>
-                <div className={'Dashboard__body__actions__box-buttons'}>
-                    <BoxButton title={'API Keys'}
-                               description={'Get started building out an integration on top of po.et using the frost API.'}
-                               buttonText={'Get API Key'}/>    
-
-                    <BoxButton title={'Documentation & Guides'}
-                               description={'View a list of getting started guides and full API documentation for interacting with the Po.et Network. '}
-                               buttonText={'View Docs'}/>    
-                </div>
-            </section>
+            </header>
+            {props.children}
         </section>
     </main>

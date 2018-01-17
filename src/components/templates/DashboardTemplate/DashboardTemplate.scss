@@ -14,6 +14,9 @@
                 width: 111px;
             }
         }
+        &__navigation-list {
+            margin-top: 23px;
+        }
     }
 
     &__body {
@@ -22,57 +25,10 @@
             background-color: #FFF;
             height: 64px;
             border-bottom: 1px solid rgba(0,0,0,0.11);
-        }
-
-        &__message {
-            background-color: #FFF;
-            height: 90px;
             padding-left: 140px;
-            h2 {
-                color: #393534;	
-                font-family: "Open Sans";	
-                font-size: 14px;	
-                font-weight: bold;	
-                line-height: 19px;
-            }
-
-            p {
-                color: #2D2D2D;	
-                font-family: "Open Sans";	
-                font-size: 12px;	
-                line-height: 20px;
-            }
-        }
-
-        &__actions {
-            padding-left: 140px;
-            &__welcome {
-                h2 {
-                   color: #393534;	
-                   font-family: "Open Sans";	
-                   font-size: 24px;	
-                   font-weight: 600;	
-                   line-height: 33px;
-                   margin-top: 28px;
-                }
-    
-                p {
-                   color: #2D2D2D;	
-                   font-family: "Open Sans";	
-                   font-size: 12px;	
-                   line-height: 20px;
-                }
-            }
-
-            &__box-buttons {
-                margin-top: 40px;
-                .BoxButton {
-                    float: left;
-                    margin-left: 20px;
-                    &:first-child {
-                        margin-left: 0px;
-                    }
-                }
+            &__content {
+                height: 100%;
+                max-width: 960px;
             }
         }
     }

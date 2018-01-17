@@ -1,0 +1,19 @@
+.Logout {
+    &__text {
+        color: #2E323B;	
+        font-family: "Open Sans";	
+        font-size: 12px;	
+        line-height: 17px;
+        margin: 0px;
+    }
+
+    &__button {
+        cursor: pointer;
+        color: #DD4D5E;	
+        font-family: "Open Sans";	
+        font-size: 12px;	
+        font-weight: 600;	
+        line-height: 17px;
+        border: none;
+    }
+}

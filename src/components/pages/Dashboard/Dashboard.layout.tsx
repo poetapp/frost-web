@@ -1,24 +1,17 @@
 import * as React from 'react';
 import { DashboardTemplate } from '../../templates/DashboardTemplate/DashboardTemplate';
+import { PanelOptions } from '../../molecules/PanelOptions/PanelOptions';
 import './Dashboard.style.scss';
 
-
-
-export interface LoginProps {
+export interface DashboardProps {
 }
 
-export class DashboardLayout extends React.Component<LoginProps, undefined> {
-  onSubmitSignUp(data: object) {
-    console.log("data: ",data);
-  }
-
-  onSubmitSignIn(data: object) {
-    console.log("data: ",data);
-  }
-
+export class DashboardLayout extends React.Component<DashboardProps, undefined> {
   render() {
     return (
-      <DashboardTemplate />
+      <DashboardTemplate>
+        <PanelOptions />
+      </DashboardTemplate>
     )
   }
 }

@@ -1,0 +1,71 @@
+.BoxToken {
+    height: 193px;
+    width: 620px;
+    border: 1px solid #E3E1DF;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 0 0 #F0F0F0;
+    &__header {
+        height: 36px;
+        width: 100%;
+        border-bottom: 1px solid #E3E1DF;
+        border-radius: 4px 4px 0 0;
+        background-color: #FFFFFF;
+        p {
+            color: #676767;
+            font-family: "Open Sans";
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 36px;
+            padding-left: 15px;
+        }
+    }
+    
+    &__list {
+        height: 100px;
+        &__item {
+            padding-left: 14px;
+            list-style: none;
+            border-bottom: 1px solid #E6E4E1;
+            height: 34px;
+            &__description {
+                float: left;
+                width: calc(100% - 60px);
+                font-family: "Open Sans";
+                color: #393939;
+                font-size: 10px;
+                line-height: 34px;
+
+                &__name {
+                    padding-right: 40px;
+                }
+
+                &__token {
+                    color: #737373;
+                    line-height: 14px;
+                    padding-right: 72px;
+                }
+
+                &__date {
+                    font-size: 11px;
+                    line-height: 15px;
+                    text-align: right;
+                }
+            }
+            &__actions {
+                float: left;
+                width: 60px;
+                button {
+                    border: 0px;
+                    color: #DD4D5E;
+                    font-family: "Open Sans";
+                    font-size: 10px;
+                    font-weight: 600;
+                    line-height: 34px;
+                    height: 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
