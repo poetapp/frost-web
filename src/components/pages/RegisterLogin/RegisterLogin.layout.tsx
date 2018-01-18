@@ -21,7 +21,7 @@ export class RegisterLoginLayout extends React.Component<LoginProps, undefined> 
   render() {
     return (
       <div className="RegisterLogin">
-        <LogoFrost className="RegisterLogin__LogoFrost" />
+        <a href={'/'}><LogoFrost className="RegisterLogin__LogoFrost" /></a>
         <h1 className="RegisterLogin__title">Frost is an open API for publishers and content creators to interact with the Po.et Network.</h1>
         <div className={'row'}>
           <div className={'col-4'}>

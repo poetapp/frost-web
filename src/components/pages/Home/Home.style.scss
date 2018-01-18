@@ -1,0 +1,117 @@
+.Home {
+    background-color: #F4F5F9;
+    &__header {
+        height: 80px;
+        width: 100%;
+        border: 1px solid #1A1B24;
+        background-color: #2C2E3C;
+        &__box {
+            max-width: 960px;
+            margin: auto;
+            height: 100%;
+            &__left {
+                height: 100%;
+            }
+            &__logo {
+                margin-right: 68px;
+                width: 140px;
+            }
+            &__button {
+                width: 137px;
+            }
+        }
+    }
+
+    &__cover-page {
+        background-color: #2C2E3B;
+        height: 697px;
+        &__box {
+            max-width: 960px;
+            margin: auto;
+            height: 100%;
+            padding-top: 104px;
+            &__logo {
+                margin-bottom: 30px;
+            }
+            &__title {
+                color: #FFFFFF;
+                font-family: Arvo;
+                font-size: 53px;
+                line-height: 65px;
+                margin-bottom: 30px;
+            }
+            &__description {
+               color: #DADADA;
+               font-family: "Open Sans";
+               font-size: 20px;
+               line-height: 29px;
+               margin-bottom: 40px;
+            }
+            &__btn-token {
+                margin-right: 21px;
+                width: 160px;
+            }
+            &__btn-started {
+                background-color: #FFF;
+                color: #449BF3;
+                width: 160px;
+            }
+        }
+    }
+
+    &__what-frost {
+        height: 1258px;
+        &__box {
+            max-width: 960px;
+            margin: auto;
+            &__title {
+              color: #393534;	
+              font-family: Arvo;	
+              font-size: 26px;	
+              line-height: 32px;	
+              text-align: center;
+              margin-top: 70px;
+            }
+
+            &__description {
+                color: #6F6F6F;	
+                font-family: "Open Sans";	
+                font-size: 20px;	
+                line-height: 29px;
+                text-align: center;
+                margin-top: 14px;
+                margin-bottom: 134px;
+            }
+
+            &__simple {
+                margin-right: 80px;
+                &:last-child {
+                    margin-right: 0px;
+                }
+            }
+
+            &__updates {
+                height: 158px;
+                border-top: 1px solid #DFDFDF;
+                border-bottom: 1px solid #DFDFDF;
+                margin-top: 134px;
+                &__title {
+                    color: #449BF3;
+                    font-family: "Open Sans";
+                    font-size: 21px;
+                    font-weight: bold;
+                    line-height: 28px;
+                    margin-bottom: 13px;
+                }
+
+                &__description {
+                    color: #2D2D2D;
+                    font-family: "Open Sans";
+                    font-size: 14px;
+                    line-height: 20px;
+                    margin: 0px;
+                }
+            }
+        }
+    }
+}
