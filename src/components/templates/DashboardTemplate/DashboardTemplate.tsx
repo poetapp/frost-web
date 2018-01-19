@@ -9,6 +9,8 @@ import './DashboardTemplate.scss';
 interface DashboardTemplatetProps {
     readonly className?: string;
     readonly children?: any;
+    readonly email?: string;
+    readonly onLogout?: () => void
 }
 
 export const DashboardTemplate = (props: DashboardTemplatetProps) => 
@@ -23,7 +25,7 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) =>
             <header className={'Dashboard__body__header'}>
                 <div className={'Dashboard__body__header__content d-flex align-items-center justify-content-between'}>
                     <Toggle />
-                    <Logout />
+                    <Logout email={props.email} onLogout={props.onLogout} />
                 </div>
             </header>
             {props.children}

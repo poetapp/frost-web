@@ -4,10 +4,12 @@ import './Logout.scss'
 
 interface LogoutProps {
     readonly className?: string;
+    readonly email?: string
+    readonly onLogout?: () => void
 }
 
 export const Logout = (props: LogoutProps) => 
     <div className={classNames('Logout d-flex flex-column align-items-end', props.className)}>
-        <p className={'Logout__text'}>robert.frost@po.et</p>
-        <button className={'Logout__button'}>Logout</button>
+        <p className={'Logout__text'}>{props.email}</p>
+        <button className={'Logout__button'} onClick={props.onLogout}>Logout</button>
     </div>

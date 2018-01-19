@@ -9,7 +9,8 @@
     "lib": [ "DOM", "DOM.Iterable","ScriptHost", "es2017" ],
     "baseUrl": "./src/",
     "types": [ "node" ],
-    "typeRoots": [ "../node_modules/@types" ]
+    "typeRoots": [ "../node_modules/@types" ],
+    "experimentalDecorators": true
   },
   "include": [
     "./src/**/*"

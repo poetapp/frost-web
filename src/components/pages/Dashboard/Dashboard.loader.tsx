@@ -14,7 +14,7 @@ export class Dashboard extends PageLoader<Object, Object> {
   }
 
   routeHook(key: string) {
-    return [<Route path="/dashboard" key={key} component={this.container()}/>]
+    return [<Route path="/dashboard" key={key} component={this.container()} />]
   }
 
   reducerHook<State>(): ReducerDescription<null> {
@@ -30,6 +30,7 @@ export class Dashboard extends PageLoader<Object, Object> {
   }
 
   mapDispatchToProps(): any {
+    debugger
     return {}
   }
 }

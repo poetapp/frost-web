@@ -7,10 +7,10 @@ interface FormProps {
     readonly legend: string;
     readonly children?: any;
     readonly textButton: string;
-    readonly onValidate?: (data: any, elements: any) => void;
+    readonly onValidate?: (data: any, elements: any) => boolean;
 }
 
-const onSubmit = (event: any, submit: any, validate: any) => {
+const onSubmit = (event: any, submit= (data: object) => {}, validate = (data: any, elements: any) => true) => {
     event.preventDefault();
     const form = event.target;
     const data = new FormData(form);

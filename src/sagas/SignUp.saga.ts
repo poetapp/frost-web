@@ -1,5 +1,4 @@
-import { takeLatest, delay } from 'redux-saga';
-import { call } from 'redux-saga/effects'
+import { call, takeLatest, put } from 'redux-saga/effects'
 import { Frost } from '@poetapp/frost-client';
 import { browserHistory } from 'react-router';
 import { Actions } from '../actions/index';
@@ -20,8 +19,10 @@ function* SignUp(action: any) {
     try {
         const { email, password } = action.payload;
         const user = yield call(signUpFrost, { email, password });
+        yield put(Actions.SignUp.onSignUpSuccess({ ...user, email }))
         browserHistory.push('/dashboard');
     } catch(e) {
+        yield put(Actions.SignUp.onSignUpError(e))
         // Todo: Error message in UI
     }
 }

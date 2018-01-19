@@ -7,5 +7,39 @@ export namespace Actions {
             type: SIGN_UP,
             payload,
         });
+        export const onSignUpSuccess = (payload?: object) => ({
+            type: SIGN_UP_SUCCESS,
+            payload,
+        });
+        export const onSignUpError = (payload?: object) => ({
+            type: SIGN_UP_ERROR,
+            payload,
+        });
+    }
+
+    export namespace SignIn {
+        export const SIGN_IN = 'SIGN_IN';
+        export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
+        export const SIGN_IN_ERROR = 'SIGN_IN_ERROR';
+        export const onSignIn = (payload?: object) => ({
+            type: SIGN_IN,
+            payload,
+        });
+        export const onSignInSuccess = (payload?: object) => ({
+            type: SIGN_IN_SUCCESS,
+            payload,
+        });
+        export const onSignInError = (payload?: object) => ({
+            type: SIGN_IN_ERROR,
+            payload,
+        });
+    }
+
+    export namespace SignOut {
+        export const SIGN_OUT = 'SIGN_OUT';
+        export const onSignOut = (payload?: object) => ({
+            type: SIGN_OUT,
+            payload,
+        });
     }
 }

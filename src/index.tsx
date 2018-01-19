@@ -8,18 +8,41 @@ import { Layout } from './components/Root';
 
 import './reset.scss'
 
-const { store, pages } = createPoetStore();
-const routes = pages.map((page, index) => page.routeHook('' + index)).reduce((a, b) => a.concat(b), []);
+async function init() {
+  const { store, pages } = await createPoetStore();
+  const routes = pages.map((page: any, index: any) => page.routeHook('' + index)).reduce((a:any, b:any) => a.concat(b), []);
+  
+  function requireAuth(store: any) {
+    return (route: any, replace: object) => {
+      let state = store.getState();
+      const { user } = state;
+      
+      const pathname = route.location.pathname;
+      const omitRoutes = ['/', '/login']
+      const notNeedOuath = omitRoutes.includes(pathname)
+      if (!notNeedOuath && user.token === '') {
+        browserHistory.push('/login');
+      }
+    };
+  }
+  
+  function notFound(route: any, replace: object) {
+    browserHistory.push('/');
+  }
 
-ReactDOM.render((
-    <Provider store={store}>
-      <Router history={browserHistory}>
-        <Route component={Layout}>
-          { routes }
-        </Route>
-      </Router>
-    </Provider>
-  ),
-  document.getElementById("app")
-);
+  ReactDOM.render((
+      <Provider store={store}>
+          <Router history={browserHistory}>
+            <Route component={Layout} onEnter={requireAuth(store)}>
+              { routes }
+            </Route>
+            <Route path="*" onEnter={notFound} />
+          </Router>
+      </Provider>
+    ),
+    document.getElementById("app")
+  );
+}
+
+init();
 
