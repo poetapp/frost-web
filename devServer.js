@@ -5,7 +5,7 @@ const isDockerized = process.env.DOCKER
 
 const PORT_WEBPACK_SERVER = process.env.PORT_WEBPACK_SERVER || 4000
 const HOST_WEBPACK_SERVER = '0.0.0.0'
-const PORT_API = 8080
+const PORT_API = 3000
 const HOST_API_PROXY = isDockerized ? 'nginx' : HOST_WEBPACK_SERVER
 
 const compiler = webpack(config)
@@ -15,7 +15,8 @@ const server = new webpackDevServer(compiler, {
   proxy: {
     '/api': {
       target: `http://${HOST_API_PROXY}:${PORT_API}`,
-      secure: false
+      secure: false,
+      pathRewrite: {'^/api' : ''}
     }
   },
   historyApiFallback: {

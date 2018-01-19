@@ -16,7 +16,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@poetapp/frost-client": "0.0.3",
     "@types/classnames": "0.0.32",
+    "@types/isomorphic-fetch": "0.0.34",
     "@types/node": "^9.3.0",
     "@types/react": "0.14.55",
     "@types/react-dom": "^0.14.20",

@@ -10,6 +10,25 @@ interface InputProps {
     readonly required?: boolean;
     readonly minlength?: number;
     readonly maxlength?: number;
+    readonly onChange?: (event: any) => void;
+}
+
+const onChange = (event: any, onChange: any) => {
+    event.preventDefault();
+    const form = event.target.form;
+    const data = new FormData(form);
+    const currentData:any = {};
+    const elements: any = {}
+    
+    for (let key of data.keys()) {
+        const input = form.elements[key];
+        const value = input.value;
+        const name = input.name;
+        currentData[name] = value;
+        elements[name] = input;
+    }
+    if (typeof onChange === 'function')
+        onChange(currentData, elements)
 }
 
 export const Input = (props: InputProps) => 
@@ -17,4 +36,5 @@ export const Input = (props: InputProps) =>
            type={props.type} 
            className={classNames('Input', props.className)} 
            placeholder={props.placeholder} 
-           required={props.required} />
+           required={props.required} 
+           onChange={e => onChange(e, props.onChange)} />

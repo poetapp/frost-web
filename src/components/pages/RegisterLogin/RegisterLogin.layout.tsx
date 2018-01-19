@@ -2,6 +2,7 @@ import * as React from 'react';
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost';
 import { SignUp } from '../../molecules/Forms/SignUp/SignUp';
 import { SignIn } from '../../molecules/Forms/SignIn/SignIn';
+import { Actions } from '../../../actions'
 import './RegisterLogin.style.scss';
 
 
@@ -10,8 +11,18 @@ export interface LoginProps {
 }
 
 export class RegisterLoginLayout extends React.Component<LoginProps, undefined> {
+  constructor() {
+    super();
+    this.onSubmitSignUp = this.onSubmitSignUp.bind(this);
+  }
+
+  static contextTypes = {
+    store: React.PropTypes.object,
+  };
+
   onSubmitSignUp(data: object) {
-    console.log("data: ",data);
+    const { store } = this.context;
+    store.dispatch(Actions.SignUp.onSignUp(data));
   }
 
   onSubmitSignIn(data: object) {
