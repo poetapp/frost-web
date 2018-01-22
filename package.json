@@ -18,6 +18,7 @@
   "dependencies": {
     "@poetapp/frost-client": "0.0.3",
     "classnames": "^2.2.5",
+    "formdata-polyfill": "^3.0.9",
     "isomorphic-fetch": "^2.2.1",
     "moment": "^2.17.1",
     "prop-types": "^15.6.0",

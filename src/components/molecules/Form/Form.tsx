@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button } from '../../atoms/Button/Button';
 import './Form.scss'
-
+require('formdata-polyfill');
 interface FormProps {
     onSubmit(event: any): void;
     readonly legend: string;
