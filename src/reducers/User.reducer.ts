@@ -20,7 +20,6 @@ export const user = (state: any, action: any) => {
         email: '',
       };
     case REHYDRATE:
-    debugger
       return {
         ...state,
         ...action.payload.user
