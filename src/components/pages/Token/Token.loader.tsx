@@ -15,7 +15,7 @@ export class Token extends PageLoader<object, object> {
     return [<Route path="/token" key={key} component={this.container()} />]
   }
 
-  reducerHook<State>(state: State): ReducerDescription<null> {
+  reducerHook<State>(): ReducerDescription<null> {
     return null
   }
 

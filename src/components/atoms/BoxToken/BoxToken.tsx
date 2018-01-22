@@ -1,9 +1,12 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { Hash } from '../../atoms/Hash/Hash'
 import './BoxToken.scss'
 
 interface BoxTokenProps {
   readonly className?: string
+  readonly apiToken: string
+  readonly dateCreated: string
 }
 
 export const BoxToken = (props: BoxTokenProps) => (
@@ -19,10 +22,12 @@ export const BoxToken = (props: BoxTokenProps) => (
               #000000
             </span>
             <span className={'BoxToken__list__item__description__token'}>
-              1jxT8022xjnL00xTBW60cc0kgzz501nl…{' '}
+              <Hash className="copyable-hash" textClickable>
+              {props.apiToken}
+              </Hash>
             </span>
             <span className={'BoxToken__list__item__description__date'}>
-              01-01-01 at 00:00:00
+              {props.dateCreated}
             </span>
           </p>
         </div>

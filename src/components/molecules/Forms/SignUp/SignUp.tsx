@@ -4,7 +4,7 @@ import { Checkbox } from '../../../molecules/Checkbox/Checkbox'
 import { Form } from '../../../molecules/Form/Form'
 
 interface SignUpProps {
-  onSubmit(event: any): void
+  readonly onSubmit: (event: any) => any
 }
 
 const onValidate = (data: any, elements: any) => {

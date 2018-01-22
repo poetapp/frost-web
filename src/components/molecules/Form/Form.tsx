@@ -7,7 +7,7 @@ interface FormProps {
   readonly children?: any
   readonly textButton: string
   readonly onValidate?: (data: any, elements: any) => boolean
-  readonly onSubmit?: (event: any) => object
+  readonly onSubmit?: (event: any) => any
 }
 
 const onSubmit = (

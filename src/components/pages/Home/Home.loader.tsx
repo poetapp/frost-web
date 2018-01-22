@@ -15,7 +15,7 @@ export class Home extends PageLoader<object, object> {
     return [<Route path="/" key={key} component={this.container()} />]
   }
 
-  reducerHook<State>(state: State): ReducerDescription<null> {
+  reducerHook<State>(): ReducerDescription<null> {
     return null
   }
 

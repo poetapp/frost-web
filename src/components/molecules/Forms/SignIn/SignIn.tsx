@@ -3,7 +3,7 @@ import { Input } from '../../../atoms/Input/Input'
 import { Form } from '../../../molecules/Form/Form'
 
 interface SignInProps {
-  onSubmit(event: any): void
+  readonly onSubmit: (event: any) => any
 }
 
 export const SignIn = (props: SignInProps) => (

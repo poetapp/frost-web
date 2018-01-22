@@ -3,7 +3,9 @@ import { BoxToken } from '../../atoms/BoxToken/BoxToken'
 import { Button } from '../../atoms/Button/Button'
 import './CreateToken.scss'
 
-interface CreateTokenProps {}
+interface CreateTokenProps {
+  boxToken: { apiToken: string, dateCreated: string }
+}
 
 export const CreateToken = (props: CreateTokenProps) => (
   <div className={'CreateToken'}>
@@ -22,7 +24,7 @@ export const CreateToken = (props: CreateTokenProps) => (
         Some message here about API keys.
       </p>
     </div>
-    <BoxToken />
+    <BoxToken apiToken={props.boxToken.apiToken} dateCreated={props.boxToken.dateCreated} />
     <Button className={'CreateToken__button'} text={'Get API Key'} />
   </div>
 )

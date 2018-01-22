@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as PropTypes from 'prop-types'
 import { Link } from 'react-router'
 import { Actions } from '../../../actions'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
@@ -12,6 +13,11 @@ export class RegisterLoginLayout extends React.Component<
   RegisterLoginProps,
   undefined
 > {
+
+  static contextTypes = {
+    store: PropTypes.object
+  }
+
   constructor() {
     super()
     this.onSubmitSignUp = this.onSubmitSignUp.bind(this)

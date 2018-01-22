@@ -55,4 +55,22 @@ export namespace Actions {
       payload
     })
   }
+
+  export namespace ApiTokens {
+    export const GET_API_TOKENS = 'GET_API_TOKENS'
+    export const GET_API_SUCCESS = 'GET_API_SUCCESS'
+    export const GET_API_ERROR = 'GET_API_ERROR'
+    export const onGetApiTokens = (payload?: object) => ({
+      type: GET_API_TOKENS,
+      payload
+    })
+    export const onGetApiTokensSuccess = (payload?: object) => ({
+      type: GET_API_SUCCESS,
+      payload
+    })
+    export const onGetApiTokensError = (payload?: object) => ({
+      type: GET_API_ERROR,
+      payload
+    })
+  }
 }

@@ -15,7 +15,7 @@ export class Dashboard extends PageLoader<object, object> {
     return [<Route path="/dashboard" key={key} component={this.container()} />]
   }
 
-  reducerHook<State>(state: State): ReducerDescription<null> {
+  reducerHook<State>(): ReducerDescription<null> {
     return null
   }
 
