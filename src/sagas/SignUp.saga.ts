@@ -5,7 +5,7 @@ import { Actions } from '../actions/index';
 
 async function signUpFrost(data: { email: string, password: string }) {
     const { email, password } = data;
-    const frost = new Frost({ host: 'http://localhost:4000/api' })
+    const frost = new Frost({ host: '/api' })
     return await frost.create(email, password);
 }
 
