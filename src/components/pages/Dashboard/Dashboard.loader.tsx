@@ -1,32 +1,30 @@
-import * as React from 'react';
-import { Route } from 'react-router';
-import { Action } from 'redux';
+import * as React from 'react'
+import { Route } from 'react-router'
 
-import PageLoader, { ReducerDescription } from '../../PageLoader';
-import { DashboardLayout } from './Dashboard.layout';
+import { PageLoader, ReducerDescription } from '../../PageLoader'
+import { DashboardLayout } from './Dashboard.layout'
 
-export class Dashboard extends PageLoader<Object, Object> {
+export class Dashboard extends PageLoader<object, object> {
+  component = DashboardLayout
 
-  component = DashboardLayout;
-
-  initialState(): Object {
-    return {};
+  initialState(): object {
+    return {}
   }
 
   routeHook(key: string) {
     return [<Route path="/dashboard" key={key} component={this.container()} />]
   }
 
-  reducerHook<State>(): ReducerDescription<null> {
+  reducerHook<State>(state: State): ReducerDescription<null> {
     return null
   }
 
   sagaHook(): any {
-    return null;
+    return null
   }
 
-  select(state: any, ownProps: any): Object {
-    return {};
+  select(state: any, ownProps: any): object {
+    return {}
   }
 
   mapDispatchToProps(): any {

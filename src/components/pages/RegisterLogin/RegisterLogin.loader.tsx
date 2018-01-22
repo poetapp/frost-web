@@ -1,32 +1,30 @@
-import * as React from 'react';
-import { Route } from 'react-router';
-import { Action } from 'redux';
+import * as React from 'react'
+import { Route } from 'react-router'
 
-import PageLoader, { ReducerDescription } from '../../PageLoader';
-import { RegisterLoginLayout } from './RegisterLogin.layout';
+import { PageLoader, ReducerDescription } from '../../PageLoader'
+import { RegisterLoginLayout } from './RegisterLogin.layout'
 
-export class RegisterLogin extends PageLoader<Object, Object> {
+export class RegisterLogin extends PageLoader<object, object> {
+  component = RegisterLoginLayout
 
-  component = RegisterLoginLayout;
-
-  initialState(): Object {
-    return {};
+  initialState(): object {
+    return {}
   }
 
   routeHook(key: string) {
-    return [<Route path="/login" key={key} component={this.container()}/>]
+    return [<Route path="/login" key={key} component={this.container()} />]
   }
 
-  reducerHook<State>(): ReducerDescription<null> {
+  reducerHook<State>(state: State): ReducerDescription<null> {
     return null
   }
 
   sagaHook(): any {
-    return null;
+    return null
   }
 
-  select(state: any, ownProps: any): Object {
-    return {};
+  select(state: any, ownProps: any): object {
+    return {}
   }
 
   mapDispatchToProps(): any {

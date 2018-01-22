@@ -1,10 +1,10 @@
-import { Actions } from '../actions/index';
-const { REHYDRATE } = require('redux-persist/constants');
+import { Actions } from '../actions/index'
+const { REHYDRATE } = require('redux-persist/constants')
 
 const defaultState = {
   token: '',
-  email: '',
-};
+  email: ''
+}
 
 export const user = (state: any, action: any) => {
   switch (action.type) {
@@ -12,18 +12,18 @@ export const user = (state: any, action: any) => {
       return {
         ...state,
         ...action.payload
-      };
+      }
     case Actions.SignOut.SIGN_OUT:
       return {
         ...state,
         token: '',
-        email: '',
-      };
+        email: ''
+      }
     case REHYDRATE:
       return {
         ...state,
         ...action.payload.user
-      };
+      }
   }
-  return state || defaultState;
+  return state || defaultState
 }

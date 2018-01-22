@@ -1,12 +1,12 @@
-import { Actions } from '../actions/index';
+import { Actions } from '../actions/index'
 
 const defaultState = {
   error: {
     status: false,
-    message: '',
+    message: ''
   },
   loading: false
-};
+}
 
 export const signUp = (state: any, action: any) => {
   switch (action.type) {
@@ -15,28 +15,28 @@ export const signUp = (state: any, action: any) => {
         ...state,
         error: {
           status: false,
-          message: '',
+          message: ''
         },
         loading: true
-      };
+      }
     case Actions.SignUp.SIGN_UP_SUCCESS:
       return {
         ...state,
         error: {
           status: false,
-          message: '',
+          message: ''
         },
         loading: false
-      };
+      }
     case Actions.SignUp.SIGN_UP_ERROR:
       return {
         ...state,
         error: {
           status: true,
-          message: action.payload,
+          message: action.payload
         },
         loading: false
-      };
+      }
   }
-  return state || defaultState;
+  return state || defaultState
 }

@@ -1,9 +1,5 @@
-import { SignUpSaga } from './SignUp.saga';
-import { SignInSaga } from './SignIn.saga';
-import { SignOutSaga } from './SignOut.saga';
+import { SignInSaga } from './SignIn.saga'
+import { SignOutSaga } from './SignOut.saga'
+import { SignUpSaga } from './SignUp.saga'
 
-export default [
-    SignUpSaga,
-    SignInSaga,
-    SignOutSaga,
-];
+export const sagas = [SignUpSaga, SignInSaga, SignOutSaga]

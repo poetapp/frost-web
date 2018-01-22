@@ -1,18 +1,11 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import * as classNames from 'classnames'
+import * as React from 'react'
 
 import './Root.scss'
 
 interface RootLayoutProps {
-  readonly children?: any;
+  readonly children?: any
 }
 
 export const Layout = function render(props: RootLayoutProps) {
-  return (
-    <div className="root-layout">
-        { props.children }
-    </div>
-  );
+  return <div className="root-layout">{props.children}</div>
 }
-

@@ -1,10 +1,7 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { DashboardTemplate } from '../../templates/DashboardTemplate/DashboardTemplate';
-import { CreateToken } from '../../molecules/CreateToken/CreateToken';
-import { NavigationContainer } from '../../containers/Navigation.container'
+import * as React from 'react'
 import { DashboardContainer } from '../../containers/Dashboard.container'
-import './Token.style.scss';
+import { CreateToken } from '../../molecules/CreateToken/CreateToken'
+import './Token.style.scss'
 
 export class TokenLayout extends React.Component<any, any> {
   render() {

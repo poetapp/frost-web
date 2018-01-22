@@ -1,32 +1,30 @@
-import * as React from 'react';
-import { Route } from 'react-router';
-import { Action } from 'redux';
+import * as React from 'react'
+import { Route } from 'react-router'
 
-import PageLoader, { ReducerDescription } from '../../PageLoader';
-import { TokenLayout } from './Token.layout';
+import { PageLoader, ReducerDescription } from '../../PageLoader'
+import { TokenLayout } from './Token.layout'
 
-export class Token extends PageLoader<Object, Object> {
+export class Token extends PageLoader<object, object> {
+  component = TokenLayout
 
-  component = TokenLayout;
-
-  initialState(): Object {
-    return {};
+  initialState(): object {
+    return {}
   }
 
   routeHook(key: string) {
-    return [<Route path="/token" key={key} component={this.container()}/>]
+    return [<Route path="/token" key={key} component={this.container()} />]
   }
 
-  reducerHook<State>(): ReducerDescription<null> {
+  reducerHook<State>(state: State): ReducerDescription<null> {
     return null
   }
 
   sagaHook(): any {
-    return null;
+    return null
   }
 
-  select(state: any, ownProps: any): Object {
-    return {};
+  select(state: any, ownProps: any): object {
+    return {}
   }
 
   mapDispatchToProps(): any {

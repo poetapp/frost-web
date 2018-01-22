@@ -1,15 +1,15 @@
-import * as React from "react";
-import {Reducer} from "redux";
-import {connect, StatelessComponent, ComponentClass} from "react-redux";
+import { connect, StatelessComponent, ComponentClass } from 'react-redux'
+import { Reducer } from 'redux'
 
 export interface ReducerDescription<T> {
   subState: string
   reducer: Reducer<T>
 }
 
-abstract class PageLoader<State, Properties> {
-
-  abstract readonly component: ComponentClass<Properties> | StatelessComponent<Properties>;
+export abstract class PageLoader<State, Properties> {
+  abstract readonly component:
+    | ComponentClass<Properties>
+    | StatelessComponent<Properties>
 
   abstract initialState(): State
   abstract routeHook(key: string): JSX.Element[]
@@ -21,9 +21,8 @@ abstract class PageLoader<State, Properties> {
   }
 
   protected container() {
-    return connect(this.select.bind(this), this.mapDispatchToProps())(this.component)
+    return connect(this.select.bind(this), this.mapDispatchToProps())(
+      this.component
+    )
   }
-
 }
-
-export default PageLoader;

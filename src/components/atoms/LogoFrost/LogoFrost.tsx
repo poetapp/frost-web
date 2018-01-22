@@ -1,11 +1,10 @@
-import * as React from 'react';
-import * as classNames from 'classnames'
+import * as React from 'react'
 import { Images } from '../../../images/Images'
 
-
 interface LogoFrostProps {
-    readonly className?: string;
+  readonly className?: string
 }
 
-export const LogoFrost = (props: LogoFrostProps) => 
-    <img src={Images.LogoFrost} className={props.className} />
+export const LogoFrost = (props: LogoFrostProps) => (
+  <img src={Images.LogoFrost} className={props.className} />
+)

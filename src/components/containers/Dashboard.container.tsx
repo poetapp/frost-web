@@ -1,34 +1,33 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import * as PropTypes from "prop-types";
-import { DashboardTemplate } from '../templates/DashboardTemplate/DashboardTemplate';
-import { PanelOptions } from '../molecules/PanelOptions/PanelOptions';
-import { Actions } from '../../actions'
-import { NavigationContainer } from './Navigation.container'
+import * as PropTypes from 'prop-types'
+import * as React from 'react'
+import { connect } from 'react-redux'
+import { DashboardTemplate } from '../templates/DashboardTemplate/DashboardTemplate'
 import { LogoutContainer } from './Logout.container'
+import { NavigationContainer } from './Navigation.container'
 
 export class Dashboard extends React.Component<any, undefined> {
   static contextTypes = {
-    store: PropTypes.object,
-  };
+    store: PropTypes.object
+  }
 
   constructor() {
-    super();
+    super()
   }
 
   render() {
-    const { children } = this.props;
+    const { children } = this.props
 
     return (
-      <DashboardTemplate logout={LogoutContainer} navigation={NavigationContainer}>
+      <DashboardTemplate
+        logout={LogoutContainer}
+        navigation={NavigationContainer}
+      >
         {children}
       </DashboardTemplate>
     )
   }
 }
 
-const mapStateToProps = (state: any) => ({});
+const mapStateToProps = (state: any) => ({})
 
-export const DashboardContainer = connect(
-  mapStateToProps
-)(Dashboard)
+export const DashboardContainer = connect(mapStateToProps)(Dashboard)

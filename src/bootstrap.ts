@@ -1,4 +1,2 @@
-import './extensions/Window'
 import './extensions/Array'
-
-
+import './extensions/Window'
