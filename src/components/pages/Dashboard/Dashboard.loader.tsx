@@ -30,7 +30,6 @@ export class Dashboard extends PageLoader<Object, Object> {
   }
 
   mapDispatchToProps(): any {
-    debugger
     return {}
   }
 }
