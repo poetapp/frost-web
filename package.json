@@ -9,7 +9,7 @@
     "build:testing": "NODE_ENV=testing webpack",
     "build:staging": "NODE_ENV=staging webpack",
     "build:production": "NODE_ENV=production webpack",
-    "serve": "ws --spa index.html --rewrite '/api/* -> http://localhost:8080/api/$1' -d ./dist",
+    "serve": "ws --spa index.html --rewrite '/api/* -> http://localhost:3000/$1' -d ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

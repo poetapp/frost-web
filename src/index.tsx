@@ -5,6 +5,7 @@ import { Router, Route, browserHistory } from "react-router";
 
 import { createPoetStore } from './store';
 import { Layout } from './components/Root';
+import { Actions } from './actions'
 
 import './reset.scss'
 
@@ -16,14 +17,21 @@ async function init() {
     return (route: any, replace: object) => {
       let state = store.getState();
       const { user } = state;
-      
       const pathname = route.location.pathname;
+      store.dispatch(Actions.Router.onEnter(pathname));
       const omitRoutes = ['/', '/login']
       const notNeedOuath = omitRoutes.includes(pathname)
       if (!notNeedOuath && user.token === '') {
         browserHistory.push('/login');
       }
     };
+  }
+
+  function onChange(store: any) {
+    return (route: any, replace: any) => {
+      const pathname = replace.location.pathname;
+      store.dispatch(Actions.Router.onChange(pathname));
+    }
   }
   
   function notFound(route: any, replace: object) {
@@ -33,7 +41,7 @@ async function init() {
   ReactDOM.render((
       <Provider store={store}>
           <Router history={browserHistory}>
-            <Route component={Layout} onEnter={requireAuth(store)}>
+            <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
               { routes }
             </Route>
             <Route path="*" onEnter={notFound} />

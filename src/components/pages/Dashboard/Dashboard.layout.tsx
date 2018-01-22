@@ -4,6 +4,8 @@ import * as PropTypes from "prop-types";
 import { DashboardTemplate } from '../../templates/DashboardTemplate/DashboardTemplate';
 import { PanelOptions } from '../../molecules/PanelOptions/PanelOptions';
 import { Actions } from '../../../actions'
+import { NavigationContainer } from '../../containers/Navigation.container'
+import { DashboardContainer } from '../../containers/Dashboard.container'
 import './Dashboard.style.scss';
 
 export class Dashboard extends React.Component<any, undefined> {
@@ -26,9 +28,9 @@ export class Dashboard extends React.Component<any, undefined> {
     const { email } = user;
 
     return (
-      <DashboardTemplate email={email} onLogout={this.onLogout}>
+      <DashboardContainer>
         <PanelOptions />
-      </DashboardTemplate>
+      </DashboardContainer>
     )
   }
 }

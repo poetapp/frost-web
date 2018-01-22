@@ -42,4 +42,17 @@ export namespace Actions {
             payload,
         });
     }
+
+    export namespace Router {
+        export const ROUTER_ON_ENTER = 'ROUTER_ON_ENTER';
+        export const ROUTER_ON_CHANGE = 'ROUTER_ON_CHANGE';
+        export const onEnter = (payload?: object) => ({
+            type: ROUTER_ON_ENTER,
+            payload,
+        });
+        export const onChange= (payload?: object) => ({
+            type: ROUTER_ON_CHANGE,
+            payload,
+        });
+    }
 }

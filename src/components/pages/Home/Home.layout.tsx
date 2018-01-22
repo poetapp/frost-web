@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router';
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost';
 import { LinksHeader } from '../../atoms/LinksHeader/LinksHeader';
 import { Button } from '../../atoms/Button/Button';
@@ -21,7 +22,7 @@ export class HomeLayout extends React.Component<HomeProps, undefined> {
               <LogoFrost className={'Home__header__box__logo'} />
               <LinksHeader />
             </div>
-            <a href={'/login'}><Button className={'Home__header__box__button'} text={'API Dashboard'} /></a>
+            <Link to={'/login'}><Button className={'Home__header__box__button'} text={'API Dashboard'} /></Link>
           </div>
         </header>
         <section className={'Home__cover-page'}>

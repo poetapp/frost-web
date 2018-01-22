@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router';
 import * as classNames from 'classnames'
 import { BoxButton } from '../../atoms/BoxButton/BoxButton';
 import './PanelOptions.scss'
@@ -20,13 +21,13 @@ export const PanelOptions = (props: PanelOptionsProps) =>
                 <p>The thing above is a horiontal rule</p>
             </div>
             <div className={'PanelOptions__actions__box-buttons'}>
-                <BoxButton title={'API Keys'}
+                <Link to={'/token'}><BoxButton title={'API Keys'}
                 description={'Get started building out an integration on top of po.et using the frost API.'}
-                buttonText={'Get API Key'}/>    
+                buttonText={'Get API Key'}/></Link>
 
-                <BoxButton title={'Documentation & Guides'}
+                <a href='https://frost.readme.io/docs'><BoxButton title={'Documentation & Guides'}
                 description={'View a list of getting started guides and full API documentation for interacting with the Po.et Network. '}
-                buttonText={'View Docs'}/>    
+                buttonText={'View Docs'}/></a>
             </div>
         </section>
     </div>

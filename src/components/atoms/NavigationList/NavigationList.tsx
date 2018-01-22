@@ -1,14 +1,19 @@
 import * as React from 'react';
 import * as classNames from 'classnames'
+import { Link } from 'react-router';
 import './NavigationList.scss'
 
+interface ILink {
+    readonly label: string,
+    readonly link: string,
+}
 interface NavigationListProps {
     readonly className?: string;
+    readonly links?: ILink[];
+    readonly pathActive: string;
 }
 
 export const NavigationList = (props: NavigationListProps) => 
     <ul className={classNames('NavigationList', props.className)}>
-        <li className={'NavigationList__item NavigationList__item--active'}><a href={'link'}>Dashboard</a></li>
-        <li className={'NavigationList__item'}><a href={'link'}>Generate API Key</a></li>
-        <li className={'NavigationList__item'}><a href={'link'}>Documentation</a></li>
+        {props.links && props.links.map((link, i) => <li key={i} className={`NavigationList__item ${props.pathActive === link.link ? 'NavigationList__item--active' : ''}`}><Link to={link.link}>{link.label}</Link></li>)}
     </ul>

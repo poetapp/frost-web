@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from "prop-types";
+import { Link } from 'react-router'; 
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost';
 import { SignUp } from '../../molecules/Forms/SignUp/SignUp';
 import { SignIn } from '../../molecules/Forms/SignIn/SignIn';
@@ -35,7 +36,7 @@ export class RegisterLoginLayout extends React.Component<RegisterLoginProps, und
   render() {
     return (
       <div className="RegisterLogin">
-        <a href={'/'}><LogoFrost className="RegisterLogin__LogoFrost" /></a>
+        <Link to={'/'}><LogoFrost className="RegisterLogin__LogoFrost" /></Link>
         <h1 className="RegisterLogin__title">Frost is an open API for publishers and content creators to interact with the Po.et Network.</h1>
         <div className={'row'}>
           <div className={'col-4'}>
