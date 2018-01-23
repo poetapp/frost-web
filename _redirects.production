@@ -1,2 +1,2 @@
-/api/*  http://api.test.po.et:3000/:splat  200
+/api/*  https://api.frost.po.et/:splat  200
 /* /index.html 200
