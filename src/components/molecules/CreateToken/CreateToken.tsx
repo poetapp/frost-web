@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { BoxToken } from '../../atoms/BoxToken/BoxToken'
 import { Button } from '../../atoms/Button/Button'
+import * as moment from 'moment'
 import './CreateToken.scss'
 
 interface CreateTokenProps {
@@ -24,7 +25,7 @@ export const CreateToken = (props: CreateTokenProps) => (
         Some message here about API keys.
       </p>
     </div>
-    <BoxToken apiToken={props.boxToken.apiToken} dateCreated={props.boxToken.dateCreated} />
+    <BoxToken apiToken={props.boxToken.apiToken} dateCreated={moment(parseInt(props.boxToken.dateCreated)).format('MM/DD/YYYY')} />
     <Button className={'CreateToken__button'} text={'Get API Key'} />
   </div>
 )
