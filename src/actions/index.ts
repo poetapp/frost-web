@@ -109,4 +109,22 @@ export namespace Actions {
       payload
     })
   }
+
+  export namespace VerifiedAccount {
+    export const VERIFIED_ACCOUNT = 'VERIFIED_ACCOUNT'
+    export const VERIFIED_ACCOUNT_SUCCESS = 'VERIFIED_ACCOUNT_SUCCESS'
+    export const VERIFIED_ACCOUNT_ERROR = 'VERIFIED_ACCOUNT_ERROR'
+    export const onVerifiedAccount = (payload?: object) => ({
+      type: VERIFIED_ACCOUNT,
+      payload
+    })
+    export const onVerifiedAccountSuccess = (payload?: object) => ({
+      type: VERIFIED_ACCOUNT_SUCCESS,
+      payload
+    })
+    export const onVerifiedAccountError = (payload?: object) => ({
+      type: VERIFIED_ACCOUNT_ERROR,
+      payload
+    })
+  }
 }

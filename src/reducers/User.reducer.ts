@@ -4,7 +4,8 @@ const { REHYDRATE } = require('redux-persist/constants')
 const defaultState = {
   token: '',
   email: '',
-  apiToken: {}
+  apiToken: {},
+  verified: false
 }
 
 export const user = (state: any, action: any) => {
@@ -29,6 +30,11 @@ export const user = (state: any, action: any) => {
       return {
         ...state,
         apiToken: action.payload
+      }
+    case Actions.VerifiedAccount.VERIFIED_ACCOUNT_SUCCESS:
+      return {
+        ...state,
+        verified: true
       }
     case REHYDRATE:
       return {

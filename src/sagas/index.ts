@@ -4,6 +4,7 @@ import { GetApiTokensSaga } from './GetApiTokens'
 import { SignInSaga } from './SignIn.saga'
 import { SignOutSaga } from './SignOut.saga'
 import { SignUpSaga } from './SignUp.saga'
+import { VerifiedAccountSaga } from './VerifiedAccount.saga'
 
 export const sagas = [
   SignUpSaga,
@@ -11,5 +12,6 @@ export const sagas = [
   SignOutSaga,
   GetApiTokensSaga,
   ForgotPasswordSaga,
-  ChangePasswordSaga
+  ChangePasswordSaga,
+  VerifiedAccountSaga
 ]
