@@ -21,7 +21,7 @@ async function init() {
       const { user } = state
       const pathname = route.location.pathname
       store.dispatch(Actions.Router.onEnter(pathname))
-      const omitRoutes = ['/', '/login']
+      const omitRoutes = ['/', '/login', 'forgot-password', 'change-password']
       const notNeedOuath = omitRoutes.includes(pathname)
       if (!notNeedOuath && user.token === '') browserHistory.push('/login')
     }
