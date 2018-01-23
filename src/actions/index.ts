@@ -73,4 +73,40 @@ export namespace Actions {
       payload
     })
   }
+
+  export namespace ForgotPassword {
+    export const FORGOT_PASSWORD = 'FORGOT_PASSWORD'
+    export const FORGOT_PASSWORD_SUCCESS = 'FORGOT_PASSWORD_SUCCESS'
+    export const FORGOT_PASSWORD_ERROR = 'FORGOT_PASSWORD_ERROR'
+    export const onForgotPassword = (payload?: object) => ({
+      type: FORGOT_PASSWORD,
+      payload
+    })
+    export const onForgotPasswordSuccess = (payload?: object) => ({
+      type: FORGOT_PASSWORD_SUCCESS,
+      payload
+    })
+    export const onForgotPasswordError = (payload?: object) => ({
+      type: FORGOT_PASSWORD_ERROR,
+      payload
+    })
+  }
+
+  export namespace ChangePassword {
+    export const CHANGE_PASSWORD = 'CHANGE_PASSWORD'
+    export const CHANGE_PASSWORD_SUCCESS = 'CHANGE_PASSWORD_SUCCESS'
+    export const CHANGE_PASSWORD_ERROR = 'CHANGE_PASSWORD_ERROR'
+    export const onChangePassword = (payload?: object) => ({
+      type: CHANGE_PASSWORD,
+      payload
+    })
+    export const onChangePasswordSuccess = (payload?: object) => ({
+      type: CHANGE_PASSWORD_SUCCESS,
+      payload
+    })
+    export const onChangePasswordError = (payload?: object) => ({
+      type: CHANGE_PASSWORD_ERROR,
+      payload
+    })
+  }
 }
