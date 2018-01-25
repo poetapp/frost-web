@@ -8,9 +8,10 @@ interface InputProps {
   readonly className?: string
   readonly placeholder?: string
   readonly required?: boolean
-  readonly minlength?: number
-  readonly maxlength?: number
-  readonly onChange?: (event: any) => void
+  readonly minLength?: number
+  readonly maxLength?: number
+  readonly onChange?: (event: Event) => void
+  readonly onKeyUp?: (event: Event) => void
 }
 
 const onChange = (event: any, onChange: any) => {
@@ -27,7 +28,24 @@ const onChange = (event: any, onChange: any) => {
     currentData[name] = value
     elements[name] = input
   }
-  if (typeof onChange === 'function') onChange(currentData, elements)
+  if (typeof onChange === 'function') onChange(event, currentData, elements)
+}
+
+const onKeyUp = (event: any, onKeyUp: any) => {
+  event.preventDefault()
+  const form = event.target.form
+  const data = new FormData(form)
+  const currentData: any = {}
+  const elements: any = {}
+
+  for (const key of data.keys()) {
+    const input = form.elements[key]
+    const value = input.value
+    const name = input.name
+    currentData[name] = value
+    elements[name] = input
+  }
+  if (typeof onKeyUp === 'function') onKeyUp(event, currentData, elements)
 }
 
 export const Input = (props: InputProps) => (
@@ -38,5 +56,8 @@ export const Input = (props: InputProps) => (
     placeholder={props.placeholder}
     required={props.required}
     onChange={e => onChange(e, props.onChange)}
+    onKeyUp={e => onKeyUp(e, props.onKeyUp)}
+    maxLength={props.maxLength ? props.maxLength : -1}
+    minLength={props.minLength ? props.minLength : -1}
   />
 )
