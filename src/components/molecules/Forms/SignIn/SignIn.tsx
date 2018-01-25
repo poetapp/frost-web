@@ -17,6 +17,8 @@ export const SignIn = (props: SignInProps) => (
       name={'password'}
       type={'password'}
       placeholder={'Password'}
+      minLength={10}
+      maxLength={30}
       required
     />
   </Form>
