@@ -4,7 +4,7 @@ import { Actions } from '../actions/index'
 
 async function GetApiTokensFrost(token: string, password: string) {
   const frost = new Frost({ host: '/api' })
-  return await frost.verify(`/api/accounts/verify/${token}`)
+  return await frost.verifyAccount(token)
 }
 
 export function VerifiedAccountSaga() {
