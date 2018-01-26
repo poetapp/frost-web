@@ -12,6 +12,8 @@
     padding: 17px 20px;
 
     &:focus {
-        outline: none;
+        outline-color: #449BF3;
+        outline-offset: -2px;
+        outline-width: 0.1px;
     }
 }

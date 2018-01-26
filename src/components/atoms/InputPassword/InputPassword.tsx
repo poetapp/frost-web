@@ -18,7 +18,8 @@ interface InputPasswordProps {
   readonly minLength?: number
   readonly maxLength?: number
   readonly onChange?: (event: any) => void
-  readonly complexity: complexityPassword
+  readonly complexity?: complexityPassword
+  readonly inputRef?: any
 }
 
 const onChange = (event: any, onChange: any, complexity: complexityPassword) => {
@@ -70,5 +71,6 @@ export const InputPassword = (props: InputPasswordProps) => (
     onKeyUp={e => onChange(e, props.onChange, props.complexity)}
     maxLength={props.maxLength ? props.maxLength : -1}
     minLength={props.minLength ? props.minLength : -1}
+    inputRef={props.inputRef}
   />
 )

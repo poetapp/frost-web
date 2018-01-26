@@ -51,7 +51,7 @@ export class RegisterLogin extends React.Component<
         </h1>
         <div className={'row'}>
           <div className={'col-4'}>
-            <SignUp onSubmit={this.onSubmitSignUp} disabledButton={signUp.loading} />
+            <SignUp onSubmit={this.onSubmitSignUp} disabledButton={signUp.loading} errorInputEmail={signUp.error} />
           </div>
           <div className={'col-2'}>
             <hr className={'RegisterLogin__vertical-line'} />

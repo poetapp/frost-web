@@ -12,52 +12,94 @@ interface InputProps {
   readonly maxLength?: number
   readonly onChange?: (event: Event) => void
   readonly onKeyUp?: (event: Event) => void
+  readonly onFocus?: (event: Event) => void
+  readonly autoFocus?: boolean
+  readonly ref?: any
+  readonly inputRef?: any
 }
 
-const onChange = (event: any, onChange: any) => {
-  event.preventDefault()
-  const form = event.target.form
-  const data = new FormData(form)
-  const currentData: any = {}
-  const elements: any = {}
+export class Input extends React.Component<
+  InputProps,
+  undefined
+> {
 
-  for (const key of data.keys()) {
-    const input = form.elements[key]
-    const value = input.value
-    const name = input.name
-    currentData[name] = value
-    elements[name] = input
+  constructor() {
+    super()
+    this.onChange = this.onChange.bind(this)
+    this.onKeyUp = this.onKeyUp.bind(this)
+    this.onFocus = this.onFocus.bind(this)
   }
-  if (typeof onChange === 'function') onChange(event, currentData, elements)
-}
 
-const onKeyUp = (event: any, onKeyUp: any) => {
-  event.preventDefault()
-  const form = event.target.form
-  const data = new FormData(form)
-  const currentData: any = {}
-  const elements: any = {}
-
-  for (const key of data.keys()) {
-    const input = form.elements[key]
-    const value = input.value
-    const name = input.name
-    currentData[name] = value
-    elements[name] = input
+  onChange(event: any, onChange: any) {
+    event.preventDefault()
+    const form = event.target.form
+    const data = new FormData(form)
+    const currentData: any = {}
+    const elements: any = {}
+  
+    for (const key of data.keys()) {
+      const input = form.elements[key]
+      const value = input.value
+      const name = input.name
+      currentData[name] = value
+      elements[name] = input
+    }
+    if (typeof onChange === 'function') onChange(event, currentData, elements)
   }
-  if (typeof onKeyUp === 'function') onKeyUp(event, currentData, elements)
-}
+  
+  onKeyUp(event: any, onKeyUp: any) {
+    event.preventDefault()
+    const form = event.target.form
+    const data = new FormData(form)
+    const currentData: any = {}
+    const elements: any = {}
+  
+    for (const key of data.keys()) {
+      const input = form.elements[key]
+      const value = input.value
+      const name = input.name
+      currentData[name] = value
+      elements[name] = input
+    }
+    if (typeof onKeyUp === 'function') onKeyUp(event, currentData, elements)
+  }
+  
+  onFocus(event: any, onFocus: any) {
+    event.preventDefault()
+    const form = event.target.form
+    const data = new FormData(form)
+    const currentData: any = {}
+    const elements: any = {}
+  
+    for (const key of data.keys()) {
+      const input = form.elements[key]
+      const value = input.value
+      const name = input.name
+      currentData[name] = value
+      elements[name] = input
+    }
+    if (typeof onFocus === 'function') onFocus(event, currentData, elements)
+  }
 
-export const Input = (props: InputProps) => (
-  <input
-    name={props.name}
-    type={props.type}
-    className={classNames('Input', props.className)}
-    placeholder={props.placeholder}
-    required={props.required}
-    onChange={e => onChange(e, props.onChange)}
-    onKeyUp={e => onKeyUp(e, props.onKeyUp)}
-    maxLength={props.maxLength ? props.maxLength : -1}
-    minLength={props.minLength ? props.minLength : -1}
-  />
-)
+  render() {
+    const { name, type, placeholder, required, className, onChange, onKeyUp, onFocus, maxLength, minLength, autoFocus, inputRef } = this.props
+
+    return (
+      <input
+        name={name}
+        type={type}
+        required={required}
+        placeholder={placeholder}
+        className={classNames('Input', className)}
+        onChange={e => this.onChange(e, onChange)}
+        onKeyUp={e => this.onKeyUp(e, onKeyUp)}
+        onFocus={e => this.onKeyUp(e, onFocus)}
+        {... maxLength ?  {'maxLength' : maxLength} : {}}
+        {... minLength ?  {'minLength' : minLength} : {}}
+        {... autoFocus ?  {'autoFocus' : true} : {}}
+        ref={inputRef}
+      />
+    )
+    
+  }
+}
