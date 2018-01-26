@@ -1,16 +1,17 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
 import { Actions } from '../../../actions'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
 import { SignIn } from '../../molecules/Forms/SignIn/SignIn'
 import { SignUp } from '../../molecules/Forms/SignUp/SignUp'
 import './RegisterLogin.style.scss'
+const ProgressBar = require('react-progress-bar-plus');
 
-export interface RegisterLoginProps {}
 
-export class RegisterLoginLayout extends React.Component<
-  RegisterLoginProps,
+export class RegisterLogin extends React.Component<
+  any,
   undefined
 > {
 
@@ -35,8 +36,13 @@ export class RegisterLoginLayout extends React.Component<
   }
 
   render() {
+    const { loadingPage } = this.props
+    const { loading, percentage } = loadingPage
+    console.log("loading ",loading)
+
     return (
       <div className="RegisterLogin">
+        { loading ? <ProgressBar autoIncrement percent={percentage}/> : null }
         <Link to={'/'}>
           <LogoFrost className="RegisterLogin__LogoFrost" />
         </Link>
@@ -59,3 +65,10 @@ export class RegisterLoginLayout extends React.Component<
     )
   }
 }
+
+
+const mapStateToProps = (state: any) => ({
+  loadingPage: state.loadingPage,
+})
+
+export const RegisterLoginLayout = connect(mapStateToProps)(RegisterLogin)

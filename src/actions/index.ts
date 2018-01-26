@@ -127,4 +127,22 @@ export namespace Actions {
       payload
     })
   }
+
+  export namespace LoadingPage {
+    export const LOADING_ON = 'LOADING_ON'
+    export const LOADING_OFF = 'LOADING_OFF'
+    export const LOADING_FULL = 'LOADING_FULL'
+    export const onLoadingOn = (payload?: object) => ({
+      type: LOADING_ON,
+      payload
+    })
+    export const onLoadingOff = (payload?: object) => ({
+      type: LOADING_OFF,
+      payload
+    })
+    export const onLoadingFull = (payload?: object) => ({
+      type: LOADING_FULL,
+      payload
+    })
+  }
 }

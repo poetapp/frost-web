@@ -8,6 +8,7 @@ import { Layout } from './components/Root'
 import { createPoetStore } from './store'
 
 import './reset.scss'
+import 'react-progress-bar-plus/lib/progress-bar.css';
 
 async function init() {
   const { store, pages } = await createPoetStore()

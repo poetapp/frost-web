@@ -18,11 +18,14 @@ export function SignUpSaga() {
 function* SignUp(action: any) {
   try {
     const { email, password } = action.payload
+    yield put(Actions.LoadingPage.onLoadingOn())
     const user = yield call(signUpFrost, { email, password })
     yield put(Actions.SignUp.onSignUpSuccess({ ...user, email }))
+    yield put(Actions.LoadingPage.onLoadingFull())
     browserHistory.push('/dashboard')
   } catch (e) {
     yield put(Actions.SignUp.onSignUpError(e))
+    yield put(Actions.LoadingPage.onLoadingFull())
     // Todo: Error message in UI
   }
 }
