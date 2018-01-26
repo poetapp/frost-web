@@ -4,7 +4,7 @@ import { Actions } from '../actions/index'
 
 async function GetApiTokensFrost(email: string) {
   const frost = new Frost({ host: '/api' })
-  return await frost.forgotPassword(email)
+  return await frost.sendEmailForgotPassword(email)
 }
 
 export function ForgotPasswordSaga() {
