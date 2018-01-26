@@ -4,6 +4,7 @@ import { Form } from '../../../molecules/Form/Form'
 
 interface SignInProps {
   readonly onSubmit: (event: any) => any
+  readonly disabledButton?: boolean
 }
 
 export const SignIn = (props: SignInProps) => (
@@ -11,6 +12,7 @@ export const SignIn = (props: SignInProps) => (
     onSubmit={props.onSubmit}
     legend={'Already Signed Up?'}
     textButton={'Login'}
+    disabledButton={props.disabledButton}
   >
     <Input name={'email'} type={'email'} placeholder={'Email'} required />
     <Input

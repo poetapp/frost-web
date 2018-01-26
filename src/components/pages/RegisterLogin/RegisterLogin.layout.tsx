@@ -36,9 +36,8 @@ export class RegisterLogin extends React.Component<
   }
 
   render() {
-    const { loadingPage } = this.props
+    const { loadingPage, signIn, signUp } = this.props
     const { loading, percentage } = loadingPage
-    console.log("loading ",loading)
 
     return (
       <div className="RegisterLogin">
@@ -52,13 +51,13 @@ export class RegisterLogin extends React.Component<
         </h1>
         <div className={'row'}>
           <div className={'col-4'}>
-            <SignUp onSubmit={this.onSubmitSignUp} />
+            <SignUp onSubmit={this.onSubmitSignUp} disabledButton={signUp.loading} />
           </div>
           <div className={'col-2'}>
             <hr className={'RegisterLogin__vertical-line'} />
           </div>
-          <div className={'col-4 RegisterLogin__signUp'}>
-            <SignIn onSubmit={this.onSubmitSignIn} />
+          <div className={'col-4 RegisterLogin__signIn'}>
+            <SignIn onSubmit={this.onSubmitSignIn} disabledButton={signIn.loading} />
           </div>
         </div>
       </div>
@@ -69,6 +68,8 @@ export class RegisterLogin extends React.Component<
 
 const mapStateToProps = (state: any) => ({
   loadingPage: state.loadingPage,
+  signIn: state.signIn,
+  signUp: state.signUp,
 })
 
 export const RegisterLoginLayout = connect(mapStateToProps)(RegisterLogin)

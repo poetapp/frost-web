@@ -8,6 +8,7 @@ interface FormProps {
   readonly textButton: string
   readonly onValidate?: (data: any, elements: any) => boolean
   readonly onSubmit?: (event: any) => any
+  readonly disabledButton?: boolean
 }
 
 const onSubmit = (
@@ -40,7 +41,7 @@ export const Form = (props: FormProps) => (
     <div className="row">
       <div className="col-12">{props.children}</div>
       <div className="col-6">
-        <Button text={props.textButton} />
+        <Button text={props.textButton} disabled={props.disabledButton} />
       </div>
     </div>
   </form>

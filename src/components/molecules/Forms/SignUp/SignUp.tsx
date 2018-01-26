@@ -6,6 +6,7 @@ import { InputPassword } from '../../../atoms/InputPassword/InputPassword'
 
 interface SignUpProps {
   readonly onSubmit: (event: any) => any
+  readonly disabledButton?: boolean
 }
 
 const onValidate = (data: any, elements: any) => {
@@ -39,6 +40,7 @@ export const SignUp = (props: SignUpProps) => (
     onValidate={onValidate}
     legend={'Sign Up'}
     textButton={'Sign Up'}
+    disabledButton={props.disabledButton}
   >
     <Input name={'email'} type={'email'} placeholder={'Email'} required />
     <InputPassword
