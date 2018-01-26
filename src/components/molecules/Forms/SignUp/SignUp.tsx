@@ -23,6 +23,7 @@ export class SignUp extends React.Component<
     super()
     this.onValidate = this.onValidate.bind(this)
     this.onChangeRepeatPassword = this.onChangeRepeatPassword.bind(this)
+    this.onChangeEmail = this.onChangeEmail.bind(this)
   }
 
   componentWillReceiveProps(newProps: any) {
@@ -69,6 +70,11 @@ export class SignUp extends React.Component<
       elements.confirmPassword.setCustomValidity('')
   }
 
+  onChangeEmail(e: any) {
+    const input = e.target
+    input.setCustomValidity('')
+  }
+
   render() {
     const { onSubmit, disabledButton, errorInputEmail } = this.props
 
@@ -83,7 +89,7 @@ export class SignUp extends React.Component<
         disabledButton={disabledButton}
         formRef={(el: HTMLFormElement) => this.form = el} 
       >
-        <Input name={'email'} type={'email'} placeholder={'Email'} required inputRef={(el: HTMLInputElement) => this.emailInput = el} />
+        <Input name={'email'} type={'email'} placeholder={'Email'} required inputRef={(el: HTMLInputElement) => this.emailInput = el} onChange={this.onChangeEmail} />
         <InputPassword
           name={'password'}
           type={'password'}
