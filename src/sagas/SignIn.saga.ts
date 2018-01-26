@@ -1,5 +1,6 @@
 import { Frost } from '@poetapp/frost-client'
 import { browserHistory } from 'react-router'
+import { delay } from 'redux-saga'
 import { call, takeLatest, put } from 'redux-saga/effects'
 import { Actions } from '../actions/index'
 
@@ -22,10 +23,11 @@ function* SignIn(action: any) {
     const user = yield call(signInFrost, { email, password })
     yield put(Actions.SignIn.onSignInSuccess({ ...user, email }))
     yield put(Actions.LoadingPage.onLoadingFull())
+    yield call(delay, 300)
     browserHistory.push('/dashboard')
   } catch (e) {
-    yield put(Actions.SignIn.onSignInError(e))
     yield put(Actions.LoadingPage.onLoadingFull())
+    yield put(Actions.SignIn.onSignInError(e))
     // Todo: Error message in UI
   }
 }
