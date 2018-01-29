@@ -138,6 +138,38 @@ export namespace Actions {
     })
   }
 
+  export namespace SendEmailVerifiedAccount {
+    export const SEND_EMAIL_VERIFIED_ACCOUNT = 'SEND_EMAIL_VERIFIED_ACCOUNT'
+    export const SEND_EMAIL_VERIFIED_ACCOUNT_SUCCESS =
+      'SEND_EMAIL_VERIFIED_ACCOUNT_SUCCESS'
+    export const SEND_EMAIL_VERIFIED_ACCOUNT_ERROR =
+      'SEND_EMAIL_VERIFIED_ACCOUNT_ERROR'
+    export const SEND_EMAIL_VERIFIED_ACCOUNT_CLEAR_ERROR =
+      'SEND_EMAIL_VERIFIED_ACCOUNT_CLEAR_ERROR'
+    export const SEND_EMAIL_VERIFIED_ACCOUNT_RESET_RETRY =
+      'SEND_EMAIL_VERIFIED_ACCOUNT_RESET_RETRY'
+    export const onSendEmailVerifiedAccount = (payload?: object) => ({
+      type: SEND_EMAIL_VERIFIED_ACCOUNT,
+      payload
+    })
+    export const onSendEmailVerifiedAccountSuccess = (payload?: object) => ({
+      type: SEND_EMAIL_VERIFIED_ACCOUNT_SUCCESS,
+      payload
+    })
+    export const onSendEmailVerifiedAccountError = (payload?: object) => ({
+      type: SEND_EMAIL_VERIFIED_ACCOUNT_ERROR,
+      payload
+    })
+    export const onSendEmailVerifiedAccountClearError = (payload?: object) => ({
+      type: SEND_EMAIL_VERIFIED_ACCOUNT_CLEAR_ERROR,
+      payload
+    })
+    export const onSendEmailVerifiedAccountResetRetry = (payload?: object) => ({
+      type: SEND_EMAIL_VERIFIED_ACCOUNT_RESET_RETRY,
+      payload
+    })
+  }
+
   export namespace LoadingPage {
     export const LOADING_ON = 'LOADING_ON'
     export const LOADING_OFF = 'LOADING_OFF'
@@ -152,6 +184,29 @@ export namespace Actions {
     })
     export const onLoadingFull = (payload?: object) => ({
       type: LOADING_FULL,
+      payload
+    })
+  }
+
+  export namespace Profile {
+    export const PROFILE = 'PROFILE'
+    export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
+    export const PROFILE_ERROR = 'PROFILE_ERROR'
+    export const PROFILE_CLEAR_ERROR = 'PROFILE_CLEAR_ERROR'
+    export const onProfile = (payload?: object) => ({
+      type: PROFILE,
+      payload
+    })
+    export const onProfileSuccess = (payload?: object) => ({
+      type: PROFILE_SUCCESS,
+      payload
+    })
+    export const onProfileError = (payload?: object) => ({
+      type: PROFILE_ERROR,
+      payload
+    })
+    export const onProfileClearError = (payload?: object) => ({
+      type: PROFILE_CLEAR_ERROR,
       payload
     })
   }

@@ -21,9 +21,9 @@ export class LogoutExtended extends React.Component<any, undefined> {
 
   render() {
     const { user } = this.props
-    const { email } = user
+    const { profile } = user
 
-    return <Logout email={email} onLogout={this.onLogout} />
+    return <Logout email={profile.email} onLogout={this.onLogout} />
   }
 }
 

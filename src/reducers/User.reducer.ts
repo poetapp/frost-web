@@ -3,9 +3,12 @@ const { REHYDRATE } = require('redux-persist/constants')
 
 const defaultState = {
   token: '',
-  email: '',
-  apiToken: {},
-  verified: false
+  profile: {
+    email: '',
+    apiToken: {},
+    verified: false,
+    createdAt: ''
+  }
 }
 
 export const user = (state: any, action: any) => {
@@ -13,28 +16,30 @@ export const user = (state: any, action: any) => {
     case Actions.SignIn.SIGN_IN_SUCCESS:
       return {
         ...state,
-        ...action.payload
+        ...action.payload,
+        ...{ profile: { ...defaultState.profile, ...action.payload.profile } }
       }
     case Actions.SignUp.SIGN_UP_SUCCESS:
       return {
         ...state,
-        ...action.payload
-      }
-    case Actions.SignOut.SIGN_OUT:
-      return {
-        ...state,
-        token: '',
-        email: ''
+        ...action.payload,
+        ...{ profile: { ...defaultState.profile, ...action.payload.profile } }
       }
     case Actions.ApiTokens.GET_API_SUCCESS:
+      state.profile.apiToken = action.payload
       return {
-        ...state,
-        apiToken: action.payload
+        ...state
       }
     case Actions.VerifiedAccount.VERIFIED_ACCOUNT_SUCCESS:
+      state.profile.verified = true
       return {
-        ...state,
-        verified: true
+        ...state
+      }
+    case Actions.Profile.PROFILE_SUCCESS:
+      state.profile.verified = action.payload.verified
+      state.profile.createdAt = action.payload.createdAt
+      return {
+        ...state
       }
     case REHYDRATE:
       return {

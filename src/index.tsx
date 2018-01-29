@@ -16,24 +16,28 @@ async function init() {
     .map((page: any, index: any) => page.routeHook('' + index))
     .reduce((a: any, b: any) => a.concat(b), [])
 
+  function handlerRoutes(store: any, pathname: string) {
+    const state = store.getState()
+    const { user } = state
+    const omitRoutes = [
+      '/',
+      '/login',
+      '/forgot-password',
+      '/change-password',
+      '/verified-account'
+    ]
+    const notNeedOuath = omitRoutes.includes(pathname)
+    if (['/login', '/login/'].includes(pathname) && user.token !== '')
+      browserHistory.push('/dashboard')
+
+    if (!notNeedOuath && user.token === '') browserHistory.push('/login')
+  }
+
   function requireAuth(store: any) {
     return (route: any, replace: object) => {
-      const state = store.getState()
-      const { user } = state
       const pathname = route.location.pathname
       store.dispatch(Actions.Router.onEnter(pathname))
-      const omitRoutes = [
-        '/',
-        '/login',
-        '/forgot-password',
-        '/change-password',
-        '/verified-account'
-      ]
-      const notNeedOuath = omitRoutes.includes(pathname)
-      if (['/login', '/login/'].includes(pathname) && user.token !== '')
-        browserHistory.push('/dashboard')
-
-      if (!notNeedOuath && user.token === '') browserHistory.push('/login')
+      handlerRoutes(store, pathname)
     }
   }
 
@@ -41,6 +45,7 @@ async function init() {
     return (route: any, replace: any) => {
       const pathname = replace.location.pathname
       store.dispatch(Actions.Router.onChange(pathname))
+      handlerRoutes(store, pathname)
     }
   }
 
