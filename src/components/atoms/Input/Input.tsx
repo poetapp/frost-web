@@ -18,11 +18,7 @@ interface InputProps {
   readonly inputRef?: any
 }
 
-export class Input extends React.Component<
-  InputProps,
-  undefined
-> {
-
+export class Input extends React.Component<InputProps, undefined> {
   constructor() {
     super()
     this.onChange = this.onChange.bind(this)
@@ -36,7 +32,7 @@ export class Input extends React.Component<
     const data = new FormData(form)
     const currentData: any = {}
     const elements: any = {}
-  
+
     for (const key of data.keys()) {
       const input = form.elements[key]
       const value = input.value
@@ -46,14 +42,14 @@ export class Input extends React.Component<
     }
     if (typeof onChange === 'function') onChange(event, currentData, elements)
   }
-  
+
   onKeyUp(event: any, onKeyUp: any) {
     event.preventDefault()
     const form = event.target.form
     const data = new FormData(form)
     const currentData: any = {}
     const elements: any = {}
-  
+
     for (const key of data.keys()) {
       const input = form.elements[key]
       const value = input.value
@@ -63,14 +59,14 @@ export class Input extends React.Component<
     }
     if (typeof onKeyUp === 'function') onKeyUp(event, currentData, elements)
   }
-  
+
   onFocus(event: any, onFocus: any) {
     event.preventDefault()
     const form = event.target.form
     const data = new FormData(form)
     const currentData: any = {}
     const elements: any = {}
-  
+
     for (const key of data.keys()) {
       const input = form.elements[key]
       const value = input.value
@@ -82,7 +78,20 @@ export class Input extends React.Component<
   }
 
   render() {
-    const { name, type, placeholder, required, className, onChange, onKeyUp, onFocus, maxLength, minLength, autoFocus, inputRef } = this.props
+    const {
+      name,
+      type,
+      placeholder,
+      required,
+      className,
+      onChange,
+      onKeyUp,
+      onFocus,
+      maxLength,
+      minLength,
+      autoFocus,
+      inputRef
+    } = this.props
 
     return (
       <input
@@ -94,12 +103,11 @@ export class Input extends React.Component<
         onChange={e => this.onChange(e, onChange)}
         onKeyUp={e => this.onKeyUp(e, onKeyUp)}
         onFocus={e => this.onKeyUp(e, onFocus)}
-        {... maxLength ?  {'maxLength' : maxLength} : {}}
-        {... minLength ?  {'minLength' : minLength} : {}}
-        {... autoFocus ?  {'autoFocus' : true} : {}}
+        {...(maxLength ? { maxLength } : {})}
+        {...(minLength ? { minLength } : {})}
+        {...(autoFocus ? { autoFocus: true } : {})}
         ref={inputRef}
       />
     )
-    
   }
 }

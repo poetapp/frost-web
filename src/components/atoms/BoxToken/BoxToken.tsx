@@ -23,7 +23,7 @@ export const BoxToken = (props: BoxTokenProps) => (
             </span>
             <span className={'BoxToken__list__item__description__token'}>
               <Hash className="copyable-hash" textClickable>
-              {props.apiToken}
+                {props.apiToken}
               </Hash>
             </span>
             <span className={'BoxToken__list__item__description__date'}>

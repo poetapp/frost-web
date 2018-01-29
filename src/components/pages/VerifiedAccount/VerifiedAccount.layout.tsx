@@ -1,17 +1,12 @@
-import * as React from 'react'
 import * as PropTypes from 'prop-types'
+import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Actions } from '../../../actions'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
 import './VerifiedAccount.style.scss'
 
-
-export class VerifiedAccount extends React.Component<
-  any,
-  undefined
-> {
-
+export class VerifiedAccount extends React.Component<any, undefined> {
   static contextTypes = {
     store: PropTypes.object,
     router: React.PropTypes.object
@@ -32,14 +27,16 @@ export class VerifiedAccount extends React.Component<
     const { verified } = user
     let displayText = 'Verifying your account...'
 
-    if (!verifiedAccount.loading) 
-      displayText = verified ? 'Yor account is verified' : 'Yor account is not verified'
-    
+    if (!verifiedAccount.loading)
+      displayText = verified
+        ? 'Yor account is verified'
+        : 'Yor account is not verified'
 
-    if (verifiedAccount.error.status) 
-      displayText = `Something is wrong... <br/> ${verifiedAccount.error.message}`
-    
-    
+    if (verifiedAccount.error.status)
+      displayText = `Something is wrong... <br/> ${
+        verifiedAccount.error.message
+      }`
+
     return (
       <div className="VerifiedAccount">
         <Link to={'/'}>
@@ -50,7 +47,10 @@ export class VerifiedAccount extends React.Component<
           with the Po.et Network.
         </h1>
         <div className={'row'}>
-          <div className={'col-4'} dangerouslySetInnerHTML={{ __html: displayText }} />
+          <div
+            className={'col-4'}
+            dangerouslySetInnerHTML={{ __html: displayText }}
+          />
         </div>
       </div>
     )

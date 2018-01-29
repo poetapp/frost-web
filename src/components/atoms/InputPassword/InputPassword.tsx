@@ -2,11 +2,11 @@ import * as classNames from 'classnames'
 import * as React from 'react'
 import { Input } from '../Input/Input'
 
-interface complexityPassword {
-    readonly lowerCase: number,
-    readonly upperCase: number,
-    readonly numeric: number,
-    readonly symbol: number,
+interface ComplexityPassword {
+  readonly lowerCase: number
+  readonly upperCase: number
+  readonly numeric: number
+  readonly symbol: number
 }
 
 interface InputPasswordProps {
@@ -18,13 +18,17 @@ interface InputPasswordProps {
   readonly minLength?: number
   readonly maxLength?: number
   readonly onChange?: (event: any) => void
-  readonly complexity?: complexityPassword
+  readonly complexity?: ComplexityPassword
   readonly inputRef?: any
 }
 
-const onChange = (event: any, onChange: any, complexity: complexityPassword) => {
+const onChange = (
+  event: any,
+  onChange: any,
+  complexity: ComplexityPassword
+) => {
   event.preventDefault()
- 
+
   const form = event.target.form
   const data = new FormData(form)
   const currentData: any = {}
@@ -41,25 +45,34 @@ const onChange = (event: any, onChange: any, complexity: complexityPassword) => 
   if (typeof onChange === 'function') onChange(currentData, elements)
 }
 
-const validatePassword = (complexity: complexityPassword, target: HTMLInputElement ) => {
-    const value = target.value
-    const message = {
-        lowerCase: `${complexity.lowerCase} lowercase character \n`,
-        upperCase: `${complexity.upperCase} uppercase character`,
-        numeric: `${complexity.numeric} numeric character`,
-        symbol: `${complexity.symbol} symbol character`,
-    };
+const validatePassword = (
+  complexity: ComplexityPassword,
+  target: HTMLInputElement
+) => {
+  const value = target.value
+  const message = {
+    lowerCase: `${complexity.lowerCase} lowercase character \n`,
+    upperCase: `${complexity.upperCase} uppercase character`,
+    numeric: `${complexity.numeric} numeric character`,
+    symbol: `${complexity.symbol} symbol character`
+  }
 
-    const validations: string[] = [];
-    if (!((value.match(/[a-z]/g) || []).length >= complexity.lowerCase)) validations.push(message.lowerCase)
-    if (!((value.match(/[A-Z]/g) || []).length >= complexity.upperCase)) validations.push(message.upperCase)
-    if (!((value.match(/[0-9]/g) || []).length >= complexity.numeric)) validations.push(message.numeric)
-    if (!((value.match(/[^a-zA-Z0-9]/g) || []).length >= complexity.symbol)) validations.push(message.symbol)
+  const validations: string[] = []
+  if (!((value.match(/[a-z]/g) || []).length >= complexity.lowerCase))
+    validations.push(message.lowerCase)
+  if (!((value.match(/[A-Z]/g) || []).length >= complexity.upperCase))
+    validations.push(message.upperCase)
+  if (!((value.match(/[0-9]/g) || []).length >= complexity.numeric))
+    validations.push(message.numeric)
+  if (!((value.match(/[^a-zA-Z0-9]/g) || []).length >= complexity.symbol))
+    validations.push(message.symbol)
 
-    const messages = validations.length > 1 ? `Required, ${validations.join(', ')}` : ''
-    value === '' ? target.setCustomValidity('') : target.setCustomValidity(messages)
+  const messages =
+    validations.length > 1 ? `Required, ${validations.join(', ')}` : ''
+  value === ''
+    ? target.setCustomValidity('')
+    : target.setCustomValidity(messages)
 }
-
 
 export const InputPassword = (props: InputPasswordProps) => (
   <Input

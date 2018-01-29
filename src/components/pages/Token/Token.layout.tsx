@@ -16,7 +16,6 @@ export class Token extends React.Component<any, any> {
   }
 }
 
-
 const mapStateToProps = (state: any) => ({
   user: state.user
 })

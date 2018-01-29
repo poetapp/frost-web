@@ -7,8 +7,8 @@ import { Actions } from './actions'
 import { Layout } from './components/Root'
 import { createPoetStore } from './store'
 
+import 'react-progress-bar-plus/lib/progress-bar.css'
 import './reset.scss'
-import 'react-progress-bar-plus/lib/progress-bar.css';
 
 async function init() {
   const { store, pages } = await createPoetStore()
@@ -22,7 +22,13 @@ async function init() {
       const { user } = state
       const pathname = route.location.pathname
       store.dispatch(Actions.Router.onEnter(pathname))
-      const omitRoutes = ['/', '/login', '/forgot-password', '/change-password', '/verified-account']
+      const omitRoutes = [
+        '/',
+        '/login',
+        '/forgot-password',
+        '/change-password',
+        '/verified-account'
+      ]
       const notNeedOuath = omitRoutes.includes(pathname)
       if (!notNeedOuath && user.token === '') browserHistory.push('/login')
     }

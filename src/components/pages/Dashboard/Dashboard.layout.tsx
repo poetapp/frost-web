@@ -1,5 +1,5 @@
-import * as React from 'react'
 import * as PropTypes from 'prop-types'
+import * as React from 'react'
 import { connect } from 'react-redux'
 import { Actions } from '../../../actions'
 import { DashboardContainer } from '../../containers/Dashboard.container'

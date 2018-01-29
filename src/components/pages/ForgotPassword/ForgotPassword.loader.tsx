@@ -12,10 +12,12 @@ export class ForgotPassword extends PageLoader<object, object> {
   }
 
   routeHook(key: string) {
-    return [<Route path="/forgot-password" key={key} component={this.container()} />]
+    return [
+      <Route path="/forgot-password" key={key} component={this.container()} />
+    ]
   }
 
-  reducerHook<State>(): ReducerDescription<null> {
+  reducerHook<State>(): ReducerDescription<State> {
     return null
   }
 

@@ -15,7 +15,7 @@ export class RegisterLogin extends PageLoader<object, object> {
     return [<Route path="/login" key={key} component={this.container()} />]
   }
 
-  reducerHook<State>(): ReducerDescription<null> {
+  reducerHook<State>(): ReducerDescription<State> {
     return null
   }
 

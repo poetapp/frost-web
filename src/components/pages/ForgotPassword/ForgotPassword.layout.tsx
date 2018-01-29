@@ -1,5 +1,5 @@
-import * as React from 'react'
 import * as PropTypes from 'prop-types'
+import * as React from 'react'
 import { Link } from 'react-router'
 import { Actions } from '../../../actions'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
@@ -12,7 +12,6 @@ export class ForgotPasswordLayout extends React.Component<
   ForgotPasswordProps,
   undefined
 > {
-
   static contextTypes = {
     store: PropTypes.object
   }

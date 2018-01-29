@@ -12,13 +12,7 @@ interface FormProps {
   readonly formRef?: any
 }
 
-
-
-export class Form extends React.Component<
-  FormProps,
-  undefined
-> {
-
+export class Form extends React.Component<FormProps, undefined> {
   constructor() {
     super()
     this.onSubmit = this.onSubmit.bind(this)
@@ -34,7 +28,7 @@ export class Form extends React.Component<
     const data = new FormData(form)
     const currentData: any = {}
     const elements: any = {}
-  
+
     for (const key of data.keys()) {
       const input = form.elements[key]
       const value = input.value
@@ -45,9 +39,16 @@ export class Form extends React.Component<
     if (validate(currentData, elements)) submit(currentData)
   }
 
-
   render() {
-    const { onSubmit, onValidate, formRef, legend, children, disabledButton, textButton } = this.props
+    const {
+      onSubmit,
+      onValidate,
+      formRef,
+      legend,
+      children,
+      disabledButton,
+      textButton
+    } = this.props
 
     return (
       <form
@@ -64,6 +65,5 @@ export class Form extends React.Component<
         </div>
       </form>
     )
-    
   }
 }

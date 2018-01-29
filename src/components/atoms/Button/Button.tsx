@@ -9,7 +9,10 @@ interface ButtonProps {
 }
 
 export const Button = (props: ButtonProps) => (
-  <button className={classNames('Button', props.className)} {...props.disabled ?  {'disabled' : 'disabled'} : {}}>
+  <button
+    className={classNames('Button', props.className)}
+    {...(props.disabled ? { disabled: 'disabled' } : {})}
+  >
     {props.text}
   </button>
 )

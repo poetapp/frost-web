@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Input } from '../../../atoms/Input/Input'
-import { Form } from '../../../molecules/Form/Form'
 import { InputPassword } from '../../../atoms/InputPassword/InputPassword'
+import { Form } from '../../../molecules/Form/Form'
 
 interface ChangePasswordProps {
   readonly onSubmit: (event: any) => any
@@ -22,16 +22,14 @@ const onChangeRepeatPassword = (e: any, data: any, elements: any) => {
   const value = e.target.value
   const { password, confirmPassword } = data
 
-  if (value !== '' && password !== confirmPassword) 
+  if (value !== '' && password !== confirmPassword)
     elements.confirmPassword.setCustomValidity(`Passwords Don't Match`)
-  
-  if (password === confirmPassword) 
+
+  if (password === confirmPassword)
     elements.confirmPassword.setCustomValidity('')
 
-  if (value === '' ) 
-    elements.confirmPassword.setCustomValidity('')
+  if (value === '') elements.confirmPassword.setCustomValidity('')
 }
-
 
 export const ChangePassword = (props: ChangePasswordProps) => (
   <Form
