@@ -2,6 +2,7 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { fork } from 'redux-saga/effects'
 const { persistStore, autoRehydrate } = require('redux-persist')
+import { Actions } from './actions'
 import './extensions/Array'
 
 import { PageLoader } from './components/PageLoader'
@@ -61,8 +62,16 @@ export function createPoetStore(): Promise<{ store: any; pages: any }> {
         window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
       const sagaMiddleware = createSagaMiddleware()
 
+      const appReducer = combineReducers(reducerList)
+      const rootReducer = (state: any, action: any) => {
+        let newState = state
+        if (action.type === Actions.SignOut.SIGN_OUT) newState = {}
+
+        return appReducer(newState, action)
+      }
+
       const store = createStore(
-        combineReducers(reducerList),
+        rootReducer,
         initialState,
         enhancer(applyMiddleware(sagaMiddleware), autoRehydrate())
       )
