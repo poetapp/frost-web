@@ -9,7 +9,7 @@ const links = [
     link: '/dashboard'
   },
   {
-    label: 'Generate API Key',
+    label: 'API Keys',
     link: '/token'
   },
   {
