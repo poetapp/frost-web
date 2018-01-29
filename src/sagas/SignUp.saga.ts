@@ -28,6 +28,7 @@ function* SignUp(action: any) {
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.SignUp.onSignUpError(e))
-    // Todo: Error message in UI
+    yield call(delay, 300)
+    yield put(Actions.SignUp.onSignUpClearError())
   }
 }

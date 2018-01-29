@@ -59,6 +59,7 @@ export class RegisterLogin extends React.Component<any, undefined> {
             <SignIn
               onSubmit={this.onSubmitSignIn}
               disabledButton={signIn.loading}
+              serverErrors={signIn.error}
             />
           </div>
         </div>

@@ -3,6 +3,7 @@ export namespace Actions {
     export const SIGN_UP = 'SIGN_UP'
     export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS'
     export const SIGN_UP_ERROR = 'SIGN_UP_ERROR'
+    export const SIGN_UP_CLEAR_ERROR = 'SIGN_UP_CLEAR_ERROR'
     export const onSignUp = (payload?: object) => ({
       type: SIGN_UP,
       payload
@@ -15,12 +16,17 @@ export namespace Actions {
       type: SIGN_UP_ERROR,
       payload
     })
+    export const onSignUpClearError = (payload?: object) => ({
+      type: SIGN_UP_CLEAR_ERROR,
+      payload
+    })
   }
 
   export namespace SignIn {
     export const SIGN_IN = 'SIGN_IN'
     export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS'
     export const SIGN_IN_ERROR = 'SIGN_IN_ERROR'
+    export const SIGN_IN_CLEAR_ERROR = 'SIGN_IN_CLEAR_ERROR'
     export const onSignIn = (payload?: object) => ({
       type: SIGN_IN,
       payload
@@ -31,6 +37,10 @@ export namespace Actions {
     })
     export const onSignInError = (payload?: object) => ({
       type: SIGN_IN_ERROR,
+      payload
+    })
+    export const onSignInClearError = (payload?: object) => ({
+      type: SIGN_IN_CLEAR_ERROR,
       payload
     })
   }

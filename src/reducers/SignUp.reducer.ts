@@ -37,6 +37,15 @@ export const signUp = (state: any, action: any) => {
         },
         loading: false
       }
+    case Actions.SignUp.SIGN_UP_CLEAR_ERROR:
+      return {
+        ...state,
+        error: {
+          status: false,
+          message: ''
+        },
+        loading: false
+      }
   }
   return state || defaultState
 }

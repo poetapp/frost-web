@@ -28,6 +28,7 @@ function* SignIn(action: any) {
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.SignIn.onSignInError(e))
-    // Todo: Error message in UI
+    yield call(delay, 300)
+    yield put(Actions.SignIn.onSignInClearError())
   }
 }
