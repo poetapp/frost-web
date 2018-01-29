@@ -37,34 +37,8 @@
         }
     }
     &__button {
+        display: none;
         margin-top: 37px;
         width: 140px;
-    }
-}
-
-
-.LegendVerifiedAccount {
-    width: 620px;
-    background-color: #DD4D5E;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    color: #FFF;
-    padding: 5px;
-    height: 40px;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &__text {
-        margin: 0px;
-        font-size: 12px;
-        line-height: 40px;
-    }
-    &__button {
-        width: 100px;
-        float: right;
-        background-color: transparent;
-        height: 28px;
-        margin-left: 20px;
     }
 }
