@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { BoxSimple } from '../../atoms/BoxSimple/BoxSimple'
 import { Button } from '../../atoms/Button/Button'
@@ -9,10 +10,9 @@ import { LogoPoetWhite } from '../../atoms/LogoPoetWhite/LogoPoetWhite'
 import { InputButton } from '../../molecules/InputButton/InputButton'
 import './Home.style.scss'
 
-export interface HomeProps {}
-
-export class HomeLayout extends React.Component<HomeProps, undefined> {
+export class Home extends React.Component<any, undefined> {
   render() {
+    const { user } = this.props
     return (
       <main className={'Home'}>
         <header className={'Home__header'}>
@@ -27,12 +27,21 @@ export class HomeLayout extends React.Component<HomeProps, undefined> {
               <LogoFrost className={'Home__header__box__logo'} />
               <LinksHeader />
             </div>
-            <Link to={'/login'}>
-              <Button
-                className={'Home__header__box__button'}
-                text={'API Dashboard'}
-              />
-            </Link>
+            {user.token ? (
+              <Link to={'/dashboard'}>
+                <Button
+                  className={'Home__header__box__button'}
+                  text={'Dashboard'}
+                />
+              </Link>
+            ) : (
+              <Link to={'/login'}>
+                <Button
+                  className={'Home__header__box__button'}
+                  text={'Sign in'}
+                />
+              </Link>
+            )}
           </div>
         </header>
         <section className={'Home__cover-page'}>
@@ -123,3 +132,9 @@ export class HomeLayout extends React.Component<HomeProps, undefined> {
     )
   }
 }
+
+const mapStateToProps = (state: any) => ({
+  user: state.user
+})
+
+export const HomeLayout = connect(mapStateToProps)(Home)
