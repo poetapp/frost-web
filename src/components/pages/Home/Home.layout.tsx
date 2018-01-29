@@ -38,7 +38,7 @@ export class Home extends React.Component<any, undefined> {
               <Link to={'/login'}>
                 <Button
                   className={'Home__header__box__button'}
-                  text={'Sign in'}
+                  text={'Login / Sign Up'}
                 />
               </Link>
             )}
