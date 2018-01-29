@@ -8,7 +8,7 @@ import { InputPassword } from '../../../atoms/InputPassword/InputPassword'
 interface SignUpProps {
   readonly onSubmit: (event: any) => any
   readonly disabledButton?: boolean
-  readonly errorInputEmail?: any
+  readonly serverErrors?: any
   readonly form?: any
 }
 
@@ -27,16 +27,16 @@ export class SignUp extends React.Component<
   }
 
   componentWillReceiveProps(newProps: any) {
-    if (newProps.errorInputEmail.status) {
-      const { message } = newProps.errorInputEmail
+    if (newProps.serverErrors.status) {
+      const { message } = newProps.serverErrors
       
       if (message.includes("Password Requirements")) {
-        this.passwordInput.setCustomValidity(newProps.errorInputEmail.message)
+        this.passwordInput.setCustomValidity(newProps.serverErrors.message)
         this.passwordInput.focus()
       }
 
       if (message.includes("The specified account already exists.")) {
-        this.emailInput.setCustomValidity(newProps.errorInputEmail.message)
+        this.emailInput.setCustomValidity(newProps.serverErrors.message)
         this.emailInput.focus()
 
       }
@@ -76,9 +76,7 @@ export class SignUp extends React.Component<
   }
 
   render() {
-    const { onSubmit, disabledButton, errorInputEmail } = this.props
-
-    const error = errorInputEmail.message === "The specified account already exists."
+    const { onSubmit, disabledButton } = this.props
 
     return (
       <Form
