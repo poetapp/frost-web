@@ -24,11 +24,11 @@ export class VerifiedAccount extends React.Component<any, undefined> {
 
   render() {
     const { user, verifiedAccount } = this.props
-    const { verified } = user
+    const { profile } = user
     let displayText = 'Verifying your account...'
 
     if (!verifiedAccount.loading)
-      displayText = verified
+      displayText = profile.verified
         ? 'Yor account is verified'
         : 'Yor account is not verified'
 

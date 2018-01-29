@@ -18,7 +18,7 @@ export const LegendVerifiedAccount = (props: LegendVerifiedAccountProps) => (
   >
     {props.retryWait ? (
       <p className={'LegendVerifiedAccount__text'}>
-        Please, verify you email account.
+        Please, verify your email account.
       </p>
     ) : (
       <p className={'LegendVerifiedAccount__text'}>
