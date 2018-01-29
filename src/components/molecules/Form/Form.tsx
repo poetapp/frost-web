@@ -7,7 +7,7 @@ interface FormProps {
   readonly children?: any
   readonly textButton: string
   readonly onValidate?: (data: any, elements: any) => boolean
-  readonly onSubmit?: (event: any) => any
+  readonly onSubmit?: (event: any, elements: any) => any
   readonly disabledButton?: boolean
   readonly formRef?: any
 }
@@ -20,7 +20,7 @@ export class Form extends React.Component<FormProps, undefined> {
 
   onSubmit(
     event: any,
-    submit = (data: object) => ({}),
+    submit = (data: object, elements: any) => ({}),
     validate = (data: any, elements: any) => true
   ) {
     event.preventDefault()
@@ -36,7 +36,7 @@ export class Form extends React.Component<FormProps, undefined> {
       currentData[name] = value
       elements[name] = input
     }
-    if (validate(currentData, elements)) submit(currentData)
+    if (validate(currentData, elements)) submit(currentData, elements)
   }
 
   render() {

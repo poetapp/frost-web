@@ -1,4 +1,5 @@
 import { Frost } from '@poetapp/frost-client'
+import { delay } from 'redux-saga'
 import { call, takeLatest, put } from 'redux-saga/effects'
 import { Actions } from '../actions/index'
 
@@ -16,10 +17,13 @@ export function ForgotPasswordSaga() {
 function* ForgotPassword(action: any) {
   try {
     const { email } = action.payload
+    yield put(Actions.LoadingPage.onLoadingOn())
     yield call(GetApiTokensFrost, email)
     yield put(Actions.ForgotPassword.onForgotPasswordSuccess())
+    yield put(Actions.LoadingPage.onLoadingFull())
+    yield call(delay, 300)
   } catch (e) {
+    yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.ForgotPassword.onForgotPasswordError(e))
-    // Todo: Error message in UI
   }
 }

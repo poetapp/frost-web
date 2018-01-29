@@ -1,6 +1,8 @@
 import * as React from 'react'
+import { Link } from 'react-router'
 import { Input } from '../../../atoms/Input/Input'
 import { Form } from '../../../molecules/Form/Form'
+import './SignIn.scss'
 
 interface SignInProps {
   readonly onSubmit: (event: any) => any
@@ -38,30 +40,35 @@ export class SignIn extends React.Component<SignInProps, undefined> {
     const { onSubmit, disabledButton } = this.props
 
     return (
-      <Form
-        onSubmit={onSubmit}
-        legend={'Already Signed Up?'}
-        textButton={'Login'}
-        disabledButton={disabledButton}
-        formRef={(el: HTMLFormElement) => (this.form = el)}
-      >
-        <Input
-          name={'email'}
-          type={'email'}
-          placeholder={'Email'}
-          inputRef={(el: HTMLInputElement) => (this.emailInput = el)}
-          onChange={this.onChangeEmail}
-          required
-        />
-        <Input
-          name={'password'}
-          type={'password'}
-          placeholder={'Password'}
-          minLength={10}
-          maxLength={30}
-          required
-        />
-      </Form>
+      <div className={'SignIn'}>
+        <Form
+          onSubmit={onSubmit}
+          legend={'Already Signed Up?'}
+          textButton={'Login'}
+          disabledButton={disabledButton}
+          formRef={(el: HTMLFormElement) => (this.form = el)}
+        >
+          <Input
+            name={'email'}
+            type={'email'}
+            placeholder={'Email'}
+            inputRef={(el: HTMLInputElement) => (this.emailInput = el)}
+            onChange={this.onChangeEmail}
+            required
+          />
+          <Input
+            name={'password'}
+            type={'password'}
+            placeholder={'Password'}
+            minLength={10}
+            maxLength={30}
+            required
+          />
+        </Form>
+        <Link className={'SignIn__forgot-password'} to={'/forgot-password'}>
+          Forgot your password?
+        </Link>
+      </div>
     )
   }
 }

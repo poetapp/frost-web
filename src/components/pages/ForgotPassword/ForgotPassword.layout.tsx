@@ -1,17 +1,14 @@
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Actions } from '../../../actions'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
 import { ForgotPassword } from '../../molecules/Forms/ForgotPassword/ForgotPassword'
 import './ForgotPassword.style.scss'
+const ProgressBar = require('react-progress-bar-plus')
 
-export interface ForgotPasswordProps {}
-
-export class ForgotPasswordLayout extends React.Component<
-  ForgotPasswordProps,
-  undefined
-> {
+export class ForgotPasswordContainer extends React.Component<any, undefined> {
   static contextTypes = {
     store: PropTypes.object
   }
@@ -21,14 +18,19 @@ export class ForgotPasswordLayout extends React.Component<
     this.onForgotPassword = this.onForgotPassword.bind(this)
   }
 
-  onForgotPassword(data: object) {
+  onForgotPassword(data: object, elements: any) {
     const { store } = this.context
+    const { email } = elements
     store.dispatch(Actions.ForgotPassword.onForgotPassword(data))
+    email.value = ''
   }
 
   render() {
+    const { loadingPage } = this.props
+    const { loading, percentage } = loadingPage
     return (
       <div className="ForgotPassword">
+        {loading ? <ProgressBar autoIncrement percent={percentage} /> : null}
         <Link to={'/'}>
           <LogoFrost className="ForgotPassword__LogoFrost" />
         </Link>
@@ -45,3 +47,12 @@ export class ForgotPasswordLayout extends React.Component<
     )
   }
 }
+
+const mapStateToProps = (state: any) => ({
+  loadingPage: state.loadingPage,
+  forgotPassword: state.forgotPassword
+})
+
+export const ForgotPasswordLayout = connect(mapStateToProps)(
+  ForgotPasswordContainer
+)
