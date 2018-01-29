@@ -30,6 +30,9 @@ async function init() {
         '/verified-account'
       ]
       const notNeedOuath = omitRoutes.includes(pathname)
+      if (['/login', '/login/'].includes(pathname) && user.token !== '')
+        browserHistory.push('/dashboard')
+
       if (!notNeedOuath && user.token === '') browserHistory.push('/login')
     }
   }
