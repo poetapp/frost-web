@@ -4,7 +4,7 @@ import { Actions } from '../actions/index'
 
 async function GetApiTokensFrost(token: string, password: string) {
   const frost = new Frost({ host: '/api' })
-  return await frost.changePassword(token, password)
+  return await frost.changePasswordWithToken(token, password)
 }
 
 export function ChangePasswordSaga() {
