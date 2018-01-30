@@ -20,10 +20,11 @@ function* SignUp(action: any) {
   try {
     const { email, password } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
-    const user = yield call(signUpFrost, { email, password })
+    const { token } = yield call(signUpFrost, { email, password })
     yield put(
-      Actions.SignUp.onSignUpSuccess({ ...user, ...{ profile: { email } } })
+      Actions.SignUp.onSignUpSuccess({ token, ...{ profile: { email } } })
     )
+    yield put(Actions.Profile.onProfile({ token }))
     yield put(Actions.LoadingPage.onLoadingFull())
     yield call(delay, 300)
     browserHistory.push('/dashboard')
