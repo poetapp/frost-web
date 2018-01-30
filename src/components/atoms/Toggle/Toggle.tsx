@@ -1,6 +1,7 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
 import { Images } from '../../../images/Images'
+import { Tootip } from '../Tooltip/Tooltip'
 import './Toggle.scss'
 
 interface ToggleProps {
@@ -12,7 +13,12 @@ export const Toggle = (props: ToggleProps) => (
     className={classNames('Toggle d-flex align-items-center', props.className)}
   >
     <p className={'Toggle__text'}>Testnet</p>
-    <img className={'Toggle__image'} src={Images.Toogle} />
+    <Tootip
+      className={'Toggle__tooltip'}
+      element={<img className={'Toggle__image'} src={Images.Toogle} />}
+      tooltipText={`Frost it's only mode testnet, for the moment.`}
+    />
+
     <p className={'Toggle__text'}>Livenet</p>
   </div>
 )

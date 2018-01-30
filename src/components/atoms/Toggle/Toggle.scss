@@ -10,4 +10,10 @@
     &__image {
         margin: 0px 13px;
     }
+
+    &__tooltip {
+        .Tooltip__tooltiptext {
+            width: 200px;
+        } 
+    }
 }

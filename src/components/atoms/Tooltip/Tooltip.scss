@@ -1,0 +1,40 @@
+.Tooltip {
+    position: relative;
+    display: inline-block;
+    font-family: "Open Sans";
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &__tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #449BF3;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 10px;
+        position: absolute;
+        z-index: 1;
+        top: 135%;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    &__tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #449BF3 transparent;
+    }
+
+    &:hover &__tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
