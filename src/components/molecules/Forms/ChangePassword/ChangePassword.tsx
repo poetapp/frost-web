@@ -5,6 +5,7 @@ import { Form } from '../../../molecules/Form/Form'
 
 interface ChangePasswordProps {
   readonly onSubmit: (event: any) => any
+  readonly disabledButton?: boolean
 }
 
 const onValidate = (data: any, elements: any) => {
@@ -37,6 +38,7 @@ export const ChangePassword = (props: ChangePasswordProps) => (
     legend={'Change password'}
     textButton={'Change password'}
     onValidate={onValidate}
+    disabledButton={props.disabledButton}
   >
     <InputPassword
       name={'password'}

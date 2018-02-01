@@ -20,10 +20,13 @@ export function ChangePasswordTokenSaga() {
 function* ChangePasswordToken(action: any) {
   try {
     const { token, password } = action.payload
+    yield put(Actions.LoadingPage.onLoadingOn())
     const data = yield call(ChangePasswordTokenFrost, token, password)
     yield put(Actions.ChangePasswordToken.onChangePasswordTokenSuccess(data))
+    yield put(Actions.LoadingPage.onLoadingFull())
     browserHistory.push('/dashboard')
   } catch (e) {
+    yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.ChangePasswordToken.onChangePasswordTokenError(e))
     // Todo: Error message in UI
   }
