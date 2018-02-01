@@ -1,4 +1,4 @@
-import { ChangePassword } from './ChangePassword/ChangePassword.loader'
+import { ChangePasswordToken } from './ChangePasswordToken/ChangePasswordToken.loader'
 import { Dashboard } from './Dashboard/Dashboard.loader'
 import { ForgotPassword } from './ForgotPassword/ForgotPassword.loader'
 import { Home } from './Home/Home.loader'
@@ -12,6 +12,6 @@ export const pagesLoaders = [
   Token,
   Home,
   ForgotPassword,
-  ChangePassword,
+  ChangePasswordToken,
   VerifiedAccount
 ]

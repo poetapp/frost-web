@@ -23,7 +23,7 @@ async function init() {
       '/',
       '/login',
       '/forgot-password',
-      '/change-password',
+      '/forgot-password/change-password',
       '/verified-account'
     ]
     const notNeedOuath = omitRoutes.includes(pathname)

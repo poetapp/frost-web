@@ -9,7 +9,13 @@ async function GetProfileFrost(token: string, password: string) {
 
 export function GetProfileSaga() {
   return function*() {
-    yield takeLatest(Actions.Profile.PROFILE, GetProfile)
+    yield [
+      takeLatest(Actions.Profile.PROFILE, GetProfile),
+      takeLatest(
+        Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_SUCCESS,
+        GetProfile
+      )
+    ]
   }
 }
 

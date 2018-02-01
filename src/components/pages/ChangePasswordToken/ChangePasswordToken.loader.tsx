@@ -2,10 +2,10 @@ import * as React from 'react'
 import { Route } from 'react-router'
 
 import { PageLoader, ReducerDescription } from '../../PageLoader'
-import { ChangePasswordLayout } from './ChangePassword.layout'
+import { ChangePasswordTokenLayout } from './ChangePasswordToken.layout'
 
-export class ChangePassword extends PageLoader<object, object> {
-  component = ChangePasswordLayout
+export class ChangePasswordToken extends PageLoader<object, object> {
+  component = ChangePasswordTokenLayout
 
   initialState(): object {
     return {}
@@ -13,7 +13,11 @@ export class ChangePassword extends PageLoader<object, object> {
 
   routeHook(key: string) {
     return [
-      <Route path="/change-password" key={key} component={this.container()} />
+      <Route
+        path="/forgot-password/change-password"
+        key={key}
+        component={this.container()}
+      />
     ]
   }
 

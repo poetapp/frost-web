@@ -1,4 +1,5 @@
 import { changePassword } from './ChangePassword.reducer'
+import { changePasswordToken } from './ChangePasswordToken.reducer'
 import { forgotPassword } from './ForgotPassword.reducer'
 import { loadingPage } from './LoadingPage.reducer'
 import { profile } from './Profile.reducer'
@@ -15,6 +16,7 @@ export const reducers = {
   user,
   router,
   forgotPassword,
+  changePasswordToken,
   changePassword,
   verifiedAccount,
   loadingPage,

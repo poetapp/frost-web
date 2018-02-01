@@ -11,7 +11,11 @@ export function GetApiTokensSaga() {
   return function*() {
     yield [
       takeLatest(Actions.SignIn.SIGN_IN_SUCCESS, GetApiTokens),
-      takeLatest(Actions.SignUp.SIGN_UP_SUCCESS, GetApiTokens)
+      takeLatest(Actions.SignUp.SIGN_UP_SUCCESS, GetApiTokens),
+      takeLatest(
+        Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_SUCCESS,
+        GetApiTokens
+      )
     ]
   }
 }

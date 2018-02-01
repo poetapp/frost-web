@@ -120,6 +120,24 @@ export namespace Actions {
     })
   }
 
+  export namespace ChangePasswordToken {
+    export const CHANGE_PASSWORD_TOKEN = 'CHANGE_PASSWORD_TOKEN'
+    export const CHANGE_PASSWORD_TOKEN_SUCCESS = 'CHANGE_PASSWORD_TOKEN_SUCCESS'
+    export const CHANGE_PASSWORD_TOKEN_ERROR = 'CHANGE_PASSWORD_TOKEN_ERROR'
+    export const onChangePassword = (payload?: object) => ({
+      type: CHANGE_PASSWORD_TOKEN,
+      payload
+    })
+    export const onChangePasswordTokenSuccess = (payload?: object) => ({
+      type: CHANGE_PASSWORD_TOKEN_SUCCESS,
+      payload
+    })
+    export const onChangePasswordTokenError = (payload?: object) => ({
+      type: CHANGE_PASSWORD_TOKEN_ERROR,
+      payload
+    })
+  }
+
   export namespace VerifiedAccount {
     export const VERIFIED_ACCOUNT = 'VERIFIED_ACCOUNT'
     export const VERIFIED_ACCOUNT_SUCCESS = 'VERIFIED_ACCOUNT_SUCCESS'

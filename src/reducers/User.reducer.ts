@@ -38,6 +38,12 @@ export const user = (state: any, action: any) => {
     case Actions.Profile.PROFILE_SUCCESS:
       state.profile.verified = action.payload.verified
       state.profile.createdAt = action.payload.createdAt
+      state.profile.email = action.payload.email
+      return {
+        ...state
+      }
+    case Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_SUCCESS:
+      state.token = action.payload.token
       return {
         ...state
       }
