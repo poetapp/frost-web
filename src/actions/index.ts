@@ -124,6 +124,8 @@ export namespace Actions {
     export const CHANGE_PASSWORD_TOKEN = 'CHANGE_PASSWORD_TOKEN'
     export const CHANGE_PASSWORD_TOKEN_SUCCESS = 'CHANGE_PASSWORD_TOKEN_SUCCESS'
     export const CHANGE_PASSWORD_TOKEN_ERROR = 'CHANGE_PASSWORD_TOKEN_ERROR'
+    export const CHANGE_PASSWORD_TOKEN_CLEAR_ERROR =
+      'CHANGE_PASSWORD_TOKEN_CLEAR_ERROR'
     export const onChangePassword = (payload?: object) => ({
       type: CHANGE_PASSWORD_TOKEN,
       payload
@@ -134,6 +136,10 @@ export namespace Actions {
     })
     export const onChangePasswordTokenError = (payload?: object) => ({
       type: CHANGE_PASSWORD_TOKEN_ERROR,
+      payload
+    })
+    export const onChangePasswordTokenClearError = (payload?: object) => ({
+      type: CHANGE_PASSWORD_TOKEN_CLEAR_ERROR,
       payload
     })
   }

@@ -1,10 +1,12 @@
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
+// import { Transition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Actions } from '../../../actions'
 import { LoadingPage } from '../../atoms/LoadingPage/LoadingPage'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
+import { ToastPage } from '../../atoms/ToastPage/ToastPage'
 import { ChangePassword } from '../../molecules/Forms/ChangePassword/ChangePassword'
 import './ChangePasswordToken.style.scss'
 
@@ -33,23 +35,25 @@ export class ChangePasswordToken extends React.Component<any, undefined> {
 
     return (
       <LoadingPage loading={loading} percentage={percentage}>
-        <div className="ChangePasswordToken">
-          <Link to={'/'}>
-            <LogoFrost className="ChangePasswordToken__LogoFrost" />
-          </Link>
-          <h1 className="ChangePasswordToken__title">
-            Frost is an open API for publishers and content creators to interact
-            with the Po.et Network.
-          </h1>
-          <div className={'row'}>
-            <div className={'col-4'}>
-              <ChangePassword
-                onSubmit={this.onChangePassword}
-                disabledButton={changePasswordToken.loading}
-              />
+        <ToastPage>
+          <div className="ChangePasswordToken">
+            <Link to={'/'}>
+              <LogoFrost className="ChangePasswordToken__LogoFrost" />
+            </Link>
+            <h1 className="ChangePasswordToken__title">
+              Frost is an open API for publishers and content creators to
+              interact with the Po.et Network.
+            </h1>
+            <div className={'row'}>
+              <div className={'col-4'}>
+                <ChangePassword
+                  onSubmit={this.onChangePassword}
+                  disabledButton={changePasswordToken.loading}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </ToastPage>
       </LoadingPage>
     )
   }

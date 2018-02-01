@@ -25,7 +25,7 @@ export class CopyableText extends React.Component<
   private timeout: number
 
   constructor() {
-    super(...arguments)
+    super()
     this.state = {
       tooltipVisible: false
     }

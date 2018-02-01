@@ -37,6 +37,15 @@ export const changePasswordToken = (state: any, action: any) => {
         },
         loading: false
       }
+    case Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_CLEAR_ERROR:
+      return {
+        ...state,
+        error: {
+          status: false,
+          message: ''
+        },
+        loading: false
+      }
   }
   return state || defaultState
 }
