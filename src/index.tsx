@@ -7,7 +7,6 @@ import { Actions } from './actions'
 import { Layout } from './components/Root'
 import { createPoetStore } from './store'
 
-import 'react-progress-bar-plus/lib/progress-bar.css'
 import './reset.scss'
 
 async function init() {
