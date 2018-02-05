@@ -64,10 +64,9 @@ export function createPoetStore(): Promise<{ store: any; pages: any }> {
 
       const appReducer = combineReducers(reducerList)
       const rootReducer = (state: any, action: any) => {
-        let newState = state
-        if (action.type === Actions.SignOut.SIGN_OUT) newState = {}
+        if (action.type === Actions.SignOut.SIGN_OUT) state = {}
 
-        return appReducer(newState, action)
+        return appReducer(state, action)
       }
 
       const store = createStore(

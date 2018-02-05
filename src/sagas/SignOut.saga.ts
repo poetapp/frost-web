@@ -10,7 +10,8 @@ export function SignOutSaga() {
 
 function SignOut(action: any) {
   try {
-    browserHistory.push('/login')
+    if (!(action.payload && action.payload.redirectLogin === false))
+      browserHistory.push('/login')
   } catch (e) {
     // Todo: Error message in UI
   }

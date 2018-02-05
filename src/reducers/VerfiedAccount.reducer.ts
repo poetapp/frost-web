@@ -37,6 +37,15 @@ export const verifiedAccount = (state: any, action: any) => {
         },
         loading: false
       }
+    case Actions.VerifiedAccount.VERIFIED_ACCOUNT_CLEAR_ERROR:
+      return {
+        ...state,
+        error: {
+          status: false,
+          message: ''
+        },
+        loading: false
+      }
   }
   return state || defaultState
 }

@@ -42,10 +42,15 @@ export const user = (state: any, action: any) => {
       return {
         ...state
       }
-    case Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_SUCCESS:
+    case Actions.SetTokenLogin.SET_TOKEN_LOGIN:
       state.token = action.payload.token
       return {
         ...state
+      }
+    case Actions.SignOut.SIGN_OUT:
+      return {
+        ...defaultState,
+        ...{ profile: { ...defaultState.profile } }
       }
     case REHYDRATE:
       return {

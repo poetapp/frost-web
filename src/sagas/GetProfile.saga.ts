@@ -11,10 +11,7 @@ export function GetProfileSaga() {
   return function*() {
     yield [
       takeLatest(Actions.Profile.PROFILE, GetProfile),
-      takeLatest(
-        Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_SUCCESS,
-        GetProfile
-      )
+      takeLatest(Actions.SetTokenLogin.SET_TOKEN_LOGIN, GetProfile)
     ]
   }
 }

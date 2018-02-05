@@ -3,7 +3,10 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Actions } from '../../../actions'
+import { LoadingPage } from '../../atoms/LoadingPage/LoadingPage'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
+import { ToastPage } from '../../atoms/ToastPage/ToastPage'
+
 import './VerifiedAccount.style.scss'
 
 export class VerifiedAccount extends React.Component<any, undefined> {
@@ -23,42 +26,29 @@ export class VerifiedAccount extends React.Component<any, undefined> {
   }
 
   render() {
-    const { user, verifiedAccount } = this.props
-    const { profile } = user
-    let displayText = 'Verifying your account...'
-
-    if (!verifiedAccount.loading)
-      displayText = profile.verified
-        ? 'Yor account is verified'
-        : 'Yor account is not verified'
-
-    if (verifiedAccount.error.status)
-      displayText = `Something is wrong... <br/> ${
-        verifiedAccount.error.message
-      }`
+    const { loadingPage } = this.props
+    const { loading, percentage } = loadingPage
 
     return (
-      <div className="VerifiedAccount">
-        <Link to={'/'}>
-          <LogoFrost className="VerifiedAccount__LogoFrost" />
-        </Link>
-        <h1 className="VerifiedAccount__title">
-          Frost is an open API for publishers and content creators to interact
-          with the Po.et Network.
-        </h1>
-        <div className={'row'}>
-          <div
-            className={'col-4'}
-            dangerouslySetInnerHTML={{ __html: displayText }}
-          />
-        </div>
-      </div>
+      <LoadingPage loading={loading} percentage={percentage}>
+        <ToastPage>
+          <div className="VerifiedAccount">
+            <Link to={'/'}>
+              <LogoFrost className="VerifiedAccount__LogoFrost" />
+            </Link>
+            <h1 className="VerifiedAccount__title">
+              Frost is an open API for publishers and content creators to
+              interact with the Po.et Network.
+            </h1>
+          </div>
+        </ToastPage>
+      </LoadingPage>
     )
   }
 }
 
 const mapStateToProps = (state: any) => ({
-  user: state.user,
+  loadingPage: state.loadingPage,
   verifiedAccount: state.verifiedAccount
 })
 

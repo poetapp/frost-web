@@ -148,6 +148,7 @@ export namespace Actions {
     export const VERIFIED_ACCOUNT = 'VERIFIED_ACCOUNT'
     export const VERIFIED_ACCOUNT_SUCCESS = 'VERIFIED_ACCOUNT_SUCCESS'
     export const VERIFIED_ACCOUNT_ERROR = 'VERIFIED_ACCOUNT_ERROR'
+    export const VERIFIED_ACCOUNT_CLEAR_ERROR = 'VERIFIED_ACCOUNT_CLEAR_ERROR'
     export const onVerifiedAccount = (payload?: object) => ({
       type: VERIFIED_ACCOUNT,
       payload
@@ -158,6 +159,10 @@ export namespace Actions {
     })
     export const onVerifiedAccountError = (payload?: object) => ({
       type: VERIFIED_ACCOUNT_ERROR,
+      payload
+    })
+    export const onVerifiedAccountClearError = (payload?: object) => ({
+      type: VERIFIED_ACCOUNT_CLEAR_ERROR,
       payload
     })
   }
@@ -231,6 +236,15 @@ export namespace Actions {
     })
     export const onProfileClearError = (payload?: object) => ({
       type: PROFILE_CLEAR_ERROR,
+      payload
+    })
+  }
+
+  export namespace SetTokenLogin {
+    export const SET_TOKEN_LOGIN = 'SET_TOKEN_LOGIN'
+
+    export const onSetTokenLogin = (payload?: object) => ({
+      type: SET_TOKEN_LOGIN,
       payload
     })
   }
