@@ -3,11 +3,12 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Actions } from '../../../actions'
+import { LoadingPage } from '../../atoms/LoadingPage/LoadingPage'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
+import { ToastPage } from '../../atoms/ToastPage/ToastPage'
 import { SignIn } from '../../molecules/Forms/SignIn/SignIn'
 import { SignUp } from '../../molecules/Forms/SignUp/SignUp'
 import './RegisterLogin.style.scss'
-const ProgressBar = require('react-progress-bar-plus')
 
 export class RegisterLogin extends React.Component<any, undefined> {
   static contextTypes = {
@@ -35,35 +36,38 @@ export class RegisterLogin extends React.Component<any, undefined> {
     const { loading, percentage } = loadingPage
 
     return (
-      <div className="RegisterLogin">
-        {loading ? <ProgressBar autoIncrement percent={percentage} /> : null}
-        <Link to={'/'}>
-          <LogoFrost className="RegisterLogin__LogoFrost" />
-        </Link>
-        <h1 className="RegisterLogin__title">
-          Frost is an open API for publishers and content creators to interact
-          with the Po.et Network.
-        </h1>
-        <div className={'row'}>
-          <div className={'col-4'}>
-            <SignUp
-              onSubmit={this.onSubmitSignUp}
-              disabledButton={signUp.loading}
-              serverErrors={signUp.error}
-            />
+      <LoadingPage loading={loading} percentage={percentage}>
+        <ToastPage>
+          <div className="RegisterLogin">
+            <Link to={'/'}>
+              <LogoFrost className="RegisterLogin__LogoFrost" />
+            </Link>
+            <h1 className="RegisterLogin__title">
+              Frost is an open API for publishers and content creators to
+              interact with the Po.et Network.
+            </h1>
+            <div className={'row'}>
+              <div className={'col-4'}>
+                <SignUp
+                  onSubmit={this.onSubmitSignUp}
+                  disabledButton={signUp.loading}
+                  serverErrors={signUp.error}
+                />
+              </div>
+              <div className={'col-2'}>
+                <hr className={'RegisterLogin__vertical-line'} />
+              </div>
+              <div className={'col-4 RegisterLogin__signIn'}>
+                <SignIn
+                  onSubmit={this.onSubmitSignIn}
+                  disabledButton={signIn.loading}
+                  serverErrors={signIn.error}
+                />
+              </div>
+            </div>
           </div>
-          <div className={'col-2'}>
-            <hr className={'RegisterLogin__vertical-line'} />
-          </div>
-          <div className={'col-4 RegisterLogin__signIn'}>
-            <SignIn
-              onSubmit={this.onSubmitSignIn}
-              disabledButton={signIn.loading}
-              serverErrors={signIn.error}
-            />
-          </div>
-        </div>
-      </div>
+        </ToastPage>
+      </LoadingPage>
     )
   }
 }
