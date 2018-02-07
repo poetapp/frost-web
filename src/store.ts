@@ -59,7 +59,10 @@ export function createPoetStore(): Promise<{ store: any; pages: any }> {
       const reducerList = bindReducers(pages)
 
       const enhancer: any =
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+        process.env.NODE_ENV === 'development' &&
+        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+          ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+          : compose
       const sagaMiddleware = createSagaMiddleware()
 
       const appReducer = combineReducers(reducerList)
