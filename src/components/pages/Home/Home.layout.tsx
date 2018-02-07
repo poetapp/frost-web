@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { Images } from '../../../images/Images'
 import { BoxSimple } from '../../atoms/BoxSimple/BoxSimple'
 import { Button } from '../../atoms/Button/Button'
 import { LinksHeader } from '../../atoms/LinksHeader/LinksHeader'
@@ -83,6 +84,7 @@ export class Home extends React.Component<any, undefined> {
             </p>
             <div className={'d-flex'}>
               <BoxSimple
+                header={<img src={Images.Integrations} />}
                 className={'Home__what-frost__box__simple'}
                 title={'Build Integrations'}
                 description={`Easily build upon our library of existing CMS
@@ -90,6 +92,7 @@ export class Home extends React.Component<any, undefined> {
                   creative works to the Po.et network.`}
               />
               <BoxSimple
+                header={<img src={Images.NoKey} />}
                 className={'Home__what-frost__box__simple'}
                 title={'Private Key Management'}
                 description={`Frost abstracts away the Po.et private key
@@ -98,6 +101,7 @@ export class Home extends React.Component<any, undefined> {
                   directly to our node.`}
               />
               <BoxSimple
+                header={<img src={Images.Documentation} />}
                 className={'Home__what-frost__box__simple'}
                 title={'A RESTful API'}
                 description={`Frost provides an easy to use, RESTful API
