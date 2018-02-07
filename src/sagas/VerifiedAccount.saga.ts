@@ -46,11 +46,18 @@ function* VerifiedAccount(action: any) {
     yield call(delay, 300)
     yield put(Actions.VerifiedAccount.onVerifiedAccountClearError())
 
-    toast.update(toastId, {
-      render: e,
-      type: toast.TYPE.ERROR,
-      autoClose: 2500,
-      className: 'toast'
-    })
+    if (e.includes('Email already verified')) {
+      browserHistory.push('/dashboard')
+      toast.info(e, {
+        className: 'toast',
+        autoClose: 2500
+      })
+    } else
+      toast.update(toastId, {
+        render: e,
+        type: toast.TYPE.ERROR,
+        autoClose: false,
+        className: 'toast'
+      })
   }
 }
