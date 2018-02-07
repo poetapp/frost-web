@@ -4,4 +4,9 @@ export class Images {
   static readonly PoetWhite = require('./poet-white.svg')
   static readonly FrostLogoOnly = require('./frost-logo-only.svg')
   static readonly FavIcon = require('./fav.ico')
+  static readonly Documentation = require('./documentation.svg')
+  static readonly Integrations = require('./integrations.svg')
+  static readonly Key = require('./key.svg')
+  static readonly NoKey = require('./nokey.svg')
+  static readonly Rocket = require('./rocket.svg')
 }
