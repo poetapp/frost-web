@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { Images } from '../../../images/Images'
 import { BoxSimple } from '../../atoms/BoxSimple/BoxSimple'
 import { Button } from '../../atoms/Button/Button'
 import { LinksHeader } from '../../atoms/LinksHeader/LinksHeader'
@@ -54,18 +55,18 @@ export class Home extends React.Component<any, undefined> {
                 An Open API Layer <br />for Publishers
               </h1>
               <p className={'Home__cover-page__box__description'}>
-                This is a short description of what exactly the <br />
-                Frost API does and why you need it but we really<br />
-                need to work on this copy, this is a placeholer.{' '}
+                Frost is an open API for developing integrations, registering
+                works, and integrating your web app to the Po.et network,
+                without having to build your own private key infrastructure.{' '}
               </p>
               <div className={'d-flex'}>
                 <Button
                   className={'Home__cover-page__box__btn-token'}
-                  text={'Get API Tokens'}
+                  text={'Get Started'}
                 />
                 <Button
                   className={'Home__cover-page__box__btn-started'}
-                  text={'Get Started'}
+                  text={'API Docs'}
                 />
               </div>
             </div>
@@ -76,29 +77,36 @@ export class Home extends React.Component<any, undefined> {
         </section>
         <section className={'Home__what-frost'}>
           <div className={'Home__what-frost__box'}>
-            <h2 className={'Home__what-frost__box__title'}>What is Frost?</h2>
+            <h2 className={'Home__what-frost__box__title'}>Why Frost?</h2>
             <p className={'Home__what-frost__box__description'}>
-              Sign up for updates about our dev community for the latest
-              announcements.
+              The easiest way for content publishers and developers to interact
+              with the Po.et network.
             </p>
             <div className={'d-flex'}>
               <BoxSimple
+                header={<img src={Images.Integrations} />}
                 className={'Home__what-frost__box__simple'}
-                title={'Title one'}
-                description={`Get started building out an integration on top of po.et using the frost API. 
-                  Get started building out an integration on top of po.et using the frost API. `}
+                title={'Build Integrations'}
+                description={`Easily build upon our library of existing CMS
+                  plugins or build custom integrations to register your
+                  creative works to the Po.et network.`}
               />
               <BoxSimple
+                header={<img src={Images.NoKey} />}
                 className={'Home__what-frost__box__simple'}
-                title={'Title one'}
-                description={`Get started building out an integration on top of po.et using the frost API. 
-                  Get started building out an integration on top of po.et using the frost API.`}
+                title={'Private Key Management'}
+                description={`Frost abstracts away the Po.et private key
+                  infrastructure for easy integration. You can always
+                  migrate your content over later, or graduate to integrating
+                  directly to our node.`}
               />
               <BoxSimple
+                header={<img src={Images.Documentation} />}
                 className={'Home__what-frost__box__simple'}
-                title={'Title one'}
-                description={`Get started building out an integration on top of po.et using the frost API. 
-                Get started building out an integration on top of po.et using the frost API.`}
+                title={'A RESTful API'}
+                description={`Frost provides an easy to use, RESTful API
+                  right out of the box, and exposes an easy to use library,
+                  so you can focus on writing your application.`}
               />
             </div>
             <div
@@ -108,7 +116,7 @@ export class Home extends React.Component<any, undefined> {
             >
               <div>
                 <h3 className={'Home__what-frost__box__updates__title'}>
-                  Stay up to Date with Dev Updates
+                  Stay up to Date
                 </h3>
                 <p className={'Home__what-frost__box__updates__description'}>
                   Sign up for updates about our dev community for the latest{' '}

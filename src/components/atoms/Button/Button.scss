@@ -1,16 +1,15 @@
 .Button {
-    cursor: pointer;
-    height: 40px;	
-    width: 100%;	
-    border-radius: 4px;	
-    background-color: #449BF3;
-
-    color: #FFFFFF;	
-    font-family: "Open Sans";	
-    font-size: 12px;	
-    font-weight: bold;	
-    text-align: center;
-    border: 0px;
+  cursor: pointer;
+  height: 50px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #449BF3;
+  color: #FFFFFF;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: bold;
+  border: 0px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.12);
     &:focus {
         outline: none;
     }

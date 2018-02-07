@@ -13,7 +13,7 @@
                 height: 100%;
             }
             &__logo {
-                margin-right: 68px;
+                margin-right: 40px;
                 width: 140px;
             }
             &__button {
@@ -31,21 +31,24 @@
             height: 100%;
             padding-top: 104px;
             &__logo {
-                margin-bottom: 30px;
+              margin-bottom: 20px;
+              width: 120px;
             }
             &__title {
-                color: #FFFFFF;
-                font-family: Arvo;
-                font-size: 53px;
-                line-height: 65px;
-                margin-bottom: 30px;
+              color: #FFFFFF;
+              font-family: Arvo;
+              font-size: 53px;
+              line-height: 69px;
+              margin-bottom: 10px;
+              font-weight: 800;
             }
             &__description {
-               color: #DADADA;
-               font-family: "Open Sans";
-               font-size: 20px;
-               line-height: 29px;
-               margin-bottom: 40px;
+              color: #DADADA;
+              font-family: "Open Sans";
+              font-size: 20px;
+              line-height: 29px;
+              margin-bottom: 40px;
+              padding-right: 120px;
             }
             &__btn-token {
                 margin-right: 21px;
@@ -65,18 +68,18 @@
             max-width: 960px;
             margin: auto;
             &__title {
-              color: #393534;	
-              font-family: Arvo;	
-              font-size: 26px;	
-              line-height: 32px;	
+              color: #393534;
+              font-family: Arvo;
+              font-size: 26px;
+              line-height: 32px;
               text-align: center;
               margin-top: 70px;
             }
 
             &__description {
-                color: #6F6F6F;	
-                font-family: "Open Sans";	
-                font-size: 20px;	
+                color: #6F6F6F;
+                font-family: "Open Sans";
+                font-size: 20px;
                 line-height: 29px;
                 text-align: center;
                 margin-top: 14px;
@@ -84,7 +87,8 @@
             }
 
             &__simple {
-                margin-right: 80px;
+                margin-right: 45px;
+                width: 33.33%;
                 &:last-child {
                     margin-right: 0px;
                 }
@@ -96,12 +100,12 @@
                 border-bottom: 1px solid #DFDFDF;
                 margin-top: 134px;
                 &__title {
-                    color: #449BF3;
-                    font-family: "Open Sans";
-                    font-size: 21px;
-                    font-weight: bold;
-                    line-height: 28px;
-                    margin-bottom: 13px;
+                  color: #449BF3;
+                  font-family: "Open Sans";
+                  font-size: 25px;
+                  font-weight: bold;
+                  line-height: 28px;
+                  margin-bottom: 13px;
                 }
 
                 &__description {

@@ -29,6 +29,6 @@ server.listen(PORT_WEBPACK_SERVER, HOST_WEBPACK_SERVER, function (err) {
     console.log(err)
     return
   }
-  
+
   console.log(`Listening at http://${HOST_WEBPACK_SERVER}:${PORT_WEBPACK_SERVER}`)
 })
