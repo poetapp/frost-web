@@ -22,7 +22,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
           />
         </Link>
 
-        <a href="https://docs.frost.po.et/docs">
+        <a href="https://docs.frost.po.et/docs" target="_blank">
           <BoxButton
             title={'Documentation & Guides'}
             description={
