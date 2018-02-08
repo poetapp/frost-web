@@ -1,0 +1,20 @@
+.FooterHome {
+    background-color: #FFF;
+    height: 90px;
+    width: 100%;
+    &__container {
+        max-width: 960px;
+        margin: auto;
+        height: 100%;
+        &__leftContent {
+            width: 100px;
+        }
+        &__rightContent {
+            color: #2D2D2D;
+            font-family: "Open Sans";
+            font-size: 14px;
+            line-height: 22px;
+            text-align: center;
+        }
+    }
+}
