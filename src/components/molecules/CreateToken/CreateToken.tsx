@@ -17,18 +17,9 @@ export const CreateToken = (props: CreateTokenProps) => (
     <header className={'CreateToken__header'}>
       <h2 className={'CreateToken__header__title'}>API Tokens</h2>
       <p className={'CreateToken__header__description'}>
-        Manage the ways that you authorize requests to the Frost Api. API keys
-        for server requests, <br />
-        Tokenization keys for client requets, and Client-Side Encryption Keys
-        for client side encryption.
+        Manage the ways that you authorize requests to the Frost API. 
       </p>
     </header>
-    <div className={'CreateToken__text'}>
-      <p className={'CreateToken__text__title'}>API Keys</p>
-      <p className={'CreateToken__text__description'}>
-        Some message here about API keys.
-      </p>
-    </div>
     <BoxToken
       apiToken={props.boxToken.apiToken}
       dateCreated={moment(parseInt(props.boxToken.dateCreated, 10)).format(

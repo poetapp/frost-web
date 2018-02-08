@@ -60,14 +60,18 @@ export class Home extends React.Component<any, undefined> {
                 without having to build your own private key infrastructure.{' '}
               </p>
               <div className={'d-flex'}>
-                <Button
-                  className={'Home__cover-page__box__btn-token'}
-                  text={'Get Started'}
-                />
-                <Button
-                  className={'Home__cover-page__box__btn-started'}
-                  text={'API Docs'}
-                />
+                <a href={'https://docs.frost.po.et/docs'}>
+                  <Button
+                    className={'Home__cover-page__box__btn-token'}
+                    text={'Get Started'}
+                  />
+                </a>
+                <a href={'https://docs.frost.po.et/v0.1/reference'}>
+                  <Button
+                    className={'Home__cover-page__box__btn-started'}
+                    text={'API Docs'}
+                  />
+                </a>
               </div>
             </div>
             <div>
@@ -108,30 +112,6 @@ export class Home extends React.Component<any, undefined> {
                   right out of the box, and exposes an easy to use library,
                   so you can focus on writing your application.`}
               />
-            </div>
-            <div
-              className={
-                'Home__what-frost__box__updates d-flex align-items-center justify-content-between'
-              }
-            >
-              <div>
-                <h3 className={'Home__what-frost__box__updates__title'}>
-                  Stay up to Date
-                </h3>
-                <p className={'Home__what-frost__box__updates__description'}>
-                  Sign up for updates about our dev community for the latest{' '}
-                  <br /> announcements and how you can contribute.
-                </p>
-              </div>
-              <div>
-                <InputButton
-                  placeholder={'Your Email Address'}
-                  type={'email'}
-                  name={'updates'}
-                  textButton={'Sign Up'}
-                  required
-                />
-              </div>
             </div>
           </div>
         </section>
