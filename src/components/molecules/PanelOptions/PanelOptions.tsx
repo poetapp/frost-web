@@ -7,20 +7,9 @@ interface PanelOptionsProps {}
 
 export const PanelOptions = (props: PanelOptionsProps) => (
   <div className={'PanelOptions'}>
-    <div
-      className={
-        'PanelOptions__message d-flex justify-content-start align-items-center'
-      }
-    >
-      <div>
-        <h2>Frost is still on testnet, so it is not proof of existence yet</h2>
-        <p>The thing above is a horiontal rule</p>
-      </div>
-    </div>
     <section className={'PanelOptions__actions'}>
       <div className={'PanelOptions__actions__welcome'}>
         <h2>Welcome to Frost</h2>
-        <p>The thing above is a horiontal rule</p>
       </div>
       <div className={'PanelOptions__actions__box-buttons'}>
         <Link to={'/token'}>
