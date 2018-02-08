@@ -4,11 +4,11 @@ import { Link } from 'react-router'
 import { Images } from '../../../images/Images'
 import { BoxSimple } from '../../atoms/BoxSimple/BoxSimple'
 import { Button } from '../../atoms/Button/Button'
+import { FooterHome } from '../../atoms/FooterHome/FooterHome'
 import { LinksHeader } from '../../atoms/LinksHeader/LinksHeader'
 import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
 import { LogoFrostOnly } from '../../atoms/LogoFrostOnly/LogoFrostOnly'
 import { LogoPoetWhite } from '../../atoms/LogoPoetWhite/LogoPoetWhite'
-import { InputButton } from '../../molecules/InputButton/InputButton'
 import './Home.style.scss'
 
 export class Home extends React.Component<any, undefined> {
@@ -115,7 +115,11 @@ export class Home extends React.Component<any, undefined> {
             </div>
           </div>
         </section>
-        <footer />
+        <FooterHome
+          className={'Home__footer'}
+          leftContent={<img src={Images.PoetBlack} />}
+          rightContent={'© 2018 POET TECHNOLOGY LIMITED'}
+        />
       </main>
     )
   }

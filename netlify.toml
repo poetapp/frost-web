@@ -15,5 +15,5 @@
 
 # Deploy Preview context: All Deploy Previews
 # will inherit these settings.
-[context.deploy-preview.environment]
+[context.deploy-preview]
   command = "npm run build:testing"

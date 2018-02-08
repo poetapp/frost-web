@@ -63,7 +63,6 @@
     }
 
     &__what-frost {
-        height: 1258px;
         &__box {
             max-width: 960px;
             margin: auto;
@@ -117,5 +116,9 @@
                 }
             }
         }
+    }
+
+    &__footer {
+        margin-top: 75px;
     }
 }
