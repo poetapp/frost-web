@@ -33,7 +33,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
           />
         </Link>
 
-        <a href="https://frost.readme.io/docs">
+        <a href="https://docs.frost.po.et/docs">
           <BoxButton
             title={'Documentation & Guides'}
             description={
