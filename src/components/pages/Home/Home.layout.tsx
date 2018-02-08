@@ -116,6 +116,7 @@ export class Home extends React.Component<any, undefined> {
           </div>
         </section>
         <FooterHome
+          className={'Home__footer'}
           leftContent={<img src={Images.PoetBlack} />}
           rightContent={'© 2018 POET TECHNOLOGY LIMITED'}
         />
