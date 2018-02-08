@@ -14,7 +14,8 @@ const links = [
   },
   {
     label: 'Documentation',
-    link: 'https://frost.readme.io/docs'
+    link: 'https://frost.readme.io/docs',
+    external: true
   }
 ]
 
