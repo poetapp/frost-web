@@ -12,7 +12,7 @@ export const LinksHeader = (props: LinksHeaderProps) => (
       <a href={'https://docs.frost.po.et/v0.1/reference'}>API</a>
     </li>
     <li className={'LinksHeader__item'}>
-      <a href={'https://docs.frost.po.et/discuss'}>Forum</a>
+      <a href={'https://gitter.im/poetapp'}>Forum</a>
     </li>
   </ul>
 )
