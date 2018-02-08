@@ -60,14 +60,18 @@ export class Home extends React.Component<any, undefined> {
                 without having to build your own private key infrastructure.{' '}
               </p>
               <div className={'d-flex'}>
-                <Button
-                  className={'Home__cover-page__box__btn-token'}
-                  text={'Get Started'}
-                />
-                <Button
-                  className={'Home__cover-page__box__btn-started'}
-                  text={'API Docs'}
-                />
+                <a href={"'https://docs.frost.po.et/docs"}>
+                  <Button
+                    className={'Home__cover-page__box__btn-token'}
+                    text={'Get Started'}
+                  />
+                </a>
+                <a href={"'https://docs.frost.po.et/v0.1/reference"}>
+                  <Button
+                    className={'Home__cover-page__box__btn-started'}
+                    text={'API Docs'}
+                  />
+                </a>
               </div>
             </div>
             <div>
