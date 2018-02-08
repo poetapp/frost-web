@@ -113,30 +113,6 @@ export class Home extends React.Component<any, undefined> {
                   so you can focus on writing your application.`}
               />
             </div>
-            <div
-              className={
-                'Home__what-frost__box__updates d-flex align-items-center justify-content-between'
-              }
-            >
-              <div style={{display: 'none !important'}} >
-                <h3 className={'Home__what-frost__box__updates__title'}>
-                  Stay up to Date
-                </h3>
-                <p className={'Home__what-frost__box__updates__description'}>
-                  Sign up for updates about our dev community for the latest{' '}
-                  <br /> announcements and how you can contribute.
-                </p>
-              </div>
-              <div>
-                <InputButton
-                  placeholder={'Your Email Address'}
-                  type={'email'}
-                  name={'updates'}
-                  textButton={'Sign Up'}
-                  required
-                />
-              </div>
-            </div>
           </div>
         </section>
         <footer />
