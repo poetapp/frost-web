@@ -118,7 +118,7 @@ export class Home extends React.Component<any, undefined> {
                 'Home__what-frost__box__updates d-flex align-items-center justify-content-between'
               }
             >
-              <div>
+              <div style="display: none !important" >
                 <h3 className={'Home__what-frost__box__updates__title'}>
                   Stay up to Date
                 </h3>
