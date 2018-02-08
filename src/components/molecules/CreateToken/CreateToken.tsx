@@ -20,12 +20,6 @@ export const CreateToken = (props: CreateTokenProps) => (
         Manage the ways that you authorize requests to the Frost API. 
       </p>
     </header>
-    <div className={'CreateToken__text'}>
-      <p className={'CreateToken__text__title'}>API Keys</p>
-      <p className={'CreateToken__text__description'}>
-        Some message here about API keys.
-      </p>
-    </div>
     <BoxToken
       apiToken={props.boxToken.apiToken}
       dateCreated={moment(parseInt(props.boxToken.dateCreated, 10)).format(
