@@ -6,6 +6,7 @@ import './NavigationList.scss'
 interface Linked {
   readonly label: string
   readonly link: string
+  readonly external?: boolean
 }
 interface NavigationListProps {
   readonly className?: string
@@ -23,7 +24,11 @@ export const NavigationList = (props: NavigationListProps) => (
             props.pathActive === link.link ? 'NavigationList__item--active' : ''
           }`}
         >
-          <Link to={link.link}>{link.label}</Link>
+          {link.external && link.external === true ? (
+            <a href={link.link}>{link.label}</a>
+          ) : (
+            <Link to={link.link}>{link.label}</Link>
+          )}
         </li>
       ))}
   </ul>

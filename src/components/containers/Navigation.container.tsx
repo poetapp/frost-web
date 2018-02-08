@@ -14,7 +14,8 @@ const links = [
   },
   {
     label: 'Documentation',
-    link: 'https://docs.frost.po.et/docs'
+    link: 'https://docs.frost.po.et/docs',
+    external: true
   }
 ]
 
