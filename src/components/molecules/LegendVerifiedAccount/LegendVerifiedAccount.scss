@@ -19,10 +19,12 @@
         line-height: 40px;
     }
     &__button {
-        width: 100px;
-        float: right;
+        width: auto;
         background-color: transparent;
         height: 28px;
         margin-left: 20px;
+        padding: 6px;
+        font-size: 14px;
+        line-height: 14px;
     }
 }
