@@ -21,10 +21,23 @@
     &__button {
         width: auto;
         background-color: transparent;
-        height: 28px;
-        margin-left: 20px;
-        padding: 6px;
+        height: 30px;
+        margin-left: 30px;
+        padding: 6px 12x;
         font-size: 14px;
         line-height: 14px;
+        
+        
+        border: 2px solid white;
+        border-radius: 0;
+        box-shadow: none;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-family: sans-serif;
+        
+        $:hover {
+            background-color: white;
+            color: #DD4D5E;
+        }
     }
 }
