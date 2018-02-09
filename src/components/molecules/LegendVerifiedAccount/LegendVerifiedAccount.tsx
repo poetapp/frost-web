@@ -22,10 +22,10 @@ export const LegendVerifiedAccount = (props: LegendVerifiedAccountProps) => (
       </p>
     ) : (
       <p className={'LegendVerifiedAccount__text'}>
-        You have to verify your account if not the token will not work.<Button
+        Please verify your email address.<Button
           onClick={props.onClick}
           className={'LegendVerifiedAccount__button'}
-          text={'Verify account'}
+          text={'Resend Email'}
         />
       </p>
     )}
