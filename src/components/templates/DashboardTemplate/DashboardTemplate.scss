@@ -20,7 +20,7 @@
     }
 
     &__body {
-        width: calc(100% - 270px);
+        flex-grow: 1;
         &__header {
             background-color: #FFF;
             height: 64px;
