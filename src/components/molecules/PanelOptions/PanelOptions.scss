@@ -1,51 +1,30 @@
 .PanelOptions {
-    &__message {
-        background-color: #FFF;
-        height: 90px;
-        padding-left: 140px;
+    padding: 0 140px;
+    &__welcome {
         h2 {
-            color: #393534;	
-            font-family: "Open Sans";	
-            font-size: 14px;	
-            font-weight: bold;	
-            line-height: 19px;
+           color: #393534;
+           font-family: "Open Sans";
+           font-size: 24px;
+           font-weight: 600;
+           line-height: 33px;
+           margin-top: 28px;
         }
 
         p {
-            color: #2D2D2D;	
-            font-family: "Open Sans";	
-            font-size: 12px;	
-            line-height: 20px;
+           color: #2D2D2D;
+           font-family: "Open Sans";
+           font-size: 12px;
+           line-height: 20px;
         }
     }
 
-    &__actions {
-        padding-left: 140px;
-        &__welcome {
-            h2 {
-               color: #393534;	
-               font-family: "Open Sans";	
-               font-size: 24px;	
-               font-weight: 600;	
-               line-height: 33px;
-               margin-top: 28px;
-            }
-
-            p {
-               color: #2D2D2D;	
-               font-family: "Open Sans";	
-               font-size: 12px;	
-               line-height: 20px;
-            }
-        }
-
-        &__box-buttons {
-            margin-top: 40px;
-            a {
-                text-decoration: none;
-                float: left;
-                margin: 0 20px 20px 0;
-            }
+    &__box-buttons {
+        display: flex;
+        margin-top: 40px;
+        flex-wrap: wrap;
+        a {
+            text-decoration: none;
+            margin: 0 20px 20px 0;
         }
     }
 }

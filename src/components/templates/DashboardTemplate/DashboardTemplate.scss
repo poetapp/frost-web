@@ -1,5 +1,6 @@
 .Dashboard {
     &__nav {
+        flex: 0 0 auto;
         background-color: #2E323B;	
         box-shadow: 0 2px 0 0 #F0F0F0;
         height: 100vh;
@@ -21,6 +22,8 @@
 
     &__body {
         flex-grow: 1;
+        display: flex;
+        flex-direction: column;
         &__header {
             background-color: #FFF;
             height: 64px;
