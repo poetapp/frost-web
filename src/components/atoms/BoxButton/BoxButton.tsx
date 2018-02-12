@@ -8,11 +8,12 @@ interface BoxButtonProps {
   readonly title?: string
   readonly description?: string
   readonly buttonText?: string
+  readonly image: string
 }
 
 export const BoxButton = (props: BoxButtonProps) => (
   <div className={classNames('BoxButton', props.className)}>
-    <div className={'BoxButton__circle'} />
+    <img className={'BoxButton__circle'} src={props.image} />
     <h3 className={'BoxButton__title'}>{props.title}</h3>
     <p className={'BoxButton__description'}>{props.description}</p>
     <Button className={'BoxButton__button'} text={props.buttonText} />

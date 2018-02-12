@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link } from 'react-router'
+import { Images } from '../../../images/Images'
 import { BoxButton } from '../../atoms/BoxButton/BoxButton'
 import './PanelOptions.scss'
 
@@ -14,6 +15,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
       <div className={'PanelOptions__actions__box-buttons'}>
         <Link to={'/token'}>
           <BoxButton
+            image={Images.KeySmall}
             title={'API Keys'}
             description={
               'Get started building out an integration on top of po.et using the frost API.'
@@ -24,6 +26,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
 
         <a href="https://docs.frost.po.et/docs" target="_blank">
           <BoxButton
+            image={Images.Book}
             title={'Documentation & Guides'}
             description={
               'View a list of getting started guides and full API documentation for interacting with the Po.et Network. '
