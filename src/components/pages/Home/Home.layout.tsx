@@ -117,7 +117,11 @@ export class Home extends React.Component<any, undefined> {
         </section>
         <FooterHome
           className={'Home__footer'}
-          leftContent={<img src={Images.PoetBlack} />}
+          leftContent={
+            <a href={'https://po.et'} target={'_blank'}>
+              <img src={Images.PoetBlack} />
+            </a>
+          }
           rightContent={'© 2018 POET TECHNOLOGY LIMITED'}
         />
       </main>
