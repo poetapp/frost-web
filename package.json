@@ -13,11 +13,16 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tslint": "tslint -p ./tsconfig.json --fix",
     "tslint:check": "tslint-config-prettier-check ./tslint.json",
+    "stylelint": "stylelint './src/**/*.scss' --fix; exit 0",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
       "tslint",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint",
       "git add"
     ]
   },
@@ -85,6 +90,10 @@
     "sass-loader": "^4.1.1",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
+    "stylelint": "^9.1.0",
+    "stylelint-config-recommended-scss": "^3.1.0",
+    "stylelint-declaration-use-variable": "^1.6.0",
+    "stylelint-scss": "^2.4.0",
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.6.0",
     "tslint-eslint-rules": "^4.1.1",

@@ -1,30 +1,30 @@
 .BoxSimple {
-    padding: 0px 18px;
+  padding: 0px 18px;
 
-    &__circle {
-        height: 52px;
-        width: 52px;
-        background-color: #FFF;
-        border-radius: 100%;
-        margin: auto;
-        margin-bottom: 11px;
-    }
+  &__circle {
+    height: 52px;
+    width: 52px;
+    background-color: #FFF;
+    border-radius: 100%;
+    margin: auto;
+    margin-bottom: 11px;
+  }
 
-    &__title {
-      color: #393534;
-      font-family: "Open Sans";
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 33px;
-      text-align: center;
-      margin-bottom: 10px;
-    }
+  &__title {
+    color: #393534;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 33px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 
-    &__description {
-       color: #2D2D2D;
-       font-family: "Open Sans";
-       font-size: 14px;
-       line-height: 22px;
-       text-align: center;
-    }
+  &__description {
+    color: #2D2D2D;
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+  }
 }

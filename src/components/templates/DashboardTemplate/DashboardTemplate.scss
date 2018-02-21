@@ -1,37 +1,37 @@
 .Dashboard {
-    &__nav {
-        flex: 0 0 auto;
-        background-color: #2E323B;	
-        box-shadow: 0 2px 0 0 #F0F0F0;
-        height: 100vh;
-        width: 270px;
-        &__header {
-            height: 64px;
-            background-color: #22252B;
-            display: flex;
-            align-items: center;
-            &__logo {
-                margin-left: 22px;
-                width: 111px;
-            }
-        }
-        &__navigation-list {
-            margin-top: 23px;
-        }
+  &__nav {
+    flex: 0 0 auto;
+    background-color: #2E323B;	
+    box-shadow: 0 2px 0 0 #F0F0F0;
+    height: 100vh;
+    width: 270px;
+    &__header {
+      height: 64px;
+      background-color: #22252B;
+      display: flex;
+      align-items: center;
+      &__logo {
+        margin-left: 22px;
+        width: 111px;
+      }
     }
+    &__navigation-list {
+      margin-top: 23px;
+    }
+  }
 
-    &__body {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        &__header {
-            background-color: #FFF;
-            height: 64px;
-            border-bottom: 1px solid rgba(0,0,0,0.11);
-            padding: 0 60px;
-            &__content {
-                height: 100%;
-            }
-        }
+  &__body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    &__header {
+      background-color: #FFF;
+      height: 64px;
+      border-bottom: 1px solid rgba(0,0,0,0.11);
+      padding: 0 60px;
+      &__content {
+        height: 100%;
+      }
     }
+  }
 }

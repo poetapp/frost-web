@@ -1,0 +1,27 @@
+{
+    "extends": "stylelint-config-recommended-scss",
+    "plugins": [
+        "stylelint-scss",
+        "stylelint-declaration-use-variable"
+    ],
+    "rules": {
+        "indentation": 2,
+        "max-empty-lines": 2,
+        "function-blacklist": ["calc"],
+        "property-blacklist": ["float"],
+        "declaration-block-no-shorthand-property-overrides": true,
+        "declaration-block-no-redundant-longhand-properties": true,
+        "shorthand-property-no-redundant-values": true,
+        "font-family-no-duplicate-names": true,
+        "string-no-newline": true,
+        "unit-no-unknown": true,
+        "selector-pseudo-class-no-unknown": true,
+        "selector-pseudo-element-no-unknown": true,
+        "selector-type-no-unknown": true,
+        "comment-no-empty": true,
+        "declaration-no-important": true,
+        "font-weight-notation": "named-where-possible",
+        "sh-waqar/declaration-use-variable": [["/color/", "font-family"]],
+        "scss/selector-no-redundant-nesting-selector": true
+    }
+}

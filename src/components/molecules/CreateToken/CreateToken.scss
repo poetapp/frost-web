@@ -1,44 +1,44 @@
 .CreateToken {
-    padding-top: 50px;
-    padding-left: 140px;
-    &__header {
-        &__title {
-            color: #393534;
-            font-family: "Open Sans";
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 33px;
-            margin-bottom: 14px;
-        }
-        &__description {
-            color: #2D2D2D;
-            font-family: "Open Sans";
-            font-size: 10px;
-            line-height: 19px;
-            margin-bottom: 32px;
-        }
+  padding-top: 50px;
+  padding-left: 140px;
+  &__header {
+    &__title {
+      color: #393534;
+      font-family: "Open Sans";
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 33px;
+      margin-bottom: 14px;
     }
-    &__text {
-        &__title {
-            color: #393534;
-            font-family: "Open Sans";
-            font-size: 14px;
-            font-weight: bold;
-            line-height: 19px;
-            margin-bottom: 10px;
-        }
+    &__description {
+      color: #2D2D2D;
+      font-family: "Open Sans";
+      font-size: 10px;
+      line-height: 19px;
+      margin-bottom: 32px;
+    }
+  }
+  &__text {
+    &__title {
+      color: #393534;
+      font-family: "Open Sans";
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 19px;
+      margin-bottom: 10px;
+    }
 
-        &__description {
-            color: #2D2D2D;
-            font-family: "Open Sans";
-            font-size: 10px;
-            line-height: 19px;
-            margin-bottom: 14px;
-        }
+    &__description {
+      color: #2D2D2D;
+      font-family: "Open Sans";
+      font-size: 10px;
+      line-height: 19px;
+      margin-bottom: 14px;
     }
-    &__button {
-        display: none;
-        margin-top: 37px;
-        width: 140px;
-    }
+  }
+  &__button {
+    display: none;
+    margin-top: 37px;
+    width: 140px;
+  }
 }

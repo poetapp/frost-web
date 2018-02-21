@@ -1,25 +1,25 @@
 .NavigationList {
-    &__item {
-        height: 50px;	
-        width: 100%;	
-        font-family: "Open Sans";	
-        font-size: 14px;	
-        font-weight: 600;	
-        line-height: 50px;
-        padding-left: 20px;
-        margin-bottom: 27px;
-        border-left: 5px solid transparent;
+  &__item {
+    height: 50px;	
+    width: 100%;	
+    font-family: "Open Sans";	
+    font-size: 14px;	
+    font-weight: 600;	
+    line-height: 50px;
+    padding-left: 20px;
+    margin-bottom: 27px;
+    border-left: 5px solid transparent;
         
-        a {
-            color: #FFFFFF;
-            text-decoration: none;
-        }
-
-        &--active {
-            border-color: #449BF3;
-            a {
-                color: #449BF3;
-            }
-        }
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
     }
+
+    &--active {
+      border-color: #449BF3;
+      a {
+        color: #449BF3;
+      }
+    }
+  }
 }

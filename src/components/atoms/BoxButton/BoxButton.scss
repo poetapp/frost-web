@@ -1,40 +1,40 @@
 .BoxButton {
-    height: 257px;
-    width: 330px;
-    border: 1px solid #E3E1DF;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 0 0 #F0F0F0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: 257px;
+  width: 330px;
+  border: 1px solid #E3E1DF;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 0 0 #F0F0F0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    &__circle {
-        height: 52px;
-        width: 52px;
-    }
+  &__circle {
+    height: 52px;
+    width: 52px;
+  }
 
-    &__title {
-        color: #393534;	
-        font-family: "Open Sans";	
-        font-size: 16px;
-        font-weight: bold;	
-        line-height: 19px;
-        margin-top: 11px;
-    }
+  &__title {
+    color: #393534;	
+    font-family: "Open Sans";	
+    font-size: 16px;
+    font-weight: bold;	
+    line-height: 19px;
+    margin-top: 11px;
+  }
 
-    &__description {
-        color: #2D2D2D;	
-        font-family: "Open Sans";	
-        font-size: 12px;
-        line-height: 20px;	
-        text-align: center;
-        margin-top: 9px;
-    }
+  &__description {
+    color: #2D2D2D;	
+    font-family: "Open Sans";	
+    font-size: 12px;
+    line-height: 20px;	
+    text-align: center;
+    margin-top: 9px;
+  }
 
-    &__button {
-        margin-top: auto;
-        width: 140px;
-    }
+  &__button {
+    margin-top: auto;
+    width: 140px;
+  }
 }

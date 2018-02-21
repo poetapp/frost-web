@@ -1,19 +1,19 @@
 .Input {	
-    height: 50px;	
-    width: 100%;	
-    border: 1px solid #E6E4E1;	
-    border-radius: 3px;	
-    background-color: #FFFFFF;
+  height: 50px;	
+  width: 100%;	
+  border: 1px solid #E6E4E1;	
+  border-radius: 3px;	
+  background-color: #FFFFFF;
 
-    color: #7D7D7D;	
-    font-family: "Open Sans";	
-    font-size: 12px;	
-    line-height: 17px;
-    padding: 17px 20px;
+  color: #7D7D7D;	
+  font-family: "Open Sans";	
+  font-size: 12px;	
+  line-height: 17px;
+  padding: 17px 20px;
 
-    &:focus {
-        outline-color: #449BF3;
-        outline-offset: -2px;
-        outline-width: 0.1px;
-    }
+  &:focus {
+    outline-color: #449BF3;
+    outline-offset: -2px;
+    outline-width: 0.1px;
+  }
 }

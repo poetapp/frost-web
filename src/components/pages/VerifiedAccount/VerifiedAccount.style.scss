@@ -1,31 +1,31 @@
 .VerifiedAccount {
-    max-width: 960px;
-    margin: auto;
+  max-width: 960px;
+  margin: auto;
     
-    &__LogoFrost {
-        margin-top: 102px;
-    }
+  &__LogoFrost {
+    margin-top: 102px;
+  }
 
-    &__title {
-        color: #343434;	
-        font-family: "Open Sans";	
-        font-size: 20px;	
-        line-height: 29px;
-        margin-top: 40px;
-        margin-bottom: 72px;
-    }
+  &__title {
+    color: #343434;	
+    font-family: "Open Sans";	
+    font-size: 20px;	
+    line-height: 29px;
+    margin-top: 40px;
+    margin-bottom: 72px;
+  }
 
-    &__vertical-line {
-        position: absolute;
-        height: 100%;
-        border-left: 1px solid #979797;
-        opacity: 0.21;
-        left: 50%;
-        top: -8px;
-    }
+  &__vertical-line {
+    position: absolute;
+    height: 100%;
+    border-left: 1px solid #979797;
+    opacity: 0.21;
+    left: 50%;
+    top: -8px;
+  }
 
-    &__signUp {
-        padding-left: 0px;
-        padding-right: 30px;
-    }
+  &__signUp {
+    padding-left: 0px;
+    padding-right: 30px;
+  }
 }
