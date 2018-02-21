@@ -1,18 +1,18 @@
+@import "../../styles/colors";
 .BoxSimple {
   padding: 0px 18px;
 
   &__circle {
     height: 52px;
     width: 52px;
-    background-color: #FFF;
+    background-color: $white;
     border-radius: 100%;
     margin: auto;
     margin-bottom: 11px;
   }
 
   &__title {
-    color: #393534;
-    font-family: "Open Sans";
+    color: $gondola;
     font-size: 20px;
     font-weight: 600;
     line-height: 33px;
@@ -21,8 +21,7 @@
   }
 
   &__description {
-    color: #2D2D2D;
-    font-family: "Open Sans";
+    color: $night-rider2;
     font-size: 14px;
     line-height: 22px;
     text-align: center;

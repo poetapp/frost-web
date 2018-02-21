@@ -1,10 +1,13 @@
+@import '../../styles/colors.scss';
+@import "../../styles/fonts";
+
 .Home {
-  background-color: #F4F5F9;
+  background-color: $ghost-white;
   &__header {
     height: 80px;
     width: 100%;
-    border: 1px solid #1A1B24;
-    background-color: #2C2E3C;
+    border: 1px solid $black-russian2;
+    background-color: $black-rock2;
     &__box {
       max-width: 960px;
       margin: auto;
@@ -23,7 +26,7 @@
   }
 
   &__cover-page {
-    background-color: #2C2E3B;
+    background-color: $black-rock;
     height: 697px;
     &__box {
       max-width: 960px;
@@ -35,16 +38,15 @@
         width: 120px;
       }
       &__title {
-        color: #FFFFFF;
-        font-family: Arvo;
+        color: $white;
+        font-family: $arvo;
         font-size: 53px;
         line-height: 69px;
         margin-bottom: 10px;
         font-weight: 800;
       }
       &__description {
-        color: #DADADA;
-        font-family: "Open Sans";
+        color: $gainsboro;
         font-size: 20px;
         line-height: 29px;
         margin-bottom: 40px;
@@ -55,8 +57,8 @@
         width: 160px;
       }
       &__btn-started {
-        background-color: #FFF;
-        color: #449BF3;
+        background-color: $white;
+        color: $cornflower-blue;
         width: 160px;
       }
     }
@@ -67,8 +69,8 @@
       max-width: 960px;
       margin: auto;
       &__title {
-        color: #393534;
-        font-family: Arvo;
+        color: $gondola;
+        font-family: $arvo;
         font-size: 26px;
         line-height: 32px;
         text-align: center;
@@ -76,8 +78,7 @@
       }
 
       &__description {
-        color: #6F6F6F;
-        font-family: "Open Sans";
+        color: $dim-gray;
         font-size: 20px;
         line-height: 29px;
         text-align: center;
@@ -95,12 +96,11 @@
 
       &__updates {
         height: 158px;
-        border-top: 1px solid #DFDFDF;
-        border-bottom: 1px solid #DFDFDF;
+        border-top: 1px solid $gainsboro2;
+        border-bottom: 1px solid $gainsboro2;
         margin-top: 134px;
         &__title {
-          color: #449BF3;
-          font-family: "Open Sans";
+          color: $cornflower-blue;
           font-size: 25px;
           font-weight: bold;
           line-height: 28px;
@@ -108,8 +108,7 @@
         }
 
         &__description {
-          color: #2D2D2D;
-          font-family: "Open Sans";
+          color: $night-rider2;
           font-size: 14px;
           line-height: 20px;
           margin: 0px;

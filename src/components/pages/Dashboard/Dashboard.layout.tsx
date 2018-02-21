@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { Actions } from '../../../actions'
 import { DashboardContainer } from '../../containers/Dashboard.container'
 import { PanelOptions } from '../../molecules/PanelOptions/PanelOptions'
-import './Dashboard.style.scss'
 
 export class Dashboard extends React.Component<any, undefined> {
   static contextTypes = {

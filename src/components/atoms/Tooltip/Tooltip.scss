@@ -1,7 +1,7 @@
+@import "../../styles/colors";
+
 .Tooltip {
   position: relative;
-  display: inline-block;
-  font-family: "Open Sans";
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -9,8 +9,8 @@
   &__tooltiptext {
     visibility: hidden;
     width: 120px;
-    background-color: #449BF3;
-    color: #fff;
+    background-color: $cornflower-blue;
+    color: $white;
     text-align: center;
     border-radius: 6px;
     padding: 5px 10px;
@@ -29,7 +29,7 @@
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent transparent #449BF3;
+    border-color: $transparent $transparent $cornflower-blue;
   }
 
   &:hover &__tooltiptext {

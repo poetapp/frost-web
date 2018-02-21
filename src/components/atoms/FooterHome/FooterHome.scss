@@ -1,5 +1,6 @@
+@import "../../styles/colors";
 .FooterHome {
-  background-color: #FFF;
+  background-color: $white;
   height: 90px;
   width: 100%;
   &__container {
@@ -10,8 +11,7 @@
       width: 100px;
     }
     &__rightContent {
-      color: #2D2D2D;
-      font-family: "Open Sans";
+      color: $night-rider2;
       font-size: 14px;
       line-height: 22px;
       text-align: center;

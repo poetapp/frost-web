@@ -14,7 +14,7 @@ const server = new webpackDevServer(compiler, {
   noInfo: true,
   proxy: {
     '/api': {
-      target: `http://${HOST_API_PROXY}:${PORT_API}`,
+      target: `https://api.frost.po.et`,
       secure: false,
       pathRewrite: {'^/api' : ''}
     }

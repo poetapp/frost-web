@@ -1,8 +1,9 @@
+@import "../../styles/colors";
+
 .Toggle {
   &__text {
     margin: 0px;
-    color: #2E323B;	
-    font-family: "Open Sans";	
+    color: $ebony;	
     font-size: 12px;	
     line-height: 17px;
   }

@@ -5,7 +5,6 @@ import { Actions } from '../../../actions'
 import { DashboardContainer } from '../../containers/Dashboard.container'
 import { CreateToken } from '../../molecules/CreateToken/CreateToken'
 const ProgressBar = require('react-progress-bar-plus')
-import './Token.style.scss'
 
 export class Token extends React.Component<any, any> {
   static contextTypes = {

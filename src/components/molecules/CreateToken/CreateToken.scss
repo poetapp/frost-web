@@ -1,18 +1,17 @@
+@import "../../styles/colors";
 .CreateToken {
   padding-top: 50px;
   padding-left: 140px;
   &__header {
     &__title {
-      color: #393534;
-      font-family: "Open Sans";
+      color: $gondola;
       font-size: 24px;
       font-weight: 600;
       line-height: 33px;
       margin-bottom: 14px;
     }
     &__description {
-      color: #2D2D2D;
-      font-family: "Open Sans";
+      color: $night-rider2;
       font-size: 10px;
       line-height: 19px;
       margin-bottom: 32px;
@@ -20,8 +19,7 @@
   }
   &__text {
     &__title {
-      color: #393534;
-      font-family: "Open Sans";
+      color: $gondola;
       font-size: 14px;
       font-weight: bold;
       line-height: 19px;
@@ -29,8 +27,7 @@
     }
 
     &__description {
-      color: #2D2D2D;
-      font-family: "Open Sans";
+      color: $night-rider2;
       font-size: 10px;
       line-height: 19px;
       margin-bottom: 14px;

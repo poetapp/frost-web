@@ -1,10 +1,11 @@
+@import "../../styles/colors";
 .BoxButton {
   height: 257px;
   width: 330px;
-  border: 1px solid #E3E1DF;
+  border: 1px solid $spring-wood;
   border-radius: 4px;
-  background-color: #FFFFFF;
-  box-shadow: 0 2px 0 0 #F0F0F0;
+  background-color: $white;
+  box-shadow: 0 2px 0 0 $white-smoke;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -16,8 +17,7 @@
   }
 
   &__title {
-    color: #393534;	
-    font-family: "Open Sans";	
+    color: $gondola;	
     font-size: 16px;
     font-weight: bold;	
     line-height: 19px;
@@ -25,8 +25,7 @@
   }
 
   &__description {
-    color: #2D2D2D;	
-    font-family: "Open Sans";	
+    color: $night-rider2;	
     font-size: 12px;
     line-height: 20px;	
     text-align: center;

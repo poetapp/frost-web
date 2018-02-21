@@ -1,14 +1,14 @@
+@import "../../styles/colors";
 .LinksHeader {
   margin-bottom: 0px;
   &__item {
-    font-family: "Open Sans";	
     font-size: 14px;	
     font-weight: 600;	
     line-height: 19px;
     display: inline-block;
     margin-right: 25px;
     a {
-      color: #F6F8F8;
+      color: $azure;
       text-decoration: none;
     }
   }

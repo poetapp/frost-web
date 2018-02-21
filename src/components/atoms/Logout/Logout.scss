@@ -1,7 +1,8 @@
+@import "../../styles/colors";
+
 .Logout {
   &__text {
-    color: #2E323B;	
-    font-family: "Open Sans";	
+    color: $ebony;	
     font-size: 12px;	
     line-height: 17px;
     margin: 0px;
@@ -9,12 +10,11 @@
 
   &__button {
     cursor: pointer;
-    color: #DD4D5E;	
-    font-family: "Open Sans";	
+    color: $mandy;	
     font-size: 12px;	
     font-weight: 600;	
     line-height: 17px;
     border: none;
-    background-color: transparent;
+    background-color: $transparent;
   }
 }

@@ -1,9 +1,9 @@
+@import "../../styles/colors";
 .PanelOptions {
   padding: 0 140px;
   &__welcome {
     h2 {
-      color: #393534;
-      font-family: "Open Sans";
+      color: $gondola;
       font-size: 24px;
       font-weight: 600;
       line-height: 33px;
@@ -11,8 +11,7 @@
     }
 
     p {
-      color: #2D2D2D;
-      font-family: "Open Sans";
+      color: $night-rider2;
       font-size: 12px;
       line-height: 20px;
     }
