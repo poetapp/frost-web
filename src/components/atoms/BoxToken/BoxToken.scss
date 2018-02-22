@@ -1,66 +1,72 @@
-
 @import "../../styles/colors";
+
 .BoxToken {
   height: 193px;
   width: 620px;
   border: 1px solid $spring-wood;
   border-radius: 4px;
-  background-color: $white;
   box-shadow: 0 2px 0 0 $white-smoke;
+  background-color: $white;
+
   &__header {
     height: 36px;
     width: 100%;
-    border-bottom: 1px solid $spring-wood;
     border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid $spring-wood;
     background-color: $white;
+
     p {
-      color: $dim-gray2;
+      padding-left: 15px;
       font-size: 10px;
       font-weight: 600;
       line-height: 36px;
-      padding-left: 15px;
+      color: $dim-gray2;
     }
   }
     
   &__list {
     height: 100px;
+
     &__item {
       display: flex;
       justify-content: space-between;
-      padding: 0 14px;
-      list-style: none;
-      border-bottom: 1px solid $wild-sand;
       height: 34px;
+      padding: 0 14px;
+      border-bottom: 1px solid $wild-sand;
+      list-style: none;
+
       &__description {
-        color: $eclipse;
         font-size: 10px;
         line-height: 34px;
+        color: $eclipse;
 
         &__name {
           padding-right: 40px;
         }
 
         &__token {
-          color: $dim-gray3;
-          line-height: 14px;
           padding-right: 72px;
+          line-height: 14px;
+          color: $dim-gray3;
         }
 
         &__date {
+          text-align: right;
           font-size: 11px;
           line-height: 15px;
-          text-align: right;
         }
       }
+
       &__actions {
+
         button {
           display: none;
+          height: 10px;
           border: 0px;
-          color: $mandy;
           font-size: 10px;
           font-weight: 600;
           line-height: 34px;
-          height: 10px;
+          color: $mandy;
           cursor: pointer;
         }
       }

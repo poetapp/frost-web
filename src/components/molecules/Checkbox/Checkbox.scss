@@ -1,11 +1,12 @@
 @import "../../styles/colors";
 
 .Checkbox {
+
   label {
-    color: $night-rider3;	
+    margin-left: 10px;	
     font-size: 10px;	
     line-height: 14px;
-    margin-left: 10px;
+    color: $night-rider3;
   }
     
   &__Input {

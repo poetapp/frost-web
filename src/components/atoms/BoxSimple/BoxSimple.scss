@@ -1,29 +1,30 @@
 @import "../../styles/colors";
+
 .BoxSimple {
   padding: 0px 18px;
 
   &__circle {
     height: 52px;
     width: 52px;
-    background-color: $white;
-    border-radius: 100%;
     margin: auto;
     margin-bottom: 11px;
+    border-radius: 100%;
+    background-color: $white;
   }
 
   &__title {
-    color: $gondola;
+    margin-bottom: 10px;
+    text-align: center;
     font-size: 20px;
     font-weight: 600;
     line-height: 33px;
-    text-align: center;
-    margin-bottom: 10px;
+    color: $gondola;
   }
 
   &__description {
-    color: $night-rider2;
+    text-align: center;
     font-size: 14px;
     line-height: 22px;
-    text-align: center;
+    color: $night-rider2;
   }
 }

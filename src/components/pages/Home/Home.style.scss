@@ -1,24 +1,30 @@
 @import '../../styles/colors.scss';
+
 @import "../../styles/fonts";
 
 .Home {
   background-color: $ghost-white;
+
   &__header {
     height: 80px;
     width: 100%;
     border: 1px solid $black-russian2;
     background-color: $black-rock2;
+
     &__box {
-      max-width: 960px;
-      margin: auto;
       height: 100%;
+      margin: auto;
+      max-width: 960px;
+
       &__left {
         height: 100%;
       }
+
       &__logo {
-        margin-right: 40px;
         width: 140px;
+        margin-right: 40px;
       }
+
       &__button {
         width: 137px;
       }
@@ -26,69 +32,78 @@
   }
 
   &__cover-page {
-    background-color: $black-rock;
     height: 697px;
+    background-color: $black-rock;
+
     &__box {
-      max-width: 960px;
-      margin: auto;
       height: 100%;
+      margin: auto;
       padding-top: 104px;
+      max-width: 960px;
+
       &__logo {
-        margin-bottom: 20px;
         width: 120px;
+        margin-bottom: 20px;
       }
+
       &__title {
-        color: $white;
+        margin-bottom: 10px;
         font-family: $arvo;
         font-size: 53px;
-        line-height: 69px;
-        margin-bottom: 10px;
         font-weight: 800;
+        line-height: 69px;
+        color: $white;
       }
+
       &__description {
-        color: $gainsboro;
-        font-size: 20px;
-        line-height: 29px;
         margin-bottom: 40px;
         padding-right: 120px;
+        font-size: 20px;
+        line-height: 29px;
+        color: $gainsboro;
       }
+
       &__btn-token {
-        margin-right: 21px;
         width: 160px;
+        margin-right: 21px;
       }
+
       &__btn-started {
+        width: 160px;
         background-color: $white;
         color: $cornflower-blue;
-        width: 160px;
       }
     }
   }
 
   &__what-frost {
+
     &__box {
-      max-width: 960px;
       margin: auto;
+      max-width: 960px;
+
       &__title {
-        color: $gondola;
+        margin-top: 70px;
+        text-align: center;
         font-family: $arvo;
         font-size: 26px;
         line-height: 32px;
-        text-align: center;
-        margin-top: 70px;
+        color: $gondola;
       }
 
       &__description {
-        color: $dim-gray;
+        margin-bottom: 134px;
+        margin-top: 14px;
+        text-align: center;
         font-size: 20px;
         line-height: 29px;
-        text-align: center;
-        margin-top: 14px;
-        margin-bottom: 134px;
+        color: $dim-gray;
       }
 
       &__simple {
-        margin-right: 45px;
         width: 33.33%;
+        margin-right: 45px;
+
         &:last-child {
           margin-right: 0px;
         }
@@ -96,22 +111,23 @@
 
       &__updates {
         height: 158px;
-        border-top: 1px solid $gainsboro2;
-        border-bottom: 1px solid $gainsboro2;
         margin-top: 134px;
+        border-bottom: 1px solid $gainsboro2;
+        border-top: 1px solid $gainsboro2;
+
         &__title {
-          color: $cornflower-blue;
+          margin-bottom: 13px;
           font-size: 25px;
           font-weight: bold;
           line-height: 28px;
-          margin-bottom: 13px;
+          color: $cornflower-blue;
         }
 
         &__description {
-          color: $night-rider2;
+          margin: 0px;
           font-size: 14px;
           line-height: 20px;
-          margin: 0px;
+          color: $night-rider2;
         }
       }
     }

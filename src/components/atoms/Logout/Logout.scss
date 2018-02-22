@@ -1,20 +1,21 @@
 @import "../../styles/colors";
 
 .Logout {
+
   &__text {
-    color: $ebony;	
+    margin: 0px;	
     font-size: 12px;	
     line-height: 17px;
-    margin: 0px;
+    color: $ebony;
   }
 
   &__button {
-    cursor: pointer;
-    color: $mandy;	
+    border: none;	
     font-size: 12px;	
     font-weight: 600;	
     line-height: 17px;
-    border: none;
     background-color: $transparent;
+    color: $mandy;
+    cursor: pointer;
   }
 }

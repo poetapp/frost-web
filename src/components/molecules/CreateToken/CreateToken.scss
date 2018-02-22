@@ -1,41 +1,48 @@
 @import "../../styles/colors";
+
 .CreateToken {
-  padding-top: 50px;
   padding-left: 140px;
+  padding-top: 50px;
+
   &__header {
+
     &__title {
-      color: $gondola;
+      margin-bottom: 14px;
       font-size: 24px;
       font-weight: 600;
       line-height: 33px;
-      margin-bottom: 14px;
-    }
-    &__description {
-      color: $night-rider2;
-      font-size: 10px;
-      line-height: 19px;
-      margin-bottom: 32px;
-    }
-  }
-  &__text {
-    &__title {
       color: $gondola;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 19px;
-      margin-bottom: 10px;
     }
 
     &__description {
-      color: $night-rider2;
+      margin-bottom: 32px;
       font-size: 10px;
       line-height: 19px;
-      margin-bottom: 14px;
+      color: $night-rider2;
     }
   }
+
+  &__text {
+
+    &__title {
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 19px;
+      color: $gondola;
+    }
+
+    &__description {
+      margin-bottom: 14px;
+      font-size: 10px;
+      line-height: 19px;
+      color: $night-rider2;
+    }
+  }
+
   &__button {
     display: none;
-    margin-top: 37px;
     width: 140px;
+    margin-top: 37px;
   }
 }

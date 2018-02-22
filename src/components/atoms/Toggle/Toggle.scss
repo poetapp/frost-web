@@ -1,11 +1,12 @@
 @import "../../styles/colors";
 
 .Toggle {
+
   &__text {
-    margin: 0px;
-    color: $ebony;	
+    margin: 0px;	
     font-size: 12px;	
     line-height: 17px;
+    color: $ebony;
   }
 
   &__image {
@@ -13,6 +14,7 @@
   }
 
   &__tooltip {
+
     .Tooltip__tooltiptext {
       width: 200px;
     } 

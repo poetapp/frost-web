@@ -1,9 +1,10 @@
 .SignIn {
   position: relative;
+
   &__forgot-password {
-    font-size: 12px;
     position: absolute;
-    bottom: 10px;
     right: 0px;
+    bottom: 10px;
+    font-size: 12px;
   }
 }

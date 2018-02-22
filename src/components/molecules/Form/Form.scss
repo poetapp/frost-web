@@ -1,13 +1,15 @@
 @import "../../styles/fonts";
+
 @import "../../styles/colors";
 
 .Form {
+
   &__legend {
-    color: $gondola;	
+    margin-bottom: 15px;	
     font-family: $arvo;	
     font-size: 26px;	
     line-height: 32px;
-    margin-bottom: 15px;
+    color: $gondola;
   }
 
   input {

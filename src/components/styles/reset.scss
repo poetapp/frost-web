@@ -1,9 +1,10 @@
 @import "fonts";
+
 @import "colors";
 
 html, body, #app {
-  background-color: $ghost-white;
   height: 100%;
+  background-color: $ghost-white;
   min-width: 1080px;
 }
 

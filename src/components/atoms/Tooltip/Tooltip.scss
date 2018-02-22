@@ -1,40 +1,41 @@
 @import "../../styles/colors";
 
 .Tooltip {
-  position: relative;
-  font-size: 12px;
   display: flex;
-  align-items: center;
+  position: relative;
   flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+
   &__tooltiptext {
-    visibility: hidden;
+    position: absolute;
+    top: 135%;
     width: 120px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-align: center;
     background-color: $cornflower-blue;
     color: $white;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 10px;
-    position: absolute;
-    z-index: 1;
-    top: 135%;
     opacity: 0;
     transition: opacity 0.3s;
+    visibility: hidden;
+    z-index: 1;
   }
     
   &__tooltiptext::after {
-    content: "";
     position: absolute;
-    bottom: 100%;
     left: 50%;
+    bottom: 100%;
     margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
     border-color: $transparent $transparent $cornflower-blue;
+    border-style: solid;
+    border-width: 5px;
+    content: "";
   }
 
   &:hover &__tooltiptext {
-    visibility: visible;
     opacity: 1;
+    visibility: visible;
   }
 }
 
