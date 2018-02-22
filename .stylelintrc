@@ -24,11 +24,7 @@
         "no-duplicate-at-import-rules": true,
         "no-missing-end-of-source-newline": true,
         "no-duplicate-selectors": true,
-        "at-rule-empty-line-before": [
-            "always", {
-                "ignoreAtRules": [ "else" ]
-            }
-        ],
+        
         "block-opening-brace-space-before": "always",
         "block-closing-brace-newline-after": [
             "always", {
@@ -46,6 +42,10 @@
         "font-weight-notation": "named-where-possible",
         "sh-waqar/declaration-use-variable": [["/color/", "font-family"]],
         "scss/selector-no-redundant-nesting-selector": true,
+        "declaration-empty-line-before":["never",{
+            "except": [],
+            "ignore": ["after-declaration"]
+        }],
         "order/order": [
 			"custom-properties",
 			"declarations"
