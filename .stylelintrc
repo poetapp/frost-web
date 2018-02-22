@@ -42,10 +42,8 @@
         "font-weight-notation": "named-where-possible",
         "sh-waqar/declaration-use-variable": [["/color/", "font-family"]],
         "scss/selector-no-redundant-nesting-selector": true,
-        "declaration-empty-line-before":["never",{
-            "except": [],
-            "ignore": ["after-declaration"]
-        }],
+        "declaration-empty-line-before": "never",
+        "at-rule-empty-line-before": "never",
         "order/order": [
 			"custom-properties",
 			"declarations"
