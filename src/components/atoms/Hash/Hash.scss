@@ -1,8 +1,9 @@
+@import "colors";
 
 .copyable-hash {
   display: inline-flex;
-  align-items: center;
   flex-direction: row-reverse;
+  align-items: center;
 
   input {
     position: absolute;
@@ -11,7 +12,7 @@
   }
 
   button {
-      display: none;
+    display: none;
   }
 
   .value {
@@ -19,14 +20,14 @@
   }
 
   .tooltip {
+    position: fixed;
+    padding: 4px;
+    border-radius: 4px;
+    background: $black;
+    color: $white;
     opacity: 0;
     pointer-events: none;
     transition: opacity .4s;
-    padding: 4px;
-    background: black;
-    color: white;
-    border-radius: 4px;
-    position: fixed;
   }
 
   &.tooltip-visible .tooltip {

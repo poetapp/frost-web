@@ -1,4 +1,6 @@
+@import "colors";
+
 .react-progress-bar-percent {
-    background-color: #449BF3!important;
-    box-shadow: none!important;
+  box-shadow: none;
+  background: $cornflower-blue;
 }

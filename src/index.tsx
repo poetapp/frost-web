@@ -7,8 +7,6 @@ import { Actions } from './actions'
 import { Layout } from './components/Root'
 import { createPoetStore } from './store'
 
-import './reset.scss'
-
 async function init() {
   const { store, pages } = await createPoetStore()
   const routes = pages

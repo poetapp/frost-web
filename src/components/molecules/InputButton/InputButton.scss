@@ -1,27 +1,26 @@
 .InputButton {
-    width: 100%;
-    &__input {
-        height: 50px;	
-        width: 100%;	
-        border: 1px solid #E6E4E1;	
-        border-radius: 3px;	
-        background-color: #FFFFFF;
-    
-        color: #7D7D7D;	
-        font-family: "Open Sans";	
-        font-size: 12px;	
-        line-height: 17px;
-        padding: 17px 20px;
-        width: 322px;
-        &:focus {
-            outline: none;
-        }
-    }
+  width: 100%;
 
-    &__button {
-        height: 50px;
-        border-bottom-left-radius: 0px;
-        border-top-left-radius: 0px;
-        width: 140px;
+  &__input {
+    height: 50px;
+    width: 322px;
+    padding: 17px 20px;	
+    border: 1px solid $wild-sand;	
+    border-radius: 3px;	
+    font-size: 12px;	
+    line-height: 17px;	
+    background-color: $white;
+    color: $grey;
+
+    &:focus {
+      outline: none;
     }
+  }
+
+  &__button {
+    height: 50px;
+    width: 140px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+  }
 }

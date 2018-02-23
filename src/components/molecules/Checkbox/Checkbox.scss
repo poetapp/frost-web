@@ -1,15 +1,17 @@
+@import "colors";
+
 .Checkbox {
-    label {
-        color: #2E2E2E;	
-        font-family: "Open Sans";	
-        font-size: 10px;	
-        line-height: 14px;
-        margin-left: 10px;
-    }
+
+  label {
+    margin-left: 10px;	
+    font-size: 10px;	
+    line-height: 14px;
+    color: $night-rider3;
+  }
     
-    &__Input {
-        height: auto;        
-        width: auto;
-        margin-bottom: 10px;
-    }
+  &__Input {
+    height: auto;        
+    width: auto;
+    margin-bottom: 10px;
+  }
 }

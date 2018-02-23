@@ -1,41 +1,45 @@
+@import "colors";
+
 .LegendVerifiedAccount {
-    width: 620px;
-    background-color: #DD4D5E;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    color: #FFF;
-    padding: 5px;
-    height: 40px;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &--hide {
-        display: none!important;
-    }
-    &__text {
-        margin: 0px;
-        font-size: 12px;
-        line-height: 40px;
-    }
-    &__button {
-        width: auto;
-        background-color: transparent;
-        height: 30px;
-        margin-left: 30px;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 14px;
-        border: 2px solid white;
-        border-radius: 0;
-        box-shadow: none;
-        text-transform: uppercase;
-        font-weight: normal;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 620px;
+  padding: 5px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: $mandy;
+  color: $white;
+  vertical-align: middle;
+
+  &--hide {
+    display: none;
+  }
+
+  &__text {
+    margin: 0px;
+    font-size: 12px;
+    line-height: 40px;
+  }
+
+  &__button {
+    height: 30px;
+    width: auto;
+    margin-left: 30px;
+    padding: 6px 12px;
+    border: 2px solid $white;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 14px;
+    box-shadow: none;
+    background-color: $transparent;
+    text-transform: uppercase;
         
-        &:hover {
-            background-color: white;
-            color: #DD4D5E;
-        }
+    &:hover {
+      background-color: $white;
+      color: $mandy;
     }
+  }
 }

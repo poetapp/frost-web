@@ -133,6 +133,10 @@ module.exports = {
     ]
   },
 
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./src/components/styles")]
+  },
+
   postcss: () => {
     return [
       require('autoprefixer')

@@ -1,25 +1,28 @@
-.NavigationList {
-    &__item {
-        height: 50px;	
-        width: 100%;	
-        font-family: "Open Sans";	
-        font-size: 14px;	
-        font-weight: 600;	
-        line-height: 50px;
-        padding-left: 20px;
-        margin-bottom: 27px;
-        border-left: 5px solid transparent;
-        
-        a {
-            color: #FFFFFF;
-            text-decoration: none;
-        }
+@import "colors";
 
-        &--active {
-            border-color: #449BF3;
-            a {
-                color: #449BF3;
-            }
-        }
+.NavigationList {
+
+  &__item {
+    height: 50px;	
+    width: 100%;
+    margin-bottom: 27px;
+    padding-left: 20px;
+    border-left: 5px solid transparent;	
+    font-size: 14px;	
+    font-weight: 600;	
+    line-height: 50px;
+        
+    a {
+      color: $white;
+      text-decoration: none;
     }
+
+    &--active {
+      border-color: $cornflower-blue;
+
+      a {
+        color: $cornflower-blue;
+      }
+    }
+  }
 }

@@ -1,8 +1,6 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
 
-import './Label.scss'
-
 interface LabelProps {
   readonly children?: any
   readonly className?: string

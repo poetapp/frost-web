@@ -1,20 +1,21 @@
-.Logout {
-    &__text {
-        color: #2E323B;	
-        font-family: "Open Sans";	
-        font-size: 12px;	
-        line-height: 17px;
-        margin: 0px;
-    }
+@import "colors";
 
-    &__button {
-        cursor: pointer;
-        color: #DD4D5E;	
-        font-family: "Open Sans";	
-        font-size: 12px;	
-        font-weight: 600;	
-        line-height: 17px;
-        border: none;
-        background-color: transparent;
-    }
+.Logout {
+
+  &__text {
+    margin: 0px;	
+    font-size: 12px;	
+    line-height: 17px;
+    color: $ebony;
+  }
+
+  &__button {
+    border: none;	
+    font-size: 12px;	
+    font-weight: 600;	
+    line-height: 17px;
+    background-color: $transparent;
+    color: $mandy;
+    cursor: pointer;
+  }
 }

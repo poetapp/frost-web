@@ -1,0 +1,27 @@
+@import "fonts";
+@import "colors";
+
+html, body, #app {
+  height: 100%;
+  background-color: $ghost-white;
+  min-width: 1080px;
+}
+
+body, html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 1080px;
+}
+
+body, button, input, optgroup, select, textarea {
+  font-family: $open-sans;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.toast {
+  padding: 15px;
+}

@@ -1,20 +1,24 @@
+@import "colors";
+
 .FooterHome {
-    background-color: #FFF;
-    height: 90px;
-    width: 100%;
-    &__container {
-        max-width: 960px;
-        margin: auto;
-        height: 100%;
-        &__leftContent {
-            width: 100px;
-        }
-        &__rightContent {
-            color: #2D2D2D;
-            font-family: "Open Sans";
-            font-size: 14px;
-            line-height: 22px;
-            text-align: center;
-        }
+  height: 90px;
+  width: 100%;
+  background-color: $white;
+
+  &__container {
+    height: 100%;
+    margin: auto;
+    max-width: 960px;
+
+    &__leftContent {
+      width: 100px;
     }
+
+    &__rightContent {
+      text-align: center;
+      font-size: 14px;
+      line-height: 22px;
+      color: $night-rider2;
+    }
+  }
 }

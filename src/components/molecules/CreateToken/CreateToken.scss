@@ -1,44 +1,48 @@
-.CreateToken {
-    padding-top: 50px;
-    padding-left: 140px;
-    &__header {
-        &__title {
-            color: #393534;
-            font-family: "Open Sans";
-            font-size: 24px;
-            font-weight: 600;
-            line-height: 33px;
-            margin-bottom: 14px;
-        }
-        &__description {
-            color: #2D2D2D;
-            font-family: "Open Sans";
-            font-size: 10px;
-            line-height: 19px;
-            margin-bottom: 32px;
-        }
-    }
-    &__text {
-        &__title {
-            color: #393534;
-            font-family: "Open Sans";
-            font-size: 14px;
-            font-weight: bold;
-            line-height: 19px;
-            margin-bottom: 10px;
-        }
+@import "colors";
 
-        &__description {
-            color: #2D2D2D;
-            font-family: "Open Sans";
-            font-size: 10px;
-            line-height: 19px;
-            margin-bottom: 14px;
-        }
+.CreateToken {
+  padding-left: 140px;
+  padding-top: 50px;
+
+  &__header {
+
+    &__title {
+      margin-bottom: 14px;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 33px;
+      color: $gondola;
     }
-    &__button {
-        display: none;
-        margin-top: 37px;
-        width: 140px;
+
+    &__description {
+      margin-bottom: 32px;
+      font-size: 10px;
+      line-height: 19px;
+      color: $night-rider2;
     }
+  }
+
+  &__text {
+
+    &__title {
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 19px;
+      color: $gondola;
+    }
+
+    &__description {
+      margin-bottom: 14px;
+      font-size: 10px;
+      line-height: 19px;
+      color: $night-rider2;
+    }
+  }
+
+  &__button {
+    display: none;
+    width: 140px;
+    margin-top: 37px;
+  }
 }
