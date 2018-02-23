@@ -4,7 +4,7 @@ import * as React from 'react'
 interface LabelProps {
   readonly children?: any
   readonly className?: string
-  readonly text?: string
+  readonly text?: any
 }
 
 export const Label = function render(props: LabelProps) {

@@ -1,5 +1,6 @@
 import { ChangePasswordToken } from './ChangePasswordToken/ChangePasswordToken.loader'
 import { Dashboard } from './Dashboard/Dashboard.loader'
+import { Disclaimer } from './Disclaimer/Disclaimer.loader'
 import { ForgotPassword } from './ForgotPassword/ForgotPassword.loader'
 import { Home } from './Home/Home.loader'
 import { Privacy } from './Privacy/Privacy.loader'
@@ -15,5 +16,6 @@ export const pagesLoaders = [
   ForgotPassword,
   ChangePasswordToken,
   VerifiedAccount,
-  Privacy
+  Privacy,
+  Disclaimer
 ]

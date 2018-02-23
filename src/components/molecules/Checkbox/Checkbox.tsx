@@ -7,7 +7,7 @@ interface CheckboxProps {
   readonly name: string
   readonly className?: string
   readonly required?: boolean
-  readonly text?: string
+  readonly text?: any
 }
 
 export const Checkbox = (props: CheckboxProps) => (

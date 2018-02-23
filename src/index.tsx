@@ -22,7 +22,8 @@ async function init() {
       '/forgot-password',
       '/forgot-password/change-password',
       '/verified-account',
-      '/privacy'
+      '/privacy',
+      '/disclaimer'
     ]
     const notNeedOuath = omitRoutes.includes(pathname)
     if (['/login', '/login/'].includes(pathname) && user.token !== '')
