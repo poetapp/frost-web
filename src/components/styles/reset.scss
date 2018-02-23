@@ -13,7 +13,7 @@ body, html {
   min-width: 1080px;
 }
 
-body {
+body, button, input, optgroup, select, textarea {
   font-family: $open-sans;
 }
 
