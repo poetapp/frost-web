@@ -1,0 +1,12 @@
+@import "colors";
+
+
+.Privacy {
+  background-color: $white;
+
+  &__text {
+    margin: auto;
+    padding-top: 100px;
+    max-width: 980px;
+  } 
+}

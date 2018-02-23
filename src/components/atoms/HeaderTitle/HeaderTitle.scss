@@ -1,0 +1,11 @@
+.HeaderTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 190px;
+  background-image: linear-gradient(180deg, hsla(0, 0%, 94%, .5), hsla(0, 0%, 94%, .5));
+
+  &__title {
+    font-size: 14px;
+  }
+}
