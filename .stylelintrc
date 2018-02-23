@@ -7,7 +7,7 @@
     ],
     "rules": {
         "indentation": 2,
-        "max-empty-lines": 2,
+        "max-empty-lines": 3,
         "function-blacklist": ["calc"],
         "property-blacklist": ["float"],
         "declaration-block-no-shorthand-property-overrides": true,
