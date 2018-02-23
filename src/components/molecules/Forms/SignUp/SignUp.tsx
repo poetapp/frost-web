@@ -118,7 +118,6 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
           name={'testnet'}
           text={
             <span>
-              {' '}
               I have read the legal <Link to={'/disclaimer'}>disclaimer</Link>
             </span>
           }
