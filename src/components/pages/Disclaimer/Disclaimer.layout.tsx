@@ -58,7 +58,12 @@ export class Disclaimer extends React.Component<any, undefined> {
               <img src={Images.PoetBlack} />
             </a>
           }
-          rightContent={'© 2018 POET TECHNOLOGY LIMITED'}
+          rightContent={
+            <span>
+              © 2018 POET TECHNOLOGY LIMITED |{' '}
+              <Link to={'/privacy'}>PRIVACY</Link>
+            </span>
+          }
         />
       </main>
     )
