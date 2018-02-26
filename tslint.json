@@ -13,7 +13,7 @@
     "no-namespace": [false],
     "indent": [true, "spaces", 2],
     "curly": [true, "as-needed"],
-    "max-line-length": [true, 140],
+    "max-line-length": [true, 120],
     "trailing-comma": false,
     "arrow-parens": false,
     "no-empty-interface": false,
