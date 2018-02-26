@@ -1,3 +1,5 @@
+@import 'colors';
+
 .HeaderTitle {
   display: flex;
   align-items: center;
@@ -7,5 +9,9 @@
 
   &__title {
     font-size: 14px;
+    font-weight: bold;
+    color: $nero;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 }
