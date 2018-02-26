@@ -1,5 +1,6 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import './TextPrivacy.scss'
 
 interface TextPrivacyProps {
   readonly className?: string
