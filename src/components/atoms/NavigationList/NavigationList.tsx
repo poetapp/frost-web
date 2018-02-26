@@ -1,6 +1,7 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
 import { Link } from 'react-router'
+import { ClassNameProps } from '../../../interfaces/Props'
 import './NavigationList.scss'
 
 interface Linked {
@@ -8,8 +9,7 @@ interface Linked {
   readonly link: string
   readonly external?: boolean
 }
-interface NavigationListProps {
-  readonly className?: string
+interface NavigationListProps extends ClassNameProps {
   readonly links?: Linked[]
   readonly pathActive: string
 }

@@ -114,15 +114,9 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
           maxLength={30}
           required
         />
-        <Checkbox
-          name={'testnet'}
-          text={
-            <span>
-              I have read the legal <Link to={'/disclaimer'}>disclaimer</Link>
-            </span>
-          }
-          required
-        />
+        <Checkbox name={'testnet'} required>
+          I have read the legal <Link to={'/disclaimer'}>disclaimer</Link>
+        </Checkbox>
       </Form>
     )
   }

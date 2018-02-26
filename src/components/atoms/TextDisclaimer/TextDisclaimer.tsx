@@ -1,9 +1,8 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 
-interface TextDisclaimerProps {
-  readonly className?: string
-}
+interface TextDisclaimerProps extends ClassNameProps {}
 
 export const TextDisclaimer = (props: TextDisclaimerProps) => (
   <div className={classNames('TextDisclaimer', props.className)}>

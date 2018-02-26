@@ -1,11 +1,11 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 import './CopyableText.scss'
 
-export interface CopyableTextProps {
+export interface CopyableTextProps extends ClassNameProps {
   readonly text: string
   readonly textClickable?: boolean
-  readonly className?: string
 }
 
 interface CopyableTextState {

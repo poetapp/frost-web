@@ -1,10 +1,9 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 import './TextPrivacy.scss'
 
-interface TextPrivacyProps {
-  readonly className?: string
-}
+interface TextPrivacyProps extends ClassNameProps {}
 
 export const TextPrivacy = (props: TextPrivacyProps) => (
   <div className={classNames('TextPrivacy', props.className)}>

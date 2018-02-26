@@ -1,13 +1,12 @@
 import * as React from 'react'
-
+import { ClassNameProps } from '../../../interfaces/Props'
 import { CopyableText } from '../CopyableText/CopyableText'
 
 import './Hash.scss'
 
-interface HashProps {
+interface HashProps extends ClassNameProps {
   readonly children?: any
   readonly textClickable?: boolean
-  readonly className?: string
 }
 
 export const Hash = (props: HashProps) => (

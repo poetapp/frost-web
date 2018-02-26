@@ -1,9 +1,9 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 import './Logout.scss'
 
-interface LogoutProps {
-  readonly className?: string
+interface LogoutProps extends ClassNameProps {
   readonly email?: string
   readonly onLogout?: () => void
 }
