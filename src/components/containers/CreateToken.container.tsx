@@ -1,0 +1,56 @@
+import * as React from 'react'
+import { connect } from 'react-redux'
+import { Action } from 'redux'
+import { Actions } from '../../actions'
+import { FrostState, StatusService, User } from '../../interfaces/Props'
+import { CreateToken } from '../molecules/CreateToken/CreateToken'
+
+interface DataAction {
+  token: string
+}
+
+interface CreateTokenContainerProps {
+  readonly user: User
+  readonly sendEmailVerifiedAccount: StatusService
+  readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
+}
+
+const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
+  user: state.user,
+  sendEmailVerifiedAccount: state.sendEmailVerifiedAccount
+})
+
+const mapDispatch = {
+  onSendEmailVerifiedAccount:
+    Actions.SendEmailVerifiedAccount.onSendEmailVerifiedAccount
+}
+
+export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
+  class extends React.Component<CreateTokenContainerProps, undefined> {
+    constructor() {
+      super()
+      this.sendEmailVarifiedAccount = this.sendEmailVarifiedAccount.bind(this)
+    }
+
+    sendEmailVarifiedAccount() {
+      const { onSendEmailVerifiedAccount, user } = this.props
+      const { token } = user
+      onSendEmailVerifiedAccount({ token })
+    }
+
+    render() {
+      const { user, sendEmailVerifiedAccount } = this.props
+      const { profile } = user
+      const { retryWait } = sendEmailVerifiedAccount
+
+      return (
+        <CreateToken
+          boxToken={profile.apiToken}
+          showVerifiedAccount={profile.verified}
+          sendEmailVarifiedAccount={this.sendEmailVarifiedAccount}
+          retryWait={retryWait}
+        />
+      )
+    }
+  }
+)
