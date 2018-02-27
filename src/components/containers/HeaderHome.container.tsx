@@ -1,26 +1,22 @@
-import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { FrostState, User } from '../../interfaces/Props'
 import { HeaderHome } from '../molecules/HeaderHome/HeaderHome'
 
-class Header extends React.Component<any, undefined> {
-  static contextTypes = {
-    store: PropTypes.object
-  }
-
-  constructor() {
-    super()
-  }
-
-  render() {
-    const { user } = this.props
-
-    return <HeaderHome isLogged={user.token ? true : false} />
-  }
+interface HeaderHomeContainerProps {
+  readonly user: User
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: FrostState): HeaderHomeContainerProps => ({
   user: state.user
 })
 
-export const HeaderHomeContainer = connect(mapStateToProps)(Header)
+export const HeaderHomeContainer = connect(mapStateToProps)(
+  class extends React.Component<HeaderHomeContainerProps, undefined> {
+    render() {
+      const { user } = this.props
+
+      return <HeaderHome isLogged={!!user.token} />
+    }
+  }
+)
