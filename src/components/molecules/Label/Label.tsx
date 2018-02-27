@@ -3,7 +3,7 @@ import * as React from 'react'
 import { ClassNameProps } from '../../../interfaces/Props'
 
 interface LabelProps extends ClassNameProps {
-  readonly children?: any
+  readonly children?: JSX.Element
   readonly text?: any
 }
 

@@ -3,7 +3,7 @@ import { ClassNameProps } from '../../../interfaces/Props'
 const { ToastContainer } = require('react-toastify')
 
 interface ToastPageProps extends ClassNameProps {
-  readonly children?: any
+  readonly children?: JSX.Element
 }
 
 export const ToastPage = (props: ToastPageProps) => (

@@ -4,7 +4,7 @@ import './Root.scss'
 import './styles/reset.scss'
 
 interface RootLayoutProps {
-  readonly children?: any
+  readonly children?: JSX.Element
 }
 
 export const Layout = function render(props: RootLayoutProps) {

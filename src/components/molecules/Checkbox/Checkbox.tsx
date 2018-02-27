@@ -6,7 +6,7 @@ import './Checkbox.scss'
 interface CheckboxProps {
   readonly name: string
   readonly required?: boolean
-  readonly children?: any
+  readonly children?: JSX.Element
 }
 
 export const Checkbox = (props: CheckboxProps) => (

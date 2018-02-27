@@ -5,7 +5,7 @@ import { CopyableText } from '../CopyableText/CopyableText'
 import './Hash.scss'
 
 interface HashProps extends ClassNameProps {
-  readonly children?: any
+  readonly children?: JSX.Element
   readonly textClickable?: boolean
 }
 
