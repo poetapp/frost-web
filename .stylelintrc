@@ -44,6 +44,7 @@
         "scss/selector-no-redundant-nesting-selector": true,
         "declaration-empty-line-before": "never",
         "at-rule-empty-line-before": "never",
+        "block-closing-brace-empty-line-before": "never",
         "order/order": [
 			"custom-properties",
 			"declarations"
