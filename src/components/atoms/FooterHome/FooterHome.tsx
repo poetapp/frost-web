@@ -5,10 +5,7 @@ import { Images } from '../../../images/Images'
 import { ClassNameProps } from '../../../interfaces/Props'
 import './FooterHome.scss'
 
-interface FooterHomeProps extends ClassNameProps {
-  readonly leftContent?: any
-  readonly rightContent?: any
-}
+interface FooterHomeProps extends ClassNameProps {}
 
 export const FooterHome = (props: FooterHomeProps) => (
   <footer className={classNames('FooterHome', props.className)}>
