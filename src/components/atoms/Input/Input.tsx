@@ -1,11 +1,11 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 import './Input.scss'
 
-interface InputProps {
+interface InputProps extends ClassNameProps {
   readonly name: string
   readonly type: string
-  readonly className?: string
   readonly placeholder?: string
   readonly required?: boolean
   readonly minLength?: number
@@ -26,8 +26,8 @@ export class Input extends React.Component<InputProps, undefined> {
     this.onFocus = this.onFocus.bind(this)
   }
 
-  onChange(event: any, onChange: any) {
-    event.preventDefault()
+  onChange(event: any, onChange: any, props: InputProps) {
+    if (props.type !== 'checkbox') event.preventDefault()
     const form = event.target.form
     const data = new FormData(form)
     const currentData: any = {}
@@ -100,7 +100,7 @@ export class Input extends React.Component<InputProps, undefined> {
         required={required}
         placeholder={placeholder}
         className={classNames('Input', className)}
-        onChange={e => this.onChange(e, onChange)}
+        onChange={e => this.onChange(e, onChange, this.props)}
         onKeyUp={e => this.onKeyUp(e, onKeyUp)}
         onFocus={e => this.onKeyUp(e, onFocus)}
         {...(maxLength ? { maxLength } : {})}

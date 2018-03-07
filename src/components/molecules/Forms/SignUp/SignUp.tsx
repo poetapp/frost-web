@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from 'react-router'
 import { Input } from '../../../atoms/Input/Input'
 import { InputPassword } from '../../../atoms/InputPassword/InputPassword'
 import { Checkbox } from '../../../molecules/Checkbox/Checkbox'
@@ -113,11 +114,9 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
           maxLength={30}
           required
         />
-        <Checkbox
-          name={'testnet'}
-          text={'I understand that Frost App is in beta and in testnet'}
-          required
-        />
+        <Checkbox name={'testnet'} required>
+          I have read the legal <Link to={'/disclaimer'}>disclaimer</Link>
+        </Checkbox>
       </Form>
     )
   }

@@ -3,9 +3,13 @@
 .FooterHome {
   height: 90px;
   width: 100%;
+  margin-top: 75px;
   background-color: $white;
 
   &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 100%;
     margin: auto;
     max-width: 960px;

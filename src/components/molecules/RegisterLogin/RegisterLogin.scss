@@ -1,17 +1,17 @@
 @import "colors";
 
-.VerifiedAccount {
+.RegisterLogin {
   margin: auto;
   max-width: 960px;
-    
+
   &__LogoFrost {
     margin-top: 102px;
   }
 
   &__title {
     margin-bottom: 72px;
-    margin-top: 40px;	
-    font-size: 20px;	
+    margin-top: 40px;
+    font-size: 20px;
     line-height: 29px;
     color: $night-rider;
   }
@@ -25,7 +25,7 @@
     opacity: 0.21;
   }
 
-  &__signUp {
+  &__signIn {
     padding-left: 0px;
     padding-right: 30px;
   }

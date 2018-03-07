@@ -10,7 +10,7 @@
     opacity: 0;
     pointer-events: none;
   }
-  
+
   .tooltip {
     position: fixed;
     padding: 4px;
@@ -26,7 +26,6 @@
     opacity: 1;
   }
 }
-
 
 .copyable-hash-no-button {
   @extend .copyable-hash;

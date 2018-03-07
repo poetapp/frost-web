@@ -1,10 +1,10 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 
-interface LabelProps {
-  readonly children?: any
-  readonly className?: string
-  readonly text?: string
+interface LabelProps extends ClassNameProps {
+  readonly children?: JSX.Element
+  readonly text?: any
 }
 
 export const Label = function render(props: LabelProps) {

@@ -5,13 +5,12 @@ import './Checkbox.scss'
 
 interface CheckboxProps {
   readonly name: string
-  readonly className?: string
   readonly required?: boolean
-  readonly text?: string
+  readonly children?: JSX.Element
 }
 
 export const Checkbox = (props: CheckboxProps) => (
-  <Label className={'Checkbox'} text={props.text}>
+  <Label className={'Checkbox'} text={props.children}>
     <Input
       name={props.name}
       className={'Checkbox__Input'}

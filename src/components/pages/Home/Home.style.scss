@@ -5,37 +5,13 @@
 .Home {
   background-color: $ghost-white;
 
-  &__header {
-    height: 80px;
-    width: 100%;
-    border: 1px solid $black-russian2;
-    background-color: $black-rock2;
-
-    &__box {
-      height: 100%;
-      margin: auto;
-      max-width: 960px;
-
-      &__left {
-        height: 100%;
-      }
-
-      &__logo {
-        width: 140px;
-        margin-right: 40px;
-      }
-
-      &__button {
-        width: 137px;
-      }
-    }
-  }
-
   &__cover-page {
     height: 697px;
     background-color: $black-rock;
 
     &__box {
+      display: flex;
+      justify-content: space-between;
       height: 100%;
       margin: auto;
       padding-top: 104px;
@@ -74,6 +50,10 @@
         color: $cornflower-blue;
       }
     }
+
+    &__buttons {
+      display: flex;
+    }
   }
 
   &__what-frost {
@@ -98,6 +78,10 @@
         font-size: 20px;
         line-height: 29px;
         color: $dim-gray;
+      }
+
+      &__container-box-simple {
+        display: flex;
       }
 
       &__simple {
@@ -131,9 +115,5 @@
         }
       }
     }
-  }
-
-  &__footer {
-    margin-top: 75px;
   }
 }

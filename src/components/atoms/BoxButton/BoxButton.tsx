@@ -1,10 +1,10 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 import { Button } from '../Button/Button'
 import './BoxButton.scss'
 
-interface BoxButtonProps {
-  readonly className?: string
+interface BoxButtonProps extends ClassNameProps {
   readonly title?: string
   readonly description?: string
   readonly buttonText?: string

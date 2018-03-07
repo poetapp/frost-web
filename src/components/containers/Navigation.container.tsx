@@ -1,7 +1,7 @@
-import { NavigationList } from '../atoms/NavigationList/NavigationList'
-
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { FrostState, Router } from '../../interfaces/Props'
+import { NavigationList } from '../atoms/NavigationList/NavigationList'
 
 const links = [
   {
@@ -19,26 +19,20 @@ const links = [
   }
 ]
 
-export class Navigation extends React.Component<any, undefined> {
-  constructor() {
-    super()
-  }
-
-  render() {
-    const { router } = this.props
-
-    return (
-      <NavigationList
-        className={'Dashboard__nav__navigation-list'}
-        links={links}
-        pathActive={router.currentPath}
-      />
-    )
-  }
+interface NavigationContainerProps {
+  readonly router: Router
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: FrostState): NavigationContainerProps => ({
   router: state.router
 })
 
-export const NavigationContainer = connect(mapStateToProps)(Navigation)
+export const NavigationContainer = connect(mapStateToProps)(
+  class extends React.Component<NavigationContainerProps, undefined> {
+    render() {
+      const { router } = this.props
+
+      return <NavigationList links={links} pathActive={router.currentPath} />
+    }
+  }
+)

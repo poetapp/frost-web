@@ -7,7 +7,8 @@
     ],
     "rules": {
         "indentation": 2,
-        "max-empty-lines": 2,
+        "max-empty-lines": 1,
+        "no-eol-whitespace": true,
         "function-blacklist": ["calc"],
         "property-blacklist": ["float"],
         "declaration-block-no-shorthand-property-overrides": true,
@@ -44,6 +45,7 @@
         "scss/selector-no-redundant-nesting-selector": true,
         "declaration-empty-line-before": "never",
         "at-rule-empty-line-before": "never",
+        "block-closing-brace-empty-line-before": "never",
         "order/order": [
 			"custom-properties",
 			"declarations"

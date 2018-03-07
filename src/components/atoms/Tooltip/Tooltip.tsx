@@ -1,11 +1,11 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 import './Tooltip.scss'
 
-interface TootipProps {
+interface TootipProps extends ClassNameProps {
   readonly element?: any
   readonly tooltipText?: string
-  readonly className?: string
 }
 
 export const Tootip = (props: TootipProps) => (

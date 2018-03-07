@@ -1,12 +1,11 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
 import { Images } from '../../../images/Images'
+import { ClassNameProps } from '../../../interfaces/Props'
 import { Tootip } from '../Tooltip/Tooltip'
 import './Toggle.scss'
 
-interface ToggleProps {
-  readonly className?: string
-}
+interface ToggleProps extends ClassNameProps {}
 
 export const Toggle = (props: ToggleProps) => (
   <div

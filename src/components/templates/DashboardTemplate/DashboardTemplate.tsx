@@ -7,8 +7,7 @@ import { Toggle } from '../../atoms/Toggle/Toggle'
 import './DashboardTemplate.scss'
 
 interface DashboardTemplatetProps {
-  readonly className?: string
-  readonly children?: any
+  readonly children?: JSX.Element
   readonly email?: string
   readonly onLogout?: () => void
   readonly navigation: any

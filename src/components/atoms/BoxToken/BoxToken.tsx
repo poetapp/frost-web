@@ -1,10 +1,10 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+import { ClassNameProps } from '../../../interfaces/Props'
 import { Hash } from '../../atoms/Hash/Hash'
 import './BoxToken.scss'
 
-interface BoxTokenProps {
-  readonly className?: string
+interface BoxTokenProps extends ClassNameProps {
   readonly apiToken: string
   readonly dateCreated: string
 }
