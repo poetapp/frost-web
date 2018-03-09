@@ -14,6 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tslint": "tslint -p ./tsconfig.json --fix",
     "tslint:check": "tslint-config-prettier-check ./tslint.json",
+    "tslint:compile-rules": "tsc ./tslint-rules/src/*.ts --outDir ./tslint-rules/dist",
     "stylelint": "stylelint './src/**/*.scss' --fix",
     "precommit": "lint-staged"
   },
