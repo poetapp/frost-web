@@ -4,7 +4,7 @@
         "tslint-rules/src/**/*.ts"
       ]
   },
-  "rulesDirectory": ["tslint-plugin-prettier", "tslint-rules/dist"],
+  "rulesDirectory": ["tslint-plugin-prettier", "tslint-rules/rules"],
   "extends": [
     "tslint:recommended",
     "tslint-config-prettier",
