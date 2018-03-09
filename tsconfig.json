@@ -13,6 +13,7 @@
     "experimentalDecorators": true
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "./tslint-rules/**/*"
   ]
 }

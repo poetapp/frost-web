@@ -1,4 +1,9 @@
 {
+  "linterOptions": {
+      "exclude": [
+        "./tslint-rules/src/**/*.ts"
+      ]
+  },
   "rulesDirectory": ["tslint-plugin-prettier", "./tslint-rules/dist"],
   "extends": [
     "tslint:recommended",
