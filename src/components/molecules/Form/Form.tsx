@@ -1,6 +1,6 @@
+import { Button } from 'components/atoms/Button/Button'
+import 'components/molecules/Form/Form.scss'
 import * as React from 'react'
-import { Button } from '../../atoms/Button/Button'
-import './Form.scss'
 require('formdata-polyfill')
 interface FormProps {
   readonly legend: string

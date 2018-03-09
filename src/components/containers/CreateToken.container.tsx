@@ -1,9 +1,9 @@
+import { Actions } from 'actions'
+import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
+import { FrostState, StatusService, User } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
-import { Actions } from '../../actions'
-import { FrostState, StatusService, User } from '../../interfaces/Props'
-import { CreateToken } from '../molecules/CreateToken/CreateToken'
 
 interface DataAction {
   token: string

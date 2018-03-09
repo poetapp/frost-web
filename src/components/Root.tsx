@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import './Root.scss'
-import './styles/reset.scss'
+import 'components/Root.scss'
+import 'components/styles/reset.scss'
 
 interface RootLayoutProps {
   readonly children?: JSX.Element

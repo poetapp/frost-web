@@ -1,7 +1,7 @@
+import { HeaderHome } from 'components/molecules/HeaderHome/HeaderHome'
+import { FrostState, User } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { FrostState, User } from '../../interfaces/Props'
-import { HeaderHome } from '../molecules/HeaderHome/HeaderHome'
 
 interface HeaderHomeContainerProps {
   readonly user: User

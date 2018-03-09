@@ -1,9 +1,9 @@
+import { FooterHome } from 'components/atoms/FooterHome/FooterHome'
+import { HeaderTitle } from 'components/atoms/HeaderTitle/HeaderTitle'
+import { TextPrivacy } from 'components/atoms/TextPrivacy/TextPrivacy'
+import { HeaderHomeContainer } from 'components/containers/HeaderHome.container'
+import 'components/pages/Privacy/Privacy.style.scss'
 import * as React from 'react'
-import { FooterHome } from '../../atoms/FooterHome/FooterHome'
-import { HeaderTitle } from '../../atoms/HeaderTitle/HeaderTitle'
-import { TextPrivacy } from '../../atoms/TextPrivacy/TextPrivacy'
-import { HeaderHomeContainer } from '../../containers/HeaderHome.container'
-import './Privacy.style.scss'
 
 export const PrivacyLayout = () => (
   <main className={'Privacy'}>

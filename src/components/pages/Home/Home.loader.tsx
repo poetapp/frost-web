@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Route } from 'react-router'
 
-import { PageLoader, ReducerDescription } from '../../PageLoader'
-import { HomeLayout } from './Home.layout'
+import { PageLoader, ReducerDescription } from 'components/PageLoader'
+import { HomeLayout } from 'components/pages/Home/Home.layout'
 
 export class Home extends PageLoader<object, object> {
   component = HomeLayout

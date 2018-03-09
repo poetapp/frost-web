@@ -1,9 +1,9 @@
+import { Input } from 'components/atoms/Input/Input'
+import { InputPassword } from 'components/atoms/InputPassword/InputPassword'
+import { Checkbox } from 'components/molecules/Checkbox/Checkbox'
+import { Form } from 'components/molecules/Form/Form'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { Input } from '../../../atoms/Input/Input'
-import { InputPassword } from '../../../atoms/InputPassword/InputPassword'
-import { Checkbox } from '../../../molecules/Checkbox/Checkbox'
-import { Form } from '../../../molecules/Form/Form'
 
 interface SignUpProps {
   readonly onSubmit: (event: any) => any

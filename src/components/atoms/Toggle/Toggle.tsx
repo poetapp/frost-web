@@ -1,9 +1,9 @@
 import * as classNames from 'classnames'
+import 'components/atoms/Toggle/Toggle.scss'
+import { Tootip } from 'components/atoms/Tooltip/Tooltip'
+import { Images } from 'images/Images'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
-import { Images } from '../../../images/Images'
-import { ClassNameProps } from '../../../interfaces/Props'
-import { Tootip } from '../Tooltip/Tooltip'
-import './Toggle.scss'
 
 interface ToggleProps extends ClassNameProps {}
 

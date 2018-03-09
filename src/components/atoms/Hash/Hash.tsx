@@ -1,8 +1,8 @@
+import { CopyableText } from 'components/atoms/CopyableText/CopyableText'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
-import { ClassNameProps } from '../../../interfaces/Props'
-import { CopyableText } from '../CopyableText/CopyableText'
 
-import './Hash.scss'
+import 'components/atoms/Hash/Hash.scss'
 
 interface HashProps extends ClassNameProps {
   readonly children?: JSX.Element

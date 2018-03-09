@@ -1,5 +1,5 @@
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
-import { ClassNameProps } from '../../../interfaces/Props'
 const { ToastContainer } = require('react-toastify')
 
 interface ToastPageProps extends ClassNameProps {

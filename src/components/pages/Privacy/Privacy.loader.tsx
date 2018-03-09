@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Route } from 'react-router'
 
-import { PageLoader, ReducerDescription } from '../../PageLoader'
-import { PrivacyLayout } from './Privacy.layout'
+import { PageLoader, ReducerDescription } from 'components/PageLoader'
+import { PrivacyLayout } from 'components/pages/Privacy/Privacy.layout'
 
 export class Privacy extends PageLoader<object, object> {
   component = PrivacyLayout

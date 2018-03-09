@@ -1,8 +1,8 @@
+import { BoxButton } from 'components/atoms/BoxButton/BoxButton'
+import 'components/molecules/PanelOptions/PanelOptions.scss'
+import { Images } from 'images/Images'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { Images } from '../../../images/Images'
-import { BoxButton } from '../../atoms/BoxButton/BoxButton'
-import './PanelOptions.scss'
 
 interface PanelOptionsProps {}
 

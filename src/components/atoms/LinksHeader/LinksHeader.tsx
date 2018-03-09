@@ -1,5 +1,5 @@
+import 'components/atoms/LinksHeader/LinksHeader.scss'
 import * as React from 'react'
-import './LinksHeader.scss'
 
 interface LinksHeaderProps {}
 

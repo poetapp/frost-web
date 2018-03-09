@@ -1,9 +1,9 @@
 import * as classNames from 'classnames'
+import 'components/atoms/FooterHome/FooterHome.scss'
+import { Images } from 'images/Images'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { Images } from '../../../images/Images'
-import { ClassNameProps } from '../../../interfaces/Props'
-import './FooterHome.scss'
 
 interface FooterHomeProps extends ClassNameProps {}
 

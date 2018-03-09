@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { Link } from 'react-router'
 
-import { StatusService } from '../../../interfaces/Props'
-import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
-import { ToastPage } from '../../atoms/ToastPage/ToastPage'
-import { SignIn } from '../../molecules/Forms/SignIn/SignIn'
-import { SignUp } from '../../molecules/Forms/SignUp/SignUp'
+import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
+import { SignIn } from 'components/molecules/Forms/SignIn/SignIn'
+import { SignUp } from 'components/molecules/Forms/SignUp/SignUp'
+import { StatusService } from 'interfaces/Props'
 
-import './RegisterLogin.scss'
+import 'components/molecules/RegisterLogin/RegisterLogin.scss'
 
 interface RegisterLoginProps {
   readonly onSubmitSignUp?: (data: object) => void

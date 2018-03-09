@@ -1,8 +1,8 @@
 import { Frost } from '@poetapp/frost-client'
+import { Actions } from 'actions/index'
 import { browserHistory } from 'react-router'
 import { delay } from 'redux-saga'
 import { call, takeLatest, put } from 'redux-saga/effects'
-import { Actions } from '../actions/index'
 
 async function signUpFrost(data: { email: string; password: string }) {
   const { email, password } = data

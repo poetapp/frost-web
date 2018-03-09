@@ -1,9 +1,9 @@
+import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
-import { ToastPage } from '../../atoms/ToastPage/ToastPage'
 
-import './VerifiedAccount.scss'
+import 'components/molecules/VerifiedAccount/VerifiedAccount.scss'
 
 export const VerifiedAccount = () => (
   <ToastPage>

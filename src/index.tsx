@@ -3,9 +3,9 @@ import * as ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 
-import { Actions } from './actions'
-import { Layout } from './components/Root'
-import { createPoetStore } from './store'
+import { Actions } from 'actions'
+import { Layout } from 'components/Root'
+import { createPoetStore } from 'store'
 
 async function init() {
   const { store, pages } = await createPoetStore()

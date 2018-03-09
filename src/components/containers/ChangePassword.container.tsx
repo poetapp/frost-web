@@ -1,10 +1,10 @@
+import { Actions } from 'actions'
+import { ChangePassword } from 'components/molecules/Forms/ChangePassword/ChangePassword'
+import { FrostState, StatusService, Router } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { Action } from 'redux'
-import { Actions } from '../../actions'
-import { FrostState, StatusService, Router } from '../../interfaces/Props'
-import { ChangePassword } from '../molecules/Forms/ChangePassword/ChangePassword'
 
 interface DataForm {
   password: string

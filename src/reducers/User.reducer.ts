@@ -1,4 +1,4 @@
-import { Actions } from '../actions/index'
+import { Actions } from 'actions/index'
 const { REHYDRATE } = require('redux-persist/constants')
 
 const defaultState = {

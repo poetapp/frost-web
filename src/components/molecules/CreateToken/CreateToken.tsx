@@ -1,9 +1,9 @@
+import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
+import { Button } from 'components/atoms/Button/Button'
+import 'components/molecules/CreateToken/CreateToken.scss'
+import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
 import * as moment from 'moment'
 import * as React from 'react'
-import { BoxToken } from '../../atoms/BoxToken/BoxToken'
-import { Button } from '../../atoms/Button/Button'
-import { LegendVerifiedAccount } from '../LegendVerifiedAccount/LegendVerifiedAccount'
-import './CreateToken.scss'
 
 interface CreateTokenProps {
   boxToken: { apiToken: string; dateCreated: string }

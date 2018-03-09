@@ -1,7 +1,7 @@
 import * as classNames from 'classnames'
+import 'components/atoms/CopyableText/CopyableText.scss'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
-import { ClassNameProps } from '../../../interfaces/Props'
-import './CopyableText.scss'
 
 export interface CopyableTextProps extends ClassNameProps {
   readonly text: string

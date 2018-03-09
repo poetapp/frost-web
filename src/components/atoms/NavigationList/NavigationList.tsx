@@ -1,8 +1,8 @@
 import * as classNames from 'classnames'
+import 'components/atoms/NavigationList/NavigationList.scss'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { ClassNameProps } from '../../../interfaces/Props'
-import './NavigationList.scss'
 
 interface Linked {
   readonly label: string

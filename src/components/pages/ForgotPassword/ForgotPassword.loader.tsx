@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Route } from 'react-router'
 
-import { PageLoader, ReducerDescription } from '../../PageLoader'
-import { ForgotPasswordLayout } from './ForgotPassword.layout'
+import { PageLoader, ReducerDescription } from 'components/PageLoader'
+import { ForgotPasswordLayout } from 'components/pages/ForgotPassword/ForgotPassword.layout'
 
 export class ForgotPassword extends PageLoader<object, object> {
   component = ForgotPasswordLayout

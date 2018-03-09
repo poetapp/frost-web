@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Route } from 'react-router'
 
-import { PageLoader, ReducerDescription } from '../../PageLoader'
-import { ChangePasswordTokenLayout } from './ChangePasswordToken.layout'
+import { PageLoader, ReducerDescription } from 'components/PageLoader'
+import { ChangePasswordTokenLayout } from 'components/pages/ChangePasswordToken/ChangePasswordToken.layout'
 
 export class ChangePasswordToken extends PageLoader<object, object> {
   component = ChangePasswordTokenLayout
