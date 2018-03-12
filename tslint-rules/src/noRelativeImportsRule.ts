@@ -51,7 +51,8 @@ class NoRelativeImportsRuleWalker extends ErrorTolerantWalker {
     private isModuleExpressionValid(expression: ts.Expression): boolean {
         if (expression.kind === ts.SyntaxKind.StringLiteral) {
             const moduleName: ts.StringLiteral = <ts.StringLiteral>expression;
-            if (moduleName.text[0] === '.') {
+            const subText = moduleName.text.substring(0, 2);
+            if (subText === '..') {
                 return false;
             }
         }

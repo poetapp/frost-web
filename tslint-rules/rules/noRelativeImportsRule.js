@@ -66,7 +66,8 @@ var NoRelativeImportsRuleWalker = (function (_super) {
     NoRelativeImportsRuleWalker.prototype.isModuleExpressionValid = function (expression) {
         if (expression.kind === ts.SyntaxKind.StringLiteral) {
             var moduleName = expression;
-            if (moduleName.text[0] === '.') {
+            var subText = moduleName.text.substring(0, 2);
+            if (subText === '..') {
                 return false;
             }
         }
