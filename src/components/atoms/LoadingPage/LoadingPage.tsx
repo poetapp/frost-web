@@ -1,9 +1,9 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
 const ProgressBar = require('react-progress-bar-plus')
-import 'components/atoms/LoadingPage/LoadingPage.scss'
 import { ClassNameProps } from 'interfaces/Props'
 import 'react-progress-bar-plus/lib/progress-bar.css'
+import './LoadingPage.scss'
 
 interface LoadingPageProps extends ClassNameProps {
   readonly loading?: boolean

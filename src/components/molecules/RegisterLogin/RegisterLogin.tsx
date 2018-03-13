@@ -7,7 +7,7 @@ import { SignIn } from 'components/molecules/Forms/SignIn/SignIn'
 import { SignUp } from 'components/molecules/Forms/SignUp/SignUp'
 import { StatusService } from 'interfaces/Props'
 
-import 'components/molecules/RegisterLogin/RegisterLogin.scss'
+import './RegisterLogin.scss'
 
 interface RegisterLoginProps {
   readonly onSubmitSignUp?: (data: object) => void

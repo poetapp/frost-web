@@ -2,8 +2,8 @@ import { FooterHome } from 'components/atoms/FooterHome/FooterHome'
 import { HeaderTitle } from 'components/atoms/HeaderTitle/HeaderTitle'
 import { TextDisclaimer } from 'components/atoms/TextDisclaimer/TextDisclaimer'
 import { HeaderHomeContainer } from 'components/containers/HeaderHome.container'
-import 'components/pages/Disclaimer/Disclaimer.style.scss'
 import * as React from 'react'
+import './Disclaimer.style.scss'
 
 export const DisclaimerLayout = () => (
   <main className={'Disclaimer'}>

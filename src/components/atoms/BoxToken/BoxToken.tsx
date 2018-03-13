@@ -1,8 +1,8 @@
 import * as classNames from 'classnames'
-import 'components/atoms/BoxToken/BoxToken.scss'
 import { Hash } from 'components/atoms/Hash/Hash'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
+import './BoxToken.scss'
 
 interface BoxTokenProps extends ClassNameProps {
   readonly apiToken: string

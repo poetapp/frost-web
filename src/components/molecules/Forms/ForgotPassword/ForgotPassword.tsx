@@ -1,8 +1,8 @@
 import { Input } from 'components/atoms/Input/Input'
 import { Form } from 'components/molecules/Form/Form'
-import 'components/molecules/Forms/ForgotPassword/ForgotPassword.scss'
 import * as React from 'react'
 import { Link } from 'react-router'
+import './ForgotPassword.scss'
 
 interface ForgotPasswordProps {
   readonly onSubmit: (event: any, elements: any) => any

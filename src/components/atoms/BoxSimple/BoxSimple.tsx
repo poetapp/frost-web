@@ -2,7 +2,7 @@ import * as classNames from 'classnames'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
 
-import 'components/atoms/BoxSimple/BoxSimple.scss'
+import './BoxSimple.scss'
 
 interface BoxSimpleProps extends ClassNameProps {
   readonly title?: string

@@ -4,9 +4,9 @@ import { FooterHome } from 'components/atoms/FooterHome/FooterHome'
 import { LogoFrostOnly } from 'components/atoms/LogoFrostOnly/LogoFrostOnly'
 import { LogoPoetWhite } from 'components/atoms/LogoPoetWhite/LogoPoetWhite'
 import { HeaderHomeContainer } from 'components/containers/HeaderHome.container'
-import 'components/pages/Home/Home.style.scss'
 import { Images } from 'images/Images'
 import * as React from 'react'
+import './Home.style.scss'
 
 export const HomeLayout = () => (
   <main className={'Home'}>

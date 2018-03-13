@@ -1,8 +1,8 @@
 import { Input } from 'components/atoms/Input/Input'
 import { Form } from 'components/molecules/Form/Form'
-import 'components/molecules/Forms/SignIn/SignIn.scss'
 import * as React from 'react'
 import { Link } from 'react-router'
+import './SignIn.scss'
 
 interface SignInProps {
   readonly onSubmit: (event: any) => any

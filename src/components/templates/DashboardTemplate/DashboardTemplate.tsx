@@ -2,9 +2,9 @@ import { LoadingPage } from 'components/atoms/LoadingPage/LoadingPage'
 import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import { Toggle } from 'components/atoms/Toggle/Toggle'
-import 'components/templates/DashboardTemplate/DashboardTemplate.scss'
 import * as React from 'react'
 import { Link } from 'react-router'
+import './DashboardTemplate.scss'
 
 interface DashboardTemplatetProps {
   readonly children?: JSX.Element

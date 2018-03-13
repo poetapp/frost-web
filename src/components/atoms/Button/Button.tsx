@@ -1,7 +1,7 @@
 import * as classNames from 'classnames'
-import 'components/atoms/Button/Button.scss'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
+import './Button.scss'
 
 interface ButtonProps extends ClassNameProps {
   readonly text?: string

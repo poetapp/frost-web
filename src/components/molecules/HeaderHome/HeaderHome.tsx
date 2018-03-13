@@ -1,9 +1,9 @@
 import { Button } from 'components/atoms/Button/Button'
 import { LinksHeader } from 'components/atoms/LinksHeader/LinksHeader'
 import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
-import 'components/molecules/HeaderHome/HeaderHome.scss'
 import * as React from 'react'
 import { Link } from 'react-router'
+import './HeaderHome.scss'
 
 interface HeaderHomeProps {
   readonly isLogged?: boolean

@@ -1,7 +1,7 @@
 import * as classNames from 'classnames'
-import 'components/atoms/Logout/Logout.scss'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
+import './Logout.scss'
 
 interface LogoutProps extends ClassNameProps {
   readonly email?: string

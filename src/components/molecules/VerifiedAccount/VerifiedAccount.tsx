@@ -3,7 +3,7 @@ import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import * as React from 'react'
 import { Link } from 'react-router'
 
-import 'components/molecules/VerifiedAccount/VerifiedAccount.scss'
+import './VerifiedAccount.scss'
 
 export const VerifiedAccount = () => (
   <ToastPage>

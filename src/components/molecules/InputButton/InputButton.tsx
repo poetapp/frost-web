@@ -1,8 +1,8 @@
 import * as classNames from 'classnames'
 import { Button } from 'components/atoms/Button/Button'
-import 'components/molecules/InputButton/InputButton.scss'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
+import './InputButton.scss'
 
 interface InputButtonProps extends ClassNameProps {
   readonly name: string

@@ -1,7 +1,7 @@
 import * as classNames from 'classnames'
-import 'components/atoms/HeaderTitle/HeaderTitle.scss'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
+import './HeaderTitle.scss'
 
 interface HeaderTitleProps extends ClassNameProps {
   readonly children?: JSX.Element

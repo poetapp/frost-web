@@ -2,9 +2,9 @@ import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import { ChangePasswordContainer } from 'components/containers/ChangePassword.container'
 import { LoadingPageContainer } from 'components/containers/LoadingPage.container'
-import 'components/pages/ChangePasswordToken/ChangePasswordToken.style.scss'
 import * as React from 'react'
 import { Link } from 'react-router'
+import './ChangePasswordToken.style.scss'
 
 export const ChangePasswordTokenLayout = () => (
   <LoadingPageContainer>

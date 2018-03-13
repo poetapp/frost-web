@@ -1,7 +1,7 @@
 import * as classNames from 'classnames'
-import 'components/atoms/Input/Input.scss'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
+import './Input.scss'
 
 interface InputProps extends ClassNameProps {
   readonly name: string
