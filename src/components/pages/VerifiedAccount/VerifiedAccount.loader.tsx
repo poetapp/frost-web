@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Route } from 'react-router'
 
 import { PageLoader, ReducerDescription } from 'components/PageLoader'
-import { VerifiedAccountLayout } from 'components/pages/VerifiedAccount/VerifiedAccount.layout'
+import { VerifiedAccountLayout } from './VerifiedAccount.layout'
 
 export class VerifiedAccount extends PageLoader<object, object> {
   component = VerifiedAccountLayout

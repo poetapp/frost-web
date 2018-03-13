@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Route } from 'react-router'
 
 import { PageLoader, ReducerDescription } from 'components/PageLoader'
-import { RegisterLoginLayout } from 'components/pages/RegisterLogin/RegisterLogin.layout'
+import { RegisterLoginLayout } from './RegisterLogin.layout'
 
 export class RegisterLogin extends PageLoader<object, object> {
   component = RegisterLoginLayout

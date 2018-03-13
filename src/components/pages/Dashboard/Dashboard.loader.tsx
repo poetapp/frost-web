@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Route } from 'react-router'
 
 import { PageLoader, ReducerDescription } from 'components/PageLoader'
-import { DashboardLayout } from 'components/pages/Dashboard/Dashboard.layout'
+import { DashboardLayout } from './Dashboard.layout'
 
 export class Dashboard extends PageLoader<object, object> {
   component = DashboardLayout

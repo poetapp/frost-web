@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Route } from 'react-router'
 
 import { PageLoader, ReducerDescription } from 'components/PageLoader'
-import { TokenLayout } from 'components/pages/Token/Token.layout'
+import { TokenLayout } from './Token.layout'
 
 export class Token extends PageLoader<object, object> {
   component = TokenLayout

@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Route } from 'react-router'
 
 import { PageLoader, ReducerDescription } from 'components/PageLoader'
-import { DisclaimerLayout } from 'components/pages/Disclaimer/Disclaimer.layout'
+import { DisclaimerLayout } from './Disclaimer.layout'
 
 export class Disclaimer extends PageLoader<object, object> {
   component = DisclaimerLayout

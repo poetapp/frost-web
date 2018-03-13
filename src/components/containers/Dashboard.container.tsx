@@ -1,7 +1,7 @@
-import { LogoutContainer } from 'components/containers/Logout.container'
-import { NavigationContainer } from 'components/containers/Navigation.container'
 import { DashboardTemplate } from 'components/templates/DashboardTemplate/DashboardTemplate'
 import * as React from 'react'
+import { LogoutContainer } from './Logout.container'
+import { NavigationContainer } from './Navigation.container'
 
 interface DashboardContainerProps {
   readonly children?: JSX.Element
