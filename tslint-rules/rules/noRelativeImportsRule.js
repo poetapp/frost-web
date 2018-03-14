@@ -1,36 +1,30 @@
 "use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-exports.__esModule = true;
-var ts = require("typescript");
-var Lint = require("tslint");
-var path = require("path");
-var ErrorTolerantWalker_1 = require("./utils/ErrorTolerantWalker");
-var FAILURE_STRING_EXT = 'External module is being loaded from a relative path. Please use an absolute path: ';
-var FAILURE_STRING_IMPORT = 'Imported module is being loaded from a relative path. Please use an absolute path: ';
-var FAILURE_IMPORT_INTO_DIRECTORY = 'Imported module into directory. Please use an relative path: ';
-var FAILURE_IMPORT_ROOT_DIRECTORY = 'Imported module into root directory. Please use an absolute path: ';
+Object.defineProperty(exports, "__esModule", { value: true });
+const ts = require("typescript");
+const Lint = require("tslint");
+const path = require("path");
+const ErrorTolerantWalker_1 = require("./utils/ErrorTolerantWalker");
+const tsconfig = require('../../tsconfig.json');
+var TypeModule;
+(function (TypeModule) {
+    TypeModule["EXTERNAL_MODULE"] = "External module";
+    TypeModule["IMPORT_MODULE"] = "Imported";
+})(TypeModule || (TypeModule = {}));
+var MessageError;
+(function (MessageError) {
+    MessageError["UPPER_LEVEL"] = "upper-level module into non-root directory using a relative path. Please use an absolute path: ";
+    MessageError["INTO_DIRECTORY"] = "lower-level module into non-root directory using an absolute path. Please use a relative path: ";
+    MessageError["ROOT_DIRECTORY"] = "module into root directory using a relative path. Please use an absolute path: ";
+})(MessageError || (MessageError = {}));
+const getErrortext = (typeModule, MessageError) => `${typeModule} ${MessageError}`;
 /**
  * Implementation of the no-relative-imports rule.
  */
-var Rule = (function (_super) {
-    __extends(Rule, _super);
-    function Rule() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Rule.prototype.apply = function (sourceFile) {
+class Rule extends Lint.Rules.AbstractRule {
+    apply(sourceFile) {
         return this.applyWithWalker(new NoRelativeImportsRuleWalker(sourceFile, this.getOptions()));
-    };
-    return Rule;
-}(Lint.Rules.AbstractRule));
+    }
+}
 Rule.metadata = {
     ruleName: 'no-relative-imports',
     type: 'maintainability',
@@ -46,71 +40,64 @@ Rule.metadata = {
     commonWeaknessEnumeration: '710'
 };
 exports.Rule = Rule;
-var NoRelativeImportsRuleWalker = (function (_super) {
-    __extends(NoRelativeImportsRuleWalker, _super);
-    function NoRelativeImportsRuleWalker() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    NoRelativeImportsRuleWalker.prototype.visitNode = function (node) {
+class NoRelativeImportsRuleWalker extends ErrorTolerantWalker_1.ErrorTolerantWalker {
+    visitNode(node) {
         if (node.kind === ts.SyntaxKind.ExternalModuleReference) {
-            var moduleExpression = node.expression;
-            var checkRule = this.isModuleExpressionValid(moduleExpression);
-            if (!checkRule.status) {
-                var message = checkRule.message === '' ? FAILURE_STRING_EXT : checkRule.message;
+            const moduleExpression = node.expression;
+            const { status, message } = this.isModuleExpressionValid(moduleExpression, TypeModule.EXTERNAL_MODULE);
+            if (!status) {
                 this.addFailureAt(node.getStart(), node.getWidth(), message + node.getText());
             }
         }
         else if (node.kind === ts.SyntaxKind.ImportDeclaration) {
-            var moduleExpression = node.moduleSpecifier;
-            var checkRule = this.isModuleExpressionValid(moduleExpression);
-            if (!checkRule.status) {
-                var message = checkRule.message === '' ? FAILURE_STRING_IMPORT : checkRule.message;
+            const moduleExpression = node.moduleSpecifier;
+            const { status, message } = this.isModuleExpressionValid(moduleExpression, TypeModule.IMPORT_MODULE);
+            if (!status) {
                 this.addFailureAt(node.getStart(), node.getWidth(), message + node.getText());
             }
         }
-        _super.prototype.visitNode.call(this, node);
-    };
-    NoRelativeImportsRuleWalker.prototype.isRelativePath = function (path) {
+        super.visitNode(node);
+    }
+    isRelativePath(path) {
         return path.substring(0, 2) === './';
-    };
-    NoRelativeImportsRuleWalker.prototype.getBaseUrl = function (currentPath, fileName) {
-        return fileName.replace(currentPath, '').split('/')[1];
-    };
-    NoRelativeImportsRuleWalker.prototype.getCurrentFile = function () {
-        var currentPath = process.cwd().toLowerCase();
-        var fileName = this.getSourceFile().fileName.toLocaleLowerCase();
-        var baseUrl = this.getBaseUrl(currentPath, fileName);
-        var projectPath = (currentPath + "/" + baseUrl + "/").toLowerCase();
-        var customSourcePathFile = fileName.replace(projectPath, '');
-        return path.dirname(customSourcePathFile).toLowerCase();
-    };
-    NoRelativeImportsRuleWalker.prototype.isRootDirectory = function () {
-        return this.getCurrentFile() === '.';
-    };
-    NoRelativeImportsRuleWalker.prototype.isDescendent = function (module) {
-        return module.includes(this.getCurrentFile());
-    };
-    NoRelativeImportsRuleWalker.prototype.isUseBeforeDirectory = function (module) {
-        var subText = module.substring(0, 2);
+    }
+    getBaseUrl() {
+        return tsconfig.compilerOptions.baseUrl;
+    }
+    getCurrentFileDirectory() {
+        const fileName = this.getSourceFile().fileName;
+        const baseUrl = this.getBaseUrl();
+        const projectPath = path.resolve(process.cwd(), baseUrl) + '/';
+        const customSourcePathFile = fileName.replace(projectPath, '');
+        return path.dirname(customSourcePathFile);
+    }
+    isRootDirectory() {
+        return this.getCurrentFileDirectory() === '.';
+    }
+    isDescendent(module) {
+        return module.includes(this.getCurrentFileDirectory());
+    }
+    isUseBeforeDirectory(module) {
+        const subText = module.substring(0, 2);
         return subText === '..';
-    };
-    NoRelativeImportsRuleWalker.prototype.isModuleExpressionValid = function (expression) {
+    }
+    isModuleExpressionValid(expression, typeModule) {
         if (expression.kind === ts.SyntaxKind.StringLiteral) {
-            var moduleName = expression;
-            var moduleNamePath = path.dirname(moduleName.text).toLowerCase();
+            const moduleName = expression;
+            const moduleNamePath = path.dirname(moduleName.text);
             if (this.isRootDirectory()) {
                 return this.isRelativePath(moduleName.text) ?
-                    { status: false, message: FAILURE_IMPORT_ROOT_DIRECTORY } :
+                    { status: false, message: getErrortext(typeModule, MessageError.ROOT_DIRECTORY) } :
                     { status: true, message: '' };
             }
             if (!this.isRelativePath(moduleName.text) && this.isDescendent(moduleNamePath)) {
-                return { status: false, message: FAILURE_IMPORT_INTO_DIRECTORY };
+                return { status: false, message: getErrortext(typeModule, MessageError.INTO_DIRECTORY) };
             }
             if (this.isUseBeforeDirectory(moduleName.text)) {
-                return { status: false, message: '' };
+                return { status: false, message: getErrortext(typeModule, MessageError.UPPER_LEVEL) };
             }
         }
         return { status: true, message: '' };
-    };
-    return NoRelativeImportsRuleWalker;
-}(ErrorTolerantWalker_1.ErrorTolerantWalker));
+    }
+}
+//# sourceMappingURL=noRelativeImportsRule.js.map

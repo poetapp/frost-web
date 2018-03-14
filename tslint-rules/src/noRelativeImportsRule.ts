@@ -1,14 +1,22 @@
 import * as ts from 'typescript';
 import * as Lint from 'tslint';
 import * as path from 'path'
+import { ErrorTolerantWalker } from './utils/ErrorTolerantWalker';
+import { ExtendedMetadata } from './utils/ExtendedMetadata';
+const tsconfig = require('../../tsconfig.json')
 
-import {ErrorTolerantWalker} from './utils/ErrorTolerantWalker';
-import {ExtendedMetadata} from './utils/ExtendedMetadata';
+enum TypeModule {
+    EXTERNAL_MODULE = 'External module',
+    IMPORT_MODULE = 'Imported'
+}
 
-const FAILURE_STRING_EXT: string = 'External module is being loaded from a relative path. Please use an absolute path: ';
-const FAILURE_STRING_IMPORT: string = 'Imported module is being loaded from a relative path. Please use an absolute path: ';
-const FAILURE_IMPORT_INTO_DIRECTORY: string = 'Imported module into directory. Please use an relative path: ';
-const FAILURE_IMPORT_ROOT_DIRECTORY: string = 'Imported module into root directory. Please use an absolute path: ';
+enum MessageError {
+    UPPER_LEVEL = 'upper-level module into non-root directory using a relative path. Please use an absolute path: ',
+    INTO_DIRECTORY = 'lower-level module into non-root directory using an absolute path. Please use a relative path: ',
+    ROOT_DIRECTORY = 'module into root directory using a relative path. Please use an absolute path: ',
+}
+
+const getErrortext = (typeModule: TypeModule, MessageError: MessageError): string => `${typeModule} ${MessageError}`
 
 /**
  * Implementation of the no-relative-imports rule.
@@ -41,16 +49,14 @@ class NoRelativeImportsRuleWalker extends ErrorTolerantWalker {
         
         if (node.kind === ts.SyntaxKind.ExternalModuleReference) {
             const moduleExpression: ts.Expression = (<ts.ExternalModuleReference>node).expression;
-            const checkRule = this.isModuleExpressionValid(moduleExpression)
-            if (!checkRule.status) {
-                const message = checkRule.message === '' ? FAILURE_STRING_EXT : checkRule.message
+            const { status, message } = this.isModuleExpressionValid(moduleExpression, TypeModule.EXTERNAL_MODULE)
+            if (!status) {
                 this.addFailureAt(node.getStart(), node.getWidth(), message + node.getText());
             }
         } else if (node.kind === ts.SyntaxKind.ImportDeclaration) {
             const moduleExpression: ts.Expression = (<ts.ImportDeclaration>node).moduleSpecifier;
-            const checkRule = this.isModuleExpressionValid(moduleExpression)
-            if (!checkRule.status) {
-                const message = checkRule.message === '' ? FAILURE_STRING_IMPORT : checkRule.message
+            const { status, message } =  this.isModuleExpressionValid(moduleExpression, TypeModule.IMPORT_MODULE)
+            if (!status) {
                 this.addFailureAt(node.getStart(), node.getWidth(), message + node.getText());
             }
         }
@@ -61,25 +67,24 @@ class NoRelativeImportsRuleWalker extends ErrorTolerantWalker {
         return path.substring(0, 2) === './'
     }
 
-    private getBaseUrl(currentPath: string, fileName: string) {
-        return fileName.replace(currentPath, '').split('/')[1]
+    private getBaseUrl() {
+        return tsconfig.compilerOptions.baseUrl
     }
 
-    private getCurrentFile():string {
-        const currentPath = process.cwd().toLowerCase()
-        const fileName = this.getSourceFile().fileName.toLocaleLowerCase()
-        const baseUrl = this.getBaseUrl(currentPath, fileName)
-        const projectPath = `${currentPath}/${baseUrl}/`.toLowerCase()
+    private getCurrentFileDirectory():string {
+        const fileName = this.getSourceFile().fileName
+        const baseUrl = this.getBaseUrl()
+        const projectPath = path.resolve(process.cwd(), baseUrl) + '/'
         const customSourcePathFile = fileName.replace(projectPath, '')
-        return path.dirname(customSourcePathFile).toLowerCase()
+        return path.dirname(customSourcePathFile)
     }
 
     private isRootDirectory(): boolean {
-        return this.getCurrentFile() === '.'
+        return this.getCurrentFileDirectory() === '.'
     }
 
     private isDescendent(module: string): boolean {
-        return module.includes(this.getCurrentFile())
+        return module.includes(this.getCurrentFileDirectory())
     }
 
     private isUseBeforeDirectory(module: string): boolean {
@@ -87,23 +92,23 @@ class NoRelativeImportsRuleWalker extends ErrorTolerantWalker {
         return subText === '..'
     }
 
-    private isModuleExpressionValid(expression: ts.Expression): { status:boolean, message:string } {
+    private isModuleExpressionValid(expression: ts.Expression, typeModule: TypeModule): { status:boolean, message:string } {
         if (expression.kind === ts.SyntaxKind.StringLiteral) {
             const moduleName: ts.StringLiteral = <ts.StringLiteral>expression;
-            const moduleNamePath = path.dirname(moduleName.text).toLowerCase()
+            const moduleNamePath = path.dirname(moduleName.text)
            
             if (this.isRootDirectory()) {
                 return this.isRelativePath(moduleName.text) ? 
-                { status: false, message: FAILURE_IMPORT_ROOT_DIRECTORY } : 
+                { status: false, message: getErrortext(typeModule, MessageError.ROOT_DIRECTORY)  } : 
                 { status: true, message: '' }
             }
 
             if (!this.isRelativePath(moduleName.text) && this.isDescendent(moduleNamePath)) {
-                return { status: false, message: FAILURE_IMPORT_INTO_DIRECTORY }
+                return { status: false, message: getErrortext(typeModule, MessageError.INTO_DIRECTORY)  }
             }
 
             if (this.isUseBeforeDirectory(moduleName.text)) {
-                return { status: false, message: '' };
+                return { status: false, message: getErrortext(typeModule, MessageError.UPPER_LEVEL) };
             }
         }
         return { status: true, message: '' }
