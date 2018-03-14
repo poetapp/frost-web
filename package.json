@@ -19,8 +19,8 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "tslint",
+    "*.{ts,tsx},!tslint-rules/**/*.*": [
+      "npm run tslint",
       "git add"
     ],
     "*.scss": [
