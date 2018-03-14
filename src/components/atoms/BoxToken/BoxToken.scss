@@ -36,16 +36,19 @@
       list-style: none;
 
       &__description {
+        width: 100%;
         font-size: 10px;
         line-height: 34px;
         color: $eclipse;
 
-        &__name {
-          padding-right: 40px;
+        p {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
         }
 
         &__token {
-          padding-right: 72px;
           line-height: 14px;
           color: $dim-gray3;
         }
@@ -54,6 +57,11 @@
           text-align: right;
           font-size: 11px;
           line-height: 15px;
+
+          &__expired {
+            font-weight: bold;
+            color: $mandy;
+          }
         }
       }
 
