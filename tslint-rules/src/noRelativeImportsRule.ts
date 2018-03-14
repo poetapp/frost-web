@@ -61,11 +61,15 @@ class NoRelativeImportsRuleWalker extends ErrorTolerantWalker {
         return path.substring(0, 2) === './'
     }
 
+    private getBaseUrl(currentPath: string, fileName: string) {
+        return fileName.replace(currentPath, '').split('/')[1]
+    }
+
     private getCurrentFile():string {
-        const baseUrl = '/src/'
         const currentPath = process.cwd().toLowerCase()
-        const projectPath = `${currentPath}${baseUrl}`.toLowerCase()
         const fileName = this.getSourceFile().fileName.toLocaleLowerCase()
+        const baseUrl = this.getBaseUrl(currentPath, fileName)
+        const projectPath = `${currentPath}/${baseUrl}/`.toLowerCase()
         const customSourcePathFile = fileName.replace(projectPath, '')
         return path.dirname(customSourcePathFile).toLowerCase()
     }

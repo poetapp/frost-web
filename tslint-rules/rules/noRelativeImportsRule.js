@@ -73,11 +73,14 @@ var NoRelativeImportsRuleWalker = (function (_super) {
     NoRelativeImportsRuleWalker.prototype.isRelativePath = function (path) {
         return path.substring(0, 2) === './';
     };
+    NoRelativeImportsRuleWalker.prototype.getBaseUrl = function (currentPath, fileName) {
+        return fileName.replace(currentPath, '').split('/')[1];
+    };
     NoRelativeImportsRuleWalker.prototype.getCurrentFile = function () {
-        var baseUrl = '/src/';
         var currentPath = process.cwd().toLowerCase();
-        var projectPath = ("" + currentPath + baseUrl).toLowerCase();
         var fileName = this.getSourceFile().fileName.toLocaleLowerCase();
+        var baseUrl = this.getBaseUrl(currentPath, fileName);
+        var projectPath = (currentPath + "/" + baseUrl + "/").toLowerCase();
         var customSourcePathFile = fileName.replace(projectPath, '');
         return path.dirname(customSourcePathFile).toLowerCase();
     };
