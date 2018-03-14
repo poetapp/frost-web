@@ -16,7 +16,7 @@ var path = require("path");
 var ErrorTolerantWalker_1 = require("./utils/ErrorTolerantWalker");
 var FAILURE_STRING_EXT = 'External module is being loaded from a relative path. Please use an absolute path: ';
 var FAILURE_STRING_IMPORT = 'Imported module is being loaded from a relative path. Please use an absolute path: ';
-var FAILURE_IMPORT_INTO_DIRECTORY = 'Imported module is into directory. Please use an relative path: ';
+var FAILURE_IMPORT_INTO_DIRECTORY = 'Imported module into directory. Please use an relative path: ';
 var FAILURE_IMPORT_ROOT_DIRECTORY = 'Imported module into root directory. Please use an absolute path: ';
 /**
  * Implementation of the no-relative-imports rule.

@@ -7,7 +7,7 @@ import {ExtendedMetadata} from './utils/ExtendedMetadata';
 
 const FAILURE_STRING_EXT: string = 'External module is being loaded from a relative path. Please use an absolute path: ';
 const FAILURE_STRING_IMPORT: string = 'Imported module is being loaded from a relative path. Please use an absolute path: ';
-const FAILURE_IMPORT_INTO_DIRECTORY: string = 'Imported module is into directory. Please use an relative path: ';
+const FAILURE_IMPORT_INTO_DIRECTORY: string = 'Imported module into directory. Please use an relative path: ';
 const FAILURE_IMPORT_ROOT_DIRECTORY: string = 'Imported module into root directory. Please use an absolute path: ';
 
 /**
