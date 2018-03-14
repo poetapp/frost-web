@@ -20,7 +20,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx},!tslint-rules/**/*.*": [
-      "npm run tslint",
+      "tslint",
       "git add"
     ],
     "*.scss": [
