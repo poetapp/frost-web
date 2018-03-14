@@ -65,7 +65,8 @@ class NoRelativeImportsRuleWalker extends ErrorTolerantWalker {
         const baseUrl = '/src/'
         const currentPath = process.cwd().toLowerCase()
         const projectPath = `${currentPath}${baseUrl}`.toLowerCase()
-        const customSourcePathFile = this.sourceFile.path.replace(projectPath, '')
+        const fileName = this.getSourceFile().fileName.toLocaleLowerCase()
+        const customSourcePathFile = fileName.replace(projectPath, '')
         return path.dirname(customSourcePathFile).toLowerCase()
     }
 

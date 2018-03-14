@@ -77,7 +77,8 @@ var NoRelativeImportsRuleWalker = (function (_super) {
         var baseUrl = '/src/';
         var currentPath = process.cwd().toLowerCase();
         var projectPath = ("" + currentPath + baseUrl).toLowerCase();
-        var customSourcePathFile = this.sourceFile.path.replace(projectPath, '');
+        var fileName = this.getSourceFile().fileName.toLocaleLowerCase();
+        var customSourcePathFile = fileName.replace(projectPath, '');
         return path.dirname(customSourcePathFile).toLowerCase();
     };
     NoRelativeImportsRuleWalker.prototype.isRootDirectory = function () {
