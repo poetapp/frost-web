@@ -1,8 +1,8 @@
+import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
+import { Button } from 'components/atoms/Button/Button'
+import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
+import { ApiToken } from 'interfaces/Props'
 import * as React from 'react'
-import { ApiToken } from '../../../interfaces/Props'
-import { BoxToken } from '../../atoms/BoxToken/BoxToken'
-import { Button } from '../../atoms/Button/Button'
-import { LegendVerifiedAccount } from '../LegendVerifiedAccount/LegendVerifiedAccount'
 import './CreateToken.scss'
 
 interface CreateTokenProps {

@@ -1,6 +1,6 @@
+import { LoadingPageContainer } from 'components/containers/LoadingPage.container'
+import { VerifiedAccountContainer } from 'components/containers/VerifiedAccount.container'
 import * as React from 'react'
-import { LoadingPageContainer } from '../../containers/LoadingPage.container'
-import { VerifiedAccountContainer } from '../../containers/VerifiedAccount.container'
 
 export const VerifiedAccountLayout = () => (
   <LoadingPageContainer>

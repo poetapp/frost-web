@@ -1,6 +1,6 @@
+import { DashboardContainer } from 'components/containers/Dashboard.container'
+import { PanelOptions } from 'components/molecules/PanelOptions/PanelOptions'
 import * as React from 'react'
-import { DashboardContainer } from '../../containers/Dashboard.container'
-import { PanelOptions } from '../../molecules/PanelOptions/PanelOptions'
 
 export const DashboardLayout = () => (
   <DashboardContainer>

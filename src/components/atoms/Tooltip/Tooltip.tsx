@@ -1,6 +1,6 @@
 import * as classNames from 'classnames'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
-import { ClassNameProps } from '../../../interfaces/Props'
 import './Tooltip.scss'
 
 interface TootipProps extends ClassNameProps {

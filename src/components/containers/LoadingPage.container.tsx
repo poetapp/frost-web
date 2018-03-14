@@ -1,7 +1,7 @@
+import { LoadingPage as Loading } from 'components/atoms/LoadingPage/LoadingPage'
+import { FrostState, LoadingPage } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { FrostState, LoadingPage } from '../../interfaces/Props'
-import { LoadingPage as Loading } from '../atoms/LoadingPage/LoadingPage'
 
 interface LoadingPageProps {
   readonly loadingPage: LoadingPage

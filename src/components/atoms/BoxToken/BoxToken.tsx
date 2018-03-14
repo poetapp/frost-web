@@ -1,8 +1,8 @@
 import * as classNames from 'classnames'
+import { Hash } from 'components/atoms/Hash/Hash'
+import { ClassNameProps } from 'interfaces/Props'
+import { ApiToken } from 'interfaces/Props'
 import * as React from 'react'
-import { ClassNameProps } from '../../../interfaces/Props'
-import { ApiToken } from '../../../interfaces/Props'
-import { Hash } from '../../atoms/Hash/Hash'
 import './BoxToken.scss'
 
 interface BoxTokenProps extends ClassNameProps {

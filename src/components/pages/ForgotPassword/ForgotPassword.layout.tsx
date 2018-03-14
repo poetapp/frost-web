@@ -1,8 +1,8 @@
+import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { ForgotPasswordContainer } from 'components/containers/ForgotPassword.container'
+import { LoadingPageContainer } from 'components/containers/LoadingPage.container'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
-import { ForgotPasswordContainer } from '../../containers/ForgotPassword.container'
-import { LoadingPageContainer } from '../../containers/LoadingPage.container'
 import './ForgotPassword.style.scss'
 
 export const ForgotPasswordLayout = () => (

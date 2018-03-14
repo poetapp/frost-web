@@ -1,9 +1,9 @@
+import { LoadingPage } from 'components/atoms/LoadingPage/LoadingPage'
+import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
+import { Toggle } from 'components/atoms/Toggle/Toggle'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { LoadingPage } from '../../atoms/LoadingPage/LoadingPage'
-import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
-import { ToastPage } from '../../atoms/ToastPage/ToastPage'
-import { Toggle } from '../../atoms/Toggle/Toggle'
 import './DashboardTemplate.scss'
 
 interface DashboardTemplatetProps {

@@ -1,7 +1,7 @@
 import * as classNames from 'classnames'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { ClassNameProps } from '../../../interfaces/Props'
 import './NavigationList.scss'
 
 interface Linked {

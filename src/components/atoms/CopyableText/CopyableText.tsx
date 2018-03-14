@@ -1,6 +1,6 @@
 import * as classNames from 'classnames'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
-import { ClassNameProps } from '../../../interfaces/Props'
 import './CopyableText.scss'
 
 export interface CopyableTextProps extends ClassNameProps {

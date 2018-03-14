@@ -1,5 +1,10 @@
 {
-  "rulesDirectory": ["tslint-plugin-prettier"],
+  "linterOptions": {
+      "exclude": [
+        "tslint-rules/src/**/*.ts"
+      ]
+  },
+  "rulesDirectory": ["tslint-plugin-prettier", "tslint-rules/rules"],
   "extends": [
     "tslint:recommended",
     "tslint-config-prettier",
@@ -22,6 +27,7 @@
     "no-default-export": true,
     "no-unused-variable": true,
     "no-shadowed-variable": false,
+    "no-relative-imports": true,
     "ordered-imports": [
       true,
       {

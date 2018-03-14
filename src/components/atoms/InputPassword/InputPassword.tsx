@@ -1,7 +1,7 @@
 import * as classNames from 'classnames'
+import { Input } from 'components/atoms/Input/Input'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
-import { ClassNameProps } from '../../../interfaces/Props'
-import { Input } from '../Input/Input'
 
 interface ComplexityPassword {
   readonly lowerCase: number
