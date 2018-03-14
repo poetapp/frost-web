@@ -1,12 +1,12 @@
 import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
-import * as moment from 'moment'
+import { ApiToken } from 'interfaces/Props'
 import * as React from 'react'
 import './CreateToken.scss'
 
 interface CreateTokenProps {
-  boxToken: { apiToken: string; dateCreated: string }
+  boxToken: ApiToken[]
   showVerifiedAccount: boolean
   sendEmailVarifiedAccount: (event: Event) => void
   retryWait: boolean
@@ -20,12 +20,7 @@ export const CreateToken = (props: CreateTokenProps) => (
         Manage the ways that you authorize requests to the Frost API.
       </p>
     </header>
-    <BoxToken
-      apiToken={props.boxToken.apiToken}
-      dateCreated={moment(parseInt(props.boxToken.dateCreated, 10)).format(
-        'MM/DD/YYYY'
-      )}
-    />
+    <BoxToken apiTokens={props.boxToken} />
     <LegendVerifiedAccount
       show={!props.showVerifiedAccount}
       onClick={props.sendEmailVarifiedAccount}

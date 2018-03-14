@@ -5,7 +5,7 @@ const defaultState = {
   token: '',
   profile: {
     email: '',
-    apiToken: {},
+    apiTokens: [{}],
     verified: false,
     createdAt: ''
   }
@@ -26,7 +26,7 @@ export const user = (state: any, action: any) => {
         ...{ profile: { ...defaultState.profile, ...action.payload.profile } }
       }
     case Actions.ApiTokens.GET_API_SUCCESS:
-      state.profile.apiToken = action.payload
+      state.profile.apiTokens = action.payload
       return {
         ...state
       }

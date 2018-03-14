@@ -45,7 +45,7 @@ export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
 
       return (
         <CreateToken
-          boxToken={profile.apiToken}
+          boxToken={profile.apiTokens}
           showVerifiedAccount={profile.verified}
           sendEmailVarifiedAccount={this.sendEmailVarifiedAccount}
           retryWait={retryWait}
