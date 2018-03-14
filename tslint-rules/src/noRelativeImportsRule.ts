@@ -99,12 +99,12 @@ class NoRelativeImportsRuleWalker extends ErrorTolerantWalker {
            
             if (this.isRootDirectory()) {
                 return this.isRelativePath(moduleName.text) ? 
-                { status: false, message: getErrortext(typeModule, MessageError.ROOT_DIRECTORY)  } : 
+                { status: false, message: getErrortext(typeModule, MessageError.ROOT_DIRECTORY) } : 
                 { status: true, message: '' }
             }
 
             if (!this.isRelativePath(moduleName.text) && this.isDescendent(moduleNamePath)) {
-                return { status: false, message: getErrortext(typeModule, MessageError.INTO_DIRECTORY)  }
+                return { status: false, message: getErrortext(typeModule, MessageError.INTO_DIRECTORY) }
             }
 
             if (this.isUseBeforeDirectory(moduleName.text)) {
