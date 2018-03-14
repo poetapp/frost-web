@@ -100,4 +100,3 @@ class NoRelativeImportsRuleWalker extends ErrorTolerantWalker_1.ErrorTolerantWal
         return { status: true, message: '' };
     }
 }
-//# sourceMappingURL=noRelativeImportsRule.js.map

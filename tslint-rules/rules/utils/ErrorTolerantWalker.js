@@ -33,4 +33,3 @@ class ErrorTolerantWalker extends Lint.RuleWalker {
 }
 ErrorTolerantWalker.DEBUG = false;
 exports.ErrorTolerantWalker = ErrorTolerantWalker;
-//# sourceMappingURL=ErrorTolerantWalker.js.map
