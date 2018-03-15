@@ -11,42 +11,60 @@ interface BoxTokenProps extends ClassNameProps {
 
 export const BoxToken = (props: BoxTokenProps) => (
   <div className={classNames('BoxToken', props.className)}>
-    <header className={'BoxToken__header'}>
-      <p>Token Name</p>
-    </header>
-    <ul className={'BoxToken__list'}>
-      {props.apiTokens.map((token: ApiToken, key) => (
-        <li key={key} className={'BoxToken__list__item'}>
-          <div className={'BoxToken__list__item__description'}>
-            <p>
-              <span className={'BoxToken__list__item__description__name'}>
-                #000000
-              </span>
-              <span className={'BoxToken__list__item__description__token'}>
+    <table className={'BoxToken__table'}>
+      <thead className={'BoxToken__header'}>
+        <tr>
+          <td>
+            <p>#</p>
+          </td>
+          <td>
+            <p>Token</p>
+          </td>
+          <td>
+            <p>Creation</p>
+          </td>
+          <td>
+            <p>Expiry</p>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        {props.apiTokens.map((token: ApiToken, key) => (
+          <tr key={key} className={'BoxToken__item'}>
+            <td>
+              <span>#000000</span>
+            </td>
+            <td>
+              <span className={'BoxToken__item__token'}>
                 <Hash className="copyable-hash" textClickable>
                   {token.token}
                 </Hash>
               </span>
-              <span className={'BoxToken__list__item__description__date'}>
+            </td>
+            <td>
+              {' '}
+              <span className={'BoxToken__item__date'}>
                 {token.dateCreated}
               </span>
+            </td>
+            <td>
               <span
                 className={classNames(
-                  'BoxToken__list__item__description__date',
-                  token.isExpired
-                    ? 'BoxToken__list__item__description__date__expired'
-                    : ''
+                  'BoxToken__item__date',
+                  token.isExpired ? 'BoxToken__item__date__expired' : ''
                 )}
               >
                 {token.expiration}
               </span>
-            </p>
-          </div>
-          <div className={'BoxToken__list__item__actions'}>
-            <button>Remove</button>
-          </div>
-        </li>
-      ))}
-    </ul>
+            </td>
+            <td>
+              <div className={'BoxToken__item__actions'}>
+                <button>Remove</button>
+              </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   </div>
 )

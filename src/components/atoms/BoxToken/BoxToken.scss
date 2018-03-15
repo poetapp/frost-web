@@ -8,6 +8,20 @@
   box-shadow: 0 2px 0 0 $white-smoke;
   background-color: $white;
 
+  &__table {
+    width: 100%;
+
+    thead td:first-child,
+    tbody td:first-child {
+      padding-left: 15px;
+    }
+
+    thead td:last-child,
+    tbody td:last-child {
+      padding-right: 15px;
+    }
+  }
+
   &__header {
     height: 36px;
     width: 100%;
@@ -16,7 +30,7 @@
     background-color: $white;
 
     p {
-      padding-left: 15px;
+      margin-bottom: 0px;
       font-size: 10px;
       font-weight: 600;
       line-height: 36px;
@@ -24,59 +38,38 @@
     }
   }
 
-  &__list {
-    height: 100px;
+  &__item {
+    height: 34px;
+    padding: 0 14px;
+    border-bottom: 1px solid $wild-sand;
+    font-size: 10px;
+    list-style: none;
 
-    &__item {
-      display: flex;
-      justify-content: space-between;
-      height: 34px;
-      padding: 0 14px;
-      border-bottom: 1px solid $wild-sand;
-      list-style: none;
+    &__token {
+      color: $dim-gray3;
+    }
 
-      &__description {
-        width: 100%;
-        font-size: 10px;
-        line-height: 34px;
-        color: $eclipse;
+    &__date {
+      font-size: 11px;
+      line-height: 15px;
 
-        p {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          width: 100%;
-        }
-
-        &__token {
-          line-height: 14px;
-          color: $dim-gray3;
-        }
-
-        &__date {
-          text-align: right;
-          font-size: 11px;
-          line-height: 15px;
-
-          &__expired {
-            font-weight: bold;
-            color: $mandy;
-          }
-        }
+      &__expired {
+        font-weight: bold;
+        color: $mandy;
       }
+    }
 
-      &__actions {
+    &__actions {
 
-        button {
-          display: none;
-          height: 10px;
-          border: 0px;
-          font-size: 10px;
-          font-weight: 600;
-          line-height: 34px;
-          color: $mandy;
-          cursor: pointer;
-        }
+      button {
+        display: none;
+        height: 10px;
+        border: 0px;
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 34px;
+        color: $mandy;
+        cursor: pointer;
       }
     }
   }
