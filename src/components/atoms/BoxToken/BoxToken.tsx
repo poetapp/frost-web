@@ -1,10 +1,30 @@
 import * as classNames from 'classnames'
 import { Hash } from 'components/atoms/Hash/Hash'
+import { Tootip } from 'components/atoms/Tooltip/Tooltip'
 import { ClassNameProps } from 'interfaces/Props'
 import { ApiToken } from 'interfaces/Props'
 import * as moment from 'moment'
 import * as React from 'react'
 import './BoxToken.scss'
+
+moment.locale('en', {
+  relativeTime: {
+    future: 'in %s',
+    past: '%s ago',
+    s: 'seconds',
+    ss: '%ss',
+    m: 'a minute',
+    mm: '%dm',
+    h: 'an hour',
+    hh: '%dh',
+    d: 'a day',
+    dd: '%dd',
+    M: 'a month',
+    MM: '%dM',
+    y: 'a year',
+    yy: '%dY'
+  }
+})
 
 const parseJwt = (token: string) => {
   const base64Url = token.split('.')[1]
@@ -55,7 +75,15 @@ const renderToken = (token: ApiToken, key: number) => (
           isExpired(token.exp) ? 'BoxToken__item__date__expired' : ''
         )}
       >
-        {moment.unix(token.exp).format('MM/DD/YYYY hh:mm a')}
+        {isExpired(token.exp) ? (
+          moment.unix(token.exp).format('MM/DD/YYYY hh:mm a')
+        ) : (
+          <Tootip
+            className={'BoxToken__tooltip'}
+            element={moment.unix(token.exp).fromNow()}
+            tooltipText={moment.unix(token.exp).format('MM/DD/YYYY hh:mm a')}
+          />
+        )}
       </span>
     </td>
     <td>
