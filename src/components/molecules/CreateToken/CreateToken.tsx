@@ -6,7 +6,7 @@ import * as React from 'react'
 import './CreateToken.scss'
 
 interface CreateTokenProps {
-  boxToken: ApiToken[]
+  boxToken: string[]
   showVerifiedAccount: boolean
   sendEmailVarifiedAccount: (event: Event) => void
   retryWait: boolean

@@ -3,15 +3,12 @@ export interface ClassNameProps {
 }
 export interface ApiToken {
   token: string
-  dateCreated: string
-  expiration: string
-  isExpired: boolean
   iat: number
   exp: number
 }
 export interface Profile {
   email: string
-  apiTokens?: ApiToken[]
+  apiTokens?: string[]
   verified: boolean
   createdAt: string
 }

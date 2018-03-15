@@ -1,7 +1,6 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
 import { ApiToken } from 'interfaces/Props'
-import * as moment from 'moment'
 import { call, takeLatest, put } from 'redux-saga/effects'
 
 const parseJwt = (token: string) => {
@@ -29,23 +28,8 @@ function* GetApiTokens(action: any) {
   try {
     const { token } = action.payload
     const tokens = yield call(GetApiTokensFrost, token)
-    const apiTokens = tokens.apiTokens.map((token: string) => {
-      const jwtDecoded = parseJwt(token)
-      const { iat, exp } = jwtDecoded
 
-      return {
-        token,
-        iat,
-        exp,
-        dateCreated: moment.unix(iat).format('MM/DD/YYYY hh:mm a'),
-        expiration: moment.unix(exp).format('MM/DD/YYYY hh:mm a'),
-        isExpired: !moment(moment.now()).isAfter(exp)
-      }
-    })
-
-    apiTokens.sort((a: ApiToken, b: ApiToken) => (a.iat > b.iat ? -1 : 1))
-
-    yield put(Actions.ApiTokens.onGetApiTokensSuccess(apiTokens))
+    yield put(Actions.ApiTokens.onGetApiTokensSuccess(tokens.apiTokens))
   } catch (e) {
     yield put(Actions.ApiTokens.onGetApiTokensError(e))
     // Todo: Error message in UI
