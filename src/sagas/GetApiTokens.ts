@@ -1,8 +1,8 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
+import { ApiToken } from 'interfaces/Props'
 import * as moment from 'moment'
 import { call, takeLatest, put } from 'redux-saga/effects'
-import { ApiToken } from 'interfaces/Props'
 
 const parseJwt = (token: string) => {
   const base64Url = token.split('.')[1]
@@ -43,7 +43,7 @@ function* GetApiTokens(action: any) {
       }
     })
 
-    apiTokens.sort((a: ApiToken, b: ApiToken) => a.iat > b.iat ? -1 : 1)
+    apiTokens.sort((a: ApiToken, b: ApiToken) => (a.iat > b.iat ? -1 : 1))
 
     yield put(Actions.ApiTokens.onGetApiTokensSuccess(apiTokens))
   } catch (e) {
