@@ -1,9 +1,9 @@
+import { Actions } from 'actions'
+import { VerifiedAccount } from 'components/molecules/VerifiedAccount/VerifiedAccount'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { Action } from 'redux'
-import { Actions } from '../../actions'
-import { VerifiedAccount } from '../molecules/VerifiedAccount/VerifiedAccount'
 
 interface DataAction {
   token: string

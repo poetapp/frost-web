@@ -1,6 +1,6 @@
+import { LoadingPageContainer } from 'components/containers/LoadingPage.container'
+import { RegisterLoginContainer } from 'components/containers/RegisterLogin.container'
 import * as React from 'react'
-import { LoadingPageContainer } from '../../containers/LoadingPage.container'
-import { RegisterLoginContainer } from '../../containers/RegisterLogin.container'
 
 export const RegisterLoginLayout = () => (
   <LoadingPageContainer>

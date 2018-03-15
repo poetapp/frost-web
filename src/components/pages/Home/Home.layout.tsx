@@ -1,11 +1,11 @@
+import { BoxSimple } from 'components/atoms/BoxSimple/BoxSimple'
+import { Button } from 'components/atoms/Button/Button'
+import { FooterHome } from 'components/atoms/FooterHome/FooterHome'
+import { LogoFrostOnly } from 'components/atoms/LogoFrostOnly/LogoFrostOnly'
+import { LogoPoetWhite } from 'components/atoms/LogoPoetWhite/LogoPoetWhite'
+import { HeaderHomeContainer } from 'components/containers/HeaderHome.container'
+import { Images } from 'images/Images'
 import * as React from 'react'
-import { Images } from '../../../images/Images'
-import { BoxSimple } from '../../atoms/BoxSimple/BoxSimple'
-import { Button } from '../../atoms/Button/Button'
-import { FooterHome } from '../../atoms/FooterHome/FooterHome'
-import { LogoFrostOnly } from '../../atoms/LogoFrostOnly/LogoFrostOnly'
-import { LogoPoetWhite } from '../../atoms/LogoPoetWhite/LogoPoetWhite'
-import { HeaderHomeContainer } from '../../containers/HeaderHome.container'
 import './Home.style.scss'
 
 export const HomeLayout = () => (

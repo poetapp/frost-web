@@ -1,9 +1,9 @@
+import { Actions } from 'actions'
+import { Logout } from 'components/atoms/Logout/Logout'
+import { FrostState, User } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
-import { Actions } from '../../actions'
-import { FrostState, User } from '../../interfaces/Props'
-import { Logout } from '../atoms/Logout/Logout'
 
 interface LogoutContainerProps {
   readonly user: User

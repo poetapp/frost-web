@@ -14,11 +14,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tslint": "tslint -p ./tsconfig.json --fix",
     "tslint:check": "tslint-config-prettier-check ./tslint.json",
+    "tslint:compile-rules": "cd tslint-rules && tsc",
     "stylelint": "stylelint './src/**/*.scss' --fix",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{ts,tsx},!tslint-rules/**/*.*": [
       "tslint",
       "git add"
     ],

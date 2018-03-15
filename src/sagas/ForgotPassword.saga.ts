@@ -1,7 +1,7 @@
 import { Frost } from '@poetapp/frost-client'
+import { Actions } from 'actions/index'
 import { delay } from 'redux-saga'
 import { call, takeLatest, put } from 'redux-saga/effects'
-import { Actions } from '../actions/index'
 
 async function GetApiTokensFrost(email: string) {
   const frost = new Frost({ host: '/api' })

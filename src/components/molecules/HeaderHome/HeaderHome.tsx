@@ -1,8 +1,8 @@
+import { Button } from 'components/atoms/Button/Button'
+import { LinksHeader } from 'components/atoms/LinksHeader/LinksHeader'
+import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
 import * as React from 'react'
 import { Link } from 'react-router'
-import { Button } from '../../atoms/Button/Button'
-import { LinksHeader } from '../../atoms/LinksHeader/LinksHeader'
-import { LogoFrost } from '../../atoms/LogoFrost/LogoFrost'
 import './HeaderHome.scss'
 
 interface HeaderHomeProps {

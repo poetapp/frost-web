@@ -2,14 +2,14 @@ import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { fork } from 'redux-saga/effects'
 const { persistStore, autoRehydrate } = require('redux-persist')
-import { Actions } from './actions'
-import './extensions/Array'
+import { Actions } from 'actions'
+import 'extensions/Array'
 
-import { PageLoader } from './components/PageLoader'
+import { PageLoader } from 'components/PageLoader'
 
-import { pagesLoaders } from './components/pages'
-import { reducers } from './reducers'
-import { sagas as sagaList } from './sagas'
+import { pagesLoaders } from 'components/pages'
+import { reducers } from 'reducers'
+import { sagas as sagaList } from 'sagas'
 
 function bindSagas(pages: Array<PageLoader<any, any>>) {
   const sagas = pages

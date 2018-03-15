@@ -1,5 +1,5 @@
+import { DashboardTemplate } from 'components/templates/DashboardTemplate/DashboardTemplate'
 import * as React from 'react'
-import { DashboardTemplate } from '../templates/DashboardTemplate/DashboardTemplate'
 import { LogoutContainer } from './Logout.container'
 import { NavigationContainer } from './Navigation.container'
 

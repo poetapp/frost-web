@@ -1,8 +1,8 @@
+import { FooterHome } from 'components/atoms/FooterHome/FooterHome'
+import { HeaderTitle } from 'components/atoms/HeaderTitle/HeaderTitle'
+import { TextDisclaimer } from 'components/atoms/TextDisclaimer/TextDisclaimer'
+import { HeaderHomeContainer } from 'components/containers/HeaderHome.container'
 import * as React from 'react'
-import { FooterHome } from '../../atoms/FooterHome/FooterHome'
-import { HeaderTitle } from '../../atoms/HeaderTitle/HeaderTitle'
-import { TextDisclaimer } from '../../atoms/TextDisclaimer/TextDisclaimer'
-import { HeaderHomeContainer } from '../../containers/HeaderHome.container'
 import './Disclaimer.style.scss'
 
 export const DisclaimerLayout = () => (

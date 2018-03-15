@@ -1,5 +1,5 @@
+import { Button } from 'components/atoms/Button/Button'
 import * as React from 'react'
-import { Button } from '../../atoms/Button/Button'
 import './Form.scss'
 require('formdata-polyfill')
 interface FormProps {

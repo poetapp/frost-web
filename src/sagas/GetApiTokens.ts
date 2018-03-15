@@ -1,7 +1,7 @@
 import { Frost } from '@poetapp/frost-client'
+import { Actions } from 'actions/index'
 import * as moment from 'moment'
 import { call, takeLatest, put } from 'redux-saga/effects'
-import { Actions } from '../actions/index'
 
 const parseJwt = (token: string) => {
   const base64Url = token.split('.')[1]

@@ -1,6 +1,6 @@
+import { Actions } from 'actions/index'
 import { browserHistory } from 'react-router'
 import { takeLatest } from 'redux-saga/effects'
-import { Actions } from '../actions/index'
 
 export function SignOutSaga() {
   return function*() {

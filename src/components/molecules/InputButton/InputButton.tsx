@@ -1,7 +1,7 @@
 import * as classNames from 'classnames'
+import { Button } from 'components/atoms/Button/Button'
+import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
-import { ClassNameProps } from '../../../interfaces/Props'
-import { Button } from '../../atoms/Button/Button'
 import './InputButton.scss'
 
 interface InputButtonProps extends ClassNameProps {

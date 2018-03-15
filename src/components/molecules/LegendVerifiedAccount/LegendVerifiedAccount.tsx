@@ -1,6 +1,6 @@
 import * as classNames from 'classnames'
+import { Button } from 'components/atoms/Button/Button'
 import * as React from 'react'
-import { Button } from '../../atoms/Button/Button'
 import './LegendVerifiedAccount.scss'
 
 interface LegendVerifiedAccountProps {

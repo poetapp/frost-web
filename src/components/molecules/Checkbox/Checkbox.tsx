@@ -1,6 +1,6 @@
+import { Input } from 'components/atoms/Input/Input'
+import { Label } from 'components/molecules/Label/Label'
 import * as React from 'react'
-import { Input } from '../../atoms/Input/Input'
-import { Label } from '../../molecules/Label/Label'
 import './Checkbox.scss'
 
 interface CheckboxProps {

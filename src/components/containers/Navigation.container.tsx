@@ -1,7 +1,7 @@
+import { NavigationList } from 'components/atoms/NavigationList/NavigationList'
+import { FrostState, Router } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
-import { FrostState, Router } from '../../interfaces/Props'
-import { NavigationList } from '../atoms/NavigationList/NavigationList'
 
 const links = [
   {

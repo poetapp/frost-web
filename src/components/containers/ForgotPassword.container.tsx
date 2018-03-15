@@ -1,8 +1,8 @@
+import { Actions } from 'actions'
+import { ForgotPassword } from 'components/molecules/Forms/ForgotPassword/ForgotPassword'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
-import { Actions } from '../../actions'
-import { ForgotPassword } from '../molecules/Forms/ForgotPassword/ForgotPassword'
 
 interface DataForm {
   email: string

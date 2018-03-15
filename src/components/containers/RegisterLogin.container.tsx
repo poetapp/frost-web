@@ -1,10 +1,10 @@
+import { Actions } from 'actions'
+import { FrostState, StatusService } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
-import { Actions } from '../../actions'
-import { FrostState, StatusService } from '../../interfaces/Props'
 
-import { RegisterLogin } from '../molecules/RegisterLogin/RegisterLogin'
+import { RegisterLogin } from 'components/molecules/RegisterLogin/RegisterLogin'
 
 interface DataFormSignIn {
   email: string
