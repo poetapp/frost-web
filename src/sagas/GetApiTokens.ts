@@ -1,13 +1,6 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
-import { ApiToken } from 'interfaces/Props'
 import { call, takeLatest, put } from 'redux-saga/effects'
-
-const parseJwt = (token: string) => {
-  const base64Url = token.split('.')[1]
-  const base64 = base64Url.replace('-', '+').replace('_', '/')
-  return JSON.parse(window.atob(base64))
-}
 
 async function GetApiTokensFrost(apiToken: string) {
   const frost = new Frost({ host: '/api' })
