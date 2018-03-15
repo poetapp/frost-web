@@ -6,6 +6,8 @@ export interface ApiToken {
   dateCreated: string
   expiration: string
   isExpired: boolean
+  iat: number
+  exp: number
 }
 export interface Profile {
   email: string
