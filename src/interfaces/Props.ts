@@ -46,3 +46,8 @@ export interface FrostState {
   sendEmailVerifiedAccount: StatusService
   verifiedAccount: StatusService
 }
+
+export interface JWT {
+  iat: number
+  exp: number
+}

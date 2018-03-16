@@ -1,34 +1,23 @@
 import * as classNames from 'classnames'
 import { Hash } from 'components/atoms/Hash/Hash'
+import { parseJwt } from 'helpers'
 import { ClassNameProps } from 'interfaces/Props'
 import { ApiToken } from 'interfaces/Props'
 import * as moment from 'moment'
 import * as React from 'react'
 import './BoxToken.scss'
 
-const parseJwt = (token: string) => {
-  const base64Url = token.split('.')[1]
-  const base64 = base64Url.replace('-', '+').replace('_', '/')
-  return JSON.parse(window.atob(base64))
-}
+const getParsedToken = (token: string): ApiToken => ({
+  token,
+  ...parseJwt(token)
+})
 
-const getDataToken = (token: string): ApiToken => {
-  const jwtDecoded = parseJwt(token)
-  const { iat, exp } = jwtDecoded
+const byIssueDate = (a: ApiToken, b: ApiToken) => (a.iat > b.iat ? -1 : 1)
 
-  return {
-    token,
-    iat,
-    exp
-  }
-}
-
-const isExpired = (expiration: number): boolean => {
-  const exp = parseInt(moment.unix(expiration).format('x'), 10)
+const isDateAfterNow = (unixTimestamp: number): boolean => {
+  const exp = parseInt(moment.unix(unixTimestamp).format('x'), 10)
   return moment(moment.now()).isAfter(exp)
 }
-
-const byMostRecently = (a: ApiToken, b: ApiToken) => (a.iat > b.iat ? -1 : 1)
 
 const renderToken = (token: ApiToken, key: number) => (
   <tr key={key} className={'BoxToken__item'}>
@@ -52,7 +41,7 @@ const renderToken = (token: ApiToken, key: number) => (
       <span
         className={classNames(
           'BoxToken__item__date',
-          isExpired(token.exp) ? 'BoxToken__item__date__expired' : ''
+          isDateAfterNow(token.exp) && 'BoxToken__item__date__expired'
         )}
       >
         {moment.unix(token.exp).format('MM/DD/YYYY hh:mm a')}
@@ -90,8 +79,8 @@ export const BoxToken = (props: BoxTokenProps) => (
       </thead>
       <tbody>
         {props.apiTokens
-          .map(getDataToken)
-          .sort(byMostRecently)
+          .map(getParsedToken)
+          .sort(byIssueDate)
           .map(renderToken)}
       </tbody>
     </table>
