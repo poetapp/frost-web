@@ -1,10 +1,8 @@
 export interface ClassNameProps {
   readonly className?: string
 }
-export interface ApiToken {
+export interface ApiToken extends JWT {
   token: string
-  iat: number
-  exp: number
 }
 export interface Profile {
   email: string
