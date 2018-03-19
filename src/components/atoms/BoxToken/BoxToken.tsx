@@ -37,7 +37,7 @@ export const BoxToken = (props: BoxTokenProps) => (
             <td>
               <span className={'BoxToken__item__token'}>
                 <Hash className="copyable-hash" textClickable>
-                  {'ddddd'}
+                  {token.token}
                 </Hash>
               </span>
             </td>
