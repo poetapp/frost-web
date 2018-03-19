@@ -12,10 +12,10 @@ interface SignUpProps {
   readonly form?: any
 }
 
+let formEl: HTMLFormElement
+let inputEl: HTMLInputElement
+let passwordInputEl: HTMLInputElement
 export class SignUp extends React.Component<SignUpProps, undefined> {
-  private emailInput: HTMLInputElement
-  private passwordInput: HTMLInputElement
-  private form: HTMLFormElement
   constructor() {
     super()
     this.onValidate = this.onValidate.bind(this)
@@ -28,16 +28,16 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
       const { message } = newProps.serverErrors
 
       if (message.includes('Password Requirements')) {
-        this.passwordInput.setCustomValidity(newProps.serverErrors.message)
-        this.passwordInput.focus()
+        passwordInputEl.setCustomValidity(newProps.serverErrors.message)
+        passwordInputEl.focus()
       }
 
       if (message.includes('The specified account already exists.')) {
-        this.emailInput.setCustomValidity(newProps.serverErrors.message)
-        this.emailInput.focus()
+        inputEl.setCustomValidity(newProps.serverErrors.message)
+        inputEl.focus()
       }
 
-      this.form.reportValidity()
+      formEl.reportValidity()
     }
   }
 
@@ -80,14 +80,14 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
         legend={'Sign Up'}
         textButton={'Sign Up'}
         disabledButton={disabledButton}
-        formRef={(el: HTMLFormElement) => (this.form = el)}
+        formRef={(el: HTMLFormElement) => (formEl = el)}
       >
         <Input
           name={'email'}
           type={'email'}
           placeholder={'Email'}
           required
-          inputRef={(el: HTMLInputElement) => (this.emailInput = el)}
+          inputRef={(el: HTMLInputElement) => (inputEl = el)}
           onChange={this.onChangeEmail}
         />
         <InputPassword
@@ -103,7 +103,7 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
             symbol: 1
           }}
           required
-          inputRef={(el: HTMLInputElement) => (this.passwordInput = el)}
+          inputRef={(el: HTMLInputElement) => (passwordInputEl = el)}
         />
         <Input
           name={'confirmPassword'}

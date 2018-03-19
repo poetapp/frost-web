@@ -10,9 +10,10 @@ interface SignInProps {
   readonly serverErrors?: any
 }
 
+let formEl: HTMLFormElement
+let inputEl: HTMLInputElement
+
 export class SignIn extends React.Component<SignInProps, undefined> {
-  private emailInput: HTMLInputElement
-  private form: HTMLFormElement
   constructor() {
     super()
     this.onChangeEmail = this.onChangeEmail.bind(this)
@@ -23,11 +24,11 @@ export class SignIn extends React.Component<SignInProps, undefined> {
       const { message } = newProps.serverErrors
 
       if (message.includes('The specified resource does not exist.')) {
-        this.emailInput.setCustomValidity(newProps.serverErrors.message)
-        this.emailInput.focus()
+        inputEl.setCustomValidity(newProps.serverErrors.message)
+        inputEl.focus()
       }
 
-      this.form.reportValidity()
+      formEl.reportValidity()
     }
   }
 
@@ -46,13 +47,13 @@ export class SignIn extends React.Component<SignInProps, undefined> {
           legend={'Already Signed Up?'}
           textButton={'Login'}
           disabledButton={disabledButton}
-          formRef={(el: HTMLFormElement) => (this.form = el)}
+          formRef={(el: HTMLFormElement) => (formEl = el)}
         >
           <Input
             name={'email'}
             type={'email'}
             placeholder={'Email'}
-            inputRef={(el: HTMLInputElement) => (this.emailInput = el)}
+            inputRef={(el: HTMLInputElement) => (inputEl = el)}
             onChange={this.onChangeEmail}
             required
           />

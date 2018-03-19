@@ -3,7 +3,7 @@ import { Actions } from 'actions/index'
 import { delay } from 'redux-saga'
 import { call, takeLatest, put } from 'redux-saga/effects'
 
-async function SendEmailVerifiedAccountFrost(data: { token: string }) {
+async function SendEmailVerifiedAccountFrost(data: { readonly token: string }) {
   const { token } = data
   const frost = new Frost({ host: '/api' })
   return await frost.sendEmailVerifyAccount(token)

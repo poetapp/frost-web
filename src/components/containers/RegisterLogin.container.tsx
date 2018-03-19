@@ -7,12 +7,12 @@ import { Action } from 'redux'
 import { RegisterLogin } from 'components/molecules/RegisterLogin/RegisterLogin'
 
 interface DataFormSignIn {
-  email: string
-  password: string
+  readonly email: string
+  readonly password: string
 }
 
 interface DataFormSignUp extends DataFormSignIn {
-  confirmPassword: string
+  readonly confirmPassword: string
 }
 
 interface RegisterLoginContainerProps {

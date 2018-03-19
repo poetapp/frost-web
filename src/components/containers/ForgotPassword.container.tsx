@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { Action } from 'redux'
 
 interface DataForm {
-  email: string
+  readonly email: string
 }
 
 interface ForgotPasswordContainerProps {

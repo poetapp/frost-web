@@ -14,6 +14,9 @@ interface CopyableTextState {
   readonly tooltipPositionTop?: number
 }
 
+let inputEl: HTMLInputElement
+let timeout: number
+
 export class CopyableText extends React.Component<
   CopyableTextProps,
   CopyableTextState
@@ -21,8 +24,6 @@ export class CopyableText extends React.Component<
   private readonly styleTranslate = {
     transform: 'translate(-50%, -100%)'
   }
-  private input: HTMLInputElement
-  private timeout: number
 
   constructor() {
     super()
@@ -43,7 +44,7 @@ export class CopyableText extends React.Component<
         <input
           type="text"
           value={this.props.text}
-          ref={input => (this.input = input)}
+          ref={input => (inputEl = input)}
           readOnly
         />
         <button onClick={this.onClick}>COPY</button>
@@ -64,28 +65,28 @@ export class CopyableText extends React.Component<
     )
   }
 
-  private onClick = (
+  private readonly onClick = (
     event:
       | React.MouseEvent<HTMLButtonElement>
       | React.MouseEvent<HTMLDivElement>
   ) => {
-    this.input.select()
+    inputEl.select()
     document.execCommand('copy')
 
-    if (this.timeout) window.clearTimeout(this.timeout)
+    if (timeout) window.clearTimeout(timeout)
 
     this.setState({
       tooltipVisible: true,
       tooltipPositionLeft: event.clientX,
       tooltipPositionTop: event.clientY
     })
-    this.timeout = window.setTimeout(
+    timeout = window.setTimeout(
       () => this.setState({ tooltipVisible: false }),
       2000
     )
   }
 
-  private stylePosition = () => ({
+  private readonly stylePosition = () => ({
     left: this.state.tooltipPositionLeft,
     top: this.state.tooltipPositionTop
   })

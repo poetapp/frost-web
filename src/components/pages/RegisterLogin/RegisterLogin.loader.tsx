@@ -5,7 +5,7 @@ import { PageLoader, ReducerDescription } from 'components/PageLoader'
 import { RegisterLoginLayout } from './RegisterLogin.layout'
 
 export class RegisterLogin extends PageLoader<object, object> {
-  component = RegisterLoginLayout
+  readonly component = RegisterLoginLayout
 
   initialState(): object {
     return {}

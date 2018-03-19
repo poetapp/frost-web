@@ -5,7 +5,7 @@ import { PageLoader, ReducerDescription } from 'components/PageLoader'
 import { ForgotPasswordLayout } from './ForgotPassword.layout'
 
 export class ForgotPassword extends PageLoader<object, object> {
-  component = ForgotPasswordLayout
+  readonly component = ForgotPasswordLayout
 
   initialState(): object {
     return {}

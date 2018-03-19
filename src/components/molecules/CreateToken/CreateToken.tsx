@@ -6,10 +6,10 @@ import * as React from 'react'
 import './CreateToken.scss'
 
 interface CreateTokenProps {
-  boxToken: ApiToken[]
-  showVerifiedAccount: boolean
-  sendEmailVarifiedAccount: (event: Event) => void
-  retryWait: boolean
+  readonly boxToken: ApiToken[]
+  readonly showVerifiedAccount: boolean
+  readonly sendEmailVarifiedAccount: (event: Event) => void
+  readonly retryWait: boolean
 }
 
 export const CreateToken = (props: CreateTokenProps) => (

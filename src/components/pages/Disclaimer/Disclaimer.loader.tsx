@@ -5,7 +5,7 @@ import { PageLoader, ReducerDescription } from 'components/PageLoader'
 import { DisclaimerLayout } from './Disclaimer.layout'
 
 export class Disclaimer extends PageLoader<object, object> {
-  component = DisclaimerLayout
+  readonly component = DisclaimerLayout
 
   initialState(): object {
     return {}
