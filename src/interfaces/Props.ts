@@ -46,6 +46,6 @@ export interface FrostState {
 }
 
 export interface JWT {
-  iat: number
-  exp: number
+  iat: Date
+  exp: Date
 }

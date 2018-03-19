@@ -1,6 +1,6 @@
 import * as classNames from 'classnames'
 import { Hash } from 'components/atoms/Hash/Hash'
-import { parseJwt } from 'helpers'
+import { parseJwt, dateToTimestamp } from 'helpers'
 import { ClassNameProps } from 'interfaces/Props'
 import { ApiToken } from 'interfaces/Props'
 import * as moment from 'moment'
@@ -12,17 +12,14 @@ const getParsedToken = (token: string): ApiToken => ({
   ...parseJwt(token)
 })
 
-const byIssueDate = (a: ApiToken, b: ApiToken) => (a.iat > b.iat ? -1 : 1)
+const byIssueDate = (a: ApiToken, b: ApiToken) => dateToTimestamp(a.iat) > dateToTimestamp(b.iat) ? -1 : 1
 
-const isDateAfterNow = (unixTimestamp: number): boolean => {
-  const exp = parseInt(moment.unix(unixTimestamp).format('x'), 10)
-  return moment(moment.now()).isAfter(exp)
-}
+const isDateAfterNow = (date: Date): boolean => moment(moment.now()).isAfter(date)
 
-const renderToken = (token: ApiToken, key: number) => (
+const renderToken = (token: ApiToken, key: number, total: number) => (
   <tr key={key} className={'BoxToken__item'}>
     <td>
-      <span>#000000</span>
+      <span>{total - key}</span>
     </td>
     <td>
       <span className={'BoxToken__item__token'}>
@@ -32,9 +29,8 @@ const renderToken = (token: ApiToken, key: number) => (
       </span>
     </td>
     <td>
-      {' '}
       <span className={'BoxToken__item__date'}>
-        {moment.unix(token.iat).format('MM/DD/YYYY hh:mm a')}
+        {moment(token.iat).format('MM/DD/YYYY hh:mm a')}
       </span>
     </td>
     <td>
@@ -44,7 +40,7 @@ const renderToken = (token: ApiToken, key: number) => (
           isDateAfterNow(token.exp) && 'BoxToken__item__date__expired'
         )}
       >
-        {moment.unix(token.exp).format('MM/DD/YYYY hh:mm a')}
+        {moment(token.exp).format('MM/DD/YYYY hh:mm a')}
       </span>
     </td>
     <td>
@@ -81,7 +77,7 @@ export const BoxToken = (props: BoxTokenProps) => (
         {props.apiTokens
           .map(getParsedToken)
           .sort(byIssueDate)
-          .map(renderToken)}
+          .map((token, key) => renderToken(token, key, props.apiTokens.length) )}
       </tbody>
     </table>
   </div>
