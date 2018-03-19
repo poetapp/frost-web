@@ -27,17 +27,6 @@ export class Form extends React.Component<FormProps, undefined> {
     event.preventDefault()
     const form = event.target
     const { currentData, elements } = getParsedForm(form)
-    // const data = new FormData(form)
-    // const currentData: any = {}
-    // const elements: any = {}
-
-    // for (const key of data.keys()) {
-    //   const input = form.elements[key]
-    //   const value = input.value
-    //   const name = input.name
-    //   currentData[name] = value
-    //   elements[name] = input
-    // }
     if (validate(currentData, elements)) submit(currentData, elements)
   }
 

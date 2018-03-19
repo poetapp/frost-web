@@ -1,4 +1,5 @@
 import * as classNames from 'classnames'
+import { getParsedForm } from 'helpers'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
 import './CopyableText.scss'
@@ -9,13 +10,11 @@ export interface CopyableTextProps extends ClassNameProps {
 }
 
 interface CopyableTextState {
-  readonly tooltipVisible: boolean
+  readonly tooltipVisible?: boolean
   readonly tooltipPositionLeft?: number
   readonly tooltipPositionTop?: number
+  readonly timeout?: number
 }
-
-let inputEl: HTMLInputElement
-let timeout: number
 
 export class CopyableText extends React.Component<
   CopyableTextProps,
@@ -41,36 +40,32 @@ export class CopyableText extends React.Component<
           this.state.tooltipVisible && 'tooltip-visible'
         )}
       >
-        <input
-          type="text"
-          value={this.props.text}
-          ref={input => (inputEl = input)}
-          readOnly
-        />
-        <button onClick={this.onClick}>COPY</button>
-        <div
-          className="value"
-          onClick={this.props.textClickable && this.onClick}
-        >
-          {this.props.children || this.props.text}
-        </div>
-        <div
-          className="tooltip"
-          onClick={this.props.textClickable && this.onClick}
-          style={{ ...this.styleTranslate, ...this.stylePosition() }}
-        >
-          Copied
-        </div>
+        <form>
+          <input type="text" name="text" value={this.props.text} readOnly />
+          <button onClick={this.onClick}>COPY</button>
+          <div
+            className="value"
+            onClick={this.props.textClickable && this.onClick}
+          >
+            {this.props.children || this.props.text}
+          </div>
+          <div
+            className="tooltip"
+            onClick={this.props.textClickable && this.onClick}
+            style={{ ...this.styleTranslate, ...this.stylePosition() }}
+          >
+            Copied
+          </div>
+        </form>
       </div>
     )
   }
 
-  private readonly onClick = (
-    event:
-      | React.MouseEvent<HTMLButtonElement>
-      | React.MouseEvent<HTMLDivElement>
-  ) => {
-    inputEl.select()
+  private readonly onClick = (event: any) => {
+    const { timeout } = this.state
+    const form = event.target.parentNode
+    const { elements } = getParsedForm(form)
+    elements.text.select()
     document.execCommand('copy')
 
     if (timeout) window.clearTimeout(timeout)
@@ -80,10 +75,13 @@ export class CopyableText extends React.Component<
       tooltipPositionLeft: event.clientX,
       tooltipPositionTop: event.clientY
     })
-    timeout = window.setTimeout(
+
+    const currentTimeout = window.setTimeout(
       () => this.setState({ tooltipVisible: false }),
       2000
     )
+
+    this.setState({ timeout: currentTimeout })
   }
 
   private readonly stylePosition = () => ({
