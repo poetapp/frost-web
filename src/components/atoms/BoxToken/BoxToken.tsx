@@ -12,9 +12,11 @@ const getParsedToken = (token: string): ApiToken => ({
   ...parseJwt(token)
 })
 
-const byIssueDate = (a: ApiToken, b: ApiToken) => dateToTimestamp(a.iat) > dateToTimestamp(b.iat) ? -1 : 1
+const byIssueDate = (a: ApiToken, b: ApiToken) =>
+  dateToTimestamp(a.iat) > dateToTimestamp(b.iat) ? -1 : 1
 
-const isDateAfterNow = (date: Date): boolean => moment(moment.now()).isAfter(date)
+const isDateAfterNow = (date: Date): boolean =>
+  moment(moment.now()).isAfter(date)
 
 const renderToken = (token: ApiToken, key: number, total: number) => (
   <tr key={key} className={'BoxToken__item'}>
@@ -77,7 +79,7 @@ export const BoxToken = (props: BoxTokenProps) => (
         {props.apiTokens
           .map(getParsedToken)
           .sort(byIssueDate)
-          .map((token, key) => renderToken(token, key, props.apiTokens.length) )}
+          .map((token, key) => renderToken(token, key, props.apiTokens.length))}
       </tbody>
     </table>
   </div>
