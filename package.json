@@ -19,7 +19,7 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{ts,tsx},!tslint-rules/**/*.*": [
+    "*.{ts,tsx}": [
       "tslint",
       "git add"
     ],
