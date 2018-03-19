@@ -33,13 +33,22 @@ function* SignIn(action: any) {
     yield call(delay, 300)
     browserHistory.push('/dashboard')
   } catch (e) {
+    const { html } = action.payload
+    const { elements, form } = html
+
+    if (e.includes('The specified resource does not exist.')) {
+      elements.email.setCustomValidity(e)
+      elements.email.focus()
+    } else
+      toast.error(e, {
+        className: 'toast',
+        autoClose: 2500
+      })
+
+    form.reportValidity()
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.SignIn.onSignInError(e))
     yield call(delay, 300)
     yield put(Actions.SignIn.onSignInClearError())
-    toast.error(e, {
-      className: 'toast',
-      autoClose: 2500
-    })
   }
 }

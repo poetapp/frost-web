@@ -10,8 +10,8 @@ import { StatusService } from 'interfaces/Props'
 import './RegisterLogin.scss'
 
 interface RegisterLoginProps {
-  readonly onSubmitSignUp?: (data: object) => void
-  readonly onSubmitSignIn?: (data: object) => void
+  readonly onSubmitSignUp?: (data: object, elements: any, form: any) => void
+  readonly onSubmitSignIn?: (data: object, elements: any, form: any) => void
   readonly signUp: StatusService
   readonly signIn: StatusService
 }

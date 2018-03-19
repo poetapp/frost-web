@@ -6,118 +6,81 @@ import * as React from 'react'
 import { Link } from 'react-router'
 
 interface SignUpProps {
-  readonly onSubmit: (event: any) => any
+  readonly onSubmit: (event: any, elements: any, form: any) => any
   readonly disabledButton?: boolean
   readonly serverErrors?: any
   readonly form?: any
 }
 
-let formEl: HTMLFormElement
-let inputEl: HTMLInputElement
-let passwordInputEl: HTMLInputElement
-export class SignUp extends React.Component<SignUpProps, undefined> {
-  constructor() {
-    super()
-    this.onValidate = this.onValidate.bind(this)
-    this.onChangeRepeatPassword = this.onChangeRepeatPassword.bind(this)
-    this.onChangeEmail = this.onChangeEmail.bind(this)
+const onValidate = (data: any, elements: any) => {
+  const { password, confirmPassword } = data
+
+  if (password !== confirmPassword) {
+    elements.confirmPassword.setCustomValidity(`Passwords Don't Match`)
+    return false
   }
 
-  componentWillReceiveProps(newProps: any) {
-    if (newProps.serverErrors.status) {
-      const { message } = newProps.serverErrors
-
-      if (message.includes('Password Requirements')) {
-        passwordInputEl.setCustomValidity(newProps.serverErrors.message)
-        passwordInputEl.focus()
-      }
-
-      if (message.includes('The specified account already exists.')) {
-        inputEl.setCustomValidity(newProps.serverErrors.message)
-        inputEl.focus()
-      }
-
-      formEl.reportValidity()
-    }
-  }
-
-  onValidate(data: any, elements: any) {
-    const { password, confirmPassword } = data
-
-    if (password !== confirmPassword) {
-      elements.confirmPassword.setCustomValidity(`Passwords Don't Match`)
-      return false
-    }
-
-    return true
-  }
-
-  onChangeRepeatPassword(e: any, data: any, elements: any) {
-    const value = e.target.value
-    const { password, confirmPassword } = data
-
-    if (value !== '' && password !== confirmPassword)
-      elements.confirmPassword.setCustomValidity(`Passwords Don't Match`)
-
-    if (password === confirmPassword)
-      elements.confirmPassword.setCustomValidity('')
-
-    if (value === '') elements.confirmPassword.setCustomValidity('')
-  }
-
-  onChangeEmail(e: any) {
-    const input = e.target
-    input.setCustomValidity('')
-  }
-
-  render() {
-    const { onSubmit, disabledButton } = this.props
-
-    return (
-      <Form
-        onSubmit={onSubmit}
-        onValidate={this.onValidate}
-        legend={'Sign Up'}
-        textButton={'Sign Up'}
-        disabledButton={disabledButton}
-        formRef={(el: HTMLFormElement) => (formEl = el)}
-      >
-        <Input
-          name={'email'}
-          type={'email'}
-          placeholder={'Email'}
-          required
-          inputRef={(el: HTMLInputElement) => (inputEl = el)}
-          onChange={this.onChangeEmail}
-        />
-        <InputPassword
-          name={'password'}
-          type={'password'}
-          placeholder={'Password'}
-          minLength={10}
-          maxLength={30}
-          complexity={{
-            lowerCase: 1,
-            upperCase: 1,
-            numeric: 1,
-            symbol: 1
-          }}
-          required
-          inputRef={(el: HTMLInputElement) => (passwordInputEl = el)}
-        />
-        <Input
-          name={'confirmPassword'}
-          type={'password'}
-          placeholder={'Repeat Password'}
-          onChange={this.onChangeRepeatPassword.bind(this)}
-          minLength={10}
-          maxLength={30}
-          required
-        />
-        <Checkbox name={'testnet'} required>
-          I have read the legal <Link to={'/disclaimer'}>disclaimer</Link>
-        </Checkbox>
-      </Form>
-    )
-  }
+  return true
 }
+
+const onChangeRepeatPassword = (e: any, data: any, elements: any) => {
+  const value = e.target.value
+  const { password, confirmPassword } = data
+
+  if (value !== '' && password !== confirmPassword)
+    elements.confirmPassword.setCustomValidity(`Passwords Don't Match`)
+
+  if (password === confirmPassword)
+    elements.confirmPassword.setCustomValidity('')
+
+  if (value === '') elements.confirmPassword.setCustomValidity('')
+}
+
+const onChangeEmail = (e: any) => {
+  const input = e.target
+  input.setCustomValidity('')
+}
+
+export const SignUp = (props: SignUpProps) => (
+  <Form
+    onSubmit={props.onSubmit}
+    onValidate={onValidate}
+    legend={'Sign Up'}
+    textButton={'Sign Up'}
+    disabledButton={props.disabledButton}
+  >
+    <Input
+      name={'email'}
+      type={'email'}
+      placeholder={'Email'}
+      required
+      onChange={onChangeEmail}
+    />
+    <InputPassword
+      name={'password'}
+      type={'password'}
+      placeholder={'Password'}
+      minLength={10}
+      maxLength={30}
+      complexity={{
+        lowerCase: 1,
+        upperCase: 1,
+        numeric: 1,
+        symbol: 1
+      }}
+      required
+    />
+    <Input
+      name={'confirmPassword'}
+      type={'password'}
+      placeholder={'Repeat Password'}
+      onChange={onChangeRepeatPassword}
+      minLength={10}
+      maxLength={30}
+      required
+    />
+    <Checkbox name={'testnet'} required>
+      I have read the legal <Link to={'/disclaimer'}>disclaimer</Link>
+    </Checkbox>
+  </Form>
+)
