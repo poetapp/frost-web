@@ -1,5 +1,4 @@
 import { JWT } from 'interfaces/Props'
-import * as moment from 'moment'
 
 const timestampToDateJS = (timestamp: number) => new Date(timestamp * 1000)
 

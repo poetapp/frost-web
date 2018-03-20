@@ -12,7 +12,8 @@ const getParsedToken = (token: string): ApiToken => ({
   ...parseJwt(token)
 })
 
-const byIssueDate = (a: ApiToken, b: ApiToken) => a.iat.getTime() > b.iat.getTime() ? -1 : 1
+const byIssueDate = (a: ApiToken, b: ApiToken) =>
+  a.iat.getTime() > b.iat.getTime() ? -1 : 1
 
 const isDateAfterNow = (date: Date): boolean => moment().isAfter(date)
 
