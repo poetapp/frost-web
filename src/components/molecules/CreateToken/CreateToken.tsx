@@ -1,12 +1,11 @@
 import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
-import { ApiToken } from 'interfaces/Props'
 import * as React from 'react'
 import './CreateToken.scss'
 
 interface CreateTokenProps {
-  boxToken: ApiToken[]
+  boxToken: string[]
   showVerifiedAccount: boolean
   sendEmailVarifiedAccount: (event: Event) => void
   retryWait: boolean

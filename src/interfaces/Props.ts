@@ -1,15 +1,12 @@
 export interface ClassNameProps {
   readonly className?: string
 }
-export interface ApiToken {
+export interface ApiToken extends JWT {
   token: string
-  dateCreated: string
-  expiration: string
-  isExpired: boolean
 }
 export interface Profile {
   email: string
-  apiTokens?: ApiToken[]
+  apiTokens?: string[]
   verified: boolean
   createdAt: string
 }
@@ -46,4 +43,9 @@ export interface FrostState {
   signUp: StatusService
   sendEmailVerifiedAccount: StatusService
   verifiedAccount: StatusService
+}
+
+export interface JWT {
+  iat: Date
+  exp: Date
 }
