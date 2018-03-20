@@ -1,6 +1,6 @@
 import * as classNames from 'classnames'
 import { Hash } from 'components/atoms/Hash/Hash'
-import { parseJwt, dateToTimestamp } from 'helpers'
+import { parseJwt } from 'helpers'
 import { ClassNameProps } from 'interfaces/Props'
 import { ApiToken } from 'interfaces/Props'
 import * as moment from 'moment'
@@ -12,11 +12,9 @@ const getParsedToken = (token: string): ApiToken => ({
   ...parseJwt(token)
 })
 
-const byIssueDate = (a: ApiToken, b: ApiToken) =>
-  dateToTimestamp(a.iat) > dateToTimestamp(b.iat) ? -1 : 1
+const byIssueDate = (a: ApiToken, b: ApiToken) => a.iat.getTime() > b.iat.getTime() ? -1 : 1
 
-const isDateAfterNow = (date: Date): boolean =>
-  moment(moment.now()).isAfter(date)
+const isDateAfterNow = (date: Date): boolean => moment().isAfter(date)
 
 const renderToken = (token: ApiToken, key: number, total: number) => (
   <tr key={key} className={'BoxToken__item'}>
