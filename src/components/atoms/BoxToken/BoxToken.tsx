@@ -36,12 +36,21 @@ const renderToken = (token: ApiToken, key: number, total: number) => (
     </td>
     <td>
       <span
+        title={
+          isDateAfterNow(token.exp)
+            ? ''
+            : moment(token.exp).format('MM/DD/YYYY hh:mm a')
+        }
         className={classNames(
           'BoxToken__item__date',
-          isDateAfterNow(token.exp) && 'BoxToken__item__date__expired'
+          isDateAfterNow(token.exp)
+            ? 'BoxToken__item__date__expired'
+            : 'BoxToken__item__date__help'
         )}
       >
-        {moment(token.exp).format('MM/DD/YYYY hh:mm a')}
+        {isDateAfterNow(token.exp)
+          ? moment(token.exp).format('MM/DD/YYYY hh:mm a')
+          : moment(token.exp).fromNow()}
       </span>
     </td>
     <td>
