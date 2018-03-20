@@ -3,6 +3,7 @@ import { FrostState, StatusService } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
+const { toast } = require('react-toastify')
 
 import { RegisterLogin } from 'components/molecules/RegisterLogin/RegisterLogin'
 
@@ -17,7 +18,11 @@ interface DataFormSignUp extends DataFormSignIn {
 
 interface RegisterLoginContainerProps {
   readonly onSubmitSignUp?: (data: DataFormSignUp) => Action
-  readonly onSubmitSignIn?: (data: DataFormSignIn) => Action
+  readonly onSubmitSignIn?: (
+    data: DataFormSignIn,
+    resolve: any,
+    reject: any
+  ) => Action
   readonly signIn: StatusService
   readonly signUp: StatusService
 }
@@ -49,9 +54,21 @@ export const RegisterLoginContainer = connect(mapStateToProps, mapDispatch)(
 
     onSubmitSignIn(data: DataFormSignIn, elements: any, form: any) {
       const { onSubmitSignIn } = this.props
-      const html = { elements, form }
-      const dataForm = { ...data, html }
-      onSubmitSignIn(dataForm)
+
+      new Promise((resolve, reject) =>
+        onSubmitSignIn(data, resolve, reject)
+      ).catch((e: string) => {
+        if (e.includes('The specified resource does not exist.')) {
+          elements.email.setCustomValidity(e)
+          elements.email.focus()
+        } else
+          toast.error(e, {
+            className: 'toast',
+            autoClose: 2500
+          })
+
+        form.reportValidity()
+      })
     }
 
     render() {

@@ -27,9 +27,15 @@ export namespace Actions {
     export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS'
     export const SIGN_IN_ERROR = 'SIGN_IN_ERROR'
     export const SIGN_IN_CLEAR_ERROR = 'SIGN_IN_CLEAR_ERROR'
-    export const onSignIn = (payload?: object) => ({
+    export const onSignIn = (
+      payload?: object,
+      resolve?: any,
+      reject?: any
+    ) => ({
       type: SIGN_IN,
-      payload
+      payload,
+      resolve,
+      reject
     })
     export const onSignInSuccess = (payload?: object) => ({
       type: SIGN_IN_SUCCESS,
