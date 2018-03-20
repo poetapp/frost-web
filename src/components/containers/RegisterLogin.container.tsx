@@ -52,23 +52,25 @@ export const RegisterLoginContainer = connect(mapStateToProps, mapDispatch)(
       onSubmitSignUp(dataForm)
     }
 
+    showUIErrors(error: string, elements: any, form: any) {
+      if (error.includes('The specified resource does not exist.')) {
+        elements.email.setCustomValidity(e)
+        elements.email.focus()
+      } else
+        toast.error(error, {
+          className: 'toast',
+          autoClose: 2500
+        })
+
+      form.reportValidity()
+    }
+
     onSubmitSignIn(data: DataFormSignIn, elements: any, form: any) {
       const { onSubmitSignIn } = this.props
 
       new Promise((resolve, reject) =>
         onSubmitSignIn(data, resolve, reject)
-      ).catch((e: string) => {
-        if (e.includes('The specified resource does not exist.')) {
-          elements.email.setCustomValidity(e)
-          elements.email.focus()
-        } else
-          toast.error(e, {
-            className: 'toast',
-            autoClose: 2500
-          })
-
-        form.reportValidity()
-      })
+      ).catch((e: string) => this.showUIErrors(e, elements, form))
     }
 
     render() {
