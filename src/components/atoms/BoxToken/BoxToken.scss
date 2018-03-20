@@ -50,15 +50,17 @@
     }
 
     &__date {
-      display: block;
       position: relative;
-      width: 100%;
       font-size: 11px;
       line-height: 15px;
 
       &__expired {
         font-weight: bold;
         color: $mandy;
+      }
+
+      &__help {
+        cursor: help;
       }
     }
 
@@ -74,17 +76,6 @@
         color: $mandy;
         cursor: pointer;
       }
-    }
-  }
-
-  &__tooltip {
-    cursor: pointer;
-
-    .Tooltip__tooltiptext {
-      left: 0;
-      right: 0;
-      top: 24px;
-      width: 150px;
     }
   }
 }

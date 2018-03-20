@@ -1,59 +1,26 @@
 import * as classNames from 'classnames'
 import { Hash } from 'components/atoms/Hash/Hash'
-import { Tootip } from 'components/atoms/Tooltip/Tooltip'
+import { parseJwt } from 'helpers'
 import { ClassNameProps } from 'interfaces/Props'
 import { ApiToken } from 'interfaces/Props'
 import * as moment from 'moment'
 import * as React from 'react'
 import './BoxToken.scss'
 
-moment.locale('en', {
-  relativeTime: {
-    future: 'in %s',
-    past: '%s ago',
-    s: 'seconds',
-    ss: '%ss',
-    m: 'a minute',
-    mm: '%dm',
-    h: 'an hour',
-    hh: '%dh',
-    d: 'a day',
-    dd: '%dd',
-    M: 'a month',
-    MM: '%dM',
-    y: 'a year',
-    yy: '%dY'
-  }
+const getParsedToken = (token: string): ApiToken => ({
+  token,
+  ...parseJwt(token)
 })
 
-const parseJwt = (token: string) => {
-  const base64Url = token.split('.')[1]
-  const base64 = base64Url.replace('-', '+').replace('_', '/')
-  return JSON.parse(window.atob(base64))
-}
+const byIssueDate = (a: ApiToken, b: ApiToken) =>
+  a.iat.getTime() > b.iat.getTime() ? -1 : 1
 
-const getDataToken = (token: string): ApiToken => {
-  const jwtDecoded = parseJwt(token)
-  const { iat, exp } = jwtDecoded
+const isDateAfterNow = (date: Date): boolean => moment().isAfter(date)
 
-  return {
-    token,
-    iat,
-    exp
-  }
-}
-
-const isExpired = (expiration: number): boolean => {
-  const exp = parseInt(moment.unix(expiration).format('x'), 10)
-  return moment(moment.now()).isAfter(exp)
-}
-
-const byMostRecently = (a: ApiToken, b: ApiToken) => (a.iat > b.iat ? -1 : 1)
-
-const renderToken = (token: ApiToken, key: number) => (
+const renderToken = (token: ApiToken, key: number, total: number) => (
   <tr key={key} className={'BoxToken__item'}>
     <td>
-      <span>#000000</span>
+      <span>{total - key}</span>
     </td>
     <td>
       <span className={'BoxToken__item__token'}>
@@ -63,27 +30,27 @@ const renderToken = (token: ApiToken, key: number) => (
       </span>
     </td>
     <td>
-      {' '}
       <span className={'BoxToken__item__date'}>
-        {moment.unix(token.iat).format('MM/DD/YYYY hh:mm a')}
+        {moment(token.iat).format('MM/DD/YYYY hh:mm a')}
       </span>
     </td>
     <td>
       <span
+        title={
+          isDateAfterNow(token.exp)
+            ? ''
+            : moment(token.exp).format('MM/DD/YYYY hh:mm a')
+        }
         className={classNames(
           'BoxToken__item__date',
-          isExpired(token.exp) ? 'BoxToken__item__date__expired' : ''
+          isDateAfterNow(token.exp)
+            ? 'BoxToken__item__date__expired'
+            : 'BoxToken__item__date__help'
         )}
       >
-        {isExpired(token.exp) ? (
-          moment.unix(token.exp).format('MM/DD/YYYY hh:mm a')
-        ) : (
-          <Tootip
-            className={'BoxToken__tooltip'}
-            element={moment.unix(token.exp).fromNow()}
-            tooltipText={moment.unix(token.exp).format('MM/DD/YYYY hh:mm a')}
-          />
-        )}
+        {isDateAfterNow(token.exp)
+          ? moment(token.exp).format('MM/DD/YYYY hh:mm a')
+          : moment(token.exp).fromNow()}
       </span>
     </td>
     <td>
@@ -118,9 +85,9 @@ export const BoxToken = (props: BoxTokenProps) => (
       </thead>
       <tbody>
         {props.apiTokens
-          .map(getDataToken)
-          .sort(byMostRecently)
-          .map(renderToken)}
+          .map(getParsedToken)
+          .sort(byIssueDate)
+          .map((token, key) => renderToken(token, key, props.apiTokens.length))}
       </tbody>
     </table>
   </div>
