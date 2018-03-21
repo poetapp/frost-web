@@ -2,50 +2,50 @@ export interface ClassNameProps {
   readonly className?: string
 }
 export interface ApiToken extends JWT {
-  token: string
+  readonly token: string
 }
 export interface Profile {
-  email: string
-  apiTokens?: string[]
-  verified: boolean
-  createdAt: string
+  readonly email: string
+  readonly apiTokens?: string[]
+  readonly verified: boolean
+  readonly createdAt: string
 }
 export interface User {
-  token: string | undefined
-  profile: Profile
+  readonly token: string | undefined
+  readonly profile: Profile
 }
 
 export interface Router {
-  currentPath: string
+  readonly currentPath: string
 }
 
 export interface LoadingPage {
-  loading: boolean
-  percentage: number
+  readonly loading: boolean
+  readonly percentage: number
 }
 
 export interface ErrorService {
-  status: boolean
-  message: string
+  readonly status: boolean
+  readonly message: string
 }
 export interface StatusService {
-  error: ErrorService
-  loading: boolean
-  retryWait?: boolean
+  readonly error: ErrorService
+  readonly loading: boolean
+  readonly retryWait?: boolean
 }
 
 export interface FrostState {
-  user: User
-  router: Router
-  loadingPage: LoadingPage
-  changePasswordToken: StatusService
-  signIn: StatusService
-  signUp: StatusService
-  sendEmailVerifiedAccount: StatusService
-  verifiedAccount: StatusService
+  readonly user: User
+  readonly router: Router
+  readonly loadingPage: LoadingPage
+  readonly changePasswordToken: StatusService
+  readonly signIn: StatusService
+  readonly signUp: StatusService
+  readonly sendEmailVerifiedAccount: StatusService
+  readonly verifiedAccount: StatusService
 }
 
 export interface JWT {
-  iat: Date
-  exp: Date
+  readonly iat: Date
+  readonly exp: Date
 }

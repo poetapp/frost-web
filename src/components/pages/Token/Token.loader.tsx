@@ -5,7 +5,7 @@ import { PageLoader, ReducerDescription } from 'components/PageLoader'
 import { TokenLayout } from './Token.layout'
 
 export class Token extends PageLoader<object, object> {
-  component = TokenLayout
+  readonly component = TokenLayout
 
   initialState(): object {
     return {}

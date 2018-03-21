@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router'
 import { Action } from 'redux'
 
 interface DataAction {
-  token: string
+  readonly token: string
 }
 
 interface VerifiedAccountContainerProps {

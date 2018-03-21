@@ -5,7 +5,7 @@ import { PageLoader, ReducerDescription } from 'components/PageLoader'
 import { ChangePasswordTokenLayout } from './ChangePasswordToken.layout'
 
 export class ChangePasswordToken extends PageLoader<object, object> {
-  component = ChangePasswordTokenLayout
+  readonly component = ChangePasswordTokenLayout
 
   initialState(): object {
     return {}

@@ -5,7 +5,7 @@ import { PageLoader, ReducerDescription } from 'components/PageLoader'
 import { DashboardLayout } from './Dashboard.layout'
 
 export class Dashboard extends PageLoader<object, object> {
-  component = DashboardLayout
+  readonly component = DashboardLayout
 
   initialState(): object {
     return {}

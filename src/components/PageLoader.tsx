@@ -2,8 +2,8 @@ import { connect, StatelessComponent, ComponentClass } from 'react-redux'
 import { Reducer } from 'redux'
 
 export interface ReducerDescription<T> {
-  subState: string
-  reducer: Reducer<T>
+  readonly subState: string
+  readonly reducer: Reducer<T>
 }
 
 export abstract class PageLoader<State, Properties> {

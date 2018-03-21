@@ -3,21 +3,26 @@ import { FrostState, StatusService } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
+const { toast } = require('react-toastify')
 
 import { RegisterLogin } from 'components/molecules/RegisterLogin/RegisterLogin'
 
 interface DataFormSignIn {
-  email: string
-  password: string
+  readonly email: string
+  readonly password: string
 }
 
 interface DataFormSignUp extends DataFormSignIn {
-  confirmPassword: string
+  readonly confirmPassword: string
 }
 
 interface RegisterLoginContainerProps {
   readonly onSubmitSignUp?: (data: DataFormSignUp) => Action
-  readonly onSubmitSignIn?: (data: DataFormSignIn) => Action
+  readonly onSubmitSignIn?: (
+    data: DataFormSignIn,
+    resolve: any,
+    reject: any
+  ) => Action
   readonly signIn: StatusService
   readonly signUp: StatusService
 }
@@ -40,14 +45,32 @@ export const RegisterLoginContainer = connect(mapStateToProps, mapDispatch)(
       this.onSubmitSignIn = this.onSubmitSignIn.bind(this)
     }
 
-    onSubmitSignUp(data: DataFormSignUp) {
+    onSubmitSignUp(data: DataFormSignUp, elements: any, form: any) {
       const { onSubmitSignUp } = this.props
-      onSubmitSignUp(data)
+      const html = { elements, form }
+      const dataForm = { ...data, html }
+      onSubmitSignUp(dataForm)
     }
 
-    onSubmitSignIn(data: DataFormSignIn) {
+    showUIErrors(error: string, elements: any, form: any) {
+      if (error.includes('The specified resource does not exist.')) {
+        elements.email.setCustomValidity(error)
+        elements.email.focus()
+      } else
+        toast.error(error, {
+          className: 'toast',
+          autoClose: 2500
+        })
+
+      form.reportValidity()
+    }
+
+    onSubmitSignIn(data: DataFormSignIn, elements: any, form: any) {
       const { onSubmitSignIn } = this.props
-      onSubmitSignIn(data)
+
+      new Promise((resolve, reject) =>
+        onSubmitSignIn(data, resolve, reject)
+      ).catch((e: string) => this.showUIErrors(e, elements, form))
     }
 
     render() {

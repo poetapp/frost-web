@@ -1,4 +1,5 @@
 import * as classNames from 'classnames'
+import { getParsedForm } from 'helpers'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
 import './Input.scss'
@@ -10,104 +11,33 @@ interface InputProps extends ClassNameProps {
   readonly required?: boolean
   readonly minLength?: number
   readonly maxLength?: number
-  readonly onChange?: (event: Event) => void
-  readonly onKeyUp?: (event: Event) => void
-  readonly onFocus?: (event: Event) => void
+  readonly onChange?: (event?: Event, data?: any, elements?: any) => void
+  readonly onKeyUp?: (event?: Event, data?: any, elements?: any) => void
+  readonly onFocus?: (event?: Event, data?: any, elements?: any) => void
   readonly autoFocus?: boolean
   readonly ref?: any
   readonly inputRef?: any
 }
 
-export class Input extends React.Component<InputProps, undefined> {
-  constructor() {
-    super()
-    this.onChange = this.onChange.bind(this)
-    this.onKeyUp = this.onKeyUp.bind(this)
-    this.onFocus = this.onFocus.bind(this)
-  }
-
-  onChange(event: any, onChange: any, props: InputProps) {
-    if (props.type !== 'checkbox') event.preventDefault()
-    const form = event.target.form
-    const data = new FormData(form)
-    const currentData: any = {}
-    const elements: any = {}
-
-    for (const key of data.keys()) {
-      const input = form.elements[key]
-      const value = input.value
-      const name = input.name
-      currentData[name] = value
-      elements[name] = input
-    }
-    if (typeof onChange === 'function') onChange(event, currentData, elements)
-  }
-
-  onKeyUp(event: any, onKeyUp: any) {
-    event.preventDefault()
-    const form = event.target.form
-    const data = new FormData(form)
-    const currentData: any = {}
-    const elements: any = {}
-
-    for (const key of data.keys()) {
-      const input = form.elements[key]
-      const value = input.value
-      const name = input.name
-      currentData[name] = value
-      elements[name] = input
-    }
-    if (typeof onKeyUp === 'function') onKeyUp(event, currentData, elements)
-  }
-
-  onFocus(event: any, onFocus: any) {
-    event.preventDefault()
-    const form = event.target.form
-    const data = new FormData(form)
-    const currentData: any = {}
-    const elements: any = {}
-
-    for (const key of data.keys()) {
-      const input = form.elements[key]
-      const value = input.value
-      const name = input.name
-      currentData[name] = value
-      elements[name] = input
-    }
-    if (typeof onFocus === 'function') onFocus(event, currentData, elements)
-  }
-
-  render() {
-    const {
-      name,
-      type,
-      placeholder,
-      required,
-      className,
-      onChange,
-      onKeyUp,
-      onFocus,
-      maxLength,
-      minLength,
-      autoFocus,
-      inputRef
-    } = this.props
-
-    return (
-      <input
-        name={name}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className={classNames('Input', className)}
-        onChange={e => this.onChange(e, onChange, this.props)}
-        onKeyUp={e => this.onKeyUp(e, onKeyUp)}
-        onFocus={e => this.onKeyUp(e, onFocus)}
-        {...(maxLength ? { maxLength } : {})}
-        {...(minLength ? { minLength } : {})}
-        {...(autoFocus ? { autoFocus: true } : {})}
-        ref={inputRef}
-      />
-    )
-  }
+const onEvent = (event: any, callback: any, props: InputProps) => {
+  if (props.type !== 'checkbox') event.preventDefault()
+  const form = event.target.form
+  const { currentData, elements } = getParsedForm(form)
+  if (typeof callback === 'function') callback(event, currentData, elements)
 }
+
+export const Input = (props: InputProps) => (
+  <input
+    name={props.name}
+    type={props.type}
+    required={props.required}
+    placeholder={props.placeholder}
+    className={classNames('Input', props.className)}
+    onChange={e => onEvent(e, props.onChange, props)}
+    onKeyUp={e => onEvent(e, props.onKeyUp, props)}
+    onFocus={e => onEvent(e, props.onFocus, props)}
+    {...(props.maxLength ? { maxLength: props.maxLength } : {})}
+    {...(props.minLength ? { minLength: props.minLength } : {})}
+    {...(props.autoFocus ? { autoFocus: true } : {})}
+  />
+)
