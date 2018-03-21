@@ -50,12 +50,17 @@
     }
 
     &__date {
+      position: relative;
       font-size: 11px;
       line-height: 15px;
 
       &__expired {
         font-weight: bold;
         color: $mandy;
+      }
+
+      &__help {
+        cursor: help;
       }
     }
 
