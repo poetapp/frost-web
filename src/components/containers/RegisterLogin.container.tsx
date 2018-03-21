@@ -54,7 +54,7 @@ export const RegisterLoginContainer = connect(mapStateToProps, mapDispatch)(
 
     showUIErrors(error: string, elements: any, form: any) {
       if (error.includes('The specified resource does not exist.')) {
-        elements.email.setCustomValidity(e)
+        elements.email.setCustomValidity(error)
         elements.email.focus()
       } else
         toast.error(error, {
