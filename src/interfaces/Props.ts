@@ -1,15 +1,12 @@
 export interface ClassNameProps {
   readonly className?: string
 }
-export interface ApiToken {
+export interface ApiToken extends JWT {
   readonly token: string
-  readonly dateCreated: string
-  readonly expiration: string
-  readonly isExpired: boolean
 }
 export interface Profile {
   readonly email: string
-  readonly apiTokens?: ApiToken[]
+  readonly apiTokens?: string[]
   readonly verified: boolean
   readonly createdAt: string
 }
@@ -46,4 +43,9 @@ export interface FrostState {
   readonly signUp: StatusService
   readonly sendEmailVerifiedAccount: StatusService
   readonly verifiedAccount: StatusService
+}
+
+export interface JWT {
+  readonly iat: Date
+  readonly exp: Date
 }
