@@ -12,10 +12,10 @@ interface SignUpProps {
   readonly form?: any
 }
 
-let formEl: HTMLFormElement
-let inputEl: HTMLInputElement
-let passwordInputEl: HTMLInputElement
 export class SignUp extends React.Component<SignUpProps, undefined> {
+  private mutableEmailInput: HTMLInputElement
+  private mutablePasswordInput: HTMLInputElement
+  private mutableForm: HTMLFormElement
   constructor() {
     super()
     this.onValidate = this.onValidate.bind(this)
@@ -28,16 +28,18 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
       const { message } = newProps.serverErrors
 
       if (message.includes('Password Requirements')) {
-        passwordInputEl.setCustomValidity(newProps.serverErrors.message)
-        passwordInputEl.focus()
+        const { mutablePasswordInput } = this
+        mutablePasswordInput.setCustomValidity(newProps.serverErrors.message)
+        mutablePasswordInput.focus()
       }
 
       if (message.includes('The specified account already exists.')) {
-        inputEl.setCustomValidity(newProps.serverErrors.message)
-        inputEl.focus()
+        const { mutableEmailInput } = this
+        mutableEmailInput.setCustomValidity(newProps.serverErrors.message)
+        mutableEmailInput.focus()
       }
 
-      formEl.reportValidity()
+      this.mutableForm.reportValidity()
     }
   }
 
@@ -80,14 +82,14 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
         legend={'Sign Up'}
         textButton={'Sign Up'}
         disabledButton={disabledButton}
-        formRef={(el: HTMLFormElement) => (formEl = el)}
+        formRef={(el: HTMLFormElement) => (this.mutableForm = el)}
       >
         <Input
           name={'email'}
           type={'email'}
           placeholder={'Email'}
           required
-          inputRef={(el: HTMLInputElement) => (inputEl = el)}
+          inputRef={(el: HTMLInputElement) => (this.mutableEmailInput = el)}
           onChange={this.onChangeEmail}
         />
         <InputPassword
@@ -103,7 +105,7 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
             symbol: 1
           }}
           required
-          inputRef={(el: HTMLInputElement) => (passwordInputEl = el)}
+          inputRef={(el: HTMLInputElement) => (this.mutablePasswordInput = el)}
         />
         <Input
           name={'confirmPassword'}
