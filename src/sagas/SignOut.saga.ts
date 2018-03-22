@@ -1,14 +1,14 @@
 import { Actions } from 'actions/index'
 import { browserHistory } from 'react-router'
-import { takeLatest } from 'redux-saga/effects'
+import { takeLatest, ForkEffect } from 'redux-saga/effects'
 
-export function SignOutSaga() {
-  return function*() {
+export function SignOutSaga(): () => IterableIterator<ForkEffect> {
+  return function*(): IterableIterator<ForkEffect> {
     yield takeLatest(Actions.SignOut.SIGN_OUT, SignOut)
   }
 }
 
-function SignOut(action: any) {
+function SignOut(action: any): void {
   try {
     if (!(action.payload && action.payload.redirectLogin === false))
       browserHistory.push('/login')

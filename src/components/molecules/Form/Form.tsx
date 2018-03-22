@@ -23,14 +23,14 @@ export class Form extends React.Component<FormProps, undefined> {
     event: any,
     submit = (data: object, elements: any) => ({}),
     validate = (data: any, elements: any) => true
-  ) {
+  ): void {
     event.preventDefault()
     const form = event.target
     const { currentData, elements } = getParsedForm(form)
     if (validate(currentData, elements)) submit(currentData, elements)
   }
 
-  render() {
+  render(): JSX.Element {
     const {
       onSubmit,
       onValidate,

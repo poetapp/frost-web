@@ -7,11 +7,9 @@ interface LabelProps extends ClassNameProps {
   readonly text?: any
 }
 
-export const Label = function render(props: LabelProps) {
-  return (
-    <div className={classNames('Label', props.className)}>
-      {props.children}
-      <label>{props.text}</label>
-    </div>
-  )
-}
+export const Label = (props: LabelProps): JSX.Element => (
+  <div className={classNames('Label', props.className)}>
+    {props.children}
+    <label>{props.text}</label>
+  </div>
+)

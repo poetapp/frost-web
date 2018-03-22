@@ -20,7 +20,7 @@ const mapDispatch = {
 
 export const LogoutContainer = connect(mapStateToProps, mapDispatch)(
   class extends React.Component<LogoutContainerProps, undefined> {
-    render() {
+    render(): JSX.Element {
       const { user, onSignOut } = this.props
       const { profile } = user
 

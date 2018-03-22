@@ -11,7 +11,7 @@ export class VerifiedAccount extends PageLoader<object, object> {
     return {}
   }
 
-  routeHook(key: string) {
+  routeHook(key: string): ReadonlyArray<JSX.Element> {
     return [
       <Route path="/verified-account" key={key} component={this.container()} />
     ]

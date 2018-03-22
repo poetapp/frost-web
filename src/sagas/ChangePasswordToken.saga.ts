@@ -1,17 +1,20 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
 import { browserHistory } from 'react-router'
-import { delay } from 'redux-saga'
-import { call, takeLatest, put } from 'redux-saga/effects'
+import { delay, SagaIterator } from 'redux-saga'
+import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-async function ChangePasswordTokenFrost(token: string, password: string) {
+async function ChangePasswordTokenFrost(
+  token: string,
+  password: string
+): Promise<{ readonly token: string }> {
   const frost = new Frost({ host: '/api' })
   return await frost.changePasswordWithToken(token, password)
 }
 
-export function ChangePasswordTokenSaga() {
-  return function*() {
+export function ChangePasswordTokenSaga(): () => IterableIterator<ForkEffect> {
+  return function*(): IterableIterator<ForkEffect> {
     yield takeLatest(
       Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN,
       ChangePasswordToken
@@ -19,7 +22,7 @@ export function ChangePasswordTokenSaga() {
   }
 }
 
-function* ChangePasswordToken(action: any) {
+function* ChangePasswordToken(action: any): SagaIterator {
   try {
     const { token, password } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())

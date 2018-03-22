@@ -32,13 +32,13 @@ export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
       this.sendEmailVarifiedAccount = this.sendEmailVarifiedAccount.bind(this)
     }
 
-    sendEmailVarifiedAccount() {
+    sendEmailVarifiedAccount(): void {
       const { onSendEmailVerifiedAccount, user } = this.props
       const { token } = user
       onSendEmailVerifiedAccount({ token })
     }
 
-    render() {
+    render(): JSX.Element {
       const { user, sendEmailVerifiedAccount } = this.props
       const { profile } = user
       const { retryWait } = sendEmailVerifiedAccount

@@ -11,7 +11,7 @@ export class ForgotPassword extends PageLoader<object, object> {
     return {}
   }
 
-  routeHook(key: string) {
+  routeHook(key: string): ReadonlyArray<JSX.Element> {
     return [
       <Route path="/forgot-password" key={key} component={this.container()} />
     ]

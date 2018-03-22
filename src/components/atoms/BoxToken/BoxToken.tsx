@@ -64,7 +64,7 @@ interface BoxTokenProps extends ClassNameProps {
   readonly apiTokens: string[]
 }
 
-export const BoxToken = (props: BoxTokenProps) => (
+export const BoxToken = (props: BoxTokenProps): JSX.Element => (
   <div className={classNames('BoxToken', props.className)}>
     <table className={'BoxToken__table'}>
       <thead className={'BoxToken__header'}>

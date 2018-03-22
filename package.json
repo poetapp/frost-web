@@ -66,6 +66,7 @@
     "@types/react-router": "^3.0.0",
     "@types/redux-devtools": "^3.0.42",
     "@types/redux-persist": "^4.3.1",
+    "@types/redux-saga": "^0.10.5",
     "@types/webpack": "^3.8.3",
     "@types/webpack-dev-middleware": "^2.0.0",
     "@types/webpack-dev-server": "^2.9.2",

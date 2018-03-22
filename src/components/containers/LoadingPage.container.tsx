@@ -13,7 +13,7 @@ const mapStateToProps = (state: FrostState): LoadingPageProps => ({
 
 export const LoadingPageContainer = connect(mapStateToProps)(
   class extends React.Component<LoadingPageProps, undefined> {
-    render() {
+    render(): JSX.Element {
       const { loadingPage, children } = this.props
       const { loading, percentage } = loadingPage
 
