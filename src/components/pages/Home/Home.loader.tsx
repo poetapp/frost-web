@@ -5,7 +5,7 @@ import { PageLoader, ReducerDescription } from 'components/PageLoader'
 import { HomeLayout } from './Home.layout'
 
 export class Home extends PageLoader<object, object> {
-  component = HomeLayout
+  readonly component = HomeLayout
 
   initialState(): object {
     return {}

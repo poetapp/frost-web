@@ -11,8 +11,8 @@ interface SignInProps {
 }
 
 export class SignIn extends React.Component<SignInProps, undefined> {
-  private emailInput: HTMLInputElement
-  private form: HTMLFormElement
+  private mutableEmailInput: HTMLInputElement
+  private mutableForm: HTMLFormElement
   constructor() {
     super()
     this.onChangeEmail = this.onChangeEmail.bind(this)
@@ -23,11 +23,11 @@ export class SignIn extends React.Component<SignInProps, undefined> {
       const { message } = newProps.serverErrors
 
       if (message.includes('The specified resource does not exist.')) {
-        this.emailInput.setCustomValidity(newProps.serverErrors.message)
-        this.emailInput.focus()
+        this.mutableEmailInput.setCustomValidity(newProps.serverErrors.message)
+        this.mutableEmailInput.focus()
       }
 
-      this.form.reportValidity()
+      this.mutableForm.reportValidity()
     }
   }
 
@@ -46,13 +46,13 @@ export class SignIn extends React.Component<SignInProps, undefined> {
           legend={'Already Signed Up?'}
           textButton={'Login'}
           disabledButton={disabledButton}
-          formRef={(el: HTMLFormElement) => (this.form = el)}
+          formRef={(el: HTMLFormElement) => (this.mutableForm = el)}
         >
           <Input
             name={'email'}
             type={'email'}
             placeholder={'Email'}
-            inputRef={(el: HTMLInputElement) => (this.emailInput = el)}
+            inputRef={(el: HTMLInputElement) => (this.mutableEmailInput = el)}
             onChange={this.onChangeEmail}
             required
           />

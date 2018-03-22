@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { Action } from 'redux'
 
 interface DataAction {
-  token: string
+  readonly token: string
 }
 
 interface CreateTokenContainerProps {

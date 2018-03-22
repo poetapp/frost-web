@@ -8,7 +8,8 @@
   "extends": [
     "tslint:recommended",
     "tslint-config-prettier",
-    "tslint-eslint-rules"
+    "tslint-eslint-rules",
+    "tslint-immutable"
   ],
   "rules": {
     "only-arrow-functions": false,
@@ -38,6 +39,9 @@
     "prettier": [true, { 
       "singleQuote": true,
       "semi": false
-    }]
+    }],
+
+    // tslint-immutable Recommended built-in rules
+    "readonly-keyword": [true, "ignore-local", {"ignore-prefix": "mutable"}]
   }
 }

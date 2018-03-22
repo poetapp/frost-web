@@ -7,12 +7,12 @@ import { browserHistory } from 'react-router'
 import { Action } from 'redux'
 
 interface DataForm {
-  password: string
-  confirmPassword: string
+  readonly password: string
+  readonly confirmPassword: string
 }
 
 interface DataAction extends DataForm {
-  token: string
+  readonly token: string
 }
 
 interface ChangePasswordContainerProps {

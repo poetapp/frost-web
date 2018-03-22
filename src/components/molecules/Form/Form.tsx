@@ -1,4 +1,5 @@
 import { Button } from 'components/atoms/Button/Button'
+import { getParsedForm } from 'helpers'
 import * as React from 'react'
 import './Form.scss'
 require('formdata-polyfill')
@@ -25,17 +26,7 @@ export class Form extends React.Component<FormProps, undefined> {
   ) {
     event.preventDefault()
     const form = event.target
-    const data = new FormData(form)
-    const currentData: any = {}
-    const elements: any = {}
-
-    for (const key of data.keys()) {
-      const input = form.elements[key]
-      const value = input.value
-      const name = input.name
-      currentData[name] = value
-      elements[name] = input
-    }
+    const { currentData, elements } = getParsedForm(form)
     if (validate(currentData, elements)) submit(currentData, elements)
   }
 

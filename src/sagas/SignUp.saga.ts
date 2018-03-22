@@ -4,7 +4,10 @@ import { browserHistory } from 'react-router'
 import { delay } from 'redux-saga'
 import { call, takeLatest, put } from 'redux-saga/effects'
 
-async function signUpFrost(data: { email: string; password: string }) {
+async function signUpFrost(data: {
+  readonly email: string
+  readonly password: string
+}) {
   const { email, password } = data
   const frost = new Frost({ host: '/api' })
   return await frost.create(email, password)

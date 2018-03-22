@@ -5,7 +5,7 @@ import { PageLoader, ReducerDescription } from 'components/PageLoader'
 import { VerifiedAccountLayout } from './VerifiedAccount.layout'
 
 export class VerifiedAccount extends PageLoader<object, object> {
-  component = VerifiedAccountLayout
+  readonly component = VerifiedAccountLayout
 
   initialState(): object {
     return {}

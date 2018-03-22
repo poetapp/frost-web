@@ -50,7 +50,10 @@ function bindInitialState(pages: Array<PageLoader<any, any>>): any {
   return initialState
 }
 
-export function createPoetStore(): Promise<{ store: any; pages: any }> {
+export function createPoetStore(): Promise<{
+  readonly store: any
+  readonly pages: any
+}> {
   return new Promise((resolve, reject) => {
     try {
       const pages = pagesLoaders.map(Page => new Page())

@@ -1,10 +1,10 @@
 interface Array<T> {
   filterTruthy(): T[]
-  toObject(cb: (el: any) => { key: string; value: any }): any
+  toObject(cb: (el: any) => { readonly key: string; readonly value: any }): any
 }
 interface ReadonlyArray<T> {
   filterTruthy(): T[]
-  toObject(cb: (el: any) => { key: string; value: any }): any
+  toObject(cb: (el: any) => { readonly key: string; readonly value: any }): any
 }
 
 if (!Array.prototype.includes)
@@ -17,7 +17,7 @@ Array.prototype.filterTruthy = function() {
 }
 
 Array.prototype.toObject = function(
-  cb: (el: any) => { key: string; value: any }
+  cb: (el: any) => { readonly key: string; readonly value: any }
 ) {
   const object: any = {}
 

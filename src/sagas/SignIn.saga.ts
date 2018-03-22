@@ -5,7 +5,10 @@ import { delay } from 'redux-saga'
 import { call, takeLatest, put } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-async function signInFrost(data: { email: string; password: string }) {
+async function signInFrost(data: {
+  readonly email: string
+  readonly password: string
+}) {
   const { email, password } = data
   const frost = new Frost({ host: '/api' })
   return await frost.login(email, password)
