@@ -7,7 +7,7 @@ import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 async function signUpFrost(data: {
   readonly email: string
   readonly password: string
-}): Promise<{ token: string }> {
+}): Promise<{ readonly token: string }> {
   const { email, password } = data
   const frost = new Frost({ host: '/api' })
   return await frost.create(email, password)

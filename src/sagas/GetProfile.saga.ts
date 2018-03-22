@@ -6,7 +6,7 @@ import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 async function GetProfileFrost(
   token: string,
   password: string
-): Promise<{ createdAt: number; verified: boolean }> {
+): Promise<{ readonly createdAt: number; readonly verified: boolean }> {
   const frost = new Frost({ host: '/api' })
   return await frost.getProfile(token)
 }

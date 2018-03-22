@@ -8,7 +8,7 @@ const { toast } = require('react-toastify')
 async function signInFrost(data: {
   readonly email: string
   readonly password: string
-}): Promise<{ token: string }> {
+}): Promise<{ readonly token: string }> {
   const { email, password } = data
   const frost = new Frost({ host: '/api' })
   return await frost.login(email, password)

@@ -8,7 +8,7 @@ const { toast } = require('react-toastify')
 async function ChangePasswordTokenFrost(
   token: string,
   password: string
-): Promise<{ token: string }> {
+): Promise<{ readonly token: string }> {
   const frost = new Frost({ host: '/api' })
   return await frost.changePasswordWithToken(token, password)
 }
