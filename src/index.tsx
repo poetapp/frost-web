@@ -16,7 +16,7 @@ async function init(): Promise<void> {
   function handlerRoutes(store: any, pathname: string): void {
     const state = store.getState()
     const { user } = state
-    const omitRoutes = [
+    const omitRoutes: ReadonlyArray<any> = [
       '/',
       '/login',
       '/forgot-password',

@@ -5,7 +5,7 @@ import * as React from 'react'
 import './CreateToken.scss'
 
 interface CreateTokenProps {
-  readonly boxToken: string[]
+  readonly boxToken: ReadonlyArray<string>
   readonly showVerifiedAccount: boolean
   readonly sendEmailVarifiedAccount: (event: Event) => void
   readonly retryWait: boolean

@@ -6,7 +6,7 @@ export interface ApiToken extends JWT {
 }
 export interface Profile {
   readonly email: string
-  readonly apiTokens?: string[]
+  readonly apiTokens?: ReadonlyArray<string>
   readonly verified: boolean
   readonly createdAt: string
 }

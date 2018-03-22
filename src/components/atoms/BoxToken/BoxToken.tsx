@@ -61,7 +61,7 @@ const renderToken = (token: ApiToken, key: number, total: number) => (
   </tr>
 )
 interface BoxTokenProps extends ClassNameProps {
-  readonly apiTokens: string[]
+  readonly apiTokens: ReadonlyArray<string>
 }
 
 export const BoxToken = (props: BoxTokenProps): JSX.Element => (

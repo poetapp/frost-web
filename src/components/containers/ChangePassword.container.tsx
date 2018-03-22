@@ -33,11 +33,7 @@ export const ChangePasswordContainer = connect(mapStateToProps, mapDispatch)(
     ChangePasswordContainerProps & Router,
     undefined
   > {
-    constructor() {
-      super()
-      this.onChangePassword = this.onChangePassword.bind(this)
-    }
-    onChangePassword(data: DataForm): void {
+    readonly onChangePassword = (data: DataForm): void => {
       const { onChangePassword } = this.props
       const currentLocation = browserHistory.getCurrentLocation()
       const { token } = currentLocation.query

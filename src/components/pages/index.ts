@@ -8,7 +8,7 @@ import { RegisterLogin } from './RegisterLogin/RegisterLogin.loader'
 import { Token } from './Token/Token.loader'
 import { VerifiedAccount } from './VerifiedAccount/VerifiedAccount.loader'
 
-export const pagesLoaders = [
+export const pagesLoaders: ReadonlyArray<any> = [
   RegisterLogin,
   Dashboard,
   Token,

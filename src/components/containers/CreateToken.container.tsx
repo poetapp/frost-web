@@ -27,12 +27,7 @@ const mapDispatch = {
 
 export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
   class extends React.Component<CreateTokenContainerProps, undefined> {
-    constructor() {
-      super()
-      this.sendEmailVarifiedAccount = this.sendEmailVarifiedAccount.bind(this)
-    }
-
-    sendEmailVarifiedAccount(): void {
+    readonly sendEmailVarifiedAccount = (): void => {
       const { onSendEmailVerifiedAccount, user } = this.props
       const { token } = user
       onSendEmailVerifiedAccount({ token })

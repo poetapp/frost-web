@@ -12,20 +12,17 @@ import { reducers } from 'reducers'
 import { sagas as sagaList } from 'sagas'
 
 function bindSagas(
-  pages: Array<PageLoader<any, any>>
+  pages: ReadonlyArray<PageLoader<any, any>>
 ): () => IterableIterator<ForkEffect> {
-  const sagas = pages
-    .map(page => page.sagaHook)
-    .concat(sagaList)
-    .map(saga => saga())
-    .filterTruthy()
+  const pageSagas = pages.map(page => page.sagaHook)
+  const sagas = [...pageSagas, ...sagaList].map(saga => saga()).filterTruthy()
 
   return function*(): IterableIterator<ForkEffect> {
     for (const saga of sagas) yield fork(saga)
   }
 }
 
-function bindReducers(pages: Array<PageLoader<any, any>>): any {
+function bindReducers(pages: ReadonlyArray<PageLoader<any, any>>): any {
   const pageReducers = pages
     .map(page => page.reducerHook())
     .filterTruthy()
@@ -37,7 +34,7 @@ function bindReducers(pages: Array<PageLoader<any, any>>): any {
   return { ...pageReducers, ...reducers }
 }
 
-function bindInitialState(pages: Array<PageLoader<any, any>>): any {
+function bindInitialState(pages: ReadonlyArray<PageLoader<any, any>>): any {
   const initialState = pages
     .map(page => ({
       reducerDescription: page.reducerHook(),
@@ -48,7 +45,6 @@ function bindInitialState(pages: Array<PageLoader<any, any>>): any {
       key: reducerDescription.subState,
       value: initialState
     }))
-
   return initialState
 }
 
@@ -71,11 +67,10 @@ export function createPoetStore(): Promise<{
       const sagaMiddleware = createSagaMiddleware()
 
       const appReducer = combineReducers(reducerList)
-      const rootReducer = (state: any, action: any) => {
-        if (action.type === Actions.SignOut.SIGN_OUT) state = {}
-
-        return appReducer(state, action)
-      }
+      const rootReducer = (state: any, action: any) =>
+        action.type === Actions.SignOut.SIGN_OUT
+          ? appReducer({}, action)
+          : appReducer(state, action)
 
       const store = createStore(
         rootReducer,

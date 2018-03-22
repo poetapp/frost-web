@@ -20,15 +20,19 @@ export class CopyableText extends React.Component<
   CopyableTextProps,
   CopyableTextState
 > {
+  readonly state = {
+    tooltipVisible: false,
+    timeout: 0,
+    tooltipPositionLeft: 0,
+    tooltipPositionTop: 0
+  }
+
   private readonly styleTranslate = {
     transform: 'translate(-50%, -100%)'
   }
 
   constructor() {
     super()
-    this.state = {
-      tooltipVisible: false
-    }
   }
 
   render(): JSX.Element {
