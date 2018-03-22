@@ -27,11 +27,7 @@ export class Input extends React.Component<InputProps, undefined> {
 
   onEvent(
     event: any,
-    callback: (
-      event: Event,
-      currentData: object,
-      elements: Readonly<HTMLElement>
-    ) => void,
+    callback: (event: Event, currentData: object, elements: object) => void,
     props: InputProps
   ): void {
     if (props.type !== 'checkbox') event.preventDefault()
