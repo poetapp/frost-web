@@ -40,17 +40,17 @@ export const RegisterLoginContainer = connect(mapStateToProps, mapDispatch)(
       this.onSubmitSignIn = this.onSubmitSignIn.bind(this)
     }
 
-    onSubmitSignUp(data: DataFormSignUp) {
+    onSubmitSignUp(data: DataFormSignUp): void {
       const { onSubmitSignUp } = this.props
       onSubmitSignUp(data)
     }
 
-    onSubmitSignIn(data: DataFormSignIn) {
+    onSubmitSignIn(data: DataFormSignIn): void {
       const { onSubmitSignIn } = this.props
       onSubmitSignIn(data)
     }
 
-    render() {
+    render(): JSX.Element {
       const { signIn, signUp } = this.props
 
       return (

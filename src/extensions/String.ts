@@ -3,6 +3,6 @@ interface String {
   trimLeft(pattern: string): string
 }
 
-String.prototype.firstAndLastCharacters = function(amount: number) {
+String.prototype.firstAndLastCharacters = function(amount: number): string {
   return this.slice(0, amount) + '...' + this.slice(-amount)
 }

@@ -23,14 +23,14 @@ export const ForgotPasswordContainer = connect(undefined, mapDispatch)(
       this.onForgotPassword = this.onForgotPassword.bind(this)
     }
 
-    onForgotPassword(data: DataForm, elements: any) {
+    onForgotPassword(data: DataForm, elements: any): void {
       const { onForgotPassword } = this.props
       const { email } = elements
       onForgotPassword(data)
       email.value = ''
     }
 
-    render() {
+    render(): JSX.Element {
       return <ForgotPassword onSubmit={this.onForgotPassword} />
     }
   }

@@ -13,7 +13,7 @@ const mapStateToProps = (state: FrostState): HeaderHomeContainerProps => ({
 
 export const HeaderHomeContainer = connect(mapStateToProps)(
   class extends React.Component<HeaderHomeContainerProps, undefined> {
-    render() {
+    render(): JSX.Element {
       const { user } = this.props
 
       return <HeaderHome isLogged={!!user.token} />

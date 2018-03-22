@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { fork } from 'redux-saga/effects'
+import { fork, ForkEffect } from 'redux-saga/effects'
 const { persistStore, autoRehydrate } = require('redux-persist')
 import { Actions } from 'actions'
 import 'extensions/Array'
@@ -11,14 +11,16 @@ import { pagesLoaders } from 'components/pages'
 import { reducers } from 'reducers'
 import { sagas as sagaList } from 'sagas'
 
-function bindSagas(pages: Array<PageLoader<any, any>>) {
+function bindSagas(
+  pages: Array<PageLoader<any, any>>
+): () => IterableIterator<ForkEffect> {
   const sagas = pages
     .map(page => page.sagaHook)
     .concat(sagaList)
     .map(saga => saga())
     .filterTruthy()
 
-  return function*() {
+  return function*(): IterableIterator<ForkEffect> {
     for (const saga of sagas) yield fork(saga)
   }
 }

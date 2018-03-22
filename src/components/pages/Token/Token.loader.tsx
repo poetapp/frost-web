@@ -11,7 +11,7 @@ export class Token extends PageLoader<object, object> {
     return {}
   }
 
-  routeHook(key: string) {
+  routeHook(key: string): ReadonlyArray<JSX.Element> {
     return [<Route path="/token" key={key} component={this.container()} />]
   }
 

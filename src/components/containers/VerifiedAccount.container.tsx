@@ -19,14 +19,14 @@ const mapDispatch = {
 
 export const VerifiedAccountContainer = connect(undefined, mapDispatch)(
   class extends React.Component<VerifiedAccountContainerProps, undefined> {
-    componentDidMount() {
+    componentDidMount(): void {
       const { onVerifiedAccount } = this.props
       const currentLocation = browserHistory.getCurrentLocation()
       const { token } = currentLocation.query
       onVerifiedAccount({ token })
     }
 
-    render() {
+    render(): JSX.Element {
       return <VerifiedAccount />
     }
   }

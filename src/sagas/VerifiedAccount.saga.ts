@@ -1,22 +1,25 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
 import { browserHistory } from 'react-router'
-import { delay } from 'redux-saga'
-import { call, takeLatest, put } from 'redux-saga/effects'
+import { delay, SagaIterator } from 'redux-saga'
+import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-async function GetApiTokensFrost(token: string, password: string) {
+async function GetApiTokensFrost(
+  token: string,
+  password: string
+): Promise<{ token: string }> {
   const frost = new Frost({ host: '/api' })
   return await frost.verifyAccount(token)
 }
 
-export function VerifiedAccountSaga() {
-  return function*() {
+export function VerifiedAccountSaga(): () => IterableIterator<ForkEffect> {
+  return function*(): IterableIterator<ForkEffect> {
     yield takeLatest(Actions.VerifiedAccount.VERIFIED_ACCOUNT, VerifiedAccount)
   }
 }
 
-function* VerifiedAccount(action: any) {
+function* VerifiedAccount(action: any): SagaIterator {
   const toastId = toast.info('Verifying account...', {
     className: 'toast'
   })

@@ -1,14 +1,19 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
-import { call, takeLatest, put } from 'redux-saga/effects'
+import { SagaIterator } from 'redux-saga'
+import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
-async function GetApiTokensFrost(apiToken: string) {
+// TODO we have to update Frost client, now Frost client returns
+// { apiToken: '', dateCreate: ''} instead of { apiTokens: [string] }
+async function GetApiTokensFrost(apiToken: string): Promise<any> {
   const frost = new Frost({ host: '/api' })
   return await frost.getApiTokens(apiToken)
 }
 
-export function GetApiTokensSaga() {
-  return function*() {
+export function GetApiTokensSaga(): () => IterableIterator<
+  ReadonlyArray<ForkEffect>
+> {
+  return function*(): IterableIterator<ReadonlyArray<ForkEffect>> {
     yield [
       takeLatest(Actions.SignIn.SIGN_IN_SUCCESS, GetApiTokens),
       takeLatest(Actions.SignUp.SIGN_UP_SUCCESS, GetApiTokens),
@@ -17,7 +22,7 @@ export function GetApiTokensSaga() {
   }
 }
 
-function* GetApiTokens(action: any) {
+function* GetApiTokens(action: any): SagaIterator {
   try {
     const { token } = action.payload
     const tokens = yield call(GetApiTokensFrost, token)

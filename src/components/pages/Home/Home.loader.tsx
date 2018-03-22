@@ -11,7 +11,7 @@ export class Home extends PageLoader<object, object> {
     return {}
   }
 
-  routeHook(key: string) {
+  routeHook(key: string): ReadonlyArray<JSX.Element> {
     return [<Route path="/" key={key} component={this.container()} />]
   }
 

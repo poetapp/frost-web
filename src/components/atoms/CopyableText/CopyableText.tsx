@@ -31,7 +31,7 @@ export class CopyableText extends React.Component<
     }
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <div
         className={classNames(

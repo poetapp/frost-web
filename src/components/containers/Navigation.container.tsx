@@ -29,7 +29,7 @@ const mapStateToProps = (state: FrostState): NavigationContainerProps => ({
 
 export const NavigationContainer = connect(mapStateToProps)(
   class extends React.Component<NavigationContainerProps, undefined> {
-    render() {
+    render(): JSX.Element {
       const { router } = this.props
 
       return <NavigationList links={links} pathActive={router.currentPath} />

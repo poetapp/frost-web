@@ -1,4 +1,5 @@
 import * as classNames from 'classnames'
+import { getParsedForm } from 'helpers'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
 import './Input.scss'
@@ -21,63 +22,25 @@ interface InputProps extends ClassNameProps {
 export class Input extends React.Component<InputProps, undefined> {
   constructor() {
     super()
-    this.onChange = this.onChange.bind(this)
-    this.onKeyUp = this.onKeyUp.bind(this)
-    this.onFocus = this.onFocus.bind(this)
+    this.onEvent = this.onEvent.bind(this)
   }
 
-  onChange(event: any, onChange: any, props: InputProps) {
+  onEvent(
+    event: any,
+    callback: (
+      event: Event,
+      currentData: object,
+      elements: Readonly<HTMLElement>
+    ) => void,
+    props: InputProps
+  ): void {
     if (props.type !== 'checkbox') event.preventDefault()
     const form = event.target.form
-    const data = new FormData(form)
-    const currentData: any = {}
-    const elements: any = {}
-
-    for (const key of data.keys()) {
-      const input = form.elements[key]
-      const value = input.value
-      const name = input.name
-      currentData[name] = value
-      elements[name] = input
-    }
-    if (typeof onChange === 'function') onChange(event, currentData, elements)
+    const { currentData, elements } = getParsedForm(form)
+    if (typeof callback === 'function') callback(event, currentData, elements)
   }
 
-  onKeyUp(event: any, onKeyUp: any) {
-    event.preventDefault()
-    const form = event.target.form
-    const data = new FormData(form)
-    const currentData: any = {}
-    const elements: any = {}
-
-    for (const key of data.keys()) {
-      const input = form.elements[key]
-      const value = input.value
-      const name = input.name
-      currentData[name] = value
-      elements[name] = input
-    }
-    if (typeof onKeyUp === 'function') onKeyUp(event, currentData, elements)
-  }
-
-  onFocus(event: any, onFocus: any) {
-    event.preventDefault()
-    const form = event.target.form
-    const data = new FormData(form)
-    const currentData: any = {}
-    const elements: any = {}
-
-    for (const key of data.keys()) {
-      const input = form.elements[key]
-      const value = input.value
-      const name = input.name
-      currentData[name] = value
-      elements[name] = input
-    }
-    if (typeof onFocus === 'function') onFocus(event, currentData, elements)
-  }
-
-  render() {
+  render(): JSX.Element {
     const {
       name,
       type,
@@ -100,9 +63,9 @@ export class Input extends React.Component<InputProps, undefined> {
         required={required}
         placeholder={placeholder}
         className={classNames('Input', className)}
-        onChange={e => this.onChange(e, onChange, this.props)}
-        onKeyUp={e => this.onKeyUp(e, onKeyUp)}
-        onFocus={e => this.onKeyUp(e, onFocus)}
+        onChange={e => this.onEvent(e, onChange, this.props)}
+        onKeyUp={e => this.onEvent(e, onKeyUp, this.props)}
+        onFocus={e => this.onEvent(e, onFocus, this.props)}
         {...(maxLength ? { maxLength } : {})}
         {...(minLength ? { minLength } : {})}
         {...(autoFocus ? { autoFocus: true } : {})}

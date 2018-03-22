@@ -8,17 +8,17 @@ interface ReadonlyArray<T> {
 }
 
 if (!Array.prototype.includes)
-  Array.prototype.includes = function(elem) {
+  Array.prototype.includes = function(elem): boolean {
     return this.indexOf(elem) !== -1
   }
 
-Array.prototype.filterTruthy = function() {
+Array.prototype.filterTruthy = function(): any[] {
   return this.filter((a: any) => a)
 }
 
 Array.prototype.toObject = function(
   cb: (el: any) => { readonly key: string; readonly value: any }
-) {
+): object {
   const object: any = {}
 
   for (const el of this) {

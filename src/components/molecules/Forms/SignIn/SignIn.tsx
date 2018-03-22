@@ -18,7 +18,7 @@ export class SignIn extends React.Component<SignInProps, undefined> {
     this.onChangeEmail = this.onChangeEmail.bind(this)
   }
 
-  componentWillReceiveProps(newProps: any) {
+  componentWillReceiveProps(newProps: any): void {
     if (newProps.serverErrors.status) {
       const { message } = newProps.serverErrors
 
@@ -31,12 +31,12 @@ export class SignIn extends React.Component<SignInProps, undefined> {
     }
   }
 
-  onChangeEmail(e: any) {
+  onChangeEmail(e: any): void {
     const input = e.target
     input.setCustomValidity('')
   }
 
-  render() {
+  render(): JSX.Element {
     const { onSubmit, disabledButton } = this.props
 
     return (

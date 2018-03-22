@@ -12,7 +12,7 @@ export abstract class PageLoader<State, Properties> {
     | StatelessComponent<Properties>
 
   abstract initialState(): State
-  abstract routeHook(key: string): JSX.Element[]
+  abstract routeHook(key: string): ReadonlyArray<JSX.Element>
   abstract reducerHook<State>(): ReducerDescription<State>
   abstract sagaHook(): any
   abstract select(state: any, ownProps: any): Properties
@@ -20,7 +20,7 @@ export abstract class PageLoader<State, Properties> {
     return {}
   }
 
-  protected container() {
+  protected container(): ComponentClass<object> {
     return connect(this.select.bind(this), this.mapDispatchToProps())(
       this.component
     )

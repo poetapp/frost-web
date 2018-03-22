@@ -11,7 +11,7 @@ export class RegisterLogin extends PageLoader<object, object> {
     return {}
   }
 
-  routeHook(key: string) {
+  routeHook(key: string): ReadonlyArray<JSX.Element> {
     return [<Route path="/login" key={key} component={this.container()} />]
   }
 

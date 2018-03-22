@@ -1,16 +1,20 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
-import { delay } from 'redux-saga'
-import { call, takeLatest, put } from 'redux-saga/effects'
+import { delay, SagaIterator } from 'redux-saga'
+import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
-async function SendEmailVerifiedAccountFrost(data: { readonly token: string }) {
+async function SendEmailVerifiedAccountFrost(data: {
+  readonly token: string
+}): Promise<string> {
   const { token } = data
   const frost = new Frost({ host: '/api' })
   return await frost.sendEmailVerifyAccount(token)
 }
 
-export function SendEmailVerifiedAccountSaga() {
-  return function*() {
+export function SendEmailVerifiedAccountSaga(): () => IterableIterator<
+  ForkEffect
+> {
+  return function*(): IterableIterator<ForkEffect> {
     yield takeLatest(
       Actions.SendEmailVerifiedAccount.SEND_EMAIL_VERIFIED_ACCOUNT,
       SendEmailVerifiedAccount
@@ -18,7 +22,7 @@ export function SendEmailVerifiedAccountSaga() {
   }
 }
 
-function* SendEmailVerifiedAccount(action: any) {
+function* SendEmailVerifiedAccount(action: any): SagaIterator {
   try {
     const { token } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
