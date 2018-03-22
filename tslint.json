@@ -42,6 +42,7 @@
     }],
 
     // tslint-immutable Recommended built-in rules
-    "readonly-keyword": [true, "ignore-local", {"ignore-prefix": "mutable"}]
+    "readonly-keyword": [true, "ignore-local", {"ignore-prefix": "mutable"}],
+    "typedef": [true, "call-signature"]
   }
 }
