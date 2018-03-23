@@ -3,7 +3,7 @@ import { FrostState, Router } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-const links = [
+const links: ReadonlyArray<any> = [
   {
     label: 'Dashboard',
     link: '/dashboard'

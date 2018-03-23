@@ -18,16 +18,14 @@ const mapDispatch = {
 
 export const ForgotPasswordContainer = connect(undefined, mapDispatch)(
   class extends React.Component<ForgotPasswordContainerProps, undefined> {
-    constructor() {
-      super()
-      this.onForgotPassword = this.onForgotPassword.bind(this)
-    }
-
-    onForgotPassword(data: DataForm, elements: any): void {
+    readonly onForgotPassword = (
+      data: DataForm,
+      elements: { readonly [key: string]: HTMLInputElement }
+    ): void => {
       const { onForgotPassword } = this.props
       const { email } = elements
       onForgotPassword(data)
-      email.value = ''
+      email.setAttribute('value', '')
     }
 
     render(): JSX.Element {

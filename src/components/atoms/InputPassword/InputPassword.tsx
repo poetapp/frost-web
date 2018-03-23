@@ -1,5 +1,6 @@
 import * as classNames from 'classnames'
 import { Input } from 'components/atoms/Input/Input'
+import { getParsedForm } from 'helpers'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
 
@@ -30,17 +31,7 @@ const onChange = (
   event.preventDefault()
 
   const form = event.target.form
-  const data = new FormData(form)
-  const currentData: any = {}
-  const elements: any = {}
-
-  for (const key of data.keys()) {
-    const input = form.elements[key]
-    const value = input.value
-    const name = input.name
-    currentData[name] = value
-    elements[name] = input
-  }
+  const { currentData, elements } = getParsedForm(form)
   validatePassword(complexity, event.target)
   if (typeof onChange === 'function') onChange(currentData, elements)
 }
@@ -57,15 +48,28 @@ const validatePassword = (
     symbol: `${complexity.symbol} symbol character`
   }
 
-  const validations: string[] = []
-  if (!((value.match(/[a-z]/g) || []).length >= complexity.lowerCase))
-    validations.push(message.lowerCase)
-  if (!((value.match(/[A-Z]/g) || []).length >= complexity.upperCase))
-    validations.push(message.upperCase)
-  if (!((value.match(/[0-9]/g) || []).length >= complexity.numeric))
-    validations.push(message.numeric)
-  if (!((value.match(/[^a-zA-Z0-9]/g) || []).length >= complexity.symbol))
-    validations.push(message.symbol)
+  const complexityPatterns = {
+    lowerCase: /[a-z]/g,
+    upperCase: /[A-Z]/g,
+    numeric: /[0-9]/g,
+    symbol: /[^a-zA-Z0-9]/g
+  }
+
+  const entries = Object.entries(complexity)
+  const validations: ReadonlyArray<string> = entries.reduce(
+    (
+      acum: ReadonlyArray<string>,
+      validation: [keyof ComplexityPassword, number]
+    ): ReadonlyArray<string> => {
+      const typeComplexity = validation[0]
+      const valueComplexity = validation[1]
+      const pattern = complexityPatterns[typeComplexity]
+      return !((value.match(pattern) || []).length >= valueComplexity)
+        ? [...acum, message[typeComplexity]]
+        : acum
+    },
+    []
+  )
 
   const messages =
     validations.length > 1 ? `Required, ${validations.join(', ')}` : ''

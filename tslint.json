@@ -42,7 +42,15 @@
     }],
 
     // tslint-immutable Recommended built-in rules
+    "no-var-keyword": true,
+    "no-parameter-reassignment": true,
+    "typedef": [true, "call-signature"],
+    // Immutability rules
     "readonly-keyword": [true, {"ignore-prefix": "mutable"}],
-    "typedef": [true, "call-signature"]
+    "readonly-array": true,
+    "no-let": true,
+    "no-object-mutation": [true, {"ignore-prefix": ["this.mutable", "mutable"]}],
+    "no-delete": true,
+    "no-method-signature": true
   }
 }

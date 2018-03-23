@@ -13,10 +13,6 @@ interface SignInProps {
 export class SignIn extends React.Component<SignInProps, undefined> {
   private mutableEmailInput: HTMLInputElement
   private mutableForm: HTMLFormElement
-  constructor() {
-    super()
-    this.onChangeEmail = this.onChangeEmail.bind(this)
-  }
 
   componentWillReceiveProps(newProps: any): void {
     if (newProps.serverErrors.status) {
@@ -31,7 +27,7 @@ export class SignIn extends React.Component<SignInProps, undefined> {
     }
   }
 
-  onChangeEmail(e: any): void {
+  readonly onChangeEmail = (e: any): void => {
     const input = e.target
     input.setCustomValidity('')
   }

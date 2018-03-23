@@ -16,12 +16,6 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
   private mutableEmailInput: HTMLInputElement
   private mutablePasswordInput: HTMLInputElement
   private mutableForm: HTMLFormElement
-  constructor() {
-    super()
-    this.onValidate = this.onValidate.bind(this)
-    this.onChangeRepeatPassword = this.onChangeRepeatPassword.bind(this)
-    this.onChangeEmail = this.onChangeEmail.bind(this)
-  }
 
   componentWillReceiveProps(newProps: any): void {
     if (newProps.serverErrors.status) {
@@ -43,7 +37,7 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
     }
   }
 
-  onValidate(data: any, elements: any): boolean {
+  readonly onValidate = (data: any, elements: any): boolean => {
     const { password, confirmPassword } = data
 
     if (password !== confirmPassword) {
@@ -54,7 +48,11 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
     return true
   }
 
-  onChangeRepeatPassword(e: any, data: any, elements: any): void {
+  readonly onChangeRepeatPassword = (
+    e: any,
+    data: any,
+    elements: any
+  ): void => {
     const value = e.target.value
     const { password, confirmPassword } = data
 
@@ -67,7 +65,7 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
     if (value === '') elements.confirmPassword.setCustomValidity('')
   }
 
-  onChangeEmail(e: any): void {
+  readonly onChangeEmail = (e: any): void => {
     const input = e.target
     input.setCustomValidity('')
   }

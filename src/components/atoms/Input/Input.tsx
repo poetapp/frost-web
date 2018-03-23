@@ -20,16 +20,11 @@ interface InputProps extends ClassNameProps {
 }
 
 export class Input extends React.Component<InputProps, undefined> {
-  constructor() {
-    super()
-    this.onEvent = this.onEvent.bind(this)
-  }
-
-  onEvent(
+  readonly onEvent = (
     event: any,
     callback: (event: Event, currentData: object, elements: object) => void,
     props: InputProps
-  ): void {
+  ): void => {
     if (props.type !== 'checkbox') event.preventDefault()
     const form = event.target.form
     const { currentData, elements } = getParsedForm(form)

@@ -1,10 +1,15 @@
+/* tslint:disable:readonly-keyword no-object-mutation */
 interface Array<T> {
-  filterTruthy(): T[]
-  toObject(cb: (el: any) => { readonly key: string; readonly value: any }): any
+  filterTruthy: () => ReadonlyArray<T>
+  toObject: (
+    cb: (el: any) => { readonly key: string; readonly value: any }
+  ) => any
 }
 interface ReadonlyArray<T> {
-  filterTruthy(): T[]
-  toObject(cb: (el: any) => { readonly key: string; readonly value: any }): any
+  filterTruthy: () => ReadonlyArray<T>
+  toObject: (
+    cb: (el: any) => { readonly key: string; readonly value: any }
+  ) => any
 }
 
 if (!Array.prototype.includes)
@@ -12,19 +17,15 @@ if (!Array.prototype.includes)
     return this.indexOf(elem) !== -1
   }
 
-Array.prototype.filterTruthy = function(): any[] {
+Array.prototype.filterTruthy = function(): ReadonlyArray<any> {
   return this.filter((a: any) => a)
 }
 
 Array.prototype.toObject = function(
   cb: (el: any) => { readonly key: string; readonly value: any }
 ): object {
-  const object: any = {}
-
-  for (const el of this) {
-    const { key, value } = cb(el)
-    object[key] = value
-  }
-
-  return object
+  return this.reduce((acum: object, currentValue: any) => {
+    const { key, value } = cb(currentValue)
+    return { ...acum, [key]: value }
+  }, {})
 }

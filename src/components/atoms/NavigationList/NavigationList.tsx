@@ -10,7 +10,7 @@ interface Linked {
   readonly external?: boolean
 }
 interface NavigationListProps extends ClassNameProps {
-  readonly links?: Linked[]
+  readonly links?: ReadonlyArray<Linked>
   readonly pathActive: string
 }
 

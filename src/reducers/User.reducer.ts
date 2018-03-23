@@ -5,7 +5,7 @@ const defaultState = {
   token: '',
   profile: {
     email: '',
-    apiTokens: [{}],
+    apiTokens: new Array(),
     verified: false,
     createdAt: ''
   }
@@ -26,26 +26,36 @@ export const user = (state: any, action: any) => {
         ...{ profile: { ...defaultState.profile, ...action.payload.profile } }
       }
     case Actions.ApiTokens.GET_API_SUCCESS:
-      state.profile.apiTokens = action.payload
       return {
-        ...state
+        ...state,
+        profile: {
+          ...state.profile,
+          apiTokens: action.payload
+        }
       }
     case Actions.VerifiedAccount.VERIFIED_ACCOUNT_SUCCESS:
-      state.profile.verified = true
       return {
-        ...state
+        ...state,
+        profile: {
+          ...state.profile,
+          verified: true
+        }
       }
     case Actions.Profile.PROFILE_SUCCESS:
-      state.profile.verified = action.payload.verified
-      state.profile.createdAt = action.payload.createdAt
-      state.profile.email = action.payload.email
       return {
-        ...state
+        ...state,
+        profile: {
+          ...state.profile,
+          ...action.payload
+        }
       }
     case Actions.SetTokenLogin.SET_TOKEN_LOGIN:
-      state.token = action.payload.token
       return {
-        ...state
+        ...state,
+        user: {
+          ...state.user,
+          token: action.payload.token
+        }
       }
     case Actions.SignOut.SIGN_OUT:
       return {
