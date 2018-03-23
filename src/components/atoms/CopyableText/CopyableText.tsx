@@ -31,10 +31,6 @@ export class CopyableText extends React.Component<
     transform: 'translate(-50%, -100%)'
   }
 
-  constructor() {
-    super()
-  }
-
   render(): JSX.Element {
     return (
       <div

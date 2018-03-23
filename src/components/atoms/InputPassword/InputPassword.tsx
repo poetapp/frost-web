@@ -65,7 +65,7 @@ const validatePassword = (
       const valueComplexity = validation[1]
       const pattern = complexityPatterns[typeComplexity]
       return !((value.match(pattern) || []).length >= valueComplexity)
-        ? [...acum, ...[message[typeComplexity]]]
+        ? [...acum, message[typeComplexity]]
         : acum
     },
     []

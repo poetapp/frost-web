@@ -67,10 +67,9 @@ export function createPoetStore(): Promise<{
       const sagaMiddleware = createSagaMiddleware()
 
       const appReducer = combineReducers(reducerList)
+      const signOutAction = Actions.SignOut.SIGN_OUT
       const rootReducer = (state: any, action: any) =>
-        action.type === Actions.SignOut.SIGN_OUT
-          ? appReducer({}, action)
-          : appReducer(state, action)
+        appReducer(action.type === signOutAction ? {} : state, action)
 
       const store = createStore(
         rootReducer,

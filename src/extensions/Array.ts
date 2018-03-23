@@ -1,21 +1,17 @@
+/* tslint:disable:readonly-keyword no-object-mutation */
 interface Array<T> {
-  /* tslint:disable:readonly-keyword */
   filterTruthy: () => ReadonlyArray<T>
   toObject: (
     cb: (el: any) => { readonly key: string; readonly value: any }
   ) => any
-  /* tslint:enabled:readonly-keyword */
 }
 interface ReadonlyArray<T> {
-  /* tslint:disable:readonly-keyword */
   filterTruthy: () => ReadonlyArray<T>
   toObject: (
     cb: (el: any) => { readonly key: string; readonly value: any }
   ) => any
-  /* tslint:enabled:readonly-keyword */
 }
 
-/* tslint:disable:no-object-mutation */
 if (!Array.prototype.includes)
   Array.prototype.includes = function(elem): boolean {
     return this.indexOf(elem) !== -1
@@ -30,7 +26,6 @@ Array.prototype.toObject = function(
 ): object {
   return this.reduce((acum: object, currentValue: any) => {
     const { key, value } = cb(currentValue)
-    return { ...acum, ...{ [key]: value } }
+    return { ...acum, [key]: value }
   }, {})
 }
-/* tslint:enabled:no-object-mutation */
