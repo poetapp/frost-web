@@ -47,5 +47,5 @@ export interface FrostState {
 
 export interface JWT {
   readonly iat: Date
-  readonly exp: Date
+  readonly exp?: Date
 }

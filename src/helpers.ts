@@ -8,7 +8,7 @@ export const parseJwt = (token: string): JWT => {
   const parsedToken = JSON.parse(window.atob(base64))
   return {
     iat: timestampToDateJS(parsedToken.iat),
-    exp: timestampToDateJS(parsedToken.exp)
+    ...(parsedToken.exp && { exp: timestampToDateJS(parsedToken.exp) })
   }
 }
 
