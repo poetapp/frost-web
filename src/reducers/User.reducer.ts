@@ -25,12 +25,20 @@ export const user = (state: any, action: any) => {
         ...action.payload,
         ...{ profile: { ...defaultState.profile, ...action.payload.profile } }
       }
-    case Actions.ApiTokens.GET_API_SUCCESS:
+    case Actions.ApiTokens.GET_API_TOKENS_SUCCESS:
       return {
         ...state,
         profile: {
           ...state.profile,
           apiTokens: action.payload
+        }
+      }
+    case Actions.ApiTokens.CREATE_API_TOKEN_SUCCESS:
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          apiTokens: [...state.profile.apiTokens, ...[action.payload]]
         }
       }
     case Actions.VerifiedAccount.VERIFIED_ACCOUNT_SUCCESS:

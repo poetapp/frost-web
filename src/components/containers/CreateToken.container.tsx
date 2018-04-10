@@ -13,6 +13,7 @@ interface CreateTokenContainerProps {
   readonly user: User
   readonly sendEmailVerifiedAccount: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
+  readonly onCreateApiToken?: (data: DataAction) => Action
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
@@ -21,31 +22,39 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
 })
 
 const mapDispatch = {
+  onCreateApiToken: Actions.ApiTokens.onCreateApiToken,
   onSendEmailVerifiedAccount:
     Actions.SendEmailVerifiedAccount.onSendEmailVerifiedAccount
 }
 
+const sendEmailVarifiedAccount = (
+  dispath: (data: object) => Action,
+  { token }: User
+): void => {
+  dispath({ token })
+}
+
+const onCreateApiToken = (
+  dispath: (data: object) => Action,
+  { token }: User
+): void => {
+  dispath({ token })
+}
+
+const createToken = (props: CreateTokenContainerProps): JSX.Element => (
+  <CreateToken
+    boxToken={props.user.profile.apiTokens}
+    showVerifiedAccount={props.user.profile.verified}
+    sendEmailVarifiedAccount={() =>
+      sendEmailVarifiedAccount(props.onSendEmailVerifiedAccount, props.user)
+    }
+    retryWait={props.sendEmailVerifiedAccount.retryWait}
+    onCreateApiToken={() =>
+      onCreateApiToken(props.onCreateApiToken, props.user)
+    }
+  />
+)
+
 export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
-  class extends React.Component<CreateTokenContainerProps, undefined> {
-    readonly sendEmailVarifiedAccount = (): void => {
-      const { onSendEmailVerifiedAccount, user } = this.props
-      const { token } = user
-      onSendEmailVerifiedAccount({ token })
-    }
-
-    render(): JSX.Element {
-      const { user, sendEmailVerifiedAccount } = this.props
-      const { profile } = user
-      const { retryWait } = sendEmailVerifiedAccount
-
-      return (
-        <CreateToken
-          boxToken={profile.apiTokens}
-          showVerifiedAccount={profile.verified}
-          sendEmailVarifiedAccount={this.sendEmailVarifiedAccount}
-          retryWait={retryWait}
-        />
-      )
-    }
-  }
+  createToken
 )
