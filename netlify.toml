@@ -20,3 +20,6 @@
 
 [context.testing]
   command = "npm run build:preview"
+
+[context.branch-deploy]
+  command = "npm run build:preview"
