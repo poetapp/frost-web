@@ -1,0 +1,46 @@
+@import 'colors';
+@import 'fonts';
+
+.NotificationBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  font-family: $open-sans;
+  font-size: 12px;
+  font-weight: 600;
+
+  &__success {
+    background-color: $padua;
+    color: $eucalyptus;
+  }
+
+  &__fade-in {
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-name: fade-in;
+  }
+
+  &__fade-out {
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-name: fade-out;
+  }
+
+  &__hide {
+    display: none;
+  }
+}
+@keyframes fade-in {
+
+  0% { opacity: 0; }
+
+  100% { opacity: 1; }
+}
+@keyframes fade-out {
+
+  0% { opacity: 1; }
+
+  100% { opacity: 0; }
+}

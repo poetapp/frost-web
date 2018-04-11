@@ -1,3 +1,4 @@
+import { NotificationBar } from 'interfaces/Props'
 export namespace Actions {
   export namespace SignUp {
     export const SIGN_UP = 'SIGN_UP'
@@ -261,6 +262,25 @@ export namespace Actions {
     export const onSetTokenLogin = (payload?: object) => ({
       type: SET_TOKEN_LOGIN,
       payload
+    })
+  }
+
+  export namespace NotificationBar {
+    export const SHOW_NOTIFICATION_BAR = 'SHOW_NOTIFICATION_BAR'
+    export const HIDE_NOTIFICATION_BAR = 'HIDE_NOTIFICATION_BAR'
+    export const RESET_NOTIFICATION_BAR = 'RESET_NOTIFICATION_BAR'
+
+    export const onShowNotificationBar = (payload: NotificationBar) => ({
+      type: SHOW_NOTIFICATION_BAR,
+      payload
+    })
+
+    export const onHideNotificationBar = () => ({
+      type: HIDE_NOTIFICATION_BAR
+    })
+
+    export const onResetNotificationBar = () => ({
+      type: RESET_NOTIFICATION_BAR
     })
   }
 }

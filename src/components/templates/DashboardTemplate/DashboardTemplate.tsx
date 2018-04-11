@@ -1,7 +1,9 @@
 import { LoadingPage } from 'components/atoms/LoadingPage/LoadingPage'
 import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { NotificationBar } from 'components/atoms/NotificationBar/NotificationBar'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import { Toggle } from 'components/atoms/Toggle/Toggle'
+import { NotificationBar as INotificationBar } from 'interfaces/Props'
 import * as React from 'react'
 import { Link } from 'react-router'
 import './DashboardTemplate.scss'
@@ -12,6 +14,7 @@ interface DashboardTemplatetProps {
   readonly onLogout?: () => void
   readonly navigation: any
   readonly logout: any
+  readonly notificationBar: INotificationBar
 }
 
 export const DashboardTemplate = (props: DashboardTemplatetProps) => (
@@ -36,6 +39,12 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) => (
               <Toggle />
               <props.logout />
             </div>
+            <NotificationBar
+              type={props.notificationBar.type}
+              action={props.notificationBar.action}
+            >
+              {props.notificationBar.message}
+            </NotificationBar>
           </header>
           {props.children}
         </section>

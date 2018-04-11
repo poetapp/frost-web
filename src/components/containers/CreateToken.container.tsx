@@ -12,46 +12,31 @@ interface DataAction {
 interface CreateTokenContainerProps {
   readonly user: User
   readonly sendEmailVerifiedAccount: StatusService
+  readonly createApiTokens: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
   readonly onCreateApiToken?: (data: DataAction) => Action
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   user: state.user,
-  sendEmailVerifiedAccount: state.sendEmailVerifiedAccount
+  sendEmailVerifiedAccount: state.sendEmailVerifiedAccount,
+  createApiTokens: state.createApiTokens
 })
 
-const mapDispatch = {
-  onCreateApiToken: Actions.ApiTokens.onCreateApiToken,
-  onSendEmailVerifiedAccount:
-    Actions.SendEmailVerifiedAccount.onSendEmailVerifiedAccount
-}
-
-const sendEmailVarifiedAccount = (
-  dispath: (data: object) => Action,
-  { token }: User
-): void => {
-  dispath({ token })
-}
-
-const onCreateApiToken = (
-  dispath: (data: object) => Action,
-  { token }: User
-): void => {
-  dispath({ token })
-}
+const { onCreateApiToken } = Actions.ApiTokens
+const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
+const mapDispatch = { onCreateApiToken, onSendEmailVerifiedAccount }
 
 const createToken = (props: CreateTokenContainerProps): JSX.Element => (
   <CreateToken
     boxToken={props.user.profile.apiTokens}
     showVerifiedAccount={props.user.profile.verified}
     sendEmailVarifiedAccount={() =>
-      sendEmailVarifiedAccount(props.onSendEmailVerifiedAccount, props.user)
+      props.onSendEmailVerifiedAccount({ token: props.user.token })
     }
     retryWait={props.sendEmailVerifiedAccount.retryWait}
-    onCreateApiToken={() =>
-      onCreateApiToken(props.onCreateApiToken, props.user)
-    }
+    onCreateApiToken={() => props.onCreateApiToken({ token: props.user.token })}
+    submitDisabled={props.createApiTokens.loading}
   />
 )
 

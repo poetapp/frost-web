@@ -10,6 +10,7 @@ interface CreateTokenProps {
   readonly sendEmailVarifiedAccount: (event: Event) => void
   readonly retryWait: boolean
   readonly onCreateApiToken: (event: Event) => void
+  readonly submitDisabled: boolean
 }
 
 export const CreateToken = (props: CreateTokenProps) => (
@@ -30,6 +31,7 @@ export const CreateToken = (props: CreateTokenProps) => (
       className={'CreateToken__button'}
       text={'Get API Key'}
       onClick={props.onCreateApiToken}
+      disabled={props.submitDisabled}
     />
   </div>
 )
