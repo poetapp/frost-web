@@ -1,5 +1,5 @@
 import { DashboardTemplate } from 'components/templates/DashboardTemplate/DashboardTemplate'
-import { FrostState, NotificationBar } from 'interfaces/Props'
+import { FrostState, NotificationBarState } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { LogoutContainer } from './Logout.container'
@@ -7,7 +7,7 @@ import { NavigationContainer } from './Navigation.container'
 
 interface DashboardContainerProps {
   readonly children?: JSX.Element
-  readonly notificationBar: NotificationBar
+  readonly notificationBar: NotificationBarState
 }
 
 const mapStateToProps = (state: FrostState): DashboardContainerProps => ({

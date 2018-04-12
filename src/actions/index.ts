@@ -1,4 +1,4 @@
-import { NotificationBar } from 'interfaces/Props'
+import { NotificationBarState } from 'interfaces/Props'
 export namespace Actions {
   export namespace SignUp {
     export const SIGN_UP = 'SIGN_UP'
@@ -270,7 +270,7 @@ export namespace Actions {
     export const HIDE_NOTIFICATION_BAR = 'HIDE_NOTIFICATION_BAR'
     export const RESET_NOTIFICATION_BAR = 'RESET_NOTIFICATION_BAR'
 
-    export const onShowNotificationBar = (payload: NotificationBar) => ({
+    export const onShowNotificationBar = (payload: NotificationBarState) => ({
       type: SHOW_NOTIFICATION_BAR,
       payload
     })
