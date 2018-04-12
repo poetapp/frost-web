@@ -1,5 +1,3 @@
-import { NotificationBar } from 'components/atoms/NotificationBar/NotificationBar'
-
 export interface ClassNameProps {
   readonly className?: string
 }
@@ -45,7 +43,7 @@ export interface FrostState {
   readonly signUp: StatusService
   readonly sendEmailVerifiedAccount: StatusService
   readonly verifiedAccount: StatusService
-  readonly notificationBar: NotificationBar
+  readonly notificationBar: NotificationBarState
   readonly createApiTokens: StatusService
 }
 
@@ -53,7 +51,7 @@ export interface JWT {
   readonly iat: Date
   readonly exp: Date
 }
-export interface NotificationBar {
+export interface NotificationBarState {
   readonly type?: 'success' | 'fail'
   readonly action?: 'fade-in' | 'fade-out' | 'hide'
   readonly message?: string
