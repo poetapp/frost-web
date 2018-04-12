@@ -1,5 +1,6 @@
 import { changePassword } from './ChangePassword.reducer'
 import { changePasswordToken } from './ChangePasswordToken.reducer'
+import { deleteApiToken } from './DeleteApiToken.reducer'
 import { forgotPassword } from './ForgotPassword.reducer'
 import { loadingPage } from './LoadingPage.reducer'
 import { modal } from './Modal.reducer'
@@ -23,5 +24,6 @@ export const reducers = {
   loadingPage,
   sendEmailVerifiedAccount,
   profile,
-  modal
+  modal,
+  deleteApiToken
 }

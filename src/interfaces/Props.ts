@@ -54,4 +54,5 @@ export interface JWT {
 export interface ModalState {
   readonly show: boolean
   readonly modal: string
+  readonly data: object
 }

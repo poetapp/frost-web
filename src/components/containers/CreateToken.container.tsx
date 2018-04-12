@@ -13,8 +13,13 @@ interface CreateTokenContainerProps {
   readonly user: User
   readonly sendEmailVerifiedAccount: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
-  readonly onShowModal?: (payload: { readonly modal: string }) => Action
+  readonly onShowModal?: (
+    payload: { readonly modal: string; readonly data: object }
+  ) => Action
   readonly onHideModal?: () => Action
+  readonly onDeleteApiToken?: (
+    payload: { readonly token: string; readonly apiToken: string }
+  ) => Action
   readonly modal: ModalState
 }
 
@@ -25,11 +30,15 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
 })
 const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
 const { onShowModal, onHideModal } = Actions.Modal
+const { onDeleteApiToken } = Actions.DeleteApiToken
 const mapDispatch = {
   onSendEmailVerifiedAccount,
   onShowModal,
-  onHideModal
+  onHideModal,
+  onDeleteApiToken
 }
+
+const MODAL_DELETE_TOKEN = 'MODAL_DELETE_TOKEN'
 
 export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
   class extends React.Component<CreateTokenContainerProps, undefined> {
@@ -40,11 +49,18 @@ export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
     }
 
     readonly onDeleteToken = () => {
-      const { onShowModal } = this.props
-      onShowModal({ modal: 'deleteToken' })
+      const { modal, onDeleteApiToken, user } = this.props
+      const { apiToken } = modal.data as { readonly apiToken: string }
+      const { token } = user
+      onDeleteApiToken({ token, apiToken })
     }
 
-    readonly onClose = () => {
+    readonly onShowModal = (apiToken: string) => {
+      const { onShowModal } = this.props
+      onShowModal({ modal: MODAL_DELETE_TOKEN, data: { apiToken } })
+    }
+
+    readonly onCloseModal = () => {
       const { onHideModal } = this.props
       onHideModal()
     }
@@ -61,8 +77,9 @@ export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
           sendEmailVarifiedAccount={this.sendEmailVarifiedAccount}
           retryWait={retryWait}
           onDeleteToken={this.onDeleteToken}
-          showDeleteModal={modal.modal === 'deleteToken'}
-          onCloseModal={this.onClose}
+          onShowModal={this.onShowModal}
+          onCloseModal={this.onCloseModal}
+          showDeleteModal={modal.modal === MODAL_DELETE_TOKEN}
         />
       )
     }

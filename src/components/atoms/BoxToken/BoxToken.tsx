@@ -19,17 +19,18 @@ const isDateAfterNow = (date: Date): boolean => moment().isAfter(date)
 
 const deleteToken = (
   event: React.MouseEvent<HTMLButtonElement>,
-  onDeleteToken: () => void
+  onDeleteToken: (apiToken: string) => void,
+  apiToken: string
 ) => {
   event.preventDefault()
-  onDeleteToken()
+  onDeleteToken(apiToken)
 }
 
 const renderToken = (
   token: ApiToken,
   key: number,
   total: number,
-  onDeleteToken?: () => void
+  onDeleteToken?: (apiToken: string) => void
 ) => (
   <tr key={key} className={'BoxToken__item'}>
     <td>
@@ -68,14 +69,16 @@ const renderToken = (
     </td>
     <td>
       <div className={'BoxToken__item__actions'}>
-        <button onClick={e => deleteToken(e, onDeleteToken)}>Remove</button>
+        <button onClick={e => deleteToken(e, onDeleteToken, token.token)}>
+          Remove
+        </button>
       </div>
     </td>
   </tr>
 )
 interface BoxTokenProps extends ClassNameProps {
   readonly apiTokens: ReadonlyArray<string>
-  readonly onDeleteToken?: () => void
+  readonly onDeleteToken?: (apiToken: string) => void
 }
 
 export const BoxToken = (props: BoxTokenProps): JSX.Element => (

@@ -2,7 +2,8 @@ import { Actions } from 'actions/index'
 
 const defaultState = {
   show: false,
-  modal: ''
+  modal: '',
+  data: {}
 }
 
 export const modal = (state: any, action: any) => {
@@ -11,13 +12,12 @@ export const modal = (state: any, action: any) => {
       return {
         ...state,
         show: true,
-        modal: action.payload.modal
+        modal: action.payload.modal,
+        data: action.payload.data
       }
     case Actions.Modal.HIDE_MODAL:
       return {
-        ...state,
-        show: false,
-        modal: ''
+        ...defaultState
       }
   }
   return state || defaultState

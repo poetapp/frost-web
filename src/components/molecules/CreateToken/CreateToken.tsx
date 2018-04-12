@@ -12,6 +12,7 @@ interface CreateTokenProps {
   readonly retryWait: boolean
   readonly onDeleteToken?: () => void
   readonly onCloseModal: () => void
+  readonly onShowModal: (apiToken: string) => void
   readonly showDeleteModal: boolean
 }
 
@@ -23,7 +24,7 @@ export const CreateToken = (props: CreateTokenProps) => (
         Manage the ways that you authorize requests to the Frost API.
       </p>
     </header>
-    <BoxToken apiTokens={props.boxToken} onDeleteToken={props.onDeleteToken} />
+    <BoxToken apiTokens={props.boxToken} onDeleteToken={props.onShowModal} />
     <LegendVerifiedAccount
       show={!props.showVerifiedAccount}
       onClick={props.sendEmailVarifiedAccount}
@@ -31,7 +32,7 @@ export const CreateToken = (props: CreateTokenProps) => (
     />
     <Button className={'CreateToken__button'} text={'Get API Key'} />
     <ModalDeleteToken
-      onDeleteToken={() => null}
+      onDeleteToken={props.onDeleteToken}
       show={props.showDeleteModal}
       onClose={props.onCloseModal}
     />
