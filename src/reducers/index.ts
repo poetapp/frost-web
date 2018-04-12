@@ -1,7 +1,10 @@
 import { changePassword } from './ChangePassword.reducer'
 import { changePasswordToken } from './ChangePasswordToken.reducer'
+import { createApiTokens } from './CreateApiTokens.reducer'
 import { forgotPassword } from './ForgotPassword.reducer'
+import { getApiTokens } from './GetApiTokens.reducer'
 import { loadingPage } from './LoadingPage.reducer'
+import { notificationBar } from './NotificationBar.reducer'
 import { profile } from './Profile.reducer'
 import { router } from './Router.reducer'
 import { sendEmailVerifiedAccount } from './SendEmailVerifiedAccount.reducer'
@@ -21,5 +24,8 @@ export const reducers = {
   verifiedAccount,
   loadingPage,
   sendEmailVerifiedAccount,
-  profile
+  profile,
+  getApiTokens,
+  createApiTokens,
+  notificationBar
 }

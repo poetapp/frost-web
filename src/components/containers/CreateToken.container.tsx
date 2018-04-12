@@ -12,40 +12,34 @@ interface DataAction {
 interface CreateTokenContainerProps {
   readonly user: User
   readonly sendEmailVerifiedAccount: StatusService
+  readonly createApiTokens: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
+  readonly onCreateApiToken?: (data: DataAction) => Action
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   user: state.user,
-  sendEmailVerifiedAccount: state.sendEmailVerifiedAccount
+  sendEmailVerifiedAccount: state.sendEmailVerifiedAccount,
+  createApiTokens: state.createApiTokens
 })
 
-const mapDispatch = {
-  onSendEmailVerifiedAccount:
-    Actions.SendEmailVerifiedAccount.onSendEmailVerifiedAccount
-}
+const { onCreateApiToken } = Actions.ApiTokens
+const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
+const mapDispatch = { onCreateApiToken, onSendEmailVerifiedAccount }
+
+const createToken = (props: CreateTokenContainerProps): JSX.Element => (
+  <CreateToken
+    boxToken={props.user.profile.apiTokens}
+    showVerifiedAccount={props.user.profile.verified}
+    sendEmailVarifiedAccount={() =>
+      props.onSendEmailVerifiedAccount({ token: props.user.token })
+    }
+    retryWait={props.sendEmailVerifiedAccount.retryWait}
+    onCreateApiToken={() => props.onCreateApiToken({ token: props.user.token })}
+    submitDisabled={props.createApiTokens.loading}
+  />
+)
 
 export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
-  class extends React.Component<CreateTokenContainerProps, undefined> {
-    readonly sendEmailVarifiedAccount = (): void => {
-      const { onSendEmailVerifiedAccount, user } = this.props
-      const { token } = user
-      onSendEmailVerifiedAccount({ token })
-    }
-
-    render(): JSX.Element {
-      const { user, sendEmailVerifiedAccount } = this.props
-      const { profile } = user
-      const { retryWait } = sendEmailVerifiedAccount
-
-      return (
-        <CreateToken
-          boxToken={profile.apiTokens}
-          showVerifiedAccount={profile.verified}
-          sendEmailVarifiedAccount={this.sendEmailVarifiedAccount}
-          retryWait={retryWait}
-        />
-      )
-    }
-  }
+  createToken
 )
