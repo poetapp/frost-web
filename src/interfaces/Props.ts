@@ -43,9 +43,15 @@ export interface FrostState {
   readonly signUp: StatusService
   readonly sendEmailVerifiedAccount: StatusService
   readonly verifiedAccount: StatusService
+  readonly modal: ModalState
 }
 
 export interface JWT {
   readonly iat: Date
   readonly exp: Date
+}
+
+export interface ModalState {
+  readonly show: boolean
+  readonly modal: string
 }

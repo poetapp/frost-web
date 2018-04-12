@@ -67,14 +67,16 @@
     &__actions {
 
       button {
-        display: none;
-        height: 10px;
         border: 0px;
         font-size: 10px;
         font-weight: 600;
         line-height: 34px;
         color: $mandy;
         cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
       }
     }
   }

@@ -1,6 +1,6 @@
 import { Actions } from 'actions'
 import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
-import { FrostState, StatusService, User } from 'interfaces/Props'
+import { FrostState, StatusService, User, ModalState } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
@@ -13,16 +13,22 @@ interface CreateTokenContainerProps {
   readonly user: User
   readonly sendEmailVerifiedAccount: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
+  readonly onShowModal?: (payload: { readonly modal: string }) => Action
+  readonly onHideModal?: () => Action
+  readonly modal: ModalState
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   user: state.user,
-  sendEmailVerifiedAccount: state.sendEmailVerifiedAccount
+  sendEmailVerifiedAccount: state.sendEmailVerifiedAccount,
+  modal: state.modal
 })
-
+const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
+const { onShowModal, onHideModal } = Actions.Modal
 const mapDispatch = {
-  onSendEmailVerifiedAccount:
-    Actions.SendEmailVerifiedAccount.onSendEmailVerifiedAccount
+  onSendEmailVerifiedAccount,
+  onShowModal,
+  onHideModal
 }
 
 export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
@@ -33,8 +39,18 @@ export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
       onSendEmailVerifiedAccount({ token })
     }
 
+    readonly onDeleteToken = () => {
+      const { onShowModal } = this.props
+      onShowModal({ modal: 'deleteToken' })
+    }
+
+    readonly onClose = () => {
+      const { onHideModal } = this.props
+      onHideModal()
+    }
+
     render(): JSX.Element {
-      const { user, sendEmailVerifiedAccount } = this.props
+      const { user, sendEmailVerifiedAccount, modal } = this.props
       const { profile } = user
       const { retryWait } = sendEmailVerifiedAccount
 
@@ -44,6 +60,9 @@ export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
           showVerifiedAccount={profile.verified}
           sendEmailVarifiedAccount={this.sendEmailVarifiedAccount}
           retryWait={retryWait}
+          onDeleteToken={this.onDeleteToken}
+          showDeleteModal={modal.modal === 'deleteToken'}
+          onCloseModal={this.onClose}
         />
       )
     }

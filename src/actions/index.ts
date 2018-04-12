@@ -248,4 +248,18 @@ export namespace Actions {
       payload
     })
   }
+
+  export namespace Modal {
+    export const SHOW_MODAL = 'SHOW_MODAL'
+    export const HIDE_MODAL = 'HIDE_MODAL'
+
+    export const onShowModal = (payload: { readonly modal: string }) => ({
+      type: SHOW_MODAL,
+      payload
+    })
+
+    export const onHideModal = () => ({
+      type: HIDE_MODAL
+    })
+  }
 }

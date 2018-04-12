@@ -2,6 +2,7 @@ import { changePassword } from './ChangePassword.reducer'
 import { changePasswordToken } from './ChangePasswordToken.reducer'
 import { forgotPassword } from './ForgotPassword.reducer'
 import { loadingPage } from './LoadingPage.reducer'
+import { modal } from './Modal.reducer'
 import { profile } from './Profile.reducer'
 import { router } from './Router.reducer'
 import { sendEmailVerifiedAccount } from './SendEmailVerifiedAccount.reducer'
@@ -21,5 +22,6 @@ export const reducers = {
   verifiedAccount,
   loadingPage,
   sendEmailVerifiedAccount,
-  profile
+  profile,
+  modal
 }
