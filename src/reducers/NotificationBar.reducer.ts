@@ -25,6 +25,7 @@ export const notificationBar = (state: any, action: any) => {
       return {
         ...defaultState
       }
+    default:
+      return state || defaultState
   }
-  return state || defaultState
 }

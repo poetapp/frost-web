@@ -37,6 +37,7 @@ export const createApiTokens = (state: any, action: any) => {
         },
         loading: false
       }
+    default:
+      return state || defaultState
   }
-  return state || defaultState
 }
