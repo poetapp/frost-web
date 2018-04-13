@@ -8,9 +8,9 @@ const defaultState = {
   loading: false
 }
 
-export const apiToken = (state: any, action: any) => {
+export const createApiTokens = (state: any, action: any) => {
   switch (action.type) {
-    case Actions.ApiTokens.GET_API_SUCCESS:
+    case Actions.ApiTokens.CREATE_API_TOKEN:
       return {
         ...state,
         error: {
@@ -19,7 +19,7 @@ export const apiToken = (state: any, action: any) => {
         },
         loading: true
       }
-    case Actions.ApiTokens.GET_API_SUCCESS:
+    case Actions.ApiTokens.CREATE_API_TOKEN_SUCCESS:
       return {
         ...state,
         error: {
@@ -28,7 +28,7 @@ export const apiToken = (state: any, action: any) => {
         },
         loading: false
       }
-    case Actions.ApiTokens.GET_API_ERROR:
+    case Actions.ApiTokens.CREATE_API_TOKEN_ERROR:
       return {
         ...state,
         error: {

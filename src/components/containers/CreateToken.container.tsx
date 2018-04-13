@@ -12,7 +12,9 @@ interface DataAction {
 interface CreateTokenContainerProps {
   readonly user: User
   readonly sendEmailVerifiedAccount: StatusService
+  readonly createApiTokens: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
+  readonly onCreateApiToken?: (data: DataAction) => Action
   readonly onShowModal?: (
     payload: { readonly modal: string; readonly data: object }
   ) => Action
@@ -27,69 +29,58 @@ interface CreateTokenContainerProps {
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   user: state.user,
   sendEmailVerifiedAccount: state.sendEmailVerifiedAccount,
+  createApiTokens: state.createApiTokens,
   modal: state.modal,
   deleteApiToken: state.deleteApiToken
 })
-const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
-const { onShowModal, onHideModal } = Actions.Modal
-const { onDeleteApiToken } = Actions.DeleteApiToken
-const mapDispatch = {
-  onSendEmailVerifiedAccount,
-  onShowModal,
-  onHideModal,
-  onDeleteApiToken
-}
 
+const { onCreateApiToken } = Actions.ApiTokens
+const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
+const { onDeleteApiToken } = Actions.DeleteApiToken
+const { onShowModal, onHideModal } = Actions.Modal
+const mapDispatch = {
+  onCreateApiToken,
+  onSendEmailVerifiedAccount,
+  onDeleteApiToken,
+  onShowModal,
+  onHideModal
+}
 const MODAL_DELETE_TOKEN = 'MODAL_DELETE_TOKEN'
 
+const deleteToken = (
+  modal: ModalState,
+  onDeleteApiToken: (
+    payload: { readonly token: string; readonly apiToken: string }
+  ) => Action,
+  user: User
+) => {
+  const { apiToken } = modal.data as { readonly apiToken: string }
+  const { token } = user
+  onDeleteApiToken({ token, apiToken })
+}
+
+const createToken = (props: CreateTokenContainerProps): JSX.Element => (
+  <CreateToken
+    boxToken={props.user.profile.apiTokens}
+    showVerifiedAccount={props.user.profile.verified}
+    sendEmailVarifiedAccount={() =>
+      props.onSendEmailVerifiedAccount({ token: props.user.token })
+    }
+    retryWait={props.sendEmailVerifiedAccount.retryWait}
+    onCreateApiToken={() => props.onCreateApiToken({ token: props.user.token })}
+    submitDisabled={props.createApiTokens.loading}
+    onDeleteToken={() =>
+      deleteToken(props.modal, props.onDeleteApiToken, props.user)
+    }
+    onShowModal={(apiToken: string) =>
+      props.onShowModal({ modal: MODAL_DELETE_TOKEN, data: { apiToken } })
+    }
+    onCloseModal={() => props.onHideModal()}
+    showDeleteModal={props.modal.modal === MODAL_DELETE_TOKEN}
+    disabledButton={props.deleteApiToken.loading}
+  />
+)
+
 export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
-  class extends React.Component<CreateTokenContainerProps, undefined> {
-    readonly sendEmailVarifiedAccount = (): void => {
-      const { onSendEmailVerifiedAccount, user } = this.props
-      const { token } = user
-      onSendEmailVerifiedAccount({ token })
-    }
-
-    readonly onDeleteToken = () => {
-      const { modal, onDeleteApiToken, user } = this.props
-      const { apiToken } = modal.data as { readonly apiToken: string }
-      const { token } = user
-      onDeleteApiToken({ token, apiToken })
-    }
-
-    readonly onShowModal = (apiToken: string) => {
-      const { onShowModal } = this.props
-      onShowModal({ modal: MODAL_DELETE_TOKEN, data: { apiToken } })
-    }
-
-    readonly onCloseModal = () => {
-      const { onHideModal } = this.props
-      onHideModal()
-    }
-
-    render(): JSX.Element {
-      const {
-        user,
-        sendEmailVerifiedAccount,
-        modal,
-        deleteApiToken
-      } = this.props
-      const { profile } = user
-      const { retryWait } = sendEmailVerifiedAccount
-
-      return (
-        <CreateToken
-          boxToken={profile.apiTokens}
-          showVerifiedAccount={profile.verified}
-          sendEmailVarifiedAccount={this.sendEmailVarifiedAccount}
-          retryWait={retryWait}
-          onDeleteToken={this.onDeleteToken}
-          onShowModal={this.onShowModal}
-          onCloseModal={this.onCloseModal}
-          showDeleteModal={modal.modal === MODAL_DELETE_TOKEN}
-          disabledButton={deleteApiToken.loading}
-        />
-      )
-    }
-  }
+  createToken
 )

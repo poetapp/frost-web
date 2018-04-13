@@ -45,6 +45,8 @@ export interface FrostState {
   readonly verifiedAccount: StatusService
   readonly modal: ModalState
   readonly deleteApiToken: StatusService
+  readonly notificationBar: NotificationBarState
+  readonly createApiTokens: StatusService
 }
 
 export interface JWT {
@@ -56,4 +58,9 @@ export interface ModalState {
   readonly show: boolean
   readonly modal: string
   readonly data: object
+}
+export interface NotificationBarState {
+  readonly type?: 'success' | 'fail'
+  readonly action?: 'fade-in' | 'fade-out' | 'hide'
+  readonly message?: string
 }

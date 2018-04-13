@@ -15,6 +15,8 @@ interface CreateTokenProps {
   readonly onShowModal: (apiToken: string) => void
   readonly showDeleteModal: boolean
   readonly disabledButton: boolean
+  readonly onCreateApiToken: (event: Event) => void
+  readonly submitDisabled: boolean
 }
 
 export const CreateToken = (props: CreateTokenProps) => (
@@ -31,7 +33,12 @@ export const CreateToken = (props: CreateTokenProps) => (
       onClick={props.sendEmailVarifiedAccount}
       retryWait={props.retryWait}
     />
-    <Button className={'CreateToken__button'} text={'Get API Key'} />
+    <Button
+      className={'CreateToken__button'}
+      text={'Get API Key'}
+      onClick={props.onCreateApiToken}
+      disabled={props.submitDisabled}
+    />
     <DeleteToken
       onDeleteToken={props.onDeleteToken}
       show={props.showDeleteModal}

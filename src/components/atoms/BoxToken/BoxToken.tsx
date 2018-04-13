@@ -51,20 +51,26 @@ const renderToken = (
     <td>
       <span
         title={
-          isDateAfterNow(token.exp)
-            ? ''
-            : moment(token.exp).format('MM/DD/YYYY hh:mm a')
+          token.exp
+            ? isDateAfterNow(token.exp)
+              ? ''
+              : moment(token.exp).format('MM/DD/YYYY hh:mm a')
+            : 'Never'
         }
         className={classNames(
           'BoxToken__item__date',
-          isDateAfterNow(token.exp)
-            ? 'BoxToken__item__date__expired'
-            : 'BoxToken__item__date__help'
+          token.exp
+            ? isDateAfterNow(token.exp)
+              ? 'BoxToken__item__date__expired'
+              : 'BoxToken__item__date__help'
+            : ''
         )}
       >
-        {isDateAfterNow(token.exp)
-          ? moment(token.exp).format('MM/DD/YYYY hh:mm a')
-          : moment(token.exp).fromNow()}
+        {token.exp
+          ? isDateAfterNow(token.exp)
+            ? moment(token.exp).format('MM/DD/YYYY hh:mm a')
+            : moment(token.exp).fromNow()
+          : 'Never'}
       </span>
     </td>
     <td>

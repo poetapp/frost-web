@@ -3,9 +3,9 @@ import { Actions } from 'actions/index'
 import { SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
-// TODO we have to update Frost client, now Frost client returns
-// { apiToken: '', dateCreate: ''} instead of { apiTokens: [string] }
-async function GetApiTokensFrost(apiToken: string): Promise<any> {
+async function GetApiTokensFrost(
+  apiToken: string
+): Promise<{ readonly apiTokens: ReadonlyArray<string> }> {
   const frost = new Frost({ host: '/api' })
   return await frost.getApiTokens(apiToken)
 }
