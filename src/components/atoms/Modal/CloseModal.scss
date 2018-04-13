@@ -1,8 +1,11 @@
+@import "colors";
+
 .CloseModal {
   position: absolute;
   right: 15px;
   top: 15px;
   border: 0;
+  background-color: $transparent;
   cursor: pointer;
   opacity: 0.5;
 
