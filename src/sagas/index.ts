@@ -4,6 +4,7 @@ import { DeleteApiTokenSaga } from './DeleteApiToken.saga'
 import { ForgotPasswordSaga } from './ForgotPassword.saga'
 import { GetApiTokensSaga } from './GetApiTokens.saga'
 import { GetProfileSaga } from './GetProfile.saga'
+import { RouterSaga } from './Router.sagas'
 import { SendEmailVerifiedAccountSaga } from './SendEmailVerifiedAccount.saga'
 import { SignInSaga } from './SignIn.saga'
 import { SignOutSaga } from './SignOut.saga'
@@ -20,5 +21,6 @@ export const sagas: ReadonlyArray<any> = [
   SendEmailVerifiedAccountSaga,
   GetProfileSaga,
   DeleteApiTokenSaga,
-  CreateApiTokenSaga
+  CreateApiTokenSaga,
+  RouterSaga
 ]
