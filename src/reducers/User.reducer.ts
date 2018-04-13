@@ -25,12 +25,20 @@ export const user = (state: any, action: any) => {
         ...action.payload,
         ...{ profile: { ...defaultState.profile, ...action.payload.profile } }
       }
-    case Actions.ApiTokens.GET_API_SUCCESS:
+    case Actions.ApiTokens.GET_API_TOKENS_SUCCESS:
       return {
         ...state,
         profile: {
           ...state.profile,
           apiTokens: action.payload
+        }
+      }
+    case Actions.ApiTokens.CREATE_API_TOKEN_SUCCESS:
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          apiTokens: [...state.profile.apiTokens, ...[action.payload]]
         }
       }
     case Actions.VerifiedAccount.VERIFIED_ACCOUNT_SUCCESS:
@@ -55,6 +63,17 @@ export const user = (state: any, action: any) => {
         user: {
           ...state.user,
           token: action.payload.token
+        }
+      }
+    case Actions.DeleteApiToken.DELETE_API_TOKEN_SUCCESS:
+      const apitTokensFilter = state.profile.apiTokens.filter(
+        (token: string) => token !== action.payload
+      )
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          apiTokens: apitTokensFilter
         }
       }
     case Actions.SignOut.SIGN_OUT:

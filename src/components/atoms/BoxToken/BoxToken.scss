@@ -1,12 +1,12 @@
 @import "colors";
 
 .BoxToken {
-  height: 193px;
   width: 620px;
   border: 1px solid $spring-wood;
   border-radius: 4px;
   box-shadow: 0 2px 0 0 $white-smoke;
   background-color: $white;
+  min-height: 208px;
 
   &__table {
     width: 100%;
@@ -67,14 +67,17 @@
     &__actions {
 
       button {
-        display: none;
-        height: 10px;
         border: 0px;
         font-size: 10px;
         font-weight: 600;
         line-height: 34px;
+        background-color: $transparent;
         color: $mandy;
         cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
       }
     }
   }

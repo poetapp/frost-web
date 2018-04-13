@@ -32,7 +32,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@poetapp/frost-client": "^0.1.1",
+    "@poetapp/frost-client": "^0.1.4",
     "classnames": "^2.2.5",
     "formdata-polyfill": "^3.0.9",
     "isomorphic-fetch": "^2.2.1",

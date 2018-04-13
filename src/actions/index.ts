@@ -1,3 +1,4 @@
+import { NotificationBarState } from 'interfaces/Props'
 export namespace Actions {
   export namespace SignUp {
     export const SIGN_UP = 'SIGN_UP'
@@ -68,18 +69,33 @@ export namespace Actions {
 
   export namespace ApiTokens {
     export const GET_API_TOKENS = 'GET_API_TOKENS'
-    export const GET_API_SUCCESS = 'GET_API_SUCCESS'
-    export const GET_API_ERROR = 'GET_API_ERROR'
+    export const GET_API_TOKENS_SUCCESS = 'GET_API_TOKENS_SUCCESS'
+    export const GET_API_TOKENS_ERROR = 'GET_API_TOKENS_ERROR'
+    export const CREATE_API_TOKEN = 'CREATE_API_TOKEN'
+    export const CREATE_API_TOKEN_SUCCESS = 'CREATE_API_TOKEN_SUCCESS'
+    export const CREATE_API_TOKEN_ERROR = 'CREATE_API_TOKEN_ERROR'
     export const onGetApiTokens = (payload?: object) => ({
       type: GET_API_TOKENS,
       payload
     })
     export const onGetApiTokensSuccess = (payload?: object) => ({
-      type: GET_API_SUCCESS,
+      type: GET_API_TOKENS_SUCCESS,
       payload
     })
     export const onGetApiTokensError = (payload?: object) => ({
-      type: GET_API_ERROR,
+      type: GET_API_TOKENS_ERROR,
+      payload
+    })
+    export const onCreateApiToken = (payload?: object) => ({
+      type: CREATE_API_TOKEN,
+      payload
+    })
+    export const onCreateApiTokenSuccess = (payload?: object) => ({
+      type: CREATE_API_TOKEN_SUCCESS,
+      payload
+    })
+    export const onCreateApiTokenError = (payload?: object) => ({
+      type: CREATE_API_TOKEN_ERROR,
       payload
     })
   }
@@ -246,6 +262,64 @@ export namespace Actions {
     export const onSetTokenLogin = (payload?: object) => ({
       type: SET_TOKEN_LOGIN,
       payload
+    })
+  }
+
+  export namespace Modal {
+    export const SHOW_MODAL = 'SHOW_MODAL'
+    export const HIDE_MODAL = 'HIDE_MODAL'
+
+    export const onShowModal = (payload: {
+      readonly modal: string
+      readonly data: object
+    }) => ({
+      type: SHOW_MODAL,
+      payload
+    })
+
+    export const onHideModal = () => ({
+      type: HIDE_MODAL
+    })
+  }
+
+  export namespace DeleteApiToken {
+    export const DELETE_API_TOKEN = 'DELETE_API_TOKEN'
+    export const DELETE_API_TOKEN_SUCCESS = 'DELETE_API_TOKEN_SUCCESS'
+    export const DELETE_API_TOKEN_ERROR = 'DELETE_API_TOKEN_ERROR'
+    export const DELETE_API_TOKEN_CLEAR_ERROR = 'DELETE_API_TOKEN_CLEAR_ERROR'
+    export const onDeleteApiToken = (payload?: object) => ({
+      type: DELETE_API_TOKEN,
+      payload
+    })
+    export const onDeleteApiTokenSuccess = (payload?: object) => ({
+      type: DELETE_API_TOKEN_SUCCESS,
+      payload
+    })
+    export const onDeleteApiTokenError = (payload?: object) => ({
+      type: DELETE_API_TOKEN_ERROR,
+      payload
+    })
+    export const onDeleteApiTokenClearError = (payload?: object) => ({
+      type: DELETE_API_TOKEN_CLEAR_ERROR,
+      payload
+    })
+  }
+  export namespace NotificationBar {
+    export const SHOW_NOTIFICATION_BAR = 'SHOW_NOTIFICATION_BAR'
+    export const HIDE_NOTIFICATION_BAR = 'HIDE_NOTIFICATION_BAR'
+    export const RESET_NOTIFICATION_BAR = 'RESET_NOTIFICATION_BAR'
+
+    export const onShowNotificationBar = (payload: NotificationBarState) => ({
+      type: SHOW_NOTIFICATION_BAR,
+      payload
+    })
+
+    export const onHideNotificationBar = () => ({
+      type: HIDE_NOTIFICATION_BAR
+    })
+
+    export const onResetNotificationBar = () => ({
+      type: RESET_NOTIFICATION_BAR
     })
   }
 }

@@ -17,7 +17,21 @@ const byIssueDate = (a: ApiToken, b: ApiToken) =>
 
 const isDateAfterNow = (date: Date): boolean => moment().isAfter(date)
 
-const renderToken = (token: ApiToken, key: number, total: number) => (
+const deleteToken = (
+  event: React.MouseEvent<HTMLButtonElement>,
+  onDeleteToken: (apiToken: string) => void,
+  apiToken: string
+) => {
+  event.preventDefault()
+  onDeleteToken(apiToken)
+}
+
+const renderToken = (
+  token: ApiToken,
+  key: number,
+  total: number,
+  onDeleteToken?: (apiToken: string) => void
+) => (
   <tr key={key} className={'BoxToken__item'}>
     <td>
       <span>{total - key}</span>
@@ -37,31 +51,40 @@ const renderToken = (token: ApiToken, key: number, total: number) => (
     <td>
       <span
         title={
-          isDateAfterNow(token.exp)
-            ? ''
-            : moment(token.exp).format('MM/DD/YYYY hh:mm a')
+          token.exp
+            ? isDateAfterNow(token.exp)
+              ? ''
+              : moment(token.exp).format('MM/DD/YYYY hh:mm a')
+            : 'Never'
         }
         className={classNames(
           'BoxToken__item__date',
-          isDateAfterNow(token.exp)
-            ? 'BoxToken__item__date__expired'
-            : 'BoxToken__item__date__help'
+          token.exp
+            ? isDateAfterNow(token.exp)
+              ? 'BoxToken__item__date__expired'
+              : 'BoxToken__item__date__help'
+            : ''
         )}
       >
-        {isDateAfterNow(token.exp)
-          ? moment(token.exp).format('MM/DD/YYYY hh:mm a')
-          : moment(token.exp).fromNow()}
+        {token.exp
+          ? isDateAfterNow(token.exp)
+            ? moment(token.exp).format('MM/DD/YYYY hh:mm a')
+            : moment(token.exp).fromNow()
+          : 'Never'}
       </span>
     </td>
     <td>
       <div className={'BoxToken__item__actions'}>
-        <button>Remove</button>
+        <button onClick={e => deleteToken(e, onDeleteToken, token.token)}>
+          Remove
+        </button>
       </div>
     </td>
   </tr>
 )
 interface BoxTokenProps extends ClassNameProps {
   readonly apiTokens: ReadonlyArray<string>
+  readonly onDeleteToken?: (apiToken: string) => void
 }
 
 export const BoxToken = (props: BoxTokenProps): JSX.Element => (
@@ -87,7 +110,9 @@ export const BoxToken = (props: BoxTokenProps): JSX.Element => (
         {props.apiTokens
           .map(getParsedToken)
           .sort(byIssueDate)
-          .map((token, key) => renderToken(token, key, props.apiTokens.length))}
+          .map((token, key) =>
+            renderToken(token, key, props.apiTokens.length, props.onDeleteToken)
+          )}
       </tbody>
     </table>
   </div>
