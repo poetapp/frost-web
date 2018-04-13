@@ -65,6 +65,17 @@ export const user = (state: any, action: any) => {
           token: action.payload.token
         }
       }
+    case Actions.DeleteApiToken.DELETE_API_TOKEN_SUCCESS:
+      const apitTokensFilter = state.profile.apiTokens.filter(
+        (token: string) => token !== action.payload
+      )
+      return {
+        ...state,
+        profile: {
+          ...state.profile,
+          apiTokens: apitTokensFilter
+        }
+      }
     case Actions.SignOut.SIGN_OUT:
       return {
         ...defaultState,

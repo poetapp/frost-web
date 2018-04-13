@@ -265,6 +265,45 @@ export namespace Actions {
     })
   }
 
+  export namespace Modal {
+    export const SHOW_MODAL = 'SHOW_MODAL'
+    export const HIDE_MODAL = 'HIDE_MODAL'
+
+    export const onShowModal = (payload: {
+      readonly modal: string
+      readonly data: object
+    }) => ({
+      type: SHOW_MODAL,
+      payload
+    })
+
+    export const onHideModal = () => ({
+      type: HIDE_MODAL
+    })
+  }
+
+  export namespace DeleteApiToken {
+    export const DELETE_API_TOKEN = 'DELETE_API_TOKEN'
+    export const DELETE_API_TOKEN_SUCCESS = 'DELETE_API_TOKEN_SUCCESS'
+    export const DELETE_API_TOKEN_ERROR = 'DELETE_API_TOKEN_ERROR'
+    export const DELETE_API_TOKEN_CLEAR_ERROR = 'DELETE_API_TOKEN_CLEAR_ERROR'
+    export const onDeleteApiToken = (payload?: object) => ({
+      type: DELETE_API_TOKEN,
+      payload
+    })
+    export const onDeleteApiTokenSuccess = (payload?: object) => ({
+      type: DELETE_API_TOKEN_SUCCESS,
+      payload
+    })
+    export const onDeleteApiTokenError = (payload?: object) => ({
+      type: DELETE_API_TOKEN_ERROR,
+      payload
+    })
+    export const onDeleteApiTokenClearError = (payload?: object) => ({
+      type: DELETE_API_TOKEN_CLEAR_ERROR,
+      payload
+    })
+  }
   export namespace NotificationBar {
     export const SHOW_NOTIFICATION_BAR = 'SHOW_NOTIFICATION_BAR'
     export const HIDE_NOTIFICATION_BAR = 'HIDE_NOTIFICATION_BAR'
