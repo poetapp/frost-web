@@ -21,12 +21,14 @@ interface CreateTokenContainerProps {
     payload: { readonly token: string; readonly apiToken: string }
   ) => Action
   readonly modal: ModalState
+  readonly deleteApiToken: StatusService
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   user: state.user,
   sendEmailVerifiedAccount: state.sendEmailVerifiedAccount,
-  modal: state.modal
+  modal: state.modal,
+  deleteApiToken: state.deleteApiToken
 })
 const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
 const { onShowModal, onHideModal } = Actions.Modal
@@ -66,7 +68,12 @@ export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
     }
 
     render(): JSX.Element {
-      const { user, sendEmailVerifiedAccount, modal } = this.props
+      const {
+        user,
+        sendEmailVerifiedAccount,
+        modal,
+        deleteApiToken
+      } = this.props
       const { profile } = user
       const { retryWait } = sendEmailVerifiedAccount
 
@@ -80,6 +87,7 @@ export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
           onShowModal={this.onShowModal}
           onCloseModal={this.onCloseModal}
           showDeleteModal={modal.modal === MODAL_DELETE_TOKEN}
+          disabledButton={deleteApiToken.loading}
         />
       )
     }

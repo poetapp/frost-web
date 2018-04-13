@@ -14,6 +14,7 @@ interface CreateTokenProps {
   readonly onCloseModal: () => void
   readonly onShowModal: (apiToken: string) => void
   readonly showDeleteModal: boolean
+  readonly disabledButton: boolean
 }
 
 export const CreateToken = (props: CreateTokenProps) => (
@@ -35,6 +36,7 @@ export const CreateToken = (props: CreateTokenProps) => (
       onDeleteToken={props.onDeleteToken}
       show={props.showDeleteModal}
       onClose={props.onCloseModal}
+      disabledButton={props.disabledButton}
     />
   </div>
 )

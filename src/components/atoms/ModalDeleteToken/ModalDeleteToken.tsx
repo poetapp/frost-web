@@ -7,6 +7,7 @@ interface ModalDeleteTokenProps {
   readonly onDeleteToken: (event: Event) => void
   readonly show: boolean
   readonly onClose: () => void
+  readonly disabledButton: boolean
 }
 
 export const ModalDeleteToken = (props: ModalDeleteTokenProps) => (
@@ -28,6 +29,7 @@ export const ModalDeleteToken = (props: ModalDeleteTokenProps) => (
           text={'I understand, delete this token'}
           type={'danger'}
           onClick={props.onDeleteToken}
+          disabled={props.disabledButton}
         />
       </footer>
     </div>

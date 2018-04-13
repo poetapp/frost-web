@@ -44,6 +44,7 @@ export interface FrostState {
   readonly sendEmailVerifiedAccount: StatusService
   readonly verifiedAccount: StatusService
   readonly modal: ModalState
+  readonly deleteApiToken: StatusService
 }
 
 export interface JWT {

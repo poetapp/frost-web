@@ -2,6 +2,7 @@ import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
 import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
+const { toast } = require('react-toastify')
 
 async function DeleteApiTokenFrost(
   token: string,
@@ -29,5 +30,10 @@ function* DeleteApiToken(action: any): SagaIterator {
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.DeleteApiToken.onDeleteApiTokenError(e))
+    const errorMessage = typeof e === 'object' ? e.message : e
+    toast.error(errorMessage, {
+      className: 'toast',
+      autoClose: 2500
+    })
   }
 }
