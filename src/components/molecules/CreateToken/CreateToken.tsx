@@ -1,6 +1,6 @@
 import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
-import { ModalDeleteToken } from 'components/atoms/ModalDeleteToken/ModalDeleteToken'
+import { ModalDeleteToken } from 'components/modals/ModalDeleteToken/ModalDeleteToken'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
 import * as React from 'react'
 import './CreateToken.scss'

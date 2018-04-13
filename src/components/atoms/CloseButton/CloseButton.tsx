@@ -1,8 +1,8 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
-import './CloseModal.scss'
+import './CloseButton.scss'
 
-interface CloseModalProps {
+interface CloseButtonProps {
   readonly onClose: () => void
   readonly className?: string
 }
@@ -15,9 +15,9 @@ const onClose = (
   onClose()
 }
 
-export const CloseModal = (props: CloseModalProps) => (
+export const CloseButton = (props: CloseButtonProps) => (
   <button
-    className={classNames('CloseModal', props.className)}
+    className={classNames('CloseButton', props.className)}
     onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
       onClose(e, props.onClose)
     }

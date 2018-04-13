@@ -1,5 +1,5 @@
 import { Button } from 'components/atoms/Button/Button'
-import { Modal } from 'components/atoms/Modal/Modal'
+import { Modal } from 'components/molecules/Modal/Modal'
 import * as React from 'react'
 import './ModalDeleteToken.scss'
 
