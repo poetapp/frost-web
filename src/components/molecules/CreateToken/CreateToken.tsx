@@ -1,6 +1,6 @@
 import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
-import { ModalDeleteToken } from 'components/modals/ModalDeleteToken/ModalDeleteToken'
+import { DeleteToken } from 'components/modals/DeleteToken/DeleteToken'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
 import * as React from 'react'
 import './CreateToken.scss'
@@ -32,7 +32,7 @@ export const CreateToken = (props: CreateTokenProps) => (
       retryWait={props.retryWait}
     />
     <Button className={'CreateToken__button'} text={'Get API Key'} />
-    <ModalDeleteToken
+    <DeleteToken
       onDeleteToken={props.onDeleteToken}
       show={props.showDeleteModal}
       onClose={props.onCloseModal}
