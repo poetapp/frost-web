@@ -33,6 +33,8 @@ function* GetApiTokens(action: any): SagaIterator {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield call(delay, 2000)
     yield put(Actions.NotificationBar.onHideNotificationBar())
+    yield call(delay, 2000)
+    yield put(Actions.NotificationBar.onResetNotificationBar())
   } catch (e) {
     yield put(Actions.ApiTokens.onCreateApiTokenError(e))
     yield put(Actions.LoadingPage.onLoadingFull())
