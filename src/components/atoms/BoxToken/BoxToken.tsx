@@ -87,8 +87,12 @@ interface BoxTokenProps extends ClassNameProps {
   readonly onDeleteToken?: (apiToken: string) => void
 }
 
-export const BoxToken = (props: BoxTokenProps): JSX.Element => (
-  <div className={classNames('BoxToken', props.className)}>
+export const BoxToken: React.SFC<BoxTokenProps> = ({
+  apiTokens = [],
+  className,
+  onDeleteToken
+}): JSX.Element => (
+  <div className={classNames('BoxToken', className)}>
     <table className={'BoxToken__table'}>
       <thead className={'BoxToken__header'}>
         <tr>
@@ -107,11 +111,11 @@ export const BoxToken = (props: BoxTokenProps): JSX.Element => (
         </tr>
       </thead>
       <tbody>
-        {props.apiTokens
+        {apiTokens
           .map(getParsedToken)
           .sort(byIssueDate)
           .map((token, key) =>
-            renderToken(token, key, props.apiTokens.length, props.onDeleteToken)
+            renderToken(token, key, apiTokens.length, onDeleteToken)
           )}
       </tbody>
     </table>
