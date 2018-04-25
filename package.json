@@ -3,22 +3,6 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "start": "NODE_ENV=development node devServer.js",
-    "start:production": "NODE_ENV=production node devServer.js",
-    "build:development": "NODE_ENV=development webpack",
-    "build:testing": "NODE_ENV=testing webpack",
-    "build:preview": "stylelint './src/**/*.scss' && tslint -p ./tsconfig.json && npm run build:testing",
-    "build:staging": "NODE_ENV=staging webpack",
-    "build:production": "NODE_ENV=production webpack",
-    "lint": "tslint -p ./tsconfig.json",
-    "serve": "ws --spa index.html --rewrite '/api/* -> http://localhost:3000/$1' -d ./dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tslint": "tslint -p ./tsconfig.json --fix",
-    "tslint:check": "tslint-config-prettier-check ./tslint.json",
-    "tslint:compile-rules": "cd tslint-rules && tsc",
-    "stylelint": "stylelint './src/**/*.scss' --fix",
-    "stylelint:no-fix": "stylelint './src/**/*.scss'",
-    "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
