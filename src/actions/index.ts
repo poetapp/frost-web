@@ -5,6 +5,7 @@ import { NotificationBarState } from 'interfaces/Props'
 
 
 
+
 export namespace Actions {
   export namespace SignUp {
     export const SIGN_UP = 'SIGN_UP'
