@@ -1,5 +1,7 @@
 # Frost Web
 
+[![Build Status](https://travis-ci.org/poetapp/frost-web.svg?branch=master)](https://travis-ci.org/poetapp/frost-web)
+
 This is Frost's frontend
 
 ## Libraries, Frameworks, Etc
