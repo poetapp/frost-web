@@ -6,8 +6,8 @@
   background-color: $ghost-white;
 
   &__cover-page {
-    height: 697px;
     background-color: $black-rock;
+    min-height:697px;
 
     &__box {
       display: flex;
@@ -16,10 +16,20 @@
       margin: auto;
       padding-top: 104px;
       max-width: 960px;
+      @media screen and (max-width: 800px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-top:20px;
+      }
 
       &__logo {
         width: 120px;
         margin-bottom: 20px;
+        @media screen and (max-width: 800px) {
+          margin-left:50%;
+          margin-top:20px;
+          transform: translateX(-50%);
+        }
       }
 
       &__title {
@@ -29,6 +39,11 @@
         font-weight: 800;
         line-height: 69px;
         color: $white;
+        @media screen and (max-width: 800px) {
+          text-align: center;
+          font-size: 40px;
+          line-height: 59px;
+        }
       }
 
       &__description {
@@ -37,6 +52,12 @@
         font-size: 20px;
         line-height: 29px;
         color: $gainsboro;
+        @media screen and (max-width: 800px) {
+          padding-right: 0px;
+          text-align: center;
+          font-size: 18px;
+          line-height: 25px;
+        }
       }
 
       &__btn-token {
@@ -49,10 +70,20 @@
         background-color: $white;
         color: $cornflower-blue;
       }
+
+      &__logo-frost-only {
+        @media screen and (max-width: 800px) {
+          width:50vw;
+        }
+      }
     }
 
     &__buttons {
       display: flex;
+      @media screen and (max-width: 800px) {
+        justify-content: center;
+        margin-bottom:1em;
+      }
     }
   }
 
@@ -69,6 +100,9 @@
         font-size: 26px;
         line-height: 32px;
         color: $gondola;
+        @media screen and (max-width: 800px) {
+          margin-top: 20px;
+        }
       }
 
       &__description {
@@ -78,6 +112,9 @@
         font-size: 20px;
         line-height: 29px;
         color: $dim-gray;
+        @media screen and (max-width: 800px) {
+          margin-bottom: 10px;
+        }
       }
 
       &__container-box-simple {
@@ -87,6 +124,9 @@
       &__simple {
         width: 33.33%;
         margin-right: 45px;
+        @media screen and (max-width: 800px) {
+          margin-right: 0px;
+        }
 
         &:last-child {
           margin-right: 0px;

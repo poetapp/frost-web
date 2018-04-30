@@ -5,6 +5,9 @@
   width: 100%;
   margin-top: 75px;
   background-color: $white;
+  @media screen and (max-width: 800px) {
+    margin-top: 0px;
+  }
 
   &__container {
     display: flex;
