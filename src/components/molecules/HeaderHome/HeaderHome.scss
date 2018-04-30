@@ -2,7 +2,7 @@
 
 .Header_home {
   height: 80px;
-  width: 100%;
+  width: 100vw;
   border: 1px solid $black-russian2;
   background-color: $black-rock2;
 
@@ -23,10 +23,17 @@
     &__logo {
       width: 140px;
       margin-right: 40px;
+      @media screen and (max-width: 800px) {
+        width:100px;
+      }
     }
 
     &__button {
       width: 137px;
+      @media screen and (max-width: 800px) {
+        width:98px;
+        margin-right:.5em;
+      }
     }
   }
 }

@@ -32,7 +32,7 @@ export const HomeLayout = () => (
           </div>
         </div>
         <div>
-          <LogoFrostOnly />
+          <LogoFrostOnly className={'Home__cover-page__box__logo-frost-only'} />
         </div>
       </div>
     </section>
