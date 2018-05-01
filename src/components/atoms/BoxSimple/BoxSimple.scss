@@ -3,6 +3,14 @@
 .BoxSimple {
   padding: 0px 18px;
 
+  &__image {
+    @media screen and (max-width: 768px) {
+      margin-left:50%;
+      max-width:140px;
+      transform:translateX(-50%);
+    }
+  }
+
   &__circle {
     height: 52px;
     width: 52px;
@@ -19,6 +27,9 @@
     font-weight: 600;
     line-height: 33px;
     color: $gondola;
+    @media screen and (max-width: 768px) {
+      font-size:16px;
+    }
   }
 
   &__description {
