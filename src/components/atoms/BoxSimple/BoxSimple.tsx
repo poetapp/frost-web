@@ -12,7 +12,7 @@ interface BoxSimpleProps extends ClassNameProps {
 
 export const BoxSimple = (props: BoxSimpleProps) => (
   <div className={classNames('BoxSimple', props.className)}>
-    {props.header}
+    <div className={'BoxSimple__image'}>{props.header}</div>
     <h3 className={'BoxSimple__title'}>{props.title}</h3>
     <p className={'BoxSimple__description'}>{props.description}</p>
   </div>
