@@ -23,12 +23,12 @@
     }
 
     &__rightContent {
+      padding-right:1em;
       text-align: center;
       font-size: 14px;
       line-height: 22px;
       color: $night-rider2;
       @media screen and (max-width: 768px) {
-        padding-right:1em;
         font-size: 8px;
       }
     }
