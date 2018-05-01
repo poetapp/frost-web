@@ -53,6 +53,7 @@
         line-height: 29px;
         color: $gainsboro;
         @media screen and (max-width: 800px) {
+          margin-bottom:1em;
           padding: 0px 10px;
           text-align: center;
           font-size: 18px;
@@ -63,10 +64,14 @@
       &__btn-token {
         width: 160px;
         margin-right: 21px;
+        @media screen and (max-width: 800px) {
+          margin:0em 0em 1em;
+        }
       }
 
       &__btn-started {
         width: 160px;
+        margin-bottom:1em;
         background-color: $white;
         color: $cornflower-blue;
       }
@@ -81,8 +86,8 @@
     &__buttons {
       display: flex;
       @media screen and (max-width: 800px) {
-        justify-content: center;
-        margin-bottom:1em;
+        flex-direction: column;
+        align-items: center;
       }
     }
   }
@@ -119,7 +124,7 @@
 
       &__container-box-simple {
         display: flex;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 768px) {
           flex-direction:column;
         }
       }
@@ -127,7 +132,7 @@
       &__simple {
         width: 33.33%;
         margin-right: 45px;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 768px) {
           width:100%;
         }
 
