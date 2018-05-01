@@ -14,9 +14,10 @@
       justify-content: space-between;
       height: 100%;
       margin: auto;
+      padding-left: 1em;
       padding-top: 104px;
       max-width: 960px;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 768px) {
         flex-direction: column-reverse;
         align-items: center;
         padding-top:20px;
@@ -25,7 +26,7 @@
       &__logo {
         width: 120px;
         margin-bottom: 20px;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 768px) {
           margin-left:50%;
           margin-top:20px;
           transform: translateX(-50%);
@@ -39,7 +40,7 @@
         font-weight: 800;
         line-height: 69px;
         color: $white;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 768px) {
           text-align: center;
           font-size: 40px;
           line-height: 59px;
@@ -52,7 +53,7 @@
         font-size: 20px;
         line-height: 29px;
         color: $gainsboro;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 768px) {
           margin-bottom:1em;
           padding: 0px 10px;
           text-align: center;
@@ -77,6 +78,7 @@
       }
 
       &__logo-frost-only {
+        padding-right:1em;
         @media screen and (max-width: 800px) {
           width:50vw;
         }
@@ -85,7 +87,7 @@
 
     &__buttons {
       display: flex;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 768px) {
         flex-direction: column;
         align-items: center;
       }

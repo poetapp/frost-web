@@ -23,6 +23,7 @@
     }
 
     &__links {
+      padding-left:1em;
       @media screen and (min-width: 768px) {
         flex:1 0 auto;
       }
@@ -54,9 +55,9 @@
 
     &__button {
       width: 137px;
+      margin-right: .5em;
       @media screen and (max-width: 768px) {
         width:98px;
-        margin-right:.5em;
       }
     }
   }
