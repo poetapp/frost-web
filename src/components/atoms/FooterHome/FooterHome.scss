@@ -16,10 +16,18 @@
     height: 100%;
     margin: auto;
     max-width: 960px;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
 
     &__leftContent {
       width: 100px;
       margin-left:1em;
+      @media screen and (max-width: 768px) {
+        margin: 0px;
+        padding-bottom: .5em;
+        padding-top: .5em;
+      }
     }
 
     &__rightContent {
@@ -29,7 +37,7 @@
       line-height: 22px;
       color: $night-rider2;
       @media screen and (max-width: 768px) {
-        font-size: 8px;
+        padding-right: 0px;
       }
     }
   }

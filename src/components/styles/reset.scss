@@ -4,13 +4,11 @@
 html, body, #app {
   height: 100%;
   background-color: $ghost-white;
-  min-width: 100vw;
 }
 
 body, html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 100vw;
 }
 
 body, button, input, optgroup, select, textarea, h1, h2, h3, h4, h5, h6 {
