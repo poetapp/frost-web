@@ -12,22 +12,24 @@ interface HeaderHomeProps {
 export const HeaderHome = (props: HeaderHomeProps) => (
   <header className={'Header_home'}>
     <div className={'Header_home__box'}>
-      <div className={'Header_home__box__left'}>
-        <LogoFrost className={'Header_home__box__logo'} />
+      <LogoFrost className={'Header_home__box__logo'} />
+      <div className={'Header_home__box__right'}>
+        {props.isLogged ? (
+          <Link to={'/dashboard'}>
+            <Button className={'Header_home__box__button'} text={'Dashboard'} />
+          </Link>
+        ) : (
+          <Link to={'/login'}>
+            <Button
+              className={'Header_home__box__button'}
+              text={'Login / Sign Up'}
+            />
+          </Link>
+        )}
+      </div>
+      <div className={'Header_home__box__links'}>
         <LinksHeader />
       </div>
-      {props.isLogged ? (
-        <Link to={'/dashboard'}>
-          <Button className={'Header_home__box__button'} text={'Dashboard'} />
-        </Link>
-      ) : (
-        <Link to={'/login'}>
-          <Button
-            className={'Header_home__box__button'}
-            text={'Login / Sign Up'}
-          />
-        </Link>
-      )}
     </div>
   </header>
 )
