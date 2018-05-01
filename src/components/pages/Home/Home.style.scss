@@ -53,7 +53,7 @@
         line-height: 29px;
         color: $gainsboro;
         @media screen and (max-width: 800px) {
-          padding-right: 0px;
+          padding: 0px 10px;
           text-align: center;
           font-size: 18px;
           line-height: 25px;
@@ -113,19 +113,22 @@
         line-height: 29px;
         color: $dim-gray;
         @media screen and (max-width: 800px) {
-          margin-bottom: 10px;
+          margin: 1em;
         }
       }
 
       &__container-box-simple {
         display: flex;
+        @media screen and (max-width: 800px) {
+          flex-direction:column;
+        }
       }
 
       &__simple {
         width: 33.33%;
         margin-right: 45px;
         @media screen and (max-width: 800px) {
-          margin-right: 0px;
+          width:100%;
         }
 
         &:last-child {
