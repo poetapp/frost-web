@@ -4,10 +4,13 @@
   padding: 0px 18px;
 
   &__image {
-    @media screen and (max-width: 768px) {
-      margin-left:50%;
-      max-width:140px;
-      transform:translateX(-50%);
+    margin-left:50%;
+    max-width:140px;
+    transform:translateX(-50%);
+    @media screen and (min-width: 769px) {
+      margin-left:auto;
+      max-width:100%;
+      transform:translateX(0%);
     }
   }
 
@@ -23,12 +26,12 @@
   &__title {
     margin-bottom: 10px;
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 33px;
     color: $gondola;
-    @media screen and (max-width: 768px) {
-      font-size:16px;
+    @media screen and (min-width: 769px) {
+      font-size:20px;
     }
   }
 
