@@ -14,8 +14,8 @@
     "lint:fix": "tslint -p ./tsconfig.json --fix",
     "serve": "ws --spa index.html --rewrite '/api/* -> http://localhost:3000/$1' -d ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stylelint": "stylelint './src/**/*.scss' --fix",
-    "stylelint:no-fix": "stylelint './src/**/*.scss'",
+    "stylelint": "stylelint './src/**/*.scss'",
+    "stylelint:fix": "stylelint './src/**/*.scss' --fix",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -24,7 +24,7 @@
       "git add"
     ],
     "*.scss": [
-      "stylelint",
+      "stylelint:fix",
       "git add"
     ]
   },
