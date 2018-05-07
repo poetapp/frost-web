@@ -5,12 +5,12 @@
 
   &__item {
     display: inline-block;
-    margin-right: 25px;
+    margin-right: 10px;
     font-size: 14px;
     font-weight: 600;
     line-height: 19px;
-    @media screen and (max-width: 800px) {
-      margin-right:10px;
+    @media screen and (min-width: 800px) {
+      margin-right: 25px;
     }
 
     a {

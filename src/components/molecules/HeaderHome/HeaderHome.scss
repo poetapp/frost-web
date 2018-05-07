@@ -1,24 +1,26 @@
 @import "colors";
 
 .Header_home {
-  height: 80px;
+  height: 100%;
   border: 1px solid $black-russian2;
   background-color: $black-rock2;
-  @media screen and (max-width: 768px) {
-    height:100%;
+  @media screen and (min-width: 768px) {
+    height: 80px;
   }
 
   &__box {
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
     margin: auto;
+    padding:.5em;
     max-width: 960px;
-    @media screen and (max-width: 768px) {
-      flex-flow: row wrap;
-      justify-content:center;
-      padding:.5em;
+    @media screen and (min-width: 768px) {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      padding: auto;
     }
 
     &__links {
@@ -35,28 +37,28 @@
       align-items: center;
       justify-content:center;
       height: 100%;
-      order:3;
-      @media screen and (max-width: 480px) {
-        order:0;
+      order: 0;
+      @media screen and (min-width: 480px) {
+        order: 3;
       }
     }
 
     &__logo {
       flex: 0 0 140px;
-      width: 140px;
-      margin-right: 40px;
+      width: 100px;
+      margin-right: 0px;
       padding-left: .5em;
-      @media screen and (max-width: 768px) {
-        width:100px;
-        margin-right:0px;
+      @media screen and (min-width: 768px) {
+        width:140px;
+        margin-right: 40px;
       }
     }
 
     &__button {
-      width: 137px;
+      width: 98px;
       margin-right: .5em;
-      @media screen and (max-width: 768px) {
-        width:98px;
+      @media screen and (min-width: 768px) {
+        width: 137px;
       }
     }
   }
