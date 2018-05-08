@@ -1,5 +1,5 @@
 language: node_js
 script:
   - npm run lint
-  - npm run stylelint:no-fix
+  - npm run stylelint
   - npm run build:testing
