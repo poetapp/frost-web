@@ -4,8 +4,8 @@
   height: 100%;
   border: 1px solid $black-russian2;
   background-color: $black-rock2;
-  @media screen and (min-width: 768px) {
-    height: 80px;
+  @media screen and (min-width: 48rem) {
+    height: 5rem;
   }
 
   &__box {
@@ -15,50 +15,50 @@
     justify-content: center;
     height: 100%;
     margin: auto;
-    padding: .5em;
-    max-width: 960px;
-    @media screen and (min-width: 768px) {
+    padding: .5rem;
+    max-width: 65rem;
+    @media screen and (min-width: 48rem) {
       flex-flow: row nowrap;
       justify-content: space-between;
       padding: auto;
     }
 
     &__links {
-      padding-left: 1em;
-      @media screen and (min-width: 768px) {
+      padding-left: 1rem;
+      @media screen and (min-width: 48rem) {
         flex: 1 0 auto;
       }
     }
 
     &__right {
       display: flex;
-      flex: 0 0 8.75em;
+      flex: 0 0 8.75rem;
       flex-flow: row wrap;
       align-items: center;
       justify-content:center;
       height: 100%;
       order: 0;
-      @media screen and (min-width: 519px) {
+      @media screen and (min-width: 32.68rem) {
         order: 3;
       }
     }
 
     &__logo {
-      flex: 0 0 8.75em;
-      width: 100px;
-      margin-right: 0em;
-      padding-left: .5em;
-      @media screen and (min-width: 768px) {
-        width:140px;
-        margin-right: 2.5em;
+      flex: 0 0 8.75rem;
+      width: 6.25rem;
+      margin-right: 0rem;
+      padding-left: .5rem;
+      @media screen and (min-width: 48rem) {
+        width: 8.75rem;
+        margin-right: 2.5rem;
       }
     }
 
     &__button {
-      width: 98px;
-      margin-right: .5em;
-      @media screen and (min-width: 768px) {
-        width: 137px;
+      width: 6.125rem;
+      margin-right: .5rem;
+      @media screen and (min-width: 48rem) {
+        width: 8.56rem;
       }
     }
   }
