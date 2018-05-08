@@ -5,7 +5,7 @@
   background-color: $white;
   @media screen and (min-width: 768px) {
     height: 90px;
-    margin-top: 75px;
+    margin-top: 4.69em;
   }
 
   &__container {
@@ -33,10 +33,10 @@
     &__rightContent {
       padding-bottom: 1em;
       padding-right:1em;
-      padding-right: 0px;
+      padding-right: 0em;
       text-align: center;
-      font-size: 14px;
-      line-height: 22px;
+      font-size: .875em;
+      line-height: 2.25em;
       color: $night-rider2;
       @media screen and (min-width: 768px) {
         padding-bottom: 0em;
