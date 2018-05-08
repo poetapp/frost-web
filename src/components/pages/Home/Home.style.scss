@@ -7,7 +7,7 @@
 
   &__cover-page {
     background-color: $black-rock;
-    min-height:697px;
+    min-height: 43.56rem;
 
     &__box {
       display: flex;
@@ -16,24 +16,24 @@
       justify-content: space-between;
       height: 100%;
       margin: auto;
-      padding-left: 1em;
-      padding-right: 1em;
-      padding-top: 1.25em;
-      max-width: 960px;
-      @media screen and (min-width: 768px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1.25rem;
+      max-width: 60rem;
+      @media screen and (min-width: 48rem) {
         flex-direction: row;
         align-items: flex-start;
-        padding-top: 6.5em;
+        padding-top: 6.5rem;
       }
 
       &__logo {
         width: 80px;
-        margin-bottom: 1.25em;
+        margin-bottom: 1.25rem;
         margin-left: 50%;
-        margin-top: 1.25em;
+        margin-top: 1.25rem;
         transform: translateX(-50%);
-        @media screen and (min-width: 768px) {
-          width: 120px;
+        @media screen and (min-width: 48rem) {
+          width: 7.5rem;
           margin-left: 0%;
           margin-top: auto;
           transform: translateX(0%);
@@ -41,47 +41,47 @@
       }
 
       &__title {
-        margin-bottom: .4em;
+        margin-bottom: .625rem;
         text-align: center;
         font-family: $arvo;
-        font-size: 1.875em;
+        font-size: 1.875rem;
         font-weight: 800;
-        line-height: 1.9em;
+        line-height: 3.69rem;
         color: $white;
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 48rem) {
           text-align: left;
-          font-size: 3.31em;
-          line-height: 1.3em;
+          font-size: 3.31rem;
+          line-height: 4.3rem;
         }
       }
 
       &__description {
-        margin-bottom: 1em;
-        padding: 0em .625em;
+        margin-bottom: 1rem;
+        padding: 0em .625rem;
         text-align: center;
-        font-size: 1em;
-        line-height: 1.56em;
+        font-size: 1rem;
+        line-height: 1.56rem;
         color: $gainsboro;
-        @media screen and (min-width: 768px) {
-          margin-bottom: 2em;
-          padding-right: 6.5em;
+        @media screen and (min-width: 48rem) {
+          margin-bottom: 2rem;
+          padding-right: 6.5rem;
           text-align: left;
-          font-size: 1.25em;
-          line-height: 1.4em;
+          font-size: 1.25rem;
+          line-height: 1.8rem;
         }
       }
 
       &__btn-token {
         width: 160px;
-        margin: 0em 0em 1em;
+        margin: 0em 0em 1rem;
         @media screen and (min-width: 800px) {
-          margin: auto 1.3em auto auto;
+          margin: auto 1.3rem auto auto;
         }
       }
 
       &__btn-started {
         width: 160px;
-        margin-bottom: 1em;
+        margin-bottom: 1rem;
         background-color: $white;
         color: $cornflower-blue;
       }
@@ -98,7 +98,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 48rem) {
         flex-direction: row;
         align-items: flex-start;
       }
@@ -112,41 +112,41 @@
       max-width: 960px;
 
       &__title {
-        margin-top: 1.25em;
+        margin-top: 1.25rem;
         text-align: center;
         font-family: $arvo;
-        font-size: 1.625em;
-        line-height: 1.3em;
+        font-size: 1.625rem;
+        line-height: 1.3rem;
         color: $gondola;
-        @media screen and (min-width: 768px) {
-          margin-top: 2.8em;
+        @media screen and (min-width: 48rem) {
+          margin-top: 2.8rem;
         }
       }
 
       &__description {
-        margin: 1em;
+        margin: 1rem;
         text-align: center;
-        font-size: 1.25em;
-        line-height: 1.3em;
+        font-size: 1.25rem;
+        line-height: 1.3rem;
         color: $dim-gray;
-        @media screen and (min-width: 768px) {
-          margin: .88em auto 5em;
+        @media screen and (min-width: 48rem) {
+          margin: .88rem auto 5rem;
         }
       }
 
       &__container-box-simple {
         display: flex;
         flex-direction: column;
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 48rem) {
           flex-direction: row;
         }
       }
 
       &__simple {
         width: 100%;
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 48rem) {
           width: 33.33%;
-          margin-right: 2.8em;
+          margin-right: 2.8rem;
         }
 
         &:last-child {
@@ -162,7 +162,7 @@
 
         &__title {
           margin-bottom: 13px;
-          font-size: 1.56em;
+          font-size: 1.56rem;
           font-weight: bold;
           line-height: 28px;
           color: $cornflower-blue;
@@ -170,8 +170,8 @@
 
         &__description {
           margin: 0px;
-          font-size: .875em;
-          line-height: 1.25em;
+          font-size: .875rem;
+          line-height: 1.25rem;
           color: $night-rider2;
         }
       }

@@ -1,16 +1,16 @@
 @import "colors";
 
 .LinksHeader {
-  margin-bottom: 0px;
+  margin-bottom: 0rem;
 
   &__item {
     display: inline-block;
-    margin-right: .625em;
-    font-size: .875em;
+    margin-right: .625rem;
+    font-size: .875rem;
     font-weight: 600;
-    line-height: 1.19em;
-    @media screen and (min-width: 800px) {
-      margin-right: 1.56em;
+    line-height: 1.19rem;
+    @media screen and (min-width: 48rem) {
+      margin-right: 1.56rem;
     }
 
     a {

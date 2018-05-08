@@ -1,13 +1,13 @@
 @import "colors";
 
 .BoxSimple {
-  padding: 0em 1.125em;
+  padding: 0rem 1.125rem;
 
   &__image {
-    margin-left:50%;
-    max-width:140px;
-    transform:translateX(-50%);
-    @media screen and (min-width: 768px) {
+    margin-left: 50%;
+    max-width: 8.75rem;
+    transform: translateX(-50%);
+    @media screen and (min-width: 48rem) {
       margin-left:auto;
       max-width:100%;
       transform:translateX(0%);
@@ -15,30 +15,30 @@
   }
 
   &__circle {
-    height: 52px;
-    width: 52px;
+    height: 3.25rem;
+    width: 3.25rem;
     margin: auto;
-    margin-bottom: .69em;
+    margin-bottom: .69rem;
     border-radius: 100%;
     background-color: $white;
   }
 
   &__title {
-    margin-bottom: .625em;
+    margin-bottom: .625rem;
     text-align: center;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 600;
-    line-height: 2em;
+    line-height: 2rem;
     color: $gondola;
-    @media screen and (min-width: 768px) {
-      font-size: 1.25em;
+    @media screen and (min-width: 48rem) {
+      font-size: 1.25rem;
     }
   }
 
   &__description {
     text-align: center;
-    font-size: .88em;
-    line-height: 1.38em;
+    font-size: .88rem;
+    line-height: 1.38rem;
     color: $night-rider2;
   }
 }
