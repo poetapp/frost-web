@@ -16,9 +16,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
         <BoxButton
           image={Images.KeySmall}
           title={'API Keys'}
-          description={
-            'Get started building out an integration on top of po.et using the frost API.'
-          }
+          description={'Get started building out an integration on top of po.et using the frost API.'}
           buttonText={'Get API Key'}
         />
       </Link>

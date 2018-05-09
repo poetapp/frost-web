@@ -11,13 +11,11 @@ async function GetProfileFrost(
   return await frost.getProfile(token)
 }
 
-export function GetProfileSaga(): () => IterableIterator<
-  ReadonlyArray<ForkEffect>
-> {
+export function GetProfileSaga(): () => IterableIterator<ReadonlyArray<ForkEffect>> {
   return function*(): IterableIterator<ReadonlyArray<ForkEffect>> {
     yield [
       takeLatest(Actions.Profile.PROFILE, GetProfile),
-      takeLatest(Actions.SetTokenLogin.SET_TOKEN_LOGIN, GetProfile)
+      takeLatest(Actions.SetTokenLogin.SET_TOKEN_LOGIN, GetProfile),
     ]
   }
 }

@@ -13,15 +13,12 @@ interface ForgotPasswordContainerProps {
 }
 
 const mapDispatch = {
-  onForgotPassword: Actions.ForgotPassword.onForgotPassword
+  onForgotPassword: Actions.ForgotPassword.onForgotPassword,
 }
 
 export const ForgotPasswordContainer = connect(undefined, mapDispatch)(
   class extends React.Component<ForgotPasswordContainerProps, undefined> {
-    readonly onForgotPassword = (
-      data: DataForm,
-      elements: { readonly [key: string]: HTMLInputElement }
-    ): void => {
+    readonly onForgotPassword = (data: DataForm, elements: { readonly [key: string]: HTMLInputElement }): void => {
       const { onForgotPassword } = this.props
       const { email } = elements
       onForgotPassword(data)

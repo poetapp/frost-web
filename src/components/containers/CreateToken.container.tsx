@@ -15,13 +15,9 @@ interface CreateTokenContainerProps {
   readonly createApiTokens: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
   readonly onCreateApiToken?: (data: DataAction) => Action
-  readonly onShowModal?: (
-    payload: { readonly modal: string; readonly data: object }
-  ) => Action
+  readonly onShowModal?: (payload: { readonly modal: string; readonly data: object }) => Action
   readonly onHideModal?: () => Action
-  readonly onDeleteApiToken?: (
-    payload: { readonly token: string; readonly apiToken: string }
-  ) => Action
+  readonly onDeleteApiToken?: (payload: { readonly token: string; readonly apiToken: string }) => Action
   readonly modal: ModalState
   readonly deleteApiToken: StatusService
 }
@@ -31,7 +27,7 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   sendEmailVerifiedAccount: state.sendEmailVerifiedAccount,
   createApiTokens: state.createApiTokens,
   modal: state.modal,
-  deleteApiToken: state.deleteApiToken
+  deleteApiToken: state.deleteApiToken,
 })
 
 const { onCreateApiToken } = Actions.ApiTokens
@@ -43,15 +39,13 @@ const mapDispatch = {
   onSendEmailVerifiedAccount,
   onDeleteApiToken,
   onShowModal,
-  onHideModal
+  onHideModal,
 }
 const MODAL_DELETE_TOKEN = 'MODAL_DELETE_TOKEN'
 
 const deleteToken = (
   modal: ModalState,
-  onDeleteApiToken: (
-    payload: { readonly token: string; readonly apiToken: string }
-  ) => Action,
+  onDeleteApiToken: (payload: { readonly token: string; readonly apiToken: string }) => Action,
   user: User
 ) => {
   const { apiToken } = modal.data as { readonly apiToken: string }
@@ -63,24 +57,16 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
   <CreateToken
     boxToken={props.user.profile.apiTokens}
     showVerifiedAccount={props.user.profile.verified}
-    sendEmailVarifiedAccount={() =>
-      props.onSendEmailVerifiedAccount({ token: props.user.token })
-    }
+    sendEmailVarifiedAccount={() => props.onSendEmailVerifiedAccount({ token: props.user.token })}
     retryWait={props.sendEmailVerifiedAccount.retryWait}
     onCreateApiToken={() => props.onCreateApiToken({ token: props.user.token })}
     submitDisabled={props.createApiTokens.loading}
-    onDeleteToken={() =>
-      deleteToken(props.modal, props.onDeleteApiToken, props.user)
-    }
-    onShowModal={(apiToken: string) =>
-      props.onShowModal({ modal: MODAL_DELETE_TOKEN, data: { apiToken } })
-    }
+    onDeleteToken={() => deleteToken(props.modal, props.onDeleteApiToken, props.user)}
+    onShowModal={(apiToken: string) => props.onShowModal({ modal: MODAL_DELETE_TOKEN, data: { apiToken } })}
     onCloseModal={() => props.onHideModal()}
     showDeleteModal={props.modal.modal === MODAL_DELETE_TOKEN}
     disabledButton={props.deleteApiToken.loading}
   />
 )
 
-export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(
-  createToken
-)
+export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(createToken)

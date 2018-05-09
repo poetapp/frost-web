@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@po.et/stylelint-rules": "1.0.2",
-    "@po.et/tslint-rules": "1.1.0",
+    "@po.et/tslint-rules": "1.2.0",
     "@types/babel-core": "6.25.3",
     "@types/classnames": "2.2.3",
     "@types/copy-webpack-plugin": "4.0.1",

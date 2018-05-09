@@ -7,9 +7,7 @@ export interface ReducerDescription<T> {
 }
 
 export abstract class PageLoader<State, Properties> {
-  abstract readonly component:
-    | ComponentClass<Properties>
-    | StatelessComponent<Properties>
+  abstract readonly component: ComponentClass<Properties> | StatelessComponent<Properties>
 
   abstract initialState(): State
   abstract routeHook(key: string): ReadonlyArray<JSX.Element>
@@ -21,8 +19,6 @@ export abstract class PageLoader<State, Properties> {
   }
 
   protected container(): ComponentClass<object> {
-    return connect(this.select.bind(this), this.mapDispatchToProps())(
-      this.component
-    )
+    return connect(this.select.bind(this), this.mapDispatchToProps())(this.component)
   }
 }

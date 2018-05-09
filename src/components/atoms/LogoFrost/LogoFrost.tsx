@@ -4,6 +4,4 @@ import * as React from 'react'
 
 interface LogoFrostProps extends ClassNameProps {}
 
-export const LogoFrost = (props: LogoFrostProps) => (
-  <img src={Images.LogoFrost} className={props.className} />
-)
+export const LogoFrost = (props: LogoFrostProps) => <img src={Images.LogoFrost} className={props.className} />

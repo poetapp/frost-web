@@ -20,9 +20,7 @@ export const NavigationList = (props: NavigationListProps) => (
       props.links.map((link, i) => (
         <li
           key={i}
-          className={`NavigationList__item ${
-            props.pathActive === link.link ? 'NavigationList__item--active' : ''
-          }`}
+          className={`NavigationList__item ${props.pathActive === link.link ? 'NavigationList__item--active' : ''}`}
         >
           {link.external && link.external === true ? (
             <a href={link.link}>{link.label}</a>

@@ -8,7 +8,7 @@ interface LoadingPageProps {
 }
 
 const mapStateToProps = (state: FrostState): LoadingPageProps => ({
-  loadingPage: state.loadingPage
+  loadingPage: state.loadingPage,
 })
 
 export const LoadingPageContainer = connect(mapStateToProps)(

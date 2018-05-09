@@ -25,9 +25,7 @@ function* SignIn(action: any): SagaIterator {
     const { email, password } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
     const { token } = yield call(signInFrost, { email, password })
-    yield put(
-      Actions.SignIn.onSignInSuccess({ token, ...{ profile: { email } } })
-    )
+    yield put(Actions.SignIn.onSignInSuccess({ token, ...{ profile: { email } } }))
     yield put(Actions.Profile.onProfile({ token }))
     yield put(Actions.LoadingPage.onLoadingFull())
     yield call(delay, 300)
@@ -39,7 +37,7 @@ function* SignIn(action: any): SagaIterator {
     yield put(Actions.SignIn.onSignInClearError())
     toast.error(e, {
       className: 'toast',
-      autoClose: 2500
+      autoClose: 2500,
     })
   }
 }

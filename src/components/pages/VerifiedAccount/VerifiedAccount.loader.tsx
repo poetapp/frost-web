@@ -12,9 +12,7 @@ export class VerifiedAccount extends PageLoader<object, object> {
   }
 
   routeHook(key: string): ReadonlyArray<JSX.Element> {
-    return [
-      <Route path="/verified-account" key={key} component={this.container()} />
-    ]
+    return [<Route path="/verified-account" key={key} component={this.container()} />]
   }
 
   reducerHook<State>(): ReducerDescription<State> {

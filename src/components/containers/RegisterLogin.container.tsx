@@ -24,12 +24,12 @@ interface RegisterLoginContainerProps {
 
 const mapStateToProps = (state: FrostState): RegisterLoginContainerProps => ({
   signIn: state.signIn,
-  signUp: state.signUp
+  signUp: state.signUp,
 })
 
 const mapDispatch = {
   onSubmitSignUp: Actions.SignUp.onSignUp,
-  onSubmitSignIn: Actions.SignIn.onSignIn
+  onSubmitSignIn: Actions.SignIn.onSignIn,
 }
 
 export const RegisterLoginContainer = connect(mapStateToProps, mapDispatch)(

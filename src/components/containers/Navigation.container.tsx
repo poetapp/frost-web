@@ -6,17 +6,17 @@ import { connect } from 'react-redux'
 const links: ReadonlyArray<any> = [
   {
     label: 'Dashboard',
-    link: '/dashboard'
+    link: '/dashboard',
   },
   {
     label: 'API Keys',
-    link: '/token'
+    link: '/token',
   },
   {
     label: 'Documentation',
     link: 'https://docs.frost.po.et/docs',
-    external: true
-  }
+    external: true,
+  },
 ]
 
 interface NavigationContainerProps {
@@ -24,7 +24,7 @@ interface NavigationContainerProps {
 }
 
 const mapStateToProps = (state: FrostState): NavigationContainerProps => ({
-  router: state.router
+  router: state.router,
 })
 
 export const NavigationContainer = connect(mapStateToProps)(

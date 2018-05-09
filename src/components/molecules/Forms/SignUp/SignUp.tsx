@@ -48,19 +48,14 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
     return true
   }
 
-  readonly onChangeRepeatPassword = (
-    e: any,
-    data: any,
-    elements: any
-  ): void => {
+  readonly onChangeRepeatPassword = (e: any, data: any, elements: any): void => {
     const value = e.target.value
     const { password, confirmPassword } = data
 
     if (value !== '' && password !== confirmPassword)
       elements.confirmPassword.setCustomValidity(`Passwords Don't Match`)
 
-    if (password === confirmPassword)
-      elements.confirmPassword.setCustomValidity('')
+    if (password === confirmPassword) elements.confirmPassword.setCustomValidity('')
 
     if (value === '') elements.confirmPassword.setCustomValidity('')
   }
@@ -100,7 +95,7 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
             lowerCase: 1,
             upperCase: 1,
             numeric: 1,
-            symbol: 1
+            symbol: 1,
           }}
           required
           inputRef={(el: HTMLInputElement) => (this.mutablePasswordInput = el)}
