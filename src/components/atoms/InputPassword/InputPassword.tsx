@@ -23,11 +23,7 @@ interface InputPasswordProps extends ClassNameProps {
   readonly inputRef?: any
 }
 
-const onChange = (
-  event: any,
-  onChange: any,
-  complexity: ComplexityPassword
-) => {
+const onChange = (event: any, onChange: any, complexity: ComplexityPassword) => {
   event.preventDefault()
 
   const form = event.target.form
@@ -36,46 +32,35 @@ const onChange = (
   if (typeof onChange === 'function') onChange(currentData, elements)
 }
 
-const validatePassword = (
-  complexity: ComplexityPassword,
-  target: HTMLInputElement
-) => {
+const validatePassword = (complexity: ComplexityPassword, target: HTMLInputElement) => {
   const value = target.value
   const message = {
     lowerCase: `${complexity.lowerCase} lowercase character \n`,
     upperCase: `${complexity.upperCase} uppercase character`,
     numeric: `${complexity.numeric} numeric character`,
-    symbol: `${complexity.symbol} symbol character`
+    symbol: `${complexity.symbol} symbol character`,
   }
 
   const complexityPatterns = {
     lowerCase: /[a-z]/g,
     upperCase: /[A-Z]/g,
     numeric: /[0-9]/g,
-    symbol: /[^a-zA-Z0-9]/g
+    symbol: /[^a-zA-Z0-9]/g,
   }
 
   const entries = Object.entries(complexity)
   const validations: ReadonlyArray<string> = entries.reduce(
-    (
-      acum: ReadonlyArray<string>,
-      validation: [keyof ComplexityPassword, number]
-    ): ReadonlyArray<string> => {
+    (acum: ReadonlyArray<string>, validation: [keyof ComplexityPassword, number]): ReadonlyArray<string> => {
       const typeComplexity = validation[0]
       const valueComplexity = validation[1]
       const pattern = complexityPatterns[typeComplexity]
-      return !((value.match(pattern) || []).length >= valueComplexity)
-        ? [...acum, message[typeComplexity]]
-        : acum
+      return !((value.match(pattern) || []).length >= valueComplexity) ? [...acum, message[typeComplexity]] : acum
     },
     []
   )
 
-  const messages =
-    validations.length > 1 ? `Required, ${validations.join(', ')}` : ''
-  value === ''
-    ? target.setCustomValidity('')
-    : target.setCustomValidity(messages)
+  const messages = validations.length > 1 ? `Required, ${validations.join(', ')}` : ''
+  value === '' ? target.setCustomValidity('') : target.setCustomValidity(messages)
 }
 
 export const InputPassword = (props: InputPasswordProps) => (

@@ -9,11 +9,10 @@ import './BoxToken.scss'
 
 const getParsedToken = (token: string): ApiToken => ({
   token,
-  ...parseJwt(token)
+  ...parseJwt(token),
 })
 
-const byIssueDate = (a: ApiToken, b: ApiToken) =>
-  a.iat.getTime() > b.iat.getTime() ? -1 : 1
+const byIssueDate = (a: ApiToken, b: ApiToken) => (a.iat.getTime() > b.iat.getTime() ? -1 : 1)
 
 const isDateAfterNow = (date: Date): boolean => moment().isAfter(date)
 
@@ -26,12 +25,7 @@ const deleteToken = (
   onDeleteToken(apiToken)
 }
 
-const renderToken = (
-  token: ApiToken,
-  key: number,
-  total: number,
-  onDeleteToken?: (apiToken: string) => void
-) => (
+const renderToken = (token: ApiToken, key: number, total: number, onDeleteToken?: (apiToken: string) => void) => (
   <tr key={key} className={'BoxToken__item'}>
     <td>
       <span>{total - key}</span>
@@ -44,40 +38,24 @@ const renderToken = (
       </span>
     </td>
     <td>
-      <span className={'BoxToken__item__date'}>
-        {moment(token.iat).format('MM/DD/YYYY hh:mm a')}
-      </span>
+      <span className={'BoxToken__item__date'}>{moment(token.iat).format('MM/DD/YYYY hh:mm a')}</span>
     </td>
     <td>
       <span
-        title={
-          token.exp
-            ? isDateAfterNow(token.exp)
-              ? ''
-              : moment(token.exp).format('MM/DD/YYYY hh:mm a')
-            : 'Never'
-        }
+        title={token.exp ? (isDateAfterNow(token.exp) ? '' : moment(token.exp).format('MM/DD/YYYY hh:mm a')) : 'Never'}
         className={classNames(
           'BoxToken__item__date',
-          token.exp
-            ? isDateAfterNow(token.exp)
-              ? 'BoxToken__item__date__expired'
-              : 'BoxToken__item__date__help'
-            : ''
+          token.exp ? (isDateAfterNow(token.exp) ? 'BoxToken__item__date__expired' : 'BoxToken__item__date__help') : ''
         )}
       >
         {token.exp
-          ? isDateAfterNow(token.exp)
-            ? moment(token.exp).format('MM/DD/YYYY hh:mm a')
-            : moment(token.exp).fromNow()
+          ? isDateAfterNow(token.exp) ? moment(token.exp).format('MM/DD/YYYY hh:mm a') : moment(token.exp).fromNow()
           : 'Never'}
       </span>
     </td>
     <td>
       <div className={'BoxToken__item__actions'}>
-        <button onClick={e => deleteToken(e, onDeleteToken, token.token)}>
-          Remove
-        </button>
+        <button onClick={e => deleteToken(e, onDeleteToken, token.token)}>Remove</button>
       </div>
     </td>
   </tr>
@@ -87,11 +65,7 @@ interface BoxTokenProps extends ClassNameProps {
   readonly onDeleteToken?: (apiToken: string) => void
 }
 
-export const BoxToken: React.SFC<BoxTokenProps> = ({
-  apiTokens = [],
-  className,
-  onDeleteToken
-}): JSX.Element => (
+export const BoxToken: React.SFC<BoxTokenProps> = ({ apiTokens = [], className, onDeleteToken }): JSX.Element => (
   <div className={classNames('BoxToken', className)}>
     <table className={'BoxToken__table'}>
       <thead className={'BoxToken__header'}>
@@ -114,9 +88,7 @@ export const BoxToken: React.SFC<BoxTokenProps> = ({
         {apiTokens
           .map(getParsedToken)
           .sort(byIssueDate)
-          .map((token, key) =>
-            renderToken(token, key, apiTokens.length, onDeleteToken)
-          )}
+          .map((token, key) => renderToken(token, key, apiTokens.length, onDeleteToken))}
       </tbody>
     </table>
   </div>

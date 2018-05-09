@@ -8,9 +8,7 @@ import './Toggle.scss'
 interface ToggleProps extends ClassNameProps {}
 
 export const Toggle = (props: ToggleProps) => (
-  <div
-    className={classNames('Toggle d-flex align-items-center', props.className)}
-  >
+  <div className={classNames('Toggle d-flex align-items-center', props.className)}>
     <p className={'Toggle__text'}>Testnet</p>
     <Tootip
       className={'Toggle__tooltip'}

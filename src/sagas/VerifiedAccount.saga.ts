@@ -5,10 +5,7 @@ import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-async function GetApiTokensFrost(
-  token: string,
-  password: string
-): Promise<{ readonly token: string }> {
+async function GetApiTokensFrost(token: string, password: string): Promise<{ readonly token: string }> {
   const frost = new Frost({ host: '/api' })
   return await frost.verifyAccount(token)
 }
@@ -21,7 +18,7 @@ export function VerifiedAccountSaga(): () => IterableIterator<ForkEffect> {
 
 function* VerifiedAccount(action: any): SagaIterator {
   const toastId = toast.info('Verifying account...', {
-    className: 'toast'
+    className: 'toast',
   })
 
   try {
@@ -41,7 +38,7 @@ function* VerifiedAccount(action: any): SagaIterator {
 
     toast.success('Your account has been verified!', {
       className: 'toast',
-      autoClose: 2500
+      autoClose: 2500,
     })
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
@@ -53,14 +50,14 @@ function* VerifiedAccount(action: any): SagaIterator {
       browserHistory.push('/dashboard')
       toast.info(e, {
         className: 'toast',
-        autoClose: 2500
+        autoClose: 2500,
       })
     } else
       toast.update(toastId, {
         render: e,
         type: toast.TYPE.ERROR,
         autoClose: false,
-        className: 'toast'
+        className: 'toast',
       })
   }
 }

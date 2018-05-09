@@ -10,11 +10,7 @@ interface ForgotPasswordProps {
 
 export const ForgotPassword = (props: ForgotPasswordProps) => (
   <div className={'ForgotPassword'}>
-    <Form
-      onSubmit={props.onSubmit}
-      legend={'Forgot password?'}
-      textButton={'Send email'}
-    >
+    <Form onSubmit={props.onSubmit} legend={'Forgot password?'} textButton={'Send email'}>
       <Input name={'email'} type={'email'} placeholder={'Email'} required />
     </Form>
     <Link className={'ForgotPassword__login'} to={'/login'}>

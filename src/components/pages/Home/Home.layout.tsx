@@ -19,22 +19,15 @@ export const HomeLayout = () => (
             An Open API Layer <br />for Publishers
           </h1>
           <p className={'Home__cover-page__box__description'}>
-            Frost is an open API for developing integrations, registering works,
-            and integrating your web app to the Po.et network, without having to
-            build your own private key infrastructure.{' '}
+            Frost is an open API for developing integrations, registering works, and integrating your web app to the
+            Po.et network, without having to build your own private key infrastructure.{' '}
           </p>
           <div className={'Home__cover-page__buttons'}>
             <a href={'https://docs.frost.po.et/docs'}>
-              <Button
-                className={'Home__cover-page__box__btn-token'}
-                text={'Get Started'}
-              />
+              <Button className={'Home__cover-page__box__btn-token'} text={'Get Started'} />
             </a>
             <a href={'https://docs.frost.po.et/v0.1/reference'}>
-              <Button
-                className={'Home__cover-page__box__btn-started'}
-                text={'API Docs'}
-              />
+              <Button className={'Home__cover-page__box__btn-started'} text={'API Docs'} />
             </a>
           </div>
         </div>
@@ -47,8 +40,7 @@ export const HomeLayout = () => (
       <div className={'Home__what-frost__box'}>
         <h2 className={'Home__what-frost__box__title'}>Why Frost?</h2>
         <p className={'Home__what-frost__box__description'}>
-          The easiest way for content publishers and developers to interact with
-          the Po.et network.
+          The easiest way for content publishers and developers to interact with the Po.et network.
         </p>
         <div className={'Home__what-frost__box__container-box-simple'}>
           <BoxSimple

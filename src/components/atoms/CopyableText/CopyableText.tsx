@@ -16,37 +16,27 @@ interface CopyableTextState {
   readonly timeout?: number
 }
 
-export class CopyableText extends React.Component<
-  CopyableTextProps,
-  CopyableTextState
-> {
+export class CopyableText extends React.Component<CopyableTextProps, CopyableTextState> {
   readonly state = {
     tooltipVisible: false,
     timeout: 0,
     tooltipPositionLeft: 0,
-    tooltipPositionTop: 0
+    tooltipPositionTop: 0,
   }
 
   private readonly styleTranslate = {
-    transform: 'translate(-50%, -100%)'
+    transform: 'translate(-50%, -100%)',
   }
 
   render(): JSX.Element {
     return (
       <div
-        className={classNames(
-          'copyable-hash',
-          this.props.className,
-          this.state.tooltipVisible && 'tooltip-visible'
-        )}
+        className={classNames('copyable-hash', this.props.className, this.state.tooltipVisible && 'tooltip-visible')}
       >
         <form>
           <input type="text" name="text" value={this.props.text} readOnly />
           <button onClick={this.onClick}>COPY</button>
-          <div
-            className="value"
-            onClick={this.props.textClickable && this.onClick}
-          >
+          <div className="value" onClick={this.props.textClickable && this.onClick}>
             {this.props.children || this.props.text}
           </div>
           <div
@@ -73,19 +63,16 @@ export class CopyableText extends React.Component<
     this.setState({
       tooltipVisible: true,
       tooltipPositionLeft: event.clientX,
-      tooltipPositionTop: event.clientY
+      tooltipPositionTop: event.clientY,
     })
 
-    const currentTimeout = window.setTimeout(
-      () => this.setState({ tooltipVisible: false }),
-      2000
-    )
+    const currentTimeout = window.setTimeout(() => this.setState({ tooltipVisible: false }), 2000)
 
     this.setState({ timeout: currentTimeout })
   }
 
   private readonly stylePosition = () => ({
     left: this.state.tooltipPositionLeft,
-    top: this.state.tooltipPositionTop
+    top: this.state.tooltipPositionTop,
   })
 }

@@ -1,7 +1,7 @@
 import { Actions } from 'actions/index'
 
 const defaultState = {
-  currentPath: '/'
+  currentPath: '/',
 }
 
 export const router = (state: any, action: any) => {
@@ -9,12 +9,12 @@ export const router = (state: any, action: any) => {
     case Actions.Router.ROUTER_ON_ENTER:
       return {
         ...state,
-        currentPath: action.payload
+        currentPath: action.payload,
       }
     case Actions.Router.ROUTER_ON_CHANGE:
       return {
         ...state,
-        currentPath: action.payload
+        currentPath: action.payload,
       }
   }
   return state || defaultState

@@ -11,15 +11,11 @@ interface DashboardContainerProps {
 }
 
 const mapStateToProps = (state: FrostState): DashboardContainerProps => ({
-  notificationBar: state.notificationBar
+  notificationBar: state.notificationBar,
 })
 
 export const Dashboard = (props: DashboardContainerProps) => (
-  <DashboardTemplate
-    logout={LogoutContainer}
-    navigation={NavigationContainer}
-    notificationBar={props.notificationBar}
-  >
+  <DashboardTemplate logout={LogoutContainer} navigation={NavigationContainer} notificationBar={props.notificationBar}>
     {props.children}
   </DashboardTemplate>
 )

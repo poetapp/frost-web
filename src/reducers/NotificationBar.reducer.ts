@@ -3,7 +3,7 @@ import { Actions } from 'actions/index'
 const defaultState = {
   action: 'hide',
   type: '',
-  message: ''
+  message: '',
 }
 
 export const notificationBar = (state: any, action: any) => {
@@ -13,17 +13,17 @@ export const notificationBar = (state: any, action: any) => {
         ...state,
         action: 'fade-in',
         type: action.payload.type,
-        message: action.payload.message
+        message: action.payload.message,
       }
     case Actions.NotificationBar.HIDE_NOTIFICATION_BAR:
       return {
         ...state,
-        action: 'fade-out'
+        action: 'fade-out',
       }
 
     case Actions.NotificationBar.RESET_NOTIFICATION_BAR:
       return {
-        ...defaultState
+        ...defaultState,
       }
   }
   return state || defaultState

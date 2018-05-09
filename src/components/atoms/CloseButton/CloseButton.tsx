@@ -7,10 +7,7 @@ interface CloseButtonProps {
   readonly className?: string
 }
 
-const onClose = (
-  event: React.MouseEvent<HTMLButtonElement>,
-  onClose: () => void
-) => {
+const onClose = (event: React.MouseEvent<HTMLButtonElement>, onClose: () => void) => {
   event.preventDefault()
   onClose()
 }
@@ -18,9 +15,7 @@ const onClose = (
 export const CloseButton = (props: CloseButtonProps) => (
   <button
     className={classNames('CloseButton', props.className)}
-    onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-      onClose(e, props.onClose)
-    }
+    onClick={(e: React.MouseEvent<HTMLButtonElement>) => onClose(e, props.onClose)}
   >
     &#10006;
   </button>

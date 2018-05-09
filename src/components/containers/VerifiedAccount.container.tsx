@@ -14,7 +14,7 @@ interface VerifiedAccountContainerProps {
 }
 
 const mapDispatch = {
-  onVerifiedAccount: Actions.VerifiedAccount.onVerifiedAccount
+  onVerifiedAccount: Actions.VerifiedAccount.onVerifiedAccount,
 }
 
 export const VerifiedAccountContainer = connect(undefined, mapDispatch)(

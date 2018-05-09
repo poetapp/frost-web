@@ -52,14 +52,7 @@ export class SignIn extends React.Component<SignInProps, undefined> {
             onChange={this.onChangeEmail}
             required
           />
-          <Input
-            name={'password'}
-            type={'password'}
-            placeholder={'Password'}
-            minLength={10}
-            maxLength={30}
-            required
-          />
+          <Input name={'password'} type={'password'} placeholder={'Password'} minLength={10} maxLength={30} required />
         </Form>
         <Link className={'SignIn__forgot-password'} to={'/forgot-password'}>
           Forgot your password?

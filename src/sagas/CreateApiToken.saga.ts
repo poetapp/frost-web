@@ -4,9 +4,7 @@ import { SagaIterator, delay } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-async function CreateApiTokenFrost(
-  apiToken: string
-): Promise<{ readonly apiToken: string }> {
+async function CreateApiTokenFrost(apiToken: string): Promise<{ readonly apiToken: string }> {
   const frost = new Frost({ host: '/api' })
   return await frost.createApiToken(apiToken)
 }
@@ -27,7 +25,7 @@ function* GetApiTokens(action: any): SagaIterator {
     yield put(
       Actions.NotificationBar.onShowNotificationBar({
         type: 'success',
-        message: 'API TOKEN SUCCESSFULLY CREATED'
+        message: 'API TOKEN SUCCESSFULLY CREATED',
       })
     )
     yield put(Actions.LoadingPage.onLoadingFull())
@@ -41,7 +39,7 @@ function* GetApiTokens(action: any): SagaIterator {
     const errorMessage = typeof e === 'object' ? e.message : e
     toast.error(errorMessage, {
       className: 'toast',
-      autoClose: 2500
+      autoClose: 2500,
     })
   }
 }

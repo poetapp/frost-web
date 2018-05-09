@@ -22,5 +22,5 @@ export const sagas: ReadonlyArray<any> = [
   GetProfileSaga,
   DeleteApiTokenSaga,
   CreateApiTokenSaga,
-  RouterSaga
+  RouterSaga,
 ]

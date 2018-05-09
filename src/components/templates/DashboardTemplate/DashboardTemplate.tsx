@@ -31,18 +31,11 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) => (
         </nav>
         <section className={'Dashboard__body'}>
           <header className={'Dashboard__body__header'}>
-            <div
-              className={
-                'Dashboard__body__header__content d-flex align-items-center justify-content-between'
-              }
-            >
+            <div className={'Dashboard__body__header__content d-flex align-items-center justify-content-between'}>
               <Toggle />
               <props.logout />
             </div>
-            <NotificationBar
-              type={props.notificationBar.type}
-              action={props.notificationBar.action}
-            >
+            <NotificationBar type={props.notificationBar.type} action={props.notificationBar.action}>
               {props.notificationBar.message}
             </NotificationBar>
           </header>

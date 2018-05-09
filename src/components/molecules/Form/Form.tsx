@@ -26,22 +26,10 @@ export class Form extends React.Component<FormProps, undefined> {
   }
 
   render(): JSX.Element {
-    const {
-      onSubmit,
-      onValidate,
-      formRef,
-      legend,
-      children,
-      disabledButton,
-      textButton
-    } = this.props
+    const { onSubmit, onValidate, formRef, legend, children, disabledButton, textButton } = this.props
 
     return (
-      <form
-        className="Form"
-        onSubmit={event => this.onSubmit(event, onSubmit, onValidate)}
-        ref={formRef}
-      >
+      <form className="Form" onSubmit={event => this.onSubmit(event, onSubmit, onValidate)} ref={formRef}>
         <legend className="Form__legend">{legend}</legend>
         <div className="row">
           <div className="col-12">{children}</div>
