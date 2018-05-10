@@ -75,7 +75,7 @@
     "redux-saga": "0.14.8"
   },
   "devDependencies": {
-    "@po.et/stylelint-rules": "1.0.2",
+    "@po.et/stylelint-rules": "1.1.0",
     "@po.et/tslint-rules": "1.2.0",
     "@types/babel-core": "6.25.3",
     "@types/classnames": "2.2.3",
@@ -121,10 +121,6 @@
     "source-map-loader": "0.2.3",
     "style-loader": "0.21.0",
     "stylelint": "9.2.0",
-    "stylelint-config-recommended-scss": "3.2.0",
-    "stylelint-declaration-use-variable": "1.6.1",
-    "stylelint-order": "0.8.1",
-    "stylelint-scss": "3.1.0",
     "tslint-immutable": "4.5.4",
     "typescript": "2.3.4",
     "webpack": "1.15.0",
