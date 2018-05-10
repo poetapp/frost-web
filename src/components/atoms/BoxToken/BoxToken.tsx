@@ -49,7 +49,9 @@ const renderToken = (token: ApiToken, key: number, total: number, onDeleteToken?
         )}
       >
         {token.exp
-          ? isDateAfterNow(token.exp) ? moment(token.exp).format('MM/DD/YYYY hh:mm a') : moment(token.exp).fromNow()
+          ? isDateAfterNow(token.exp)
+            ? moment(token.exp).format('MM/DD/YYYY hh:mm a')
+            : moment(token.exp).fromNow()
           : 'Never'}
       </span>
     </td>
