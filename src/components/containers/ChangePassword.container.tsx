@@ -21,18 +21,15 @@ interface ChangePasswordContainerProps {
 }
 
 const mapStateToProps = (state: FrostState): ChangePasswordContainerProps => ({
-  changePasswordToken: state.changePasswordToken
+  changePasswordToken: state.changePasswordToken,
 })
 
 const mapDispatch = {
-  onChangePassword: Actions.ChangePasswordToken.onChangePassword
+  onChangePassword: Actions.ChangePasswordToken.onChangePassword,
 }
 
 export const ChangePasswordContainer = connect(mapStateToProps, mapDispatch)(
-  class extends React.Component<
-    ChangePasswordContainerProps & Router,
-    undefined
-  > {
+  class extends React.Component<ChangePasswordContainerProps & Router, undefined> {
     readonly onChangePassword = (data: DataForm): void => {
       const { onChangePassword } = this.props
       const currentLocation = browserHistory.getCurrentLocation()
@@ -42,12 +39,7 @@ export const ChangePasswordContainer = connect(mapStateToProps, mapDispatch)(
     render(): JSX.Element {
       const { changePasswordToken } = this.props
 
-      return (
-        <ChangePassword
-          onSubmit={this.onChangePassword}
-          disabledButton={changePasswordToken.loading}
-        />
-      )
+      return <ChangePassword onSubmit={this.onChangePassword} disabledButton={changePasswordToken.loading} />
     }
   }
 )

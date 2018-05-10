@@ -2,7 +2,7 @@ import { Actions } from 'actions/index'
 
 const defaultState = {
   loading: false,
-  percentage: -1
+  percentage: -1,
 }
 
 export const loadingPage = (state: any, action: any) => {
@@ -11,19 +11,19 @@ export const loadingPage = (state: any, action: any) => {
       return {
         ...state,
         loading: true,
-        percentage: 10
+        percentage: 10,
       }
     case Actions.LoadingPage.LOADING_FULL:
       return {
         ...state,
         loading: true,
-        percentage: 100
+        percentage: 100,
       }
     case Actions.LoadingPage.LOADING_OFF:
       return {
         ...state,
         loading: false,
-        percentage: -1
+        percentage: -1,
       }
   }
   return state || defaultState

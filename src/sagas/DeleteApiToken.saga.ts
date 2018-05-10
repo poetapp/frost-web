@@ -4,10 +4,7 @@ import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-async function DeleteApiTokenFrost(
-  token: string,
-  tokenId: string
-): Promise<string> {
+async function DeleteApiTokenFrost(token: string, tokenId: string): Promise<string> {
   const frost = new Frost({ host: '/api' })
   return await frost.removeApiToken(token, tokenId)
 }
@@ -33,7 +30,7 @@ function* DeleteApiToken(action: any): SagaIterator {
     const errorMessage = typeof e === 'object' ? e.message : e
     toast.error(errorMessage, {
       className: 'toast',
-      autoClose: 2500
+      autoClose: 2500,
     })
   }
 }

@@ -11,11 +11,11 @@ interface LogoutContainerProps {
 }
 
 const mapStateToProps = (state: FrostState): LogoutContainerProps => ({
-  user: state.user
+  user: state.user,
 })
 
 const mapDispatch = {
-  onSignOut: Actions.SignOut.onSignOut
+  onSignOut: Actions.SignOut.onSignOut,
 }
 
 export const LogoutContainer = connect(mapStateToProps, mapDispatch)(

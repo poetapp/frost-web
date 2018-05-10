@@ -12,13 +12,7 @@ export class ChangePasswordToken extends PageLoader<object, object> {
   }
 
   routeHook(key: string): ReadonlyArray<JSX.Element> {
-    return [
-      <Route
-        path="/forgot-password/change-password"
-        key={key}
-        component={this.container()}
-      />
-    ]
+    return [<Route path="/forgot-password/change-password" key={key} component={this.container()} />]
   }
 
   reducerHook<State>(): ReducerDescription<State> {

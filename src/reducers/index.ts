@@ -31,5 +31,5 @@ export const reducers = {
   deleteApiToken,
   getApiTokens,
   createApiTokens,
-  notificationBar
+  notificationBar,
 }

@@ -23,11 +23,10 @@ async function init(): Promise<void> {
       '/forgot-password/change-password',
       '/verified-account',
       '/privacy',
-      '/disclaimer'
+      '/disclaimer',
     ]
     const notNeedOuath = omitRoutes.includes(pathname)
-    if (['/login', '/login/'].includes(pathname) && user.token !== '')
-      browserHistory.push('/dashboard')
+    if (['/login', '/login/'].includes(pathname) && user.token !== '') browserHistory.push('/dashboard')
 
     if (!notNeedOuath && user.token === '') browserHistory.push('/login')
   }
@@ -55,11 +54,7 @@ async function init(): Promise<void> {
   ReactDOM.render(
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route
-          component={Layout}
-          onEnter={requireAuth(store)}
-          onChange={onChange(store)}
-        >
+        <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
           {routes}
         </Route>
         <Route path="*" onEnter={notFound} />

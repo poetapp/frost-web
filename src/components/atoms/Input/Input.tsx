@@ -44,7 +44,7 @@ export class Input extends React.Component<InputProps, undefined> {
       maxLength,
       minLength,
       autoFocus,
-      inputRef
+      inputRef,
     } = this.props
 
     return (

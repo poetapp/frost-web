@@ -9,12 +9,7 @@ interface LogoutProps extends ClassNameProps {
 }
 
 export const Logout = (props: LogoutProps) => (
-  <div
-    className={classNames(
-      'Logout d-flex flex-column align-items-end',
-      props.className
-    )}
-  >
+  <div className={classNames('Logout d-flex flex-column align-items-end', props.className)}>
     <p className={'Logout__text'}>{props.email}</p>
     <button className={'Logout__button'} onClick={props.onLogout}>
       Logout

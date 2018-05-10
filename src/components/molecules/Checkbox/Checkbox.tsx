@@ -11,11 +11,6 @@ interface CheckboxProps {
 
 export const Checkbox = (props: CheckboxProps) => (
   <Label className={'Checkbox'} text={props.children}>
-    <Input
-      name={props.name}
-      className={'Checkbox__Input'}
-      type={'checkbox'}
-      required={props.required}
-    />
+    <Input name={props.name} className={'Checkbox__Input'} type={'checkbox'} required={props.required} />
   </Label>
 )

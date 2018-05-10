@@ -10,16 +10,9 @@ interface LegendVerifiedAccountProps {
 }
 
 export const LegendVerifiedAccount = (props: LegendVerifiedAccountProps) => (
-  <div
-    className={classNames(
-      'LegendVerifiedAccount',
-      props.show ? '' : 'LegendVerifiedAccount--hide'
-    )}
-  >
+  <div className={classNames('LegendVerifiedAccount', props.show ? '' : 'LegendVerifiedAccount--hide')}>
     {props.retryWait ? (
-      <p className={'LegendVerifiedAccount__text'}>
-        Please, verify your email account.
-      </p>
+      <p className={'LegendVerifiedAccount__text'}>Please, verify your email account.</p>
     ) : (
       <p className={'LegendVerifiedAccount__text'}>
         Please verify your email address.<Button

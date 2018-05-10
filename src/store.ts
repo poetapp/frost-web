@@ -11,9 +11,7 @@ import { pagesLoaders } from 'components/pages'
 import { reducers } from 'reducers'
 import { sagas as sagaList } from 'sagas'
 
-function bindSagas(
-  pages: ReadonlyArray<PageLoader<any, any>>
-): () => IterableIterator<ForkEffect> {
+function bindSagas(pages: ReadonlyArray<PageLoader<any, any>>): () => IterableIterator<ForkEffect> {
   const pageSagas = pages.map(page => page.sagaHook)
   const sagas = [...pageSagas, ...sagaList].map(saga => saga()).filterTruthy()
 
@@ -28,7 +26,7 @@ function bindReducers(pages: ReadonlyArray<PageLoader<any, any>>): any {
     .filterTruthy()
     .toObject(reducerDescription => ({
       key: reducerDescription.subState,
-      value: reducerDescription.reducer
+      value: reducerDescription.reducer,
     }))
 
   return { ...pageReducers, ...reducers }
@@ -38,12 +36,12 @@ function bindInitialState(pages: ReadonlyArray<PageLoader<any, any>>): any {
   const initialState = pages
     .map(page => ({
       reducerDescription: page.reducerHook(),
-      initialState: page.initialState()
+      initialState: page.initialState(),
     }))
     .filter(({ reducerDescription, initialState }) => reducerDescription)
     .toObject(({ reducerDescription, initialState }) => ({
       key: reducerDescription.subState,
-      value: initialState
+      value: initialState,
     }))
   return initialState
 }
@@ -60,22 +58,16 @@ export function createPoetStore(): Promise<{
       const reducerList = bindReducers(pages)
 
       const enhancer: any =
-        process.env.NODE_ENV === 'development' &&
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+        process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
           ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
           : compose
       const sagaMiddleware = createSagaMiddleware()
 
       const appReducer = combineReducers(reducerList)
       const signOutAction = Actions.SignOut.SIGN_OUT
-      const rootReducer = (state: any, action: any) =>
-        appReducer(action.type === signOutAction ? {} : state, action)
+      const rootReducer = (state: any, action: any) => appReducer(action.type === signOutAction ? {} : state, action)
 
-      const store = createStore(
-        rootReducer,
-        initialState,
-        enhancer(applyMiddleware(sagaMiddleware), autoRehydrate())
-      )
+      const store = createStore(rootReducer, initialState, enhancer(applyMiddleware(sagaMiddleware), autoRehydrate()))
 
       sagaMiddleware.run(bindSagas(pages))
 

@@ -17,5 +17,5 @@ export const pagesLoaders: ReadonlyArray<any> = [
   ChangePasswordToken,
   VerifiedAccount,
   Privacy,
-  Disclaimer
+  Disclaimer,
 ]

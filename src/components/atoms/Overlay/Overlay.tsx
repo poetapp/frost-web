@@ -8,12 +8,7 @@ interface OverlayProps {
 }
 
 export const Overlay = (props: OverlayProps) => (
-  <div
-    className={classNames(
-      'Overlay',
-      `Overlay__${props.show ? 'show' : 'hide'}`
-    )}
-  >
+  <div className={classNames('Overlay', `Overlay__${props.show ? 'show' : 'hide'}`)}>
     <div className={'Overlay__back'} />
     <div className={'Overlay__front'}>
       <div className={'Overlay__front__content'}>{props.children}</div>

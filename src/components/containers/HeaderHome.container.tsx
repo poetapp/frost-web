@@ -8,7 +8,7 @@ interface HeaderHomeContainerProps {
 }
 
 const mapStateToProps = (state: FrostState): HeaderHomeContainerProps => ({
-  user: state.user
+  user: state.user,
 })
 
 export const HeaderHomeContainer = connect(mapStateToProps)(

@@ -3,9 +3,9 @@ import { Actions } from 'actions/index'
 const defaultState = {
   error: {
     status: false,
-    message: ''
+    message: '',
   },
-  loading: false
+  loading: false,
 }
 
 export const changePasswordToken = (state: any, action: any) => {
@@ -15,36 +15,36 @@ export const changePasswordToken = (state: any, action: any) => {
         ...state,
         error: {
           status: false,
-          message: ''
+          message: '',
         },
-        loading: true
+        loading: true,
       }
     case Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_SUCCESS:
       return {
         ...state,
         error: {
           status: false,
-          message: ''
+          message: '',
         },
-        loading: false
+        loading: false,
       }
     case Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_ERROR:
       return {
         ...state,
         error: {
           status: true,
-          message: action.payload
+          message: action.payload,
         },
-        loading: false
+        loading: false,
       }
     case Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN_CLEAR_ERROR:
       return {
         ...state,
         error: {
           status: false,
-          message: ''
+          message: '',
         },
-        loading: false
+        loading: false,
       }
   }
   return state || defaultState

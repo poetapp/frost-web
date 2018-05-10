@@ -5,20 +5,14 @@ import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-async function ChangePasswordTokenFrost(
-  token: string,
-  password: string
-): Promise<{ readonly token: string }> {
+async function ChangePasswordTokenFrost(token: string, password: string): Promise<{ readonly token: string }> {
   const frost = new Frost({ host: '/api' })
   return await frost.changePasswordWithToken(token, password)
 }
 
 export function ChangePasswordTokenSaga(): () => IterableIterator<ForkEffect> {
   return function*(): IterableIterator<ForkEffect> {
-    yield takeLatest(
-      Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN,
-      ChangePasswordToken
-    )
+    yield takeLatest(Actions.ChangePasswordToken.CHANGE_PASSWORD_TOKEN, ChangePasswordToken)
   }
 }
 
@@ -40,7 +34,7 @@ function* ChangePasswordToken(action: any): SagaIterator {
 
     toast.success('Your password has been updated!', {
       className: 'toast',
-      autoClose: 2500
+      autoClose: 2500,
     })
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
@@ -50,7 +44,7 @@ function* ChangePasswordToken(action: any): SagaIterator {
 
     toast.error(e, {
       className: 'toast',
-      autoClose: 2500
+      autoClose: 2500,
     })
   }
 }

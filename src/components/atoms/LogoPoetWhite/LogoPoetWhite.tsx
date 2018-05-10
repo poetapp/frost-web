@@ -4,6 +4,4 @@ import * as React from 'react'
 
 interface LogoPoetWhiteProps extends ClassNameProps {}
 
-export const LogoPoetWhite = (props: LogoPoetWhiteProps) => (
-  <img src={Images.PoetWhite} className={props.className} />
-)
+export const LogoPoetWhite = (props: LogoPoetWhiteProps) => <img src={Images.PoetWhite} className={props.className} />

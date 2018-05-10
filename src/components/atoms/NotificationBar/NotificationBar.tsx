@@ -9,13 +9,7 @@ interface NotificationBarProps {
 }
 
 export const NotificationBar = (props: NotificationBarProps) => (
-  <div
-    className={classNames(
-      'NotificationBar',
-      `NotificationBar__${props.type}`,
-      `NotificationBar__${props.action}`
-    )}
-  >
+  <div className={classNames('NotificationBar', `NotificationBar__${props.type}`, `NotificationBar__${props.action}`)}>
     {props.children}
   </div>
 )

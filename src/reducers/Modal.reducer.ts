@@ -3,7 +3,7 @@ import { Actions } from 'actions/index'
 const defaultState = {
   show: false,
   modal: '',
-  data: {}
+  data: {},
 }
 
 export const modal = (state: any, action: any) => {
@@ -13,11 +13,11 @@ export const modal = (state: any, action: any) => {
         ...state,
         show: true,
         modal: action.payload.modal,
-        data: action.payload.data
+        data: action.payload.data,
       }
     case Actions.Modal.HIDE_MODAL:
       return {
-        ...defaultState
+        ...defaultState,
       }
   }
   return state || defaultState

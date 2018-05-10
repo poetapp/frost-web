@@ -24,9 +24,7 @@ function* SignUp(action: any): SagaIterator {
     const { email, password } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
     const { token } = yield call(signUpFrost, { email, password })
-    yield put(
-      Actions.SignUp.onSignUpSuccess({ token, ...{ profile: { email } } })
-    )
+    yield put(Actions.SignUp.onSignUpSuccess({ token, ...{ profile: { email } } }))
     yield put(Actions.Profile.onProfile({ token }))
     yield put(Actions.LoadingPage.onLoadingFull())
     yield call(delay, 300)

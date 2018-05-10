@@ -22,10 +22,7 @@ export const HeaderHome = (props: HeaderHomeProps) => (
         </Link>
       ) : (
         <Link to={'/login'}>
-          <Button
-            className={'Header_home__box__button'}
-            text={'Login / Sign Up'}
-          />
+          <Button className={'Header_home__box__button'} text={'Login / Sign Up'} />
         </Link>
       )}
     </div>

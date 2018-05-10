@@ -3,10 +3,10 @@ import { Actions } from 'actions/index'
 const defaultState = {
   error: {
     status: false,
-    message: ''
+    message: '',
   },
   loading: false,
-  retryWait: false
+  retryWait: false,
 }
 
 export const sendEmailVerifiedAccount = (state: any, action: any) => {
@@ -16,41 +16,40 @@ export const sendEmailVerifiedAccount = (state: any, action: any) => {
         ...state,
         error: {
           status: false,
-          message: ''
+          message: '',
         },
         loading: true,
-        retryWait: true
+        retryWait: true,
       }
     case Actions.SendEmailVerifiedAccount.SEND_EMAIL_VERIFIED_ACCOUNT_SUCCESS:
       return {
         ...state,
         error: {
           status: false,
-          message: ''
+          message: '',
         },
         loading: false,
-        retryWait: true
+        retryWait: true,
       }
     case Actions.SendEmailVerifiedAccount.SEND_EMAIL_VERIFIED_ACCOUNT_ERROR:
       return {
         ...state,
         error: {
           status: true,
-          message: action.payload
+          message: action.payload,
         },
         loading: false,
-        retryWait: true
+        retryWait: true,
       }
-    case Actions.SendEmailVerifiedAccount
-      .SEND_EMAIL_VERIFIED_ACCOUNT_RESET_RETRY:
+    case Actions.SendEmailVerifiedAccount.SEND_EMAIL_VERIFIED_ACCOUNT_RESET_RETRY:
       return {
         ...state,
         error: {
           status: true,
-          message: action.payload
+          message: action.payload,
         },
         loading: false,
-        retryWait: false
+        retryWait: false,
       }
   }
   return state || defaultState

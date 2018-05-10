@@ -23,11 +23,9 @@ const onChangeRepeatPassword = (e: any, data: any, elements: any) => {
   const value = e.target.value
   const { password, confirmPassword } = data
 
-  if (value !== '' && password !== confirmPassword)
-    elements.confirmPassword.setCustomValidity(`Passwords Don't Match`)
+  if (value !== '' && password !== confirmPassword) elements.confirmPassword.setCustomValidity(`Passwords Don't Match`)
 
-  if (password === confirmPassword)
-    elements.confirmPassword.setCustomValidity('')
+  if (password === confirmPassword) elements.confirmPassword.setCustomValidity('')
 
   if (value === '') elements.confirmPassword.setCustomValidity('')
 }
@@ -50,7 +48,7 @@ export const ChangePassword = (props: ChangePasswordProps) => (
         lowerCase: 1,
         upperCase: 1,
         numeric: 1,
-        symbol: 1
+        symbol: 1,
       }}
       required
     />

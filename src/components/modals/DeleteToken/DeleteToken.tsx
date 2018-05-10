@@ -14,14 +14,12 @@ export const DeleteToken = (props: DeleteTokenProps) => (
   <Modal show={props.show} onClose={props.onClose}>
     <div className={'DeleteToken'}>
       <header>
-        <h2 className={'DeleteToken__title'}>
-          Are you sure you want to delete this token?
-        </h2>
+        <h2 className={'DeleteToken__title'}>Are you sure you want to delete this token?</h2>
       </header>
       <main>
         <p className={'DeleteToken__text'}>
-          Any applications or scripts using this token will no longer be able to
-          access the Frost API. You cannot undo this action.
+          Any applications or scripts using this token will no longer be able to access the Frost API. You cannot undo
+          this action.
         </p>
       </main>
       <footer>
