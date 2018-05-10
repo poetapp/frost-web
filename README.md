@@ -1,5 +1,7 @@
 # Frost Web
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/poetapp/frost-web.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/poetapp/frost-web.svg?branch=master)](https://travis-ci.org/poetapp/frost-web)
 
 This is Frost's frontend
