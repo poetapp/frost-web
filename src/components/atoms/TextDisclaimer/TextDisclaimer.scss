@@ -1,0 +1,45 @@
+@import "colors";
+
+.TextDisclaimer {
+
+  &__title {
+    margin-bottom:2rem;
+    text-align: center;
+
+    &__number-list {
+      margin-left: 2.5rem;
+      list-style-position: inside;
+
+      > li {
+        margin-top: 1.5rem;
+
+        > u {
+          margin-left: 3rem;
+        }
+      }
+
+      &__letter-list {
+        margin-left: 4rem;
+        list-style: none;
+        counter-reset: alpha;
+
+        > li {
+          margin: 1rem auto;
+
+          > span {
+            margin-left: 3rem;
+          }
+
+          > strong {
+            margin-left: 3rem;
+          }
+        }
+
+        > li:before {
+          content:"(" counter(alpha, lower-alpha)") ";
+          counter-increment: alpha
+        }
+      }
+    }
+  }
+}
