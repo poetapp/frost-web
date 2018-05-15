@@ -1,30 +1,45 @@
 @import "colors";
+$box-simple-small-screen: 48rem;
 
 .BoxSimple {
-  padding: 0px 18px;
+  padding: 0rem 1.125rem;
+
+  &__image {
+    margin-left: 50%;
+    max-width: 8.75rem;
+    transform: translateX(-50%);
+    @media screen and (min-width: $box-simple-small-screen) {
+      margin-left:auto;
+      max-width:100%;
+      transform:translateX(0%);
+    }
+  }
 
   &__circle {
-    height: 52px;
-    width: 52px;
+    height: 3.25rem;
+    width: 3.25rem;
     margin: auto;
-    margin-bottom: 11px;
+    margin-bottom: .69rem;
     border-radius: 100%;
     background-color: $white;
   }
 
   &__title {
-    margin-bottom: 10px;
+    margin-bottom: .625rem;
     text-align: center;
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: 600;
-    line-height: 33px;
+    line-height: 2rem;
     color: $gondola;
+    @media screen and (min-width: $box-simple-small-screen) {
+      font-size: 1.25rem;
+    }
   }
 
   &__description {
     text-align: center;
-    font-size: 14px;
-    line-height: 22px;
+    font-size: .88rem;
+    line-height: 1.38rem;
     color: $night-rider2;
   }
 }

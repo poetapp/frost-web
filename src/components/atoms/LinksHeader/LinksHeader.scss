@@ -1,14 +1,17 @@
 @import "colors";
 
 .LinksHeader {
-  margin-bottom: 0px;
+  margin-bottom: 0rem;
 
   &__item {
     display: inline-block;
-    margin-right: 25px;
-    font-size: 14px;
+    margin-right: .625rem;
+    font-size: .875rem;
     font-weight: 600;
-    line-height: 19px;
+    line-height: 1.19rem;
+    @media screen and (min-width: 48rem) {
+      margin-right: 1.56rem;
+    }
 
     a {
       color: $azure;
