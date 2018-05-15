@@ -1,6 +1,6 @@
-
 @import "colors.scss";
 @import "fonts";
+$home-small-screen: 48rem;
 
 .Home {
   background-color: $ghost-white;
@@ -20,7 +20,7 @@
       padding-right: 1rem;
       padding-top: 1.25rem;
       max-width: 60rem;
-      @media screen and (min-width: 48rem) {
+      @media screen and (min-width: $home-small-screen) {
         flex-direction: row;
         align-items: flex-start;
         padding-top: 6.5rem;
@@ -32,7 +32,7 @@
         margin-left: 50%;
         margin-top: 1.25rem;
         transform: translateX(-50%);
-        @media screen and (min-width: 48rem) {
+        @media screen and (min-width: $home-small-screen) {
           width: 7.5rem;
           margin-left: 0%;
           margin-top: auto;
@@ -48,7 +48,7 @@
         font-weight: 800;
         line-height: 3.69rem;
         color: $white;
-        @media screen and (min-width: 48rem) {
+        @media screen and (min-width: $home-small-screen) {
           text-align: left;
           font-size: 3.31rem;
           line-height: 4.3rem;
@@ -62,7 +62,7 @@
         font-size: 1rem;
         line-height: 1.56rem;
         color: $gainsboro;
-        @media screen and (min-width: 48rem) {
+        @media screen and (min-width: $home-small-screen) {
           margin-bottom: 2rem;
           padding-right: 6.5rem;
           text-align: left;
@@ -98,7 +98,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      @media screen and (min-width: 48rem) {
+      @media screen and (min-width: $home-small-screen) {
         flex-direction: row;
         align-items: flex-start;
       }
@@ -118,7 +118,7 @@
         font-size: 1.625rem;
         line-height: 1.3rem;
         color: $gondola;
-        @media screen and (min-width: 48rem) {
+        @media screen and (min-width: $home-small-screen) {
           margin-top: 2.8rem;
         }
       }
@@ -129,7 +129,7 @@
         font-size: 1.25rem;
         line-height: 1.3rem;
         color: $dim-gray;
-        @media screen and (min-width: 48rem) {
+        @media screen and (min-width: $home-small-screen) {
           margin: .88rem auto 5rem;
         }
       }
@@ -137,14 +137,14 @@
       &__container-box-simple {
         display: flex;
         flex-direction: column;
-        @media screen and (min-width: 48rem) {
+        @media screen and (min-width: $home-small-screen) {
           flex-direction: row;
         }
       }
 
       &__simple {
         width: 100%;
-        @media screen and (min-width: 48rem) {
+        @media screen and (min-width: $home-small-screen) {
           width: 33.33%;
           margin-right: 2.8rem;
         }

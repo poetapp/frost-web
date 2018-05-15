@@ -1,9 +1,10 @@
 @import "colors";
+$footer-small-screen: 37.5rem;
 
 .FooterHome {
   width: 100%;
   background-color: $white;
-  @media screen and (min-width: 48rem) {
+  @media screen and (min-width: $footer-small-screen) {
     height: 5.625rem;
     margin-top: 4.69rem;
   }
@@ -16,7 +17,7 @@
     height: 100%;
     margin: auto;
     max-width: 60rem;
-    @media screen and (min-width: 48rem) {
+    @media screen and (min-width: $footer-small-screen) {
       flex-direction: row;
     }
 
@@ -25,7 +26,7 @@
       margin: 0rem;
       padding-bottom: .5rem;
       padding-top: .5rem;
-      @media screen and (min-width: 48rem) {
+      @media screen and (min-width: $footer-small-screen) {
         margin-left: 1rem;
       }
     }
@@ -38,7 +39,7 @@
       font-size: .875rem;
       line-height: 1.37rem;
       color: $night-rider2;
-      @media screen and (min-width: 48rem) {
+      @media screen and (min-width: $footer-small-screen) {
         padding-bottom: 0rem;
         padding-right: 1rem;
       }
