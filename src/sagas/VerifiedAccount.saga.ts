@@ -52,6 +52,15 @@ function* VerifiedAccount(action: any): SagaIterator {
         className: 'toast',
         autoClose: 2500,
       })
+    } else if (e.includes('Expired token')) {
+      const message =
+        "Sorry! Looks like that link expired. Please login to the API Keys screen and click on the <Resend Email> button. You'll receive a new account verification email."
+      toast.update(toastId, {
+        render: message,
+        type: toast.TYPE.ERROR,
+        className: 'toast',
+        autoClose: false,
+      })
     } else
       toast.update(toastId, {
         render: e,
