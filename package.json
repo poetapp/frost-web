@@ -14,6 +14,7 @@
     "lint:fix": "tslint -p ./tsconfig.json --fix",
     "serve": "ws --spa index.html --rewrite '/api/* -> http://localhost:3000/$1' -d ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:e2e": "testcafe 'chrome:headless,firefox:headless' tests/functional/features",
     "stylelint": "stylelint './src/**/*.scss'",
     "stylelint:fix": "stylelint './src/**/*.scss' --fix",
     "precommit": "lint-staged"
@@ -121,6 +122,7 @@
     "source-map-loader": "0.2.3",
     "style-loader": "0.21.0",
     "stylelint": "9.2.0",
+    "testcafe": "0.19.2",
     "tslint-immutable": "4.5.4",
     "typescript": "2.3.4",
     "webpack": "1.15.0",
