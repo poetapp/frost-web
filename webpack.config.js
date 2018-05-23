@@ -11,7 +11,7 @@ const validEnvironments = [
   'staging',
   'production',
 ]
-const environment = process.env.NODE_ENV
+const environment = process.env.NODE_ENV || 'development'
 
 assert(validEnvironments.includes(environment), `Invalid value for NODE_ENV: ${environment}. Valid values are: ${validEnvironments}`)
 
@@ -26,7 +26,6 @@ console.log("redirects: ", redirects)
 
 const vendor = [
   'history',
-  'classnames',
   'isomorphic-fetch',
   'moment',
   'react',
@@ -45,12 +44,13 @@ function getPlugins(environment) {
     new webpack.optimize.CommonsChunkPlugin({ name: 'meta', chunks: ['vendor'], filename: "meta.js" }),
     extractor,
     new HtmlWebpackPlugin({ title: 'Poet App', template: 'src/index.html' }),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify(environment)
       }
     }),
+    new webpack.NormalModuleReplacementPlugin(/\/iconv-loader$/, 'node-noop'), // See Note 1 at the bottom
   ]
 
   const developmentPlugins = [
@@ -58,19 +58,22 @@ function getPlugins(environment) {
   ]
 
   const nonDevelopmentPlugins = [
-    new webpack.optimize.DedupePlugin(),
     new CopyWebpackPlugin([
       {
         from: redirects,
-        to: "./_redirects",
-        toType: "file"
+        to: './_redirects',
+        toType: "file",
       },
     ])
   ]
 
+  const environmentSpecificPlugins = environment === 'development'
+    ? developmentPlugins
+    : nonDevelopmentPlugins
+
   return [
     ...plugins,
-    ...(environment === 'development' ? developmentPlugins : nonDevelopmentPlugins)
+    ...environmentSpecificPlugins,
   ]
 }
 
@@ -79,9 +82,10 @@ module.exports = {
     app: [
       './src/bootstrap.ts',
       './src/index.tsx',
+      // ...(development ? ['webpack-hot-middleware/client'] : [])
       ...(development ? [`webpack-dev-server/client?http://localhost:${process.env.PORT_WEBPACK_SERVER || 4000}`, 'webpack/hot/dev-server' ]: [])
     ],
-    vendor
+    vendor,
   },
 
   output: {
@@ -93,55 +97,57 @@ module.exports = {
   devtool: production ? '' : 'eval',
 
   resolve: {
-    root: [
-      path.resolve('./src/'),
-      path.resolve('./node_modules/'),
-    ],
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.json'],
-    fallback: path.join(__dirname, "node_modules"),
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.json', '.css', '.scss'],
     alias: {
       Configuration: path.resolve(configurationPath)
-    }
-  },
-
-  resolveLoader: {
-    // modulesDirectories: ['node_modules'],
-    fallback: path.join(__dirname, 'node_modules')
+    },
+    modules:  [
+      path.join(__dirname, "src"),
+      "node_modules"
+    ],
   },
 
   module: {
-    loaders: [
-      { test: /\.tsx?$/, loaders: production
-        ? ['babel', 'awesome-typescript-loader']
-        : ['react-hot', 'babel', 'awesome-typescript-loader'] },
+    rules: [
+      { test: /\.tsx?$/, use: production
+        ? ['babel-loader', 'awesome-typescript-loader']
+        : ['react-hot-loader', 'babel-loader', 'awesome-typescript-loader'] },
       {
-        test: /\.s?css$/, loader: production
-        ? extractor.extract(
+        test: /\.s?css$/,
+        use: [
           'style-loader',
-          ['css-loader?-autoprefixer', 'postcss-loader', 'sass-loader']
-        )
-        : 'style!css?sourceMap&importLoaders=1!postcss!sass?sourceMap'
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: true,
+            }
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.resolve(__dirname, "./src/components/styles")],
+              sourceMap: true,
+            }
+          }
+        ]
       },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.svg$/, loader: 'file-loader' },
-      { test: /\.ico$/, loader: 'file-loader?name=[name].[ext]' }
+      { test: /\.json$/, use: 'json-loader' },
+      { test: /\.svg$/, use: 'file-loader' },
+      { test: /\.ico$/, use: 'file-loader?name=[name].[ext]' },
     ],
-
-    preLoaders: [
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-      { test: /\.js$/, loader: 'source-map-loader' }
-    ]
-  },
-
-  sassLoader: {
-    includePaths: [path.resolve(__dirname, "./src/components/styles")]
-  },
-
-  postcss: () => {
-    return [
-      require('autoprefixer')
-    ];
   },
 
   plugins: getPlugins(environment)
-};
+}
+
+/*
+Notes
+
+1.
+As suggested by https://github.com/andris9/encoding/blob/c1e3c5f5e10d47bdfcfece14a73ab14cdc9bc361/lib/encoding.js#L5 to avoid WebPack warnings.
+See https://github.com/webpack/webpack/issues/196 and https://github.com/andris9/encoding/issues/16#issuecomment-192161073.
+The underlying issue probably is poet-js using node-fetch rather than isomorphic-fetch.
+
+ */
