@@ -18,6 +18,7 @@ storiesOf('Components/Button', module).addWithJSX(
   ### Usage
   ~~~js
   <Button
+    readonly className?: string
     readonly text?: string
     readonly disabled?: boolean
     readonly onClick?: (event: Event) => void
