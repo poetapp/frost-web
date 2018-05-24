@@ -26,7 +26,7 @@ export const RegisterLogin = (props: RegisterLoginProps) => (
         Frost is an open API for publishers and content creators to interact with the Po.et Network.
       </h1>
       <div className={'row'}>
-        <div className={'col-4'}>
+        <div className={'col-4 RegisterLogin_signUp'}>
           <SignUp
             onSubmit={props.onSubmitSignUp}
             disabledButton={props.signUp.loading}

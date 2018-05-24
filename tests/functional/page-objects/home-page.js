@@ -1,6 +1,15 @@
 import { Selector } from 'testcafe'
 
+const pageClass = Selector('main.Home')
+const loginButton = Selector('a[href="/login"]')
+
 export const HomePage = {
-  pageClass: Selector('main.Home'),
-  loginButton: Selector('a[href="/login"]'),
+  pageClass,
+  loginButton,
+
+  goToLoginRegisterPage: async t => {
+    const theLoginButton = await loginButton
+    await t.click(theLoginButton)
+  }
 }
+
