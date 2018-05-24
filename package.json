@@ -17,7 +17,9 @@
     "test:e2e": "testcafe 'chrome:headless,firefox:headless' tests/functional/features",
     "stylelint": "stylelint './src/**/*.scss'",
     "stylelint:fix": "stylelint './src/**/*.scss' --fix",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -64,6 +66,7 @@
     "formdata-polyfill": "3.0.10",
     "isomorphic-fetch": "2.2.1",
     "moment": "2.22.1",
+    "package-lock.json": "^1.0.0",
     "prop-types": "15.6.1",
     "react": "15.6.2",
     "react-dom": "15.6.2",
@@ -79,6 +82,12 @@
   "devDependencies": {
     "@po.et/stylelint-rules": "1.1.0",
     "@po.et/tslint-rules": "1.2.0",
+    "@storybook/addon-actions": "^3.4.5",
+    "@storybook/addon-info": "^3.4.5",
+    "@storybook/addon-knobs": "^3.4.5",
+    "@storybook/addon-links": "^3.4.5",
+    "@storybook/addons": "^3.4.5",
+    "@storybook/react": "^3.4.5",
     "@types/babel-core": "6.25.3",
     "@types/classnames": "2.2.3",
     "@types/copy-webpack-plugin": "4.4.1",
@@ -103,6 +112,7 @@
     "awesome-typescript-loader": "3.0.0-beta.17",
     "babel-core": "6.26.3",
     "babel-loader": "6.4.1",
+    "babel-runtime": "^6.26.0",
     "copy-webpack-plugin": "4.5.1",
     "css-loader": "0.28.11",
     "express": "4.16.3",
@@ -121,6 +131,7 @@
     "react-hot-loader": "1.3.1",
     "sass-loader": "4.1.1",
     "source-map-loader": "0.2.3",
+    "storybook-addon-jsx": "^5.3.0",
     "style-loader": "0.21.0",
     "stylelint": "9.2.0",
     "testcafe": "0.19.2",
