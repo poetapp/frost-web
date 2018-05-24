@@ -20,7 +20,7 @@ module.exports = (baseConfig, env, config) => {
         {
           loader: 'sass-loader',
           options: {
-            includePaths: [path.resolve(__dirname, "../src/components/styles")],
+            includePaths: [path.resolve(__dirname, '../src/components/styles')],
             sourceMap: true,
           }
         }
@@ -28,4 +28,4 @@ module.exports = (baseConfig, env, config) => {
     })
   config.resolve.extensions.push('.ts', '.tsx')
   return config
-};
+}
