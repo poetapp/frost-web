@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 257px;
-  width: 330px;
+  height: 360px;
+  width: 300px;
   padding: 20px;
   border: 1px solid $spring-wood;
   border-radius: 4px;
@@ -13,8 +13,8 @@
   background-color: $white;
 
   &__circle {
-    height: 52px;
-    width: 52px;
+    height: 150px;
+    width: 150px;
   }
 
   &__title {

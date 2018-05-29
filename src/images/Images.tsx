@@ -10,6 +10,6 @@ export class Images {
   static readonly Key = require('./key.svg')
   static readonly NoKey = require('./nokey.svg')
   static readonly Rocket = require('./rocket.svg')
-  static readonly KeySmall = require('./key-small.svg')
-  static readonly Book = require('./open-book.svg')
+  static readonly KeySmall = require('./key.svg')
+  static readonly Book = require('./documentation.svg')
 }
