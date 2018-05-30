@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { storiesOf } from '@storybook/react'
+
 import { wInfo } from '../stories/index.stories'
 
 storiesOf('Welcome', module).addWithJSX(
