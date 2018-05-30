@@ -1,14 +1,12 @@
-import React from 'react'
-
-import { storiesOf } from '@storybook/react'
-import { Button } from './Button'
-import { wInfo } from '../../../stories/index.stories'
 import { text, boolean } from '@storybook/addon-knobs/react'
+import { storiesOf } from '@storybook/react'
+import * as React from 'react'
+import { wInfo } from './index.stories'
+// tslint:disable-next-line
+import { Button } from '../src/components/atoms/Button/Button'
 
-
-
-storiesOf('Components/Button', module).addWithJSX(
-  'Basic Button',
+storiesOf('Components/Buttons', module).addWithJSX(
+  'Button',
   wInfo(`
 
   ### Notes
@@ -21,17 +19,16 @@ storiesOf('Components/Button', module).addWithJSX(
     readonly className?: string
     readonly text?: string
     readonly disabled?: boolean
-    readonly onClick?: (event: Event) => void
+    readonly onClick?: any
     readonly type?: 'primary' | 'danger'
     />
-  ~~~`
-)(() => (
+  ~~~`)(() => (
     <Button
+      className={text('className')}
       text={text('text', 'Test Button')}
       disabled={boolean('disabled', false)}
-      type={text('type','primary')}
+      type={text('type', 'primary')}
       onClick={() => alert('clicked')}
-      className={text('className')}
-     />
+    />
   ))
 )
