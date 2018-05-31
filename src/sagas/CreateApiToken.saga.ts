@@ -1,5 +1,6 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
+import { browserHistory } from 'react-router'
 import { SagaIterator, delay } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
@@ -38,7 +39,8 @@ function* GetApiTokens(action: any): SagaIterator {
     yield put(Actions.LoadingPage.onLoadingFull())
     const errorMessage = typeof e === 'object' ? e.message : e
     if (e.includes('Expired token')) {
-      const message = 'Your session has expired. Please logout and login again.'
+      const message = 'Your session has expired. Please login again.'
+      yield put(Actions.SignOut.onSignOut({ redirectLogin: true }))
       toast.error(message, {
         className: 'toast',
         autoClose: 2500,
