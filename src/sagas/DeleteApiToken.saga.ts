@@ -28,9 +28,17 @@ function* DeleteApiToken(action: any): SagaIterator {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.DeleteApiToken.onDeleteApiTokenError(e))
     const errorMessage = typeof e === 'object' ? e.message : e
-    toast.error(errorMessage, {
-      className: 'toast',
-      autoClose: 2500,
-    })
+    if (e.includes('Expired token')) {
+      const message = 'Your session has expired. Please login again.'
+      yield put(Actions.SignOut.onSignOut({ redirectLogin: true }))
+      toast.error(message, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    } else
+      toast.error(errorMessage, {
+        className: 'toast',
+        autoClose: 2500,
+      })
   }
 }
