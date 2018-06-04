@@ -111,7 +111,9 @@ module.exports = {
     rules: [
       { test: /\.tsx?$/, use: production
         ? ['babel-loader', 'awesome-typescript-loader']
-        : ['react-hot-loader', 'babel-loader', 'awesome-typescript-loader'] },
+        : ['react-hot-loader', 'babel-loader', 'awesome-typescript-loader'],
+        exclude: /\.stories.tsx?$/
+      },
       {
         test: /\.s?css$/,
         use: [
