@@ -1,0 +1,25 @@
+import * as React from 'react'
+
+import { storiesOf } from '@storybook/react'
+// tslint:disable-next-line
+import { wInfo } from '../../../stories/index.stories'
+import { BoxToken } from './BoxToken'
+// tslint:disable-next-line
+import { Images } from '../../../images/Images'
+
+storiesOf('Components/Layout', module).addWithJSX(
+  'BoxToken',
+  wInfo(`
+
+  ### Notes
+
+  This is a button
+
+  ### Usage
+  ~~~js
+  <BoxToken
+    readonly apiTokens: ReadonlyArray<string>
+    readonly onDeleteToken?: (apiToken: string) => void
+  >
+  ~~~`)(() => <BoxToken apiTokens={[]} />)
+)
