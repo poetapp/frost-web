@@ -6,7 +6,6 @@ import { storiesOf } from '@storybook/react'
 import { wInfo } from '../../../stories/index.stories'
 import { BoxSimple } from './BoxSimple'
 // tslint:disable-next-line
-import { Images } from '../../../images/Images'
 
 storiesOf('Components/Layout', module).addWithJSX(
   'BoxSimple',
