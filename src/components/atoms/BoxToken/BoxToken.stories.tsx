@@ -4,8 +4,6 @@ import { storiesOf } from '@storybook/react'
 // tslint:disable-next-line
 import { wInfo } from '../../../stories/index.stories'
 import { BoxToken } from './BoxToken'
-// tslint:disable-next-line
-import { Images } from '../../../images/Images'
 
 storiesOf('Components/Layout', module).addWithJSX(
   'BoxToken',
