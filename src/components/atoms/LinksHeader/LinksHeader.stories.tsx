@@ -1,6 +1,5 @@
 import { storiesOf } from '@storybook/react'
 import * as React from 'react'
-// tslint:disable-next-line
 import { wInfo } from 'stories/index.stories'
 import { LinksHeader } from './LinksHeader'
 

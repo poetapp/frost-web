@@ -3,7 +3,6 @@ import * as React from 'react'
 import { text } from '@storybook/addon-knobs/react'
 import { storiesOf } from '@storybook/react'
 import { Images } from 'images/Images'
-// tslint:disable-next-line
 import { wInfo } from 'stories/index.stories'
 import { BoxButton } from './BoxButton'
 

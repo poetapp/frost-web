@@ -2,8 +2,7 @@ import * as React from 'react'
 
 import { text, boolean, number, select } from '@storybook/addon-knobs/react'
 import { storiesOf } from '@storybook/react'
-// tslint:disable-next-line
-import { wInfo } from '../../../stories/index.stories'
+import { wInfo } from 'stories/index.stories'
 import { InputPassword } from './InputPassword'
 
 storiesOf('Components/Text', module).addWithJSX(
