@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react'
 import { wInfo } from 'stories/index.stories'
 import { Input } from './Input'
 
-storiesOf('Components/Text', module).addWithJSX(
+storiesOf('Components/Forms', module).addWithJSX(
   'Input',
   wInfo(`
 

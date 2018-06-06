@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react'
 import { wInfo } from 'stories/index.stories'
 import { Hash } from './Hash'
 
-storiesOf('Components/Layout', module).addWithJSX(
+storiesOf('Components/Text', module).addWithJSX(
   'Hash',
   wInfo(`
 

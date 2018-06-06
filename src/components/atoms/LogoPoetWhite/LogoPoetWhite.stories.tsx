@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react'
 import { wInfo } from 'stories/index.stories'
 import { LogoPoetWhite } from './LogoPoetWhite'
 
-storiesOf('Components/Layout', module).addWithJSX(
+storiesOf('Components/Logos', module).addWithJSX(
   'LogoPoetWhite',
   wInfo(`
 
