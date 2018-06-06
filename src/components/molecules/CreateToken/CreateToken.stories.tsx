@@ -27,5 +27,18 @@ storiesOf('Components/molecules', module).addWithJSX(
     readonly onCreateApiToken: (event: Event) => void
     readonly submitDisabled: boolean
     />
-  ~~~`)(() => <CreateToken boxToken={[]} showVerifiedAccount={boolean('showVerifiedAccount', false)} />)
+  ~~~`)(() => (
+    <CreateToken
+      boxToken={[]}
+      showVerifiedAccount={boolean('showVerifiedAccount', false)}
+      retryWait={boolean('retryWait', false)}
+      onDeleteToken={() => alert('onDeleteToken')}
+      onCloseModal={() => alert('onCloseModal')}
+      onShowModal={() => alert(apiToken)}
+      showDeleteModal={boolean('showDeleteModal', false)}
+      disableButton={boolean('disableButton', false)}
+      onCreateApiToken={() => alert('onCreateApiToken')}
+      submitDisabled={boolean('submitDisabled', false)}
+    />
+  ))
 )
