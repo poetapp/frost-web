@@ -5,13 +5,13 @@ import { storiesOf } from '@storybook/react'
 import { wInfo } from 'stories/index.stories'
 import { Logout } from './Logout'
 
-storiesOf('Components/Layout', module).addWithJSX(
+storiesOf('Components/Buttons', module).addWithJSX(
   'Logout',
   wInfo(`
 
   ### Notes
 
-  This is a button
+  This is a logout button.
 
   ### Usage
   ~~~js

@@ -11,7 +11,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This is the footer for frost-web.
 
   ### Usage
   ~~~js

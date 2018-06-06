@@ -9,7 +9,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  Documentation/API/Forum links in white.
 
   ### Usage
   ~~~js

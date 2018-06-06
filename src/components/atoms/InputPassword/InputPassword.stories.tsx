@@ -11,7 +11,7 @@ storiesOf('Components/Text', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This is a password input component with options.
 
   ### Usage
   ~~~js

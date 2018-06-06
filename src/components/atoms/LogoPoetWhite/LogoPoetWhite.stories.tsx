@@ -11,7 +11,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This is the Poet Logo in white.
 
   ### Usage
   ~~~js

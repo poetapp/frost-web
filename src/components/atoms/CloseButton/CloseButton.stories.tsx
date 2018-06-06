@@ -11,7 +11,7 @@ storiesOf('Components/Buttons', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This is a small x positioned in the top right corner of it's container for closing the container. 
 
   ### Usage
   ~~~js

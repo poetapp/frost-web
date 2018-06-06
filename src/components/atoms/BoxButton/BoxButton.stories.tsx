@@ -12,16 +12,16 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This component displays an image with a button with an optional description and title.
 
   ### Usage
   ~~~js
   <BoxButton
+    readonly image: string
     readonly title?: string
     readonly description?: string
     readonly buttonText?: string
-    readonly image: string
-    readonly className: string
+    readonly className?: string
   >
   ~~~`)(() => (
     <BoxButton

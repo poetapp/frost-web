@@ -11,7 +11,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This component displays title and description. A header can also be included and can be anything(text, images, elements, etc.)
 
   ### Usage
   ~~~js
@@ -19,7 +19,7 @@ storiesOf('Components/Layout', module).addWithJSX(
     readonly title?: string
     readonly description?: string
     readonly header?: any
-    readonly className: string
+    readonly className?: string
   >
   ~~~`)(() => (
     <BoxSimple

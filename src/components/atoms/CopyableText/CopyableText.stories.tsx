@@ -11,7 +11,7 @@ storiesOf('Components/Text', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  The text can be clicked on to copy if enabled.
 
   ### Usage
   ~~~js

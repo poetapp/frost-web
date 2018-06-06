@@ -11,7 +11,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This is a notifaction bar that displays in green for a success.
 
   ### Usage
   ~~~js
@@ -24,6 +24,8 @@ storiesOf('Components/Layout', module).addWithJSX(
     <NotificationBar
       className={text('className', '')}
       type={select('type', { success: 'success', fail: 'fail' }, 'success')}
-    />
+    >
+      <div>Test</div>
+    </NotificationBar>
   ))
 )

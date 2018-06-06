@@ -11,7 +11,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  Wraps children in h1 tag.
 
   ### Usage
   ~~~js

@@ -10,7 +10,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This compnents displays a list of apiTokens.
 
   ### Usage
   ~~~js
