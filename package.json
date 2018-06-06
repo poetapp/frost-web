@@ -23,11 +23,11 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "tslint",
+      "npm run lint:fix",
       "git add"
     ],
     "*.scss": [
-      "stylelint:fix",
+      "npm run stylelint:fix",
       "git add"
     ]
   },
