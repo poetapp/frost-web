@@ -11,7 +11,7 @@ storiesOf('Components/Text', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This is the privacy text disclaimer for frost-web.
 
   ### Usage
   ~~~js

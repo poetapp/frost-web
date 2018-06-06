@@ -4,13 +4,13 @@ import * as React from 'react'
 import { wInfo } from 'stories/index.stories'
 import { SignIn } from './SignIn'
 
-storiesOf('Components/molecules', module).addWithJSX(
+storiesOf('Components/Forms', module).addWithJSX(
   'SignIn',
   wInfo(`
 
   ### Notes
 
-  This is a button
+  This is a form for signing in.
 
   ### Usage
   ~~~js

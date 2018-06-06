@@ -11,7 +11,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This overlay's the screen with an opaque background.
 
   ### Usage
   ~~~js

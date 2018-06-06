@@ -10,7 +10,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This allows for toast messages.
 
   ### Usage
   ~~~js

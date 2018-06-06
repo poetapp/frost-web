@@ -4,13 +4,13 @@ import * as React from 'react'
 import { wInfo } from 'stories/index.stories'
 import { ChangePassword } from './ChangePassword'
 
-storiesOf('Components/molecules', module).addWithJSX(
+storiesOf('Components/Forms', module).addWithJSX(
   'ChangePassword',
   wInfo(`
 
   ### Notes
 
-  This is a button
+  This is a form for changing password.
 
   ### Usage
   ~~~js

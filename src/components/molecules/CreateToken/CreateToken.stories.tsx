@@ -4,13 +4,13 @@ import * as React from 'react'
 import { wInfo } from 'stories/index.stories'
 import { CreateToken } from './CreateToken'
 
-storiesOf('Components/molecules', module).addWithJSX(
+storiesOf('Components/Layout', module).addWithJSX(
   'CreateToken',
   wInfo(`
 
   ### Notes
 
-  This is a button
+  Displays ApiTokens and adds a button for creating new ApiTokens. Allows for interaction with ApiTokens.
 
   ### Usage
   ~~~js

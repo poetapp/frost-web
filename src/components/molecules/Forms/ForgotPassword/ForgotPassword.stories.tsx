@@ -3,13 +3,13 @@ import * as React from 'react'
 import { wInfo } from 'stories/index.stories'
 import { ForgotPassword } from './ForgotPassword'
 
-storiesOf('Components/molecules', module).addWithJSX(
+storiesOf('Components/Forms', module).addWithJSX(
   'ForgotPassword',
   wInfo(`
 
   ### Notes
 
-  This is a button
+  This is a form for forgotten passwords.
 
   ### Usage
   ~~~js

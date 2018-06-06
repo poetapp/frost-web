@@ -10,7 +10,7 @@ storiesOf('Components/Modal', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This is a modal displaying information about deleting tokens with a button for deleting and closing.
 
   ### Usage
   ~~~js

@@ -10,7 +10,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This is displays anything with an optional text popup on hover.
 
   ### Usage
   ~~~js

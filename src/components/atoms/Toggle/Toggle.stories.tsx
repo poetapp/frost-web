@@ -10,7 +10,7 @@ storiesOf('Components/Layout', module).addWithJSX(
 
   ### Notes
 
-  This is a button
+  This displays a non-working toggle for Testnet and Livenet with a message about timestamping only to testnet.
 
   ### Usage
   ~~~js

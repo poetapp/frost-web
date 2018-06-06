@@ -4,13 +4,13 @@ import * as React from 'react'
 import { wInfo } from 'stories/index.stories'
 import { Checkbox } from './Checkbox'
 
-storiesOf('Components/Layout', module).addWithJSX(
+storiesOf('Components/Forms', module).addWithJSX(
   'Checkbox',
   wInfo(`
 
   ### Notes
 
-  This is a button
+  This is a checkbox.
 
   ### Usage
   ~~~js

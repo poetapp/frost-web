@@ -4,13 +4,13 @@ import * as React from 'react'
 import { wInfo } from 'stories/index.stories'
 import { Form } from './Form'
 
-storiesOf('Components/molecules', module).addWithJSX(
+storiesOf('Components/Forms', module).addWithJSX(
   'Form',
   wInfo(`
 
   ### Notes
 
-  This is a button
+  This is form container.
 
   ### Usage
   ~~~js
