@@ -16,6 +16,7 @@
     "./src/**/*"
   ],
   "exclude": [
-    "./tslint-rules/**/*"
+    "./tslint-rules/**/*",
+    "**/*.stories.tsx"
   ]
 }
