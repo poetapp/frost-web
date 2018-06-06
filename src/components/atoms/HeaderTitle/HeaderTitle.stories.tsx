@@ -3,7 +3,7 @@ import * as React from 'react'
 import { text } from '@storybook/addon-knobs/react'
 import { storiesOf } from '@storybook/react'
 // tslint:disable-next-line
-import { wInfo } from '../../../stories/index.stories'
+import { wInfo } from 'stories/index.stories'
 import { HeaderTitle } from './HeaderTitle'
 
 storiesOf('Components/Layout', module).addWithJSX(

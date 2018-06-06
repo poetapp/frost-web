@@ -3,7 +3,7 @@ import * as React from 'react'
 import { text, boolean } from '@storybook/addon-knobs/react'
 import { storiesOf } from '@storybook/react'
 // tslint:disable-next-line
-import { wInfo } from '../../../stories/index.stories'
+import { wInfo } from 'stories/index.stories'
 import { CopyableText } from './CopyableText'
 
 storiesOf('Components/Text', module).addWithJSX(
