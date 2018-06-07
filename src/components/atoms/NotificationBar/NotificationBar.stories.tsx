@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { text, select } from '@storybook/addon-knobs/react'
 import { storiesOf } from '@storybook/react'
 import { wInfo } from 'stories/index.stories'

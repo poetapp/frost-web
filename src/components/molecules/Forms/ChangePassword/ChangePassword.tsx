@@ -1,7 +1,7 @@
+import * as React from 'react'
 import { Input } from 'components/atoms/Input/Input'
 import { InputPassword } from 'components/atoms/InputPassword/InputPassword'
 import { Form } from 'components/molecules/Form/Form'
-import * as React from 'react'
 
 interface ChangePasswordProps {
   readonly onSubmit: (event: any) => any

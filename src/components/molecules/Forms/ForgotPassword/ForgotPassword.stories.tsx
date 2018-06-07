@@ -1,5 +1,5 @@
-import { storiesOf } from '@storybook/react'
 import * as React from 'react'
+import { storiesOf } from '@storybook/react'
 import { wInfo } from 'stories/index.stories'
 import { ForgotPassword } from './ForgotPassword'
 
