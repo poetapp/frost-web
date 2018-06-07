@@ -1,6 +1,6 @@
-import * as React from 'react'
 import { text, boolean } from '@storybook/addon-knobs/react'
 import { storiesOf } from '@storybook/react'
+import * as React from 'react'
 import { wInfo } from 'stories/index.stories'
 import { Checkbox } from './Checkbox'
 
