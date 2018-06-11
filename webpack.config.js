@@ -64,6 +64,11 @@ function getPlugins(environment) {
         to: './_redirects',
         toType: "file",
       },
+      {
+        from: './_headers',
+        to: './_headers',
+        toType: "file",
+      }
     ])
   ]
 

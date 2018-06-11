@@ -1,0 +1,4 @@
+/*
+    Content-Security-Policy: script-src 'self'
+    X-Frame-Options: DENY
+    X-XSS-Protection: 1; mode=block
