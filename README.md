@@ -54,3 +54,4 @@ Some rules:
 - **Use 2 spaces** for indentation
 - **Use single quotes** for strings except to avoid escaping
 - **Add a space after keywords**
+
