@@ -1,4 +1,4 @@
-import { Feature, FeatureToggle } from '@paralleldrive/react-feature-toggles'
+import { Feature } from '@paralleldrive/react-feature-toggles'
 import * as classNames from 'classnames'
 import { Tootip } from 'components/atoms/Tooltip/Tooltip'
 import { Images } from 'images/Images'
@@ -27,9 +27,7 @@ const MainToggle = () => (
 export const Toggle = (props: ToggleProps) => (
   <div className={classNames('Toggle d-flex align-items-center', props.className)}>
     <p className={'Toggle__text'}>Testnet</p>
-    <FeatureToggle features={['testnet']}>
-      <Feature inactiveComponent={MainToggle} activeComponent={TestToggle} name={'testnet'} />
-    </FeatureToggle>
+    <Feature name="mainnet" inactiveComponent={TestToggle} activeComponent={MainToggle} />
     <p className={'Toggle__text'}>Livenet</p>
   </div>
 )

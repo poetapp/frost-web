@@ -16,7 +16,7 @@ storiesOf('Components/Layout', module).addWithJSX(
   ### Usage
   ~~~js
   <NotificationBar
-    readonly children?: JSX.Element
+    readonly children?: any
     readonly type?: 'success' | 'fail'
     readonly action?: 'fade-in' | 'fade-out' | 'hide'
     />

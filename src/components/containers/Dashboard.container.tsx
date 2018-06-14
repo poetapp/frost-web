@@ -6,7 +6,7 @@ import { LogoutContainer } from './Logout.container'
 import { NavigationContainer } from './Navigation.container'
 
 interface DashboardContainerProps {
-  readonly children?: JSX.Element
+  readonly children?: any
   readonly notificationBar: NotificationBarState
 }
 

@@ -9,7 +9,7 @@ import { Link } from 'react-router'
 import './DashboardTemplate.scss'
 
 interface DashboardTemplatetProps {
-  readonly children?: JSX.Element
+  readonly children?: any
   readonly email?: string
   readonly onLogout?: () => void
   readonly navigation: any

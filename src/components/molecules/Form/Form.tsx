@@ -5,7 +5,7 @@ import './Form.scss'
 require('formdata-polyfill')
 interface FormProps {
   readonly legend: string
-  readonly children?: JSX.Element
+  readonly children?: any
   readonly textButton: string
   readonly onValidate?: (data: any, elements: any) => boolean
   readonly onSubmit?: (event: any, elements: any) => any

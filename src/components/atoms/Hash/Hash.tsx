@@ -5,7 +5,7 @@ import * as React from 'react'
 import './Hash.scss'
 
 interface HashProps extends ClassNameProps {
-  readonly children?: JSX.Element
+  readonly children?: any
   readonly textClickable?: boolean
 }
 

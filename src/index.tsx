@@ -1,5 +1,7 @@
+import { FeatureToggles } from '@paralleldrive/react-feature-toggles'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 import { Router, Route, browserHistory } from 'react-router'
 
@@ -51,15 +53,21 @@ async function init(): Promise<void> {
     browserHistory.push('/')
   }
 
+  const features: ReadonlyArray<any> = ['mainnet']
+
   ReactDOM.render(
-    <Provider store={store}>
-      <Router history={browserHistory}>
-        <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
-          {routes}
-        </Route>
-        <Route path="*" onEnter={notFound} />
-      </Router>
-    </Provider>,
+    <AppContainer>
+      <Provider store={store}>
+        <FeatureToggles features={features}>
+          <Router history={browserHistory}>
+            <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
+              {routes}
+            </Route>
+            <Route path="*" onEnter={notFound} />
+          </Router>
+        </FeatureToggles>
+      </Provider>
+    </AppContainer>,
     document.getElementById('app')
   )
 }

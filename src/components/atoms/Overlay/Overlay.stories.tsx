@@ -16,7 +16,7 @@ storiesOf('Components/Layout', module).addWithJSX(
   ### Usage
   ~~~js
   <Overlay
-    readonly children?: JSX.Element
+    readonly children?: any
     readonly show: boolean
     />
   ~~~`)(() => (

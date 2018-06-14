@@ -5,7 +5,7 @@ import './Modal.scss'
 
 interface ModalProps {
   readonly onClose: () => void
-  readonly children?: JSX.Element
+  readonly children?: any
   readonly show: boolean
 }
 

@@ -3,7 +3,7 @@ import * as React from 'react'
 import './NotificationBar.scss'
 
 interface NotificationBarProps {
-  readonly children?: JSX.Element
+  readonly children?: any
   readonly type?: 'success' | 'fail'
   readonly action?: 'fade-in' | 'fade-out' | 'hide'
 }

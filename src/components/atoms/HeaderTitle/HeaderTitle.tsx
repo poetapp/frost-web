@@ -4,7 +4,7 @@ import * as React from 'react'
 import './HeaderTitle.scss'
 
 interface HeaderTitleProps extends ClassNameProps {
-  readonly children?: JSX.Element
+  readonly children?: any
 }
 
 export const HeaderTitle = (props: HeaderTitleProps) => (

@@ -17,7 +17,7 @@ storiesOf('Components/Layout', module).addWithJSX(
   ~~~js
   <ToastPage
     readonly className?: string
-    readonly children?: JSX.Element
+    readonly children?: any
     />
   ~~~`)(() => (
     <ToastPage className={text('className', '')}>

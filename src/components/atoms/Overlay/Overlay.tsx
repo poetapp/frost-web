@@ -3,7 +3,7 @@ import * as React from 'react'
 import './Overlay.scss'
 
 interface OverlayProps {
-  readonly children?: JSX.Element
+  readonly children?: any
   readonly show: boolean
 }
 
