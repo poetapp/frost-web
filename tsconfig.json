@@ -13,9 +13,11 @@
     "experimentalDecorators": true
   },
   "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "./typings/**/*"
   ],
   "exclude": [
+    "./src/**/*.test.ts",
     "./tslint-rules/**/*",
     "**/*.stories.tsx"
   ]
