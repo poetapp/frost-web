@@ -53,12 +53,10 @@ async function init(): Promise<void> {
     browserHistory.push('/')
   }
 
-  const features: ReadonlyArray<any> = ['mainnet']
-
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <FeatureToggles features={features}>
+        <FeatureToggles>
           <Router history={browserHistory}>
             <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
               {routes}
