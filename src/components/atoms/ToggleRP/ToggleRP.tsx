@@ -5,10 +5,9 @@ import { ClassNameProps } from 'interfaces/Props'
 import './ToggleRP.scss'
 
 interface ToggleProps extends ClassNameProps {
-  readonly children?: React.ReactNode
-  readonly on?: boolean
-  readonly labelledby?: string
+  readonly children?: any
   readonly disabled?: boolean
+  readonly on?: boolean
   readonly onClick?: () => void
 }
 
@@ -16,24 +15,24 @@ interface ToggleState {
   readonly on?: boolean
 }
 
-const callAll = (...fns: Array<() => void>) => (...args: any[]) => fns.forEach(fn => fn && fn(...args))
+const callAll = (...fns: ReadonlyArray<(...args: ReadonlyArray<any>) => void>) => (...args: ReadonlyArray<any>) => fns.forEach(fn => fn && fn(...args))
+const noop = () => ({})
 
 export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
   readonly state = {
     on: this.props.on ? true : false,
   }
 
-  readonly toggle = () => {
+  readonly toggle = () =>
     this.setState({
       on: !this.state.on,
     })
-  }
 
   readonly getToggleProps = (props: { readonly onClick?: any } = {}) => ({
     onClick: callAll(props.onClick, this.toggle),
   })
 
-  render(): React.ReactNode {
+  render(): React.ReactElement<any> {
     const { children } = this.props
     return children ? (
       children({
@@ -42,17 +41,16 @@ export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
         getToggleProps: this.getToggleProps,
       })
     ) : (
-      <button
-        disabled={this.props.disabled}
-        onClick={callAll(this.props.onClick, this.toggle)}
-        className={classNames('ToggleRP', this.props.className)}
-        role="switch"
-        aria-checked={this.state.on ? 'true' : 'false'}
-        aria-labelledby={this.props.labelledby ? this.props.labelledby : ''}
-      >
-        <span>on</span>
-        <span>off</span>
-      </button>
+      <label className={classNames('ToggleRP', this.props.className)}>
+        <input
+          id={'test-id-input'}
+          onClick={this.props.disabled ? noop : callAll(this.props.onClick, this.toggle)}
+          checked={this.state.on}
+          disabled={this.props.disabled}
+          type={'checkbox'}
+        />
+        <span className={'ToggleRP__slider ToggleRP__round'} />
+      </label>
     )
   }
 }

@@ -26,8 +26,8 @@ describe('<ToggleMainnet>{...children}</ToggleMainnet>', async (should: any) => 
     assert({
       given: 'no props and no children',
       should: 'render a Toggle surrounded by the correct text',
-      actual: $('.ToggleText').text(),
-      expected: 'MainnetTestnet',
+      actual: $('.ToggleMainnet__toggle-text').text(),
+      expected: 'TestnetMainnet',
     })
   }
 })

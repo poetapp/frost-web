@@ -15,8 +15,8 @@ describe('<ToggleRP>{...children}</ToggleRP>', async (should: any) => {
     const $ = dom.load(render(<ToggleRP />))
     assert({
       given: 'no props and no children',
-      should: 'render a button',
-      actual: $('.ToggleRP').length,
+      should: 'render a toggle',
+      actual: $('#test-id-input').length,
       expected: 1,
     })
   }
@@ -25,9 +25,9 @@ describe('<ToggleRP>{...children}</ToggleRP>', async (should: any) => {
     const $ = dom.load(render(<ToggleRP />))
     assert({
       given: 'no props and no children',
-      should: 'render an un-checked button',
-      actual: $('.ToggleRP').prop('aria-checked'),
-      expected: 'false',
+      should: 'render an un-checked toggle',
+      actual: $('#test-id-input').prop('checked'),
+      expected: false,
     })
   }
 
@@ -35,9 +35,9 @@ describe('<ToggleRP>{...children}</ToggleRP>', async (should: any) => {
     const $ = dom.load(render(<ToggleRP on={true} />))
     assert({
       given: 'on as true and no children',
-      should: 'render a checked button',
-      actual: $('.ToggleRP').prop('aria-checked'),
-      expected: 'true',
+      should: 'render a checked toggle',
+      actual: $('#test-id-input').prop('checked'),
+      expected: true,
     })
   }
 
@@ -45,9 +45,9 @@ describe('<ToggleRP>{...children}</ToggleRP>', async (should: any) => {
     const $ = dom.load(render(<ToggleRP className={'test'} />))
     assert({
       given: 'className as props',
-      should: 'render an unchecked button with the className',
-      actual: $('.test').prop('aria-checked'),
-      expected: 'false',
+      should: 'render an unchecked toggle with the className',
+      actual: $('.test').prop('checked'),
+      expected: false,
     })
   }
 

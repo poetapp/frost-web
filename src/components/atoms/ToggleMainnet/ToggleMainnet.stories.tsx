@@ -4,6 +4,7 @@ import { boolean } from '@storybook/addon-knobs/react'
 import { storiesOf } from '@storybook/react'
 import { wInfo } from 'stories/index.stories'
 import { ToggleMainnet } from './ToggleMainnet'
+import './ToggleMainnet.scss'
 
 storiesOf('Components/Layout', module).addWithJSX(
   'ToggleMainnet',
@@ -17,8 +18,9 @@ storiesOf('Components/Layout', module).addWithJSX(
   ~~~js
   <Toggles
     readonly className?: string
+    readonly disabled?: boolean
     />
-  ~~~`)(() =>
-    <ToggleMainnet disabled={boolean('disabled', false)}/>
+  ~~~`)(() => 
+  <ToggleMainnet disabled={boolean('disabled', false)}/>
     )
   )
