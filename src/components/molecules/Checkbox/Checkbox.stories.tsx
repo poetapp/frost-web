@@ -18,7 +18,7 @@ storiesOf('Components/Forms', module).addWithJSX(
   <Checkbox
     readonly name: string
     readonly required?: boolean
-    readonly children?: string
+    readonly children?: React.ReactNode
     />
   ~~~`)(() => (
     <Checkbox name={text('name', 'Test')} required={boolean('required', false)}>

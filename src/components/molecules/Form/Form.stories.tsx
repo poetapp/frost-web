@@ -17,7 +17,7 @@ storiesOf('Components/Forms', module).addWithJSX(
   ~~~js
   <Form
     readonly legend: string
-    readonly children?: ReactNode
+    readonly children?: React.ReactNode
     readonly textButton: string
     readonly onValidate?: (data: any, elements: any) => boolean
     readonly onSubmit?: (event: any, elements: any) => any

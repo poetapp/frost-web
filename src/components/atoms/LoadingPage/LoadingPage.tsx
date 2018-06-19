@@ -1,6 +1,5 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
-import { ReactNode } from 'react'
 const ProgressBar = require('react-progress-bar-plus')
 import { ClassNameProps } from 'interfaces/Props'
 import 'react-progress-bar-plus/lib/progress-bar.css'
@@ -9,7 +8,7 @@ import './LoadingPage.scss'
 interface LoadingPageProps extends ClassNameProps {
   readonly loading?: boolean
   readonly percentage?: number
-  readonly children?: ReactNode
+  readonly children?: React.ReactNode
 }
 
 export const LoadingPage = (props: LoadingPageProps) => (

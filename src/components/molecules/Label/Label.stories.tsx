@@ -16,7 +16,7 @@ storiesOf('Components/Forms', module).addWithJSX(
   ### Usage
   ~~~js
   <Label
-    readonly children?: ReactNode
+    readonly children?: React.ReactNode
     readonly text?: any
   />
   ~~~`)(() => (

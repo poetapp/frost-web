@@ -17,7 +17,7 @@ storiesOf('Components/Forms', module).addWithJSX(
   ~~~js
   <Modal
     readonly onClose: () => void
-    readonly children?: ReactNode
+    readonly children?: React.ReactNode
     readonly show: boolean
   />
   ~~~`)(() => (

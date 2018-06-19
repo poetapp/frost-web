@@ -1,11 +1,10 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
-import { ReactNode } from 'react'
 
 import './NotificationBar.scss'
 
 interface NotificationBarProps {
-  readonly children?: ReactNode
+  readonly children?: React.ReactNode
   readonly type?: 'success' | 'fail'
   readonly action?: 'fade-in' | 'fade-out' | 'hide'
 }
