@@ -15,7 +15,8 @@ interface ToggleState {
   readonly on?: boolean
 }
 
-const callAll = (...fns: ReadonlyArray<(...args: ReadonlyArray<any>) => void>) => (...args: ReadonlyArray<any>) => fns.forEach(fn => fn && fn(...args))
+const callAll = (...fns: ReadonlyArray<(...args: ReadonlyArray<any>) => void>) => (...args: ReadonlyArray<any>) =>
+  fns.forEach(fn => fn && fn(...args))
 const noop = () => ({})
 
 export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
