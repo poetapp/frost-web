@@ -1,12 +1,13 @@
 import { DashboardTemplate } from 'components/templates/DashboardTemplate/DashboardTemplate'
 import { FrostState, NotificationBarState } from 'interfaces/Props'
 import * as React from 'react'
+import { ReactNode } from 'react'
 import { connect } from 'react-redux'
 import { LogoutContainer } from './Logout.container'
 import { NavigationContainer } from './Navigation.container'
 
 interface DashboardContainerProps {
-  readonly children?: any
+  readonly children?: ReactNode
   readonly notificationBar: NotificationBarState
 }
 

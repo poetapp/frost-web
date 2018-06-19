@@ -1,12 +1,14 @@
 declare module '@paralleldrive/react-feature-toggles' {
-  function Feature(inactiveComponent: any, activeComponent: any, name: string, children?: any): JSX.Element
+  import { ReactNode } from 'react'
+
+  function Feature(inactiveComponent: any, activeComponent: any, name: string, children?: ReactNode): JSX.Element
   export { Feature }
 
   function FeatureToggles({
     features,
   }?: {
     readonly features?: ReadonlyArray<string>
-    readonly children?: any
+    readonly children?: ReactNode
   }): JSX.Element
   export { FeatureToggles }
 

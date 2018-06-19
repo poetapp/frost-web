@@ -16,7 +16,7 @@ storiesOf('Components/Layout', module).addWithJSX(
   ### Usage
   ~~~js
   <HeaderTitle
-    readonly children?: any
+    readonly children?: string
     readonly className?: string
     />
   ~~~`)(() => <HeaderTitle children={text('children', 'test')} className={text('className', '')} />)

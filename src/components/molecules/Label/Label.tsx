@@ -1,9 +1,10 @@
 import * as classNames from 'classnames'
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
+import { ReactNode } from 'react'
 
 interface LabelProps extends ClassNameProps {
-  readonly children?: any
+  readonly children?: ReactNode
   readonly text?: any
 }
 

@@ -1,12 +1,13 @@
 import { Input } from 'components/atoms/Input/Input'
 import { Label } from 'components/molecules/Label/Label'
 import * as React from 'react'
+import { ReactNode } from 'react'
 import './Checkbox.scss'
 
 interface CheckboxProps {
   readonly name: string
   readonly required?: boolean
-  readonly children?: any
+  readonly children?: ReactNode
 }
 
 export const Checkbox = (props: CheckboxProps) => (
