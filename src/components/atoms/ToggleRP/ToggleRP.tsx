@@ -5,7 +5,7 @@ import { ClassNameProps } from 'interfaces/Props'
 import './ToggleRP.scss'
 
 interface ToggleProps extends ClassNameProps {
-  readonly children?: any
+  readonly children?: React.ReactNode
   readonly on?: boolean
   readonly labelledby?: string
   readonly disabled?: boolean
@@ -16,7 +16,7 @@ interface ToggleState {
   readonly on?: boolean
 }
 
-const callAll = (...fns: ReadonlyArray<any>) => (...args: ReadonlyArray<any>) => fns.forEach(fn => fn && fn(...args))
+const callAll = (...fns: Array<() => void>) => (...args: any[]) => fns.forEach(fn => fn && fn(...args))
 
 export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
   readonly state = {
@@ -33,7 +33,7 @@ export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
     onClick: callAll(props.onClick, this.toggle),
   })
 
-  render(): any {
+  render(): React.ReactNode {
     const { children } = this.props
     return children ? (
       children({
