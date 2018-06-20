@@ -1,4 +1,6 @@
 declare module '@paralleldrive/react-feature-toggles' {
+   
+
   function Feature(inactiveComponent: any, activeComponent: any, name: string, children?: React.ReactNode): JSX.Element
   export { Feature }
 
@@ -27,7 +29,7 @@ declare module '@paralleldrive/react-feature-toggles' {
 
   function mergeFeatures(
     currentFeatures: ReadonlyArray<string>,
-    ...restOfFeatures: ReadonlyArray<string>
+    restOfFeatures: ReadonlyArray<string>
   ): ReadonlyArray<string>
   export { mergeFeatures }
 
