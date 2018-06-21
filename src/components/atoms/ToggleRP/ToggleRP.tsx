@@ -16,7 +16,7 @@ interface ToggleState {
 }
 
 // tslint:disable-next-line:readonly-array
-const callAll = (...fns: Array<ReadonlyArray<React.ReactNode>>) => (...args: Array<ReadonlyArray<any>>) =>
+const callAll = (...fns: Array<() => void>) => (...args: Array<ReadonlyArray<any>>) =>
   fns.forEach(fn => fn && fn(...args))
 const noop = () => ({})
 
