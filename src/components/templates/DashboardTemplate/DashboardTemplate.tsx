@@ -5,11 +5,12 @@ import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import { Toggle } from 'components/atoms/Toggle/Toggle'
 import { NotificationBarState } from 'interfaces/Props'
 import * as React from 'react'
+
 import { Link } from 'react-router'
 import './DashboardTemplate.scss'
 
 interface DashboardTemplatetProps {
-  readonly children?: JSX.Element
+  readonly children?: React.ReactNode
   readonly email?: string
   readonly onLogout?: () => void
   readonly navigation: any

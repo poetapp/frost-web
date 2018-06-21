@@ -1,9 +1,10 @@
 import * as classNames from 'classnames'
 import * as React from 'react'
+
 import './Overlay.scss'
 
 interface OverlayProps {
-  readonly children?: JSX.Element
+  readonly children?: React.ReactNode
   readonly show: boolean
 }
 

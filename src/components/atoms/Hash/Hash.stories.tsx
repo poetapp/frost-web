@@ -16,7 +16,7 @@ storiesOf('Components/Text', module).addWithJSX(
   ### Usage
   ~~~js
   <Hash
-    readonly children?: JSX.Element
+    readonly children?: string
     readonly textClickable?: boolean
     readonly className?: string
     />

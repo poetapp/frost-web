@@ -15,7 +15,6 @@ export const Toggle = (props: ToggleProps) => (
       element={<img className={'Toggle__image'} src={Images.Toogle} />}
       tooltipText={`Frost is currently only timestamping to testnet — mainnet timestamping is unavailable.`}
     />
-
     <p className={'Toggle__text'}>Livenet</p>
   </div>
 )
