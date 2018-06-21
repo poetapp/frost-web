@@ -16,8 +16,7 @@ interface ToggleState {
 }
 
 // tslint:disable-next-line:readonly-array
-const callAll = (...fns: Array<() => void>) => (...args: Array<any>) =>
-  fns.forEach(fn => fn && fn(...args))
+const callAll = (...fns: Array<(...args: any[]) => void>) => (...args: any[]) => fns.forEach(fn => fn && fn(...args))
 const noop = () => ({})
 
 export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
