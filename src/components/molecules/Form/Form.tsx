@@ -1,11 +1,13 @@
 import { Button } from 'components/atoms/Button/Button'
 import { getParsedForm } from 'helpers'
 import * as React from 'react'
+
 import './Form.scss'
 require('formdata-polyfill')
+
 interface FormProps {
   readonly legend: string
-  readonly children?: JSX.Element
+  readonly children?: React.ReactNode
   readonly textButton: string
   readonly onValidate?: (data: any, elements: any) => boolean
   readonly onSubmit?: (event: any, elements: any) => any

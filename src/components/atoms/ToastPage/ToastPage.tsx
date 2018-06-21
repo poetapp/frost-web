@@ -1,9 +1,10 @@
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
+
 const { ToastContainer } = require('react-toastify')
 
 interface ToastPageProps extends ClassNameProps {
-  readonly children?: JSX.Element
+  readonly children?: React.ReactNode
 }
 
 export const ToastPage = (props: ToastPageProps) => (

@@ -8,7 +8,7 @@ import './LoadingPage.scss'
 interface LoadingPageProps extends ClassNameProps {
   readonly loading?: boolean
   readonly percentage?: number
-  readonly children?: JSX.Element
+  readonly children?: React.ReactNode
 }
 
 export const LoadingPage = (props: LoadingPageProps) => (
