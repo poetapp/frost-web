@@ -1,4 +1,4 @@
-import { FeatureToggles, getBrowserQueryFeatures } from '@paralleldrive/react-feature-toggles'
+import { FeatureToggles } from '@paralleldrive/react-feature-toggles'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
@@ -56,7 +56,7 @@ async function init(): Promise<void> {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <FeatureToggles features={getBrowserQueryFeatures()}>
+        <FeatureToggles>
           <Router history={browserHistory}>
             <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
               {routes}

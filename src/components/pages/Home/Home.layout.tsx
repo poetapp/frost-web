@@ -1,4 +1,3 @@
-import { Feature } from '@paralleldrive/react-feature-toggles'
 import { BoxSimple } from 'components/atoms/BoxSimple/BoxSimple'
 import { Button } from 'components/atoms/Button/Button'
 import { FooterHome } from 'components/atoms/FooterHome/FooterHome'
@@ -9,12 +8,9 @@ import { Images } from 'images/Images'
 import * as React from 'react'
 import './Home.style.scss'
 
-const TestFeature = () => <HeaderHomeContainer />
-const MainFeature = () => <div>TESTING REACT-FEATURE-TOGGLES</div>
-
 export const HomeLayout = () => (
   <main className={'Home'}>
-    <Feature name={'foo'} activeComponent={MainFeature} inactiveComponent={TestFeature} />
+    <HeaderHomeContainer />
     <section className={'Home__cover-page'}>
       <div className={'Home__cover-page__box'}>
         <div>
