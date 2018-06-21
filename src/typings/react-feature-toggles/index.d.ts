@@ -26,9 +26,9 @@ declare module '@paralleldrive/react-feature-toggles' {
   export { getQueryFeatures }
 
   function mergeFeatures(
-    currentFeatures: ReadonlyArray<string>,
-    ...restOfFeatures: ReadonlyArray<ReadonlyArray<string>>
-  ): ReadonlyArray<string> // tslint:disable-next-line:readonly-array
+    currentFeatures: ReadonlyArray<string>, // tslint:disable-next-line:readonly-array
+    ...restOfFeatures: Array<ReadonlyArray<string>>
+  ): ReadonlyArray<string>
   export { mergeFeatures }
 
   function removeFeatures(
