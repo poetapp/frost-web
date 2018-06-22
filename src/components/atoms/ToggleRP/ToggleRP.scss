@@ -1,0 +1,52 @@
+@import 'colors';
+
+.ToggleRP {
+  display: inline-block;
+  position: relative;
+  height: 34px;
+  width: 60px;
+
+  input {
+    display: none;
+  }
+
+  &__slider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: $ghost-white;
+    cursor: pointer;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  &__slider:before {
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    background-color: $blue-frost;
+    content: "";
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+}
+
+input:checked+.ToggleRP__slider {
+  background-color: $ghost-white;
+}
+
+input:focus+.ToggleRP__slider {
+  box-shadow: 0 0 1px $ghost-white;
+}
+
+input:checked+.ToggleRP__slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
