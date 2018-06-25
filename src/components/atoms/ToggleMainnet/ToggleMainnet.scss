@@ -1,0 +1,18 @@
+@import 'colors';
+
+.ToggleMainnet {
+  display: flex;
+  align-items: center;
+
+  &__toggle-text {
+    margin: 0rem;
+    font-size: .75rem;
+    line-height: 1.0625rem;
+    color: $ebony;
+  }
+
+  &__toggle {
+    margin: 0rem .8125rem;
+  }
+}
+
