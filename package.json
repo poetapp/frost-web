@@ -46,19 +46,7 @@
       "babel-loader",
       "sass-loader",
       "postcss-loader",
-      "react",
-      "react-dom",
-      "react-router",
-      "react-redux",
-      "react-hot-loader",
-      "redux-saga",
-      "redux-persist",
-      "typescript",
-      "@types/react",
-      "@types/react-dom",
-      "@types/react-router",
-      "@types/react-redux",
-      "@types/redux-persist"
+      "typescript"
     ]
   },
   "dependencies": {
