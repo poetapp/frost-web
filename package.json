@@ -52,7 +52,6 @@
   "dependencies": {
     "@paralleldrive/react-feature-toggles": "2.0.0-beta2",
     "@poetapp/frost-client": "0.1.4",
-    "circular-dependency-plugin": "^4.4.0",
     "classnames": "2.2.5",
     "formdata-polyfill": "3.0.10",
     "isomorphic-fetch": "2.2.1",
@@ -110,6 +109,7 @@
     "babel-core": "6.26.3",
     "babel-loader": "6.4.1",
     "cheerio": "1.0.0-rc.2",
+    "circular-dependency-plugin": "4.4.0",
     "copy-webpack-plugin": "4.5.1",
     "css-loader": "0.28.11",
     "express": "4.16.3",
