@@ -35,7 +35,7 @@ export class Form extends React.Component<FormProps, undefined> {
         <legend className="Form__legend">{legend}</legend>
         <div className="row">
           <div className="col-12">{children}</div>
-          <div className="col-6">
+          <div className="col-6 submit-button">
             <Button text={textButton} disabled={disabledButton} />
           </div>
         </div>

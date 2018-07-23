@@ -15,7 +15,7 @@
     "serve": "ws --spa index.html --rewrite '/api/* -> http://localhost:3000/$1' -d ./dist",
     "test": "npm run test:unit",
     "test:unit": "ts-node -r ignore-styles -r tsconfig-paths/register tests/unit/index.ts",
-    "test:e2e": "testcafe 'chrome:headless,firefox:headless' tests/functional/features",
+    "test:functional": "testcafe -c ${RUNNER_COUNT:-1} ${RUNNER:-chrome:headless,firefox:headless} tests/functional/features",
     "stylelint": "stylelint './src/**/*.scss'",
     "stylelint:fix": "stylelint './src/**/*.scss' --fix",
     "precommit": "lint-staged",
