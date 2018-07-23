@@ -28,7 +28,7 @@
     # the tests running - this can help with debugging.
     RUNNER=chrome npm run test:functional
 
-    # Run all tests in headless chrome. Slightly faster with the UI appearing.
+    # Run all tests in headless chrome. Slightly faster than with the UI.
     RUNNER=chrome:headless npm run test:functional
 
     # Run two instances of headless chome. run half the tests in the first
@@ -39,7 +39,7 @@
 ## Database Implications
   Currently, the tests use the same database and no cleanup is performed.
   When run locally, they will add records to your local mongodb instance.
-  For this reason, **tests should not be run in non-development environments*.*
+  For this reason, *only run tests in a development environment*.
 
   TODO: A future PR will add a system where each browser instance running
   tests will create it's own database and tear it down afterwards. This will
