@@ -1,4 +1,4 @@
-import { genEmail, routes } from '../helpers'
+import { genEmail, getLocation, pages, SITE } from '../helpers'
 import { HomePage } from '../page-objects/home-page'
 import { LoginRegisterPage } from '../page-objects/login-register-page'
 import { DashboardPage } from '../page-objects/dashboard-page'
@@ -6,62 +6,74 @@ import { DashboardPage } from '../page-objects/dashboard-page'
 const { signUp, signUpNoDisclaimer } = LoginRegisterPage
 const password = 'Foo@1234foo'
 
-fixture `User sign up tests`
-  .page `${routes.LOGIN_PATH}`
+fixture `User sign up`
+  .page `${SITE}${pages.LOGIN}`
 
-test('A user can fill in a form to create an account', async t => {
+test('Correctly filling in the sign up form', async t => {
+  const should = `Should load the dashboard page at ${pages.DASHBOARD}`
+  const expected = pages.DASHBOARD
   const userEmail = genEmail('foo')
 
   await LoginRegisterPage.pageClass
   await signUp(t, userEmail, password)
-  const actual = await DashboardPage.pageClass
-  await t.expect(actual.exists).ok('DashboardPage class not found')
+  const actual = getLocation('pathname')
+
+  await t.expect(actual).eql(expected, should)
 })
 
-test('A user cannot create an account with a duplicate email address', async t => {
+test('Entering an existing email address', async t => {
+  const should = `Should stay on the login page ${pages.LOGIN}`
+  const expected = pages.LOGIN
   const duplicateUserEmail = genEmail('foo')
 
-  // Create a new user account.
+  // Create a user account and logout.
   await LoginRegisterPage.pageClass
   await signUp(t, duplicateUserEmail, password)
-
   await DashboardPage.pageClass
   await t.click(DashboardPage.logoutButton)
 
-  // Create a new user account with the same email address.
+  // Create another user account with the same email address.
   await LoginRegisterPage.pageClass
   await signUp(t, duplicateUserEmail, password)
 
   // Do not end up on the dashboard page.
   // TODO: how to check for Joi validation error toasts?
-  const actual = await DashboardPage.pageClass
-  await t.expect(actual.exists).notOk('LoginRegister class not found')
+  const actual = getLocation('pathname')
+
+  await t.expect(actual).eql(expected, should)
 })
 
-test('A user must enter a valid email address', async t => {
+test('Entering an invalid email address', async t => {
+  const should = `Should stay on the login page ${pages.LOGIN}`
+  const expected = pages.LOGIN
+
   await LoginRegisterPage.pageClass
   await signUp(t, 'foo', password)
+  const actual = getLocation('pathname')
 
-  const actual = await DashboardPage.pageClass
-  await t.expect(actual.exists).notOk('LoginRegister class not found')
+  await t.expect(actual).eql(expected, should)
 })
 
-test('A user must enter a valid password to create an account', async t => {
+test('Entering an invalid password', async t => {
+  const should = `Should stay on the login page ${pages.LOGIN}`
+  const expected = pages.LOGIN
   const userEmail = genEmail('foo')
 
   await LoginRegisterPage.pageClass
   await signUp(t, userEmail, 'password')
+  const actual = getLocation('pathname')
 
-  const actual = await DashboardPage.pageClass
-  await t.expect(actual.exists).notOk('LoginRegister class not found')
+  await t.expect(actual).eql(expected, should)
 })
 
-test('A user must agree to disclaimer to create an account', async t => {
+test('Not agreeing to the disclaimer stays on sign up page', async t => {
+  const should = `Should stay on the login page ${pages.LOGIN}`
+  const expected = pages.LOGIN
   const userEmail = genEmail('foo')
 
   await LoginRegisterPage.pageClass
   await signUp(t, userEmail, password, { skipDisclaimer: true })
+  const actual = getLocation('pathname')
 
-  const actual = await DashboardPage.pageClass
-  await t.expect(actual.exists).notOk('LoginRegister class not found')
+  await t.expect(actual).eql(expected, should)
 })

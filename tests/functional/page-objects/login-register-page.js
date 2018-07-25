@@ -1,19 +1,16 @@
 import { Selector } from 'testcafe'
 
-const pageClass = Selector('.RegisterLogin')
-const signUpEmailInput = Selector('.RegisterLogin_signUp input[name="email"]')
-const signUpPasswordInput = Selector('.RegisterLogin_signUp input[name="password"]')
-const signUpConfirmPasswordInput = Selector('.RegisterLogin_signUp input[name="confirmPassword"]')
-const signUpDisclaimer = Selector('.RegisterLogin_signUp input[name="testnet"]')
-const signUpButton = Selector('.RegisterLogin_signUp .submit-button button')
+const SIGN_UP_FORM = '.RegisterLogin_signUp'
+
+const pageClass = Selector(`.RegisterLogin`)
+const signUpEmailInput = Selector(`${SIGN_UP_FORM} input[name="email"]`)
+const signUpPasswordInput = Selector(`${SIGN_UP_FORM} input[name="password"]`)
+const signUpConfirmPasswordInput = Selector(`${SIGN_UP_FORM} input[name="confirmPassword"]`)
+const signUpDisclaimer = Selector(`${SIGN_UP_FORM} input[name="testnet"]`)
+const signUpButton = Selector(`${SIGN_UP_FORM} .submit-button button`)
 
 export const LoginRegisterPage = {
   pageClass,
-  signUpEmailInput,
-  signUpPasswordInput,
-  signUpConfirmPasswordInput,
-  signUpDisclaimer,
-  signUpButton,
 
   signUp: async (t, email, password, options = { skipDisclaimer: false }) => {
     await t

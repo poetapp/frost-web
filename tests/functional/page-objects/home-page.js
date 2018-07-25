@@ -7,7 +7,7 @@ export const HomePage = {
   pageClass,
   loginButton,
 
-  goToLoginRegisterPage: async t => {
+  clickLoginRegister: async t => {
     const theLoginButton = await loginButton
     await t.click(theLoginButton)
   }

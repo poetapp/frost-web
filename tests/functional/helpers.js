@@ -1,8 +1,12 @@
-const SITE = process.env.SITE_URL || 'http://localhost:4000'
+import { ClientFunction } from 'testcafe'
 
-export const routes = {
-  SITE,
-  LOGIN_PATH: `${SITE}/login`,
+export const SITE = process.env.SITE_URL || 'http://localhost:4000'
+
+export const pages = {
+  HOME: '/',
+  LOGIN: '/login',
+  REGISTRATION: '/login',
+  DASHBOARD: '/dashboard',
 }
 
 const runtimeId = () =>
@@ -10,3 +14,5 @@ const runtimeId = () =>
 
 export const genEmail = (prefix, domain = 'test.com') =>
   `${prefix}.${runtimeId()}@${domain}`
+
+export const getLocation = ClientFunction((prop = 'href') => document.location[prop])
