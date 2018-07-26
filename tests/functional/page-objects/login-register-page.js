@@ -1,5 +1,5 @@
-import { Selector } from 'testcafe'
-import { genEmail } from '../helpers'
+import { Role, Selector } from 'testcafe'
+import { genEmail, pages, SITE } from '../helpers'
 
 const PAGE_CLASS = '.RegisterLogin'
 const SIGN_UP_FORM = `${PAGE_CLASS}_signUp`
@@ -46,10 +46,15 @@ const createUser = async (
   return ({ email, password })
 }
 
+const frostUser = (email, password) => Role(`${SITE}${pages.LOGIN}`, async t => {
+  await login(t, email, password)
+})
+
 export const LoginRegisterPage = {
   pageClass,
   validPassword,
   createUser,
+  frostUser,
   login,
   signUp,
 }
