@@ -1,4 +1,5 @@
 import { Selector } from 'testcafe'
+import { genEmail } from '../helpers'
 
 const PAGE_CLASS = '.RegisterLogin'
 const SIGN_UP_FORM = `${PAGE_CLASS}_signUp`
@@ -34,8 +35,21 @@ const login = async (t, email, password, options = { skipDisclaimer: false }) =>
     .typeText(loginPasswordInput, password)
     .click(loginButton)
 
+const validPassword = 'Test@test12345'
+
+const createUser = async (
+  ctx,
+  email = genEmail('test-acct'),
+  password = validPassword
+) => {
+  await signUp(ctx, email, password)
+  return ({ email, password })
+}
+
 export const LoginRegisterPage = {
   pageClass,
+  validPassword,
+  createUser,
   login,
   signUp,
 }
