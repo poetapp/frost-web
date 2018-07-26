@@ -2,3 +2,5 @@ node_modules
 dist
 .idea
 screenshots/
+.coverage
+.nyc_output
