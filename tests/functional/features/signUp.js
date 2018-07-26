@@ -9,7 +9,7 @@ const password = 'Foo@1234foo'
 fixture `User sign up`
   .page `${SITE}${pages.LOGIN}`
 
-test('Correctly filling in the sign up form', async t => {
+test('Creates an account when sign up form data is valid', async t => {
   const should = `Should load the dashboard page at ${pages.DASHBOARD}`
   const expected = pages.DASHBOARD
   const userEmail = genEmail('foo')
@@ -21,7 +21,7 @@ test('Correctly filling in the sign up form', async t => {
   await t.expect(actual).eql(expected, should)
 })
 
-test('Entering an existing email address', async t => {
+test('Fails signup with an existing email address', async t => {
   const should = `Should stay on the login page ${pages.LOGIN}`
   const expected = pages.LOGIN
   const duplicateUserEmail = genEmail('foo')
@@ -43,7 +43,7 @@ test('Entering an existing email address', async t => {
   await t.expect(actual).eql(expected, should)
 })
 
-test('Entering an invalid email address', async t => {
+test('Fails signup without a valid email address', async t => {
   const should = `Should stay on the login page ${pages.LOGIN}`
   const expected = pages.LOGIN
 
@@ -54,7 +54,7 @@ test('Entering an invalid email address', async t => {
   await t.expect(actual).eql(expected, should)
 })
 
-test('Entering an invalid password', async t => {
+test('Fails signup without a valid password', async t => {
   const should = `Should stay on the login page ${pages.LOGIN}`
   const expected = pages.LOGIN
   const userEmail = genEmail('foo')
@@ -66,7 +66,7 @@ test('Entering an invalid password', async t => {
   await t.expect(actual).eql(expected, should)
 })
 
-test('Not agreeing to the disclaimer stays on sign up page', async t => {
+test('Fails signup when not agreeing to the disclaimer', async t => {
   const should = `Should stay on the login page ${pages.LOGIN}`
   const expected = pages.LOGIN
   const userEmail = genEmail('foo')
