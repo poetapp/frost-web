@@ -18,6 +18,7 @@ const loginButton = Selector(`${SIGN_IN_FORM} .submit-button button`)
 
 const signUp = async (t, email, password, options = { skipDisclaimer: false }) => {
   await t
+    .navigateTo(`${SITE}${pages.LOGIN}`)
     .typeText(signUpEmailInput, email)
     .typeText(signUpPasswordInput, password)
     .typeText(signUpConfirmPasswordInput, password)

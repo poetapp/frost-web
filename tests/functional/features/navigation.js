@@ -40,8 +40,11 @@ test(`Navigating to ${pages.TOKEN} without logging in redirects to ${pages.LOGIN
 test(`A logged in user can access the api token page at ${pages.TOKEN}`, async t => {
   const should = `Should load the token page at ${pages.TOKEN}`
   const expected = pages.TOKEN
+  await t.navigateTo(`${SITE}${pages.LOGIN}`)
+  const { email, password } = await LoginRegisterPage.createUser(t)
+
   await t
-    .useRole(LoginRegisterPage.frostUser('fah@test.com', 'Foo@foo12345'))
+    .useRole(LoginRegisterPage.frostUser(email, password))
     .navigateTo(`${SITE}${pages.TOKEN}`)
 
   await TokenPage.pageClass()
