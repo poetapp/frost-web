@@ -1,4 +1,5 @@
 import { getLocation, pages, SITE } from '../helpers'
+import { DashboardPage } from '../page-objects/dashboard-page'
 import { HomePage } from '../page-objects/home-page'
 import { LoginRegisterPage } from '../page-objects/login-register-page'
 import { TokenPage } from '../page-objects/token-page'
@@ -45,7 +46,7 @@ test(`A logged in user can access the api token page at ${pages.TOKEN}`, async t
 
   await t
     .useRole(LoginRegisterPage.frostUser(email, password))
-    .navigateTo(`${SITE}${pages.TOKEN}`)
+    .click(DashboardPage.createTokenButton)
 
   await TokenPage.pageClass()
   const actual = await getLocation('pathname')
