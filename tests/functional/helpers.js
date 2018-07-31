@@ -8,6 +8,7 @@ export const pages = {
   REGISTRATION: '/login',
   DASHBOARD: '/dashboard',
   TOKEN: '/token',
+  PRIVACY: '/privacy',
 }
 
 const runtimeId = () =>
