@@ -7,6 +7,7 @@ export const pages = {
   LOGIN: '/login',
   REGISTRATION: '/login',
   DASHBOARD: '/dashboard',
+  TOKEN: '/token',
 }
 
 const runtimeId = () =>

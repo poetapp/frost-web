@@ -1,6 +1,8 @@
 import { getLocation, pages, SITE } from '../helpers'
+import { DashboardPage } from '../page-objects/dashboard-page'
 import { HomePage } from '../page-objects/home-page'
-import { clickLoginRegister } from '../page-objects/login-register-page'
+import { LoginRegisterPage } from '../page-objects/login-register-page'
+import { TokenPage } from '../page-objects/token-page'
 
 fixture `Site navigation`
   .page `${SITE}${pages.HOME}`
@@ -21,6 +23,33 @@ test(`On the home page, click to navigate to the login/register page`, async t =
 
   await HomePage.clickLoginRegister(t)
   const actual = getLocation('pathname')
+
+  await t.expect(actual).eql(expected, should)
+})
+
+test(`Navigating to ${pages.TOKEN} without logging in redirects to ${pages.LOGIN}`, async t => {
+  const should = `Should load the login page at ${pages.LOGIN}`
+  const expected = pages.LOGIN
+
+  await t.navigateTo(`${SITE}${pages.TOKEN}`)
+  await LoginRegisterPage.pageClass()
+  const actual = await getLocation('pathname')
+
+  await t.expect(actual).eql(expected, should)
+})
+
+test(`A logged in user can access the api token page at ${pages.TOKEN}`, async t => {
+  const should = `Should load the token page at ${pages.TOKEN}`
+  const expected = pages.TOKEN
+  await t.navigateTo(`${SITE}${pages.LOGIN}`)
+  const { email, password } = await LoginRegisterPage.createUser(t)
+
+  await t
+    .useRole(LoginRegisterPage.frostUser(email, password))
+    .click(DashboardPage.createTokenButton)
+
+  await TokenPage.pageClass()
+  const actual = await getLocation('pathname')
 
   await t.expect(actual).eql(expected, should)
 })
