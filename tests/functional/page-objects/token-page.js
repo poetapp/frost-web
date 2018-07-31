@@ -2,7 +2,7 @@ import { Selector } from 'testcafe'
 
 const PAGE_CLASS = '.CreateToken'
 const pageClass = Selector(PAGE_CLASS)
-const apiTokens = Selector(`${PAGE_CLASS} .BoxToken__table tbody tr`)
+const apiTokens = Selector(`${PAGE_CLASS} .BoxToken__item`)
 const addTokenAction = Selector(`${PAGE_CLASS} .CreateToken__button`)
 const deleteTokenAction = Selector(`${PAGE_CLASS} .BoxToken__item__actions`)
 const deleteTokenConfirm = Selector(`${PAGE_CLASS} .DeleteToken .Button__danger`)
