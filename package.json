@@ -40,14 +40,12 @@
     "ignore": [
       "html-webpack-plugin",
       "webpack",
-      "awesome-typescript-loader",
       "extract-text-webpack-plugin",
       "webpack-dev-middleware",
       "webpack-dev-server",
       "babel-loader",
       "sass-loader",
-      "postcss-loader",
-      "typescript"
+      "postcss-loader"
     ]
   },
   "dependencies": {
@@ -140,7 +138,7 @@
     "ts-node": "6.1.1",
     "tsconfig-paths": "3.4.0",
     "tslint-immutable": "4.5.4",
-    "typescript": "2.3.4",
+    "typescript": "3.0.1",
     "webpack": "3.11.0",
     "webpack-dev-middleware": "1.12.2",
     "webpack-dev-server": "1.16.5",
