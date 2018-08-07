@@ -4,7 +4,7 @@ import * as React from 'react'
 import './DeleteToken.scss'
 
 interface DeleteTokenProps {
-  readonly onDeleteToken: (event: Event) => void
+  readonly onDeleteToken: (event: React.SyntheticEvent) => void
   readonly show: boolean
   readonly onClose: () => void
   readonly disabledButton: boolean
