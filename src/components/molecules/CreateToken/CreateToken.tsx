@@ -8,14 +8,14 @@ import './CreateToken.scss'
 interface CreateTokenProps {
   readonly boxToken: ReadonlyArray<string>
   readonly showVerifiedAccount: boolean
-  readonly sendEmailVarifiedAccount: (event: Event) => void
+  readonly sendEmailVarifiedAccount: (event: React.SyntheticEvent) => void
   readonly retryWait: boolean
   readonly onDeleteToken?: () => void
   readonly onCloseModal: () => void
   readonly onShowModal: (apiToken: string) => void
   readonly showDeleteModal: boolean
   readonly disabledButton: boolean
-  readonly onCreateApiToken: (event: Event) => void
+  readonly onCreateApiToken: (event: React.SyntheticEvent) => void
   readonly submitDisabled: boolean
 }
 

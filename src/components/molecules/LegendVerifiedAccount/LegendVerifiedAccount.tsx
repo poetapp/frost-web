@@ -5,7 +5,7 @@ import './LegendVerifiedAccount.scss'
 
 interface LegendVerifiedAccountProps {
   readonly show?: boolean
-  readonly onClick?: (event: Event) => void
+  readonly onClick?: (event: React.SyntheticEvent) => void
   readonly retryWait?: boolean
 }
 
