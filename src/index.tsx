@@ -70,4 +70,5 @@ async function init(): Promise<void> {
   )
 }
 
-init()
+// tslint:disable-next-line
+init().catch(console.error)
