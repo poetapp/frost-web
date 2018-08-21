@@ -9,7 +9,7 @@
     "build:testing": "POET_ENV=testing webpack",
     "build:preview": "stylelint './src/**/*.scss' && tslint -p ./tsconfig.json && npm run build:testing",
     "build:staging": "POET_ENV=staging webpack",
-    "build:production": "NODE_ENV=production webpack",
+    "build:production": "POET_ENV=production webpack",
     "lint": "tslint -p ./tsconfig.json",
     "lint:fix": "tslint -p ./tsconfig.json --fix",
     "serve": "ws --spa index.html --rewrite '/api/* -> http://localhost:3000/$1' -d ./dist",
