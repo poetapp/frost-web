@@ -1,5 +1,7 @@
 import { Actions } from 'actions/index'
 
+const { onChangePassword, onChangePasswordError, onChangePasswordSuccess } = Actions.ChangePassword
+
 const defaultState = {
   error: {
     status: false,
@@ -8,9 +10,9 @@ const defaultState = {
   loading: false,
 }
 
-export const changePassword = (state: any, action: any) => {
+export const changePassword = (state: any = defaultState, action: any = {}) => {
   switch (action.type) {
-    case Actions.ChangePassword.CHANGE_PASSWORD:
+    case onChangePassword().type:
       return {
         ...state,
         error: {
@@ -19,7 +21,8 @@ export const changePassword = (state: any, action: any) => {
         },
         loading: true,
       }
-    case Actions.ChangePassword.CHANGE_PASSWORD_SUCCESS:
+
+    case onChangePasswordSuccess().type:
       return {
         ...state,
         error: {
@@ -28,7 +31,8 @@ export const changePassword = (state: any, action: any) => {
         },
         loading: false,
       }
-    case Actions.ChangePassword.CHANGE_PASSWORD_ERROR:
+
+    case onChangePasswordError().type:
       return {
         ...state,
         error: {
@@ -38,5 +42,6 @@ export const changePassword = (state: any, action: any) => {
         loading: false,
       }
   }
-  return state || defaultState
+
+  return state
 }
