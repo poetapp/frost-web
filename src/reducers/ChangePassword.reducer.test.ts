@@ -1,10 +1,10 @@
 import { describe } from 'riteway'
 
 import { Actions } from '../actions'
-import { changePassword } from './ChangePassword.reducer'
+import { changePassword as reducer, defaultState } from './ChangePassword.reducer'
 
 const { onChangePassword, onChangePasswordError, onChangePasswordSuccess } = Actions.ChangePassword
-const createState = (obj?: any) => ({ ...changePassword(), ...obj })
+const createState = (obj?: any) => ({ ...defaultState, ...obj })
 
 describe('changePassword reducer', async (should: any) => {
   const { assert } = should()
@@ -12,7 +12,7 @@ describe('changePassword reducer', async (should: any) => {
   assert({
     given: 'no arguments',
     should: 'return the default state',
-    actual: changePassword(),
+    actual: reducer(),
     expected: createState(),
   })
 
@@ -22,7 +22,7 @@ describe('changePassword reducer', async (should: any) => {
     assert({
       given: 'a current state and a non-matching action type',
       should: 'return the current state',
-      actual: changePassword(currentState, { type: '_' }),
+      actual: reducer(currentState, { type: '_' }),
       expected: currentState,
     })
   }
@@ -44,7 +44,7 @@ describe('changePassword reducer', async (should: any) => {
       loading: true,
     })
 
-    const actual = changePassword(currentState, onChangePassword())
+    const actual = reducer(currentState, onChangePassword())
 
     assert({
       given: `a current state and an action "${onChangePassword().type}"`,
@@ -71,7 +71,7 @@ describe('changePassword reducer', async (should: any) => {
       loading: false,
     })
 
-    const actual = changePassword(currentState, onChangePasswordSuccess())
+    const actual = reducer(currentState, onChangePasswordSuccess())
 
     assert({
       given: `a current state and an action "${onChangePasswordSuccess().type}"`,
@@ -98,7 +98,7 @@ describe('changePassword reducer', async (should: any) => {
       loading: false,
     })
 
-    const actual = changePassword(currentState, onChangePasswordError({ msg: 'crash' }))
+    const actual = reducer(currentState, onChangePasswordError({ msg: 'crash' }))
 
     assert({
       given: `a current state and an action "${onChangePasswordError().type}"`,

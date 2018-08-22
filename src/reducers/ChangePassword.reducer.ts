@@ -2,7 +2,7 @@ import { Actions } from 'actions/index'
 
 const { onChangePassword, onChangePasswordError, onChangePasswordSuccess } = Actions.ChangePassword
 
-const defaultState = {
+export const defaultState = {
   error: {
     status: false,
     message: '',
