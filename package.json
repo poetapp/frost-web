@@ -1,7 +1,7 @@
 {
   "name": "frost-web",
   "version": "0.0.1",
-  "description": "",
+  "description": "The front-end for Frost to manage accounts and API tokens",
   "scripts": {
     "start": "NODE_ENV=development node devServer.js",
     "start:production": "NODE_ENV=production node devServer.js",
@@ -33,9 +33,14 @@
       "git add"
     ]
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poetapp/frost-web.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/poetapp/frost-web/issues"
+  },
   "greenkeeper": {
     "ignore": [
       "html-webpack-plugin",
