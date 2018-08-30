@@ -1,7 +1,7 @@
 {
   "name": "frost-web",
   "version": "0.0.1",
-  "description": "The front-end for Frost to manage accounts and API tokens",
+  "description": "Frost Web is the front-end to Po.et's Frost API for managing accounts and API tokens.",
   "scripts": {
     "start": "NODE_ENV=development node devServer.js",
     "start:production": "NODE_ENV=production node devServer.js",
