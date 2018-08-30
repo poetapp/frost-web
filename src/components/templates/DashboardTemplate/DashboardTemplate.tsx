@@ -2,7 +2,7 @@ import { LoadingPage } from 'components/atoms/LoadingPage/LoadingPage'
 import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
 import { NotificationBar } from 'components/atoms/NotificationBar/NotificationBar'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
-import { Toggle } from 'components/atoms/Toggle/Toggle'
+import { ToggleMainnet } from 'components/atoms/ToggleMainnet/ToggleMainnet'
 import { NotificationBarState } from 'interfaces/Props'
 import * as React from 'react'
 
@@ -33,7 +33,7 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) => (
         <section className={'Dashboard__body'}>
           <header className={'Dashboard__body__header'}>
             <div className={'Dashboard__body__header__content d-flex align-items-center justify-content-between'}>
-              <Toggle />
+              <ToggleMainnet disabled={false} />
               <props.logout />
             </div>
             <NotificationBar type={props.notificationBar.type} action={props.notificationBar.action}>
