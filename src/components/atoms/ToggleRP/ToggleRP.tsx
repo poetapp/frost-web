@@ -54,7 +54,7 @@ export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
                   this.setState(prevState => ({ on: !prevState.on }))
                 }
           }
-          checked={this.state.on}
+          defaultChecked={this.props.on}
           disabled={this.props.disabled}
           type={'checkbox'}
         />

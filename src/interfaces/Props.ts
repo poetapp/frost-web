@@ -47,6 +47,7 @@ export interface FrostState {
   readonly deleteApiToken: StatusService
   readonly notificationBar: NotificationBarState
   readonly createApiTokens: StatusService
+  readonly changeNetworkBitcoin: NetworkBitcoin
 }
 
 export interface JWT {
@@ -63,4 +64,12 @@ export interface NotificationBarState {
   readonly type?: 'success' | 'fail'
   readonly action?: 'fade-in' | 'fade-out' | 'hide'
   readonly message?: string
+}
+
+export enum Network {
+  MAINNET = 'mainnet',
+  TESTNET = 'testnet',
+}
+export interface NetworkBitcoin {
+  readonly network: Network
 }

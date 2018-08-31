@@ -1,4 +1,5 @@
-import { NotificationBarState } from 'interfaces/Props'
+import { NotificationBarState, Network } from 'interfaces/Props'
+
 export namespace Actions {
   export namespace SignUp {
     export const SIGN_UP = 'SIGN_UP'
@@ -312,6 +313,15 @@ export namespace Actions {
 
     export const onResetNotificationBar = () => ({
       type: RESET_NOTIFICATION_BAR,
+    })
+  }
+
+  export namespace ToogleNetworkBitcoin {
+    export const CHANGE_NETWORK = 'CHANGE_NETWORK'
+
+    export const onChangeNetwork = (payload?: Network) => ({
+      type: CHANGE_NETWORK,
+      payload,
     })
   }
 }
