@@ -1,6 +1,8 @@
 # Frost Web
 
 [![Build Status](https://travis-ci.org/poetapp/frost-web.svg?branch=master)](https://travis-ci.org/poetapp/frost-web)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![Join the chat at https://gitter.im/poetapp/Lobby](https://badges.gitter.im/poetapp/Lobby.svg)](https://gitter.im/poetapp/Lobby)
 
 Frost Web is the front-end to Po.et's Frost API for managing accounts and API tokens.
 
