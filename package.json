@@ -80,7 +80,7 @@
     "@storybook/addon-links": "3.4.6",
     "@storybook/addons": "3.4.6",
     "@storybook/react": "3.4.6",
-    "@types/babel-core": "6.25.3",
+    "@types/babel-core": "6.25.5",
     "@types/cheerio": "0.22.7",
     "@types/classnames": "2.2.3",
     "@types/copy-webpack-plugin": "4.4.1",
