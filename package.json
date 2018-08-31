@@ -105,7 +105,7 @@
     "@types/storybook__addon-links": "3.3.2",
     "@types/storybook__react": "3.0.9",
     "@types/webpack": "4.1.4",
-    "@types/webpack-dev-middleware": "2.0.1",
+    "@types/webpack-dev-middleware": "2.0.2",
     "@types/webpack-dev-server": "2.9.4",
     "@types/webpack-hot-middleware": "2.16.3",
     "awesome-typescript-loader": "3.0.0-beta.17",
