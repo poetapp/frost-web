@@ -1,3 +1,4 @@
+import { changeNetworkBitcoin } from './ChangeNetworkBitcoin.reducer'
 import { changePassword } from './ChangePassword.reducer'
 import { changePasswordToken } from './ChangePasswordToken.reducer'
 import { createApiTokens } from './CreateApiTokens.reducer'
@@ -32,4 +33,5 @@ export const reducers = {
   getApiTokens,
   createApiTokens,
   notificationBar,
+  changeNetworkBitcoin,
 }
