@@ -56,7 +56,7 @@
     "@paralleldrive/react-feature-toggles": "2.0.0-beta2",
     "@poetapp/frost-client": "0.1.4",
     "classnames": "2.2.6",
-    "formdata-polyfill": "3.0.10",
+    "formdata-polyfill": "3.0.11",
     "isomorphic-fetch": "2.2.1",
     "moment": "2.22.1",
     "prop-types": "15.6.1",
