@@ -124,7 +124,7 @@
     "ignore-styles": "5.0.1",
     "json-loader": "0.5.7",
     "json-server": "0.12.2",
-    "lint-staged": "7.1.0",
+    "lint-staged": "7.2.2",
     "local-web-server": "2.5.2",
     "node-sass": "4.9.0",
     "nyc": "github:poetapp/nyc#fbc2ed1",
