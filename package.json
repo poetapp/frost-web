@@ -134,7 +134,7 @@
     "riteway": "2.0.4",
     "sass-loader": "4.1.1",
     "sinon": "6.1.5",
-    "source-map-loader": "0.2.3",
+    "source-map-loader": "0.2.4",
     "storybook-addon-jsx": "5.4.0",
     "style-loader": "0.23.0",
     "stylelint": "9.2.0",
