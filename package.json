@@ -136,7 +136,7 @@
     "sinon": "6.1.5",
     "source-map-loader": "0.2.3",
     "storybook-addon-jsx": "5.4.0",
-    "style-loader": "0.21.0",
+    "style-loader": "0.23.0",
     "stylelint": "9.2.0",
     "testcafe": "0.19.2",
     "ts-node": "6.1.1",
