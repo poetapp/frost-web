@@ -14,7 +14,7 @@
     "lint:fix": "tslint -p ./tsconfig.json --fix",
     "serve": "ws --spa index.html --rewrite '/api/* -> http://localhost:3000/$1' -d ./dist",
     "test": "npm run test:unit",
-    "test:unit": "ts-node -r ignore-styles -r tsconfig-paths/register tests/unit/index.ts",
+    "test:unit": "ts-node --files -r ignore-styles -r tsconfig-paths/register tests/unit/index.ts",
     "test:functional": "testcafe -c ${RUNNER_COUNT:-1} ${RUNNER:-chrome:headless,firefox:headless} tests/functional/features",
     "coverage": "nyc --report-dir ./.coverage npm run test:unit",
     "stylelint": "stylelint './src/**/*.scss'",
