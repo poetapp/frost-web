@@ -2,10 +2,6 @@ import { LoadingPage } from 'components/atoms/LoadingPage/LoadingPage'
 import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
 import { NotificationBar } from 'components/atoms/NotificationBar/NotificationBar'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
-<<<<<<< HEAD
-import { Toggle } from 'components/atoms/Toggle/Toggle'
-=======
->>>>>>> add state toggle Network in redux
 import { NotificationBarState } from 'interfaces/Props'
 import * as React from 'react'
 
