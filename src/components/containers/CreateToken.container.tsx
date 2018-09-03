@@ -1,6 +1,6 @@
 import { Actions } from 'actions'
 import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
-import { FrostState, StatusService, User, ModalState } from 'interfaces/Props'
+import { FrostState, StatusService, User, ModalState, Network } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
@@ -14,12 +14,13 @@ interface CreateTokenContainerProps {
   readonly sendEmailVerifiedAccount: StatusService
   readonly createApiTokens: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
-  readonly onCreateApiToken?: (data: DataAction) => Action
+  readonly onCreateApiToken?: (data: { readonly token: string; readonly network: Network }) => Action
   readonly onShowModal?: (payload: { readonly modal: string; readonly data: object }) => Action
   readonly onHideModal?: () => Action
   readonly onDeleteApiToken?: (payload: { readonly token: string; readonly apiToken: string }) => Action
   readonly modal: ModalState
   readonly deleteApiToken: StatusService
+  readonly network: Network
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
@@ -28,6 +29,7 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   createApiTokens: state.createApiTokens,
   modal: state.modal,
   deleteApiToken: state.deleteApiToken,
+  network: state.changeNetworkBitcoin.network,
 })
 
 const { onCreateApiToken } = Actions.ApiTokens
@@ -59,7 +61,7 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
     showVerifiedAccount={props.user.profile.verified}
     sendEmailVarifiedAccount={() => props.onSendEmailVerifiedAccount({ token: props.user.token })}
     retryWait={props.sendEmailVerifiedAccount.retryWait}
-    onCreateApiToken={() => props.onCreateApiToken({ token: props.user.token })}
+    onCreateApiToken={() => props.onCreateApiToken({ token: props.user.token, network: props.network })}
     submitDisabled={props.createApiTokens.loading}
     onDeleteToken={() => deleteToken(props.modal, props.onDeleteApiToken, props.user)}
     onShowModal={(apiToken: string) => props.onShowModal({ modal: MODAL_DELETE_TOKEN, data: { apiToken } })}
