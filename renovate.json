@@ -4,5 +4,8 @@
   ],
   "labels": [
     "dependencies"
-  ]
+  ],
+  "packageRules": [{
+    "excludePackageNames": ["react-router"]
+  }]
 }
