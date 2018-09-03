@@ -110,7 +110,7 @@
     "@types/webpack-hot-middleware": "2.16.4",
     "awesome-typescript-loader": "3.5.0",
     "babel-core": "6.26.3",
-    "babel-loader": "8.0.1",
+    "babel-loader": "8.0.2",
     "cheerio": "1.0.0-rc.2",
     "circular-dependency-plugin": "4.4.0",
     "copy-webpack-plugin": "4.5.2",
