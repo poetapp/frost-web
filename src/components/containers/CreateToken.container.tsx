@@ -68,6 +68,7 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
     onCloseModal={() => props.onHideModal()}
     showDeleteModal={props.modal.modal === MODAL_DELETE_TOKEN}
     disabledButton={props.deleteApiToken.loading}
+    network={props.network}
   />
 )
 
