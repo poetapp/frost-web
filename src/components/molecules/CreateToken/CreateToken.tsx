@@ -2,6 +2,8 @@ import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
 import { DeleteToken } from 'components/modals/DeleteToken/DeleteToken'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
+import { Network } from 'interfaces/Props'
+
 import * as React from 'react'
 import './CreateToken.scss'
 
@@ -17,7 +19,10 @@ interface CreateTokenProps {
   readonly disabledButton: boolean
   readonly onCreateApiToken: (event: React.SyntheticEvent) => void
   readonly submitDisabled: boolean
+  readonly network: Network
 }
+
+const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
 
 export const CreateToken = (props: CreateTokenProps) => (
   <div className={'CreateToken'}>
@@ -35,7 +40,7 @@ export const CreateToken = (props: CreateTokenProps) => (
     />
     <Button
       className={'CreateToken__button'}
-      text={'Get API Key'}
+      text={`Get API Key for ${capitalize(props.network)}`}
       onClick={props.onCreateApiToken}
       disabled={props.submitDisabled}
     />
