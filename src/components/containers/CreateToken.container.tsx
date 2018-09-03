@@ -69,4 +69,7 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
   />
 )
 
-export const CreateTokenContainer = connect(mapStateToProps, mapDispatch)(createToken)
+export const CreateTokenContainer = connect(
+  mapStateToProps,
+  mapDispatch
+)(createToken)

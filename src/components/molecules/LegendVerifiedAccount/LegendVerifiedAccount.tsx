@@ -15,11 +15,8 @@ export const LegendVerifiedAccount = (props: LegendVerifiedAccountProps) => (
       <p className={'LegendVerifiedAccount__text'}>Please, verify your email account.</p>
     ) : (
       <p className={'LegendVerifiedAccount__text'}>
-        Please verify your email address.<Button
-          onClick={props.onClick}
-          className={'LegendVerifiedAccount__button'}
-          text={'Resend Email'}
-        />
+        Please verify your email address.
+        <Button onClick={props.onClick} className={'LegendVerifiedAccount__button'} text={'Resend Email'} />
       </p>
     )}
   </div>

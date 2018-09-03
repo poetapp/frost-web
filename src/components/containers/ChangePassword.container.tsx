@@ -28,7 +28,10 @@ const mapDispatch = {
   onChangePassword: Actions.ChangePasswordToken.onChangePassword,
 }
 
-export const ChangePasswordContainer = connect(mapStateToProps, mapDispatch)(
+export const ChangePasswordContainer = connect(
+  mapStateToProps,
+  mapDispatch
+)(
   class extends React.Component<ChangePasswordContainerProps & Router, undefined> {
     readonly onChangePassword = (data: DataForm): void => {
       const { onChangePassword } = this.props
