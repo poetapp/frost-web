@@ -6,6 +6,10 @@
     "dependencies"
   ],
   "packageRules": [{
-    "excludePackageNames": ["react-router"]
+    "excludePackageNames": [
+      "react-router", 
+      "webpack-dev-server",
+      "@types/webpack-dev-server"
+    ]
   }]
 }
