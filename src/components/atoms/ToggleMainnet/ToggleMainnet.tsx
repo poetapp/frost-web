@@ -25,7 +25,7 @@ export const ToggleMainnet = (props: ToggleMainnetProps) => (
       className={'ToggleMainnet__toggle'}
       disabled={props.disabled}
       on={props.on}
-      onClick={e => onToogle(e, props.onToogle)}
+      onClick={(e: Event): void => onToogle(e, props.onToogle)}
     />
     <span className={'ToggleMainnet__toggle-text'}>Mainnet</span>
   </div>
