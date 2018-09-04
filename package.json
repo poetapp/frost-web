@@ -106,7 +106,7 @@
     "@types/storybook__react": "3.0.9",
     "@types/webpack": "4.1.4",
     "@types/webpack-dev-middleware": "2.0.2",
-    "@types/webpack-dev-server": "2.9.6",
+    "@types/webpack-dev-server": "3.1.0",
     "@types/webpack-hot-middleware": "2.16.4",
     "awesome-typescript-loader": "3.5.0",
     "babel-core": "6.26.3",
@@ -146,7 +146,7 @@
     "typescript": "3.0.3",
     "webpack": "3.12.0",
     "webpack-dev-middleware": "3.2.0",
-    "webpack-dev-server": "1.16.5",
+    "webpack-dev-server": "3.1.7",
     "webpack-hot-middleware": "2.23.1"
   }
 }
