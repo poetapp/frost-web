@@ -11,15 +11,17 @@ export const TextPrivacy = (props: TextPrivacyProps) => (
     <h2>Introduction</h2>
     <p>
       Poet Technology Limited (<strong>"Company"</strong>
-      or<strong>&nbsp;"We"</strong>) respects your privacy and is committed to protecting it through our compliance with
+      or
+      <strong>&nbsp;"We"</strong>) respects your privacy and is committed to protecting it through our compliance with
       this policy.
     </p>
     <p>
       This policy describes the types of information we may collect from you or that you may provide when you visit the
-      website <a href="http://www.po.et/">www.po.et/</a> (our "<strong>Website</strong>") and our practices for
-      collecting, using, maintaining, protecting, and disclosing that information.&nbsp; By submitting personal
-      information through the site or Services, you agree to the terms of this Privacy Policy, and you expressly consent
-      to the collection, use and disclosure of your personal information in accordance with this Privacy Policy.
+      website <a href="http://www.po.et/">www.po.et/</a> (our "<strong>Website</strong>
+      ") and our practices for collecting, using, maintaining, protecting, and disclosing that information.&nbsp; By
+      submitting personal information through the site or Services, you agree to the terms of this Privacy Policy, and
+      you expressly consent to the collection, use and disclosure of your personal information in accordance with this
+      Privacy Policy.
     </p>
     <p>This policy applies to information we collect:</p>
     <p>· On this Website.</p>
@@ -68,7 +70,9 @@ export const TextPrivacy = (props: TextPrivacyProps) => (
     <p>
       ·&nbsp; by which you may be personally identified, such as name, date of birth, postal address, e-mail address,
       telephone number, government ID number, account information or any other identifier by which you may be contacted
-      online or offline ("<strong>personal information</strong>");
+      online or offline ("
+      <strong>personal information</strong>
+      ");
     </p>
     <p>· about your internet connection, the equipment you use to access our Website and usage details.</p>
     <p>We collect this information:</p>
@@ -93,14 +97,13 @@ export const TextPrivacy = (props: TextPrivacyProps) => (
     <p>· Your responses to surveys that we might ask you to complete for research purposes.</p>
     <p>· Your search queries on the Website.</p>
     <p>
-      You also may provide information to be published or displayed (hereinafter, "<strong>posted</strong>") on public
-      areas of the Website, or transmitted to other users of the Website or third parties (collectively, "<strong>
-        User Contributions
-      </strong>"). Your User Contributions are posted on and transmitted to others at your own risk. Although we limit
-      access to certain pages, please be aware that no security measures are perfect or impenetrable. Additionally, we
-      cannot control the actions of other users of the Website with whom you may choose to share your User
-      Contributions. Therefore, we cannot and do not guarantee that your User Contributions will not be viewed by
-      unauthorized persons.
+      You also may provide information to be published or displayed (hereinafter, "<strong>posted</strong>
+      ") on public areas of the Website, or transmitted to other users of the Website or third parties (collectively, "
+      <strong>User Contributions</strong>
+      "). Your User Contributions are posted on and transmitted to others at your own risk. Although we limit access to
+      certain pages, please be aware that no security measures are perfect or impenetrable. Additionally, we cannot
+      control the actions of other users of the Website with whom you may choose to share your User Contributions.
+      Therefore, we cannot and do not guarantee that your User Contributions will not be viewed by unauthorized persons.
     </p>
     <h2>Information We Collect Through Automatic Data Collection Technologies.&nbsp;</h2>
     <p>
@@ -135,25 +138,26 @@ export const TextPrivacy = (props: TextPrivacyProps) => (
     <p>The technologies we use for this automatic data collection may include:</p>
     <p>&nbsp;</p>
     <p>
-      ·&nbsp;<strong>Cookies (or browser cookies).</strong> A cookie is a small file placed on the hard drive of your
-      computer. You may refuse to accept browser cookies by activating the appropriate setting on your browser. However,
-      if you select this setting you may be unable to access certain parts of our Website. Unless you have adjusted your
+      ·&nbsp;
+      <strong>Cookies (or browser cookies).</strong> A cookie is a small file placed on the hard drive of your computer.
+      You may refuse to accept browser cookies by activating the appropriate setting on your browser. However, if you
+      select this setting you may be unable to access certain parts of our Website. Unless you have adjusted your
       browser setting so that it will refuse cookies, our system will issue cookies when you direct your browser to our
       Website.{' '}
     </p>
     <p>
-      ·&nbsp;<strong>Flash Cookies.</strong> Certain features of our Website may use local stored objects (or Flash
-      cookies) to collect and store information about your preferences and navigation to, from, and on our Website.
-      Flash cookies are not managed by the same browser settings as are used for browser cookies. For information about
-      managing your privacy and security settings for Flash cookies, see Choices About How We Use and Disclose Your
-      Information.
+      ·&nbsp;
+      <strong>Flash Cookies.</strong> Certain features of our Website may use local stored objects (or Flash cookies) to
+      collect and store information about your preferences and navigation to, from, and on our Website. Flash cookies
+      are not managed by the same browser settings as are used for browser cookies. For information about managing your
+      privacy and security settings for Flash cookies, see Choices About How We Use and Disclose Your Information.
     </p>
     <p>
-      ·&nbsp;<strong>Web Beacons.</strong> Pages of our the Website and our e-mails may contain small electronic files
-      known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company,
-      for example, to count users who have visited those pages or opened an email and for other related website
-      statistics (for example, recording the popularity of certain website content and verifying system and server
-      integrity).{' '}
+      ·&nbsp;
+      <strong>Web Beacons.</strong> Pages of our the Website and our e-mails may contain small electronic files known as
+      web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for
+      example, to count users who have visited those pages or opened an email and for other related website statistics
+      (for example, recording the popularity of certain website content and verifying system and server integrity).{' '}
     </p>
     <p>
       We do not collect personal information automatically, but we may tie this information to personal information
@@ -284,9 +288,9 @@ export const TextPrivacy = (props: TextPrivacyProps) => (
     <p>
       We do not control third parties' collection or use of your information to serve interest-based advertising.
       However these third parties may provide you with ways to choose not to have your information collected or used in
-      this way. You can opt out of receiving targeted ads from members of the Network Advertising Initiative ("<strong>
-        NAI
-      </strong>") on the NAI's website.
+      this way. You can opt out of receiving targeted ads from members of the Network Advertising Initiative ("
+      <strong>NAI</strong>
+      ") on the NAI's website.
     </p>
     <h2>Accessing and Correcting Your Information</h2>
     <p>
@@ -329,7 +333,8 @@ export const TextPrivacy = (props: TextPrivacyProps) => (
     <h2>Contact Information</h2>
     <p>To ask questions or comment about this privacy policy and our privacy practices, contact us at: </p>
     <p>
-      <a href="mailto:privacy@po.et">privacy@Po.et</a>&nbsp;
+      <a href="mailto:privacy@po.et">privacy@Po.et</a>
+      &nbsp;
     </p>
   </div>
 )

@@ -11,8 +11,8 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
     <p>Last Modified: May 8, 2018</p>
     <p>
       This API License Agreement (this <strong>"Agreement"</strong>) is a binding contract between you ("you" or "your")
-      and Poet Technology Limited (<strong>"Company," "we,"</strong> or <strong>"us"</strong>). This Agreement governs
-      your access to and use of the Frost application programming interface.
+      and Poet Technology Limited (<strong>"Company," "we,"</strong> or <strong>"us"</strong>
+      ). This Agreement governs your access to and use of the Frost application programming interface.
     </p>
     <p>
       BY CLICKING THE "I ACCEPT" BUTTON YOU (A) ACKNOWLEDGE THAT YOU HAVE READ AND UNDERSTAND THIS AGREEMENT; (B)
@@ -78,44 +78,52 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
         available at{' '}
         <a target="_blank" href="https://frost.po.et/">
           frost.po.et
-        </a>. You may not share your API Key with any third party, must keep your API Key and all login information
-        secure, and must use the API Key as your sole means of accessing the API. Your API Key may be revoked at any
-        time by us.
+        </a>
+        . You may not share your API Key with any third party, must keep your API Key and all login information secure,
+        and must use the API Key as your sole means of accessing the API. Your API Key may be revoked at any time by us.
       </li>
       <li>
         <u>Use Restrictions</u>. Except as expressly authorized under this Agreement, you may not:
         <ol className={'TextDisclaimer__title__number-list__letter-list'}>
           <li>
-            <span />copy, modify, or create derivative works of the API, in whole or in part;
+            <span />
+            copy, modify, or create derivative works of the API, in whole or in part;
           </li>
           <li>
-            <span />rent, lease, lend, sell, license, sublicense, assign, distribute, publish, transfer, or otherwise
-            make available the API;
+            <span />
+            rent, lease, lend, sell, license, sublicense, assign, distribute, publish, transfer, or otherwise make
+            available the API;
           </li>
           <li>
-            <span />reverse engineer, disassemble, decompile, decode, adapt, or otherwise attempt to derive or gain
-            access to any software component of the API, in whole or in part;
+            <span />
+            reverse engineer, disassemble, decompile, decode, adapt, or otherwise attempt to derive or gain access to
+            any software component of the API, in whole or in part;
           </li>
           <li>remove any proprietary notices from the API;</li>
           <li>
-            <span />use the API in any manner or for any purpose that infringes, misappropriates, or otherwise violates
-            any intellectual property right or other right of any person, or that violates any applicable law;
+            <span />
+            use the API in any manner or for any purpose that infringes, misappropriates, or otherwise violates any
+            intellectual property right or other right of any person, or that violates any applicable law;
           </li>
           <li>
-            <span />combine or integrate the API with any software, technology, services, or materials not authorized by
+            <span />
+            combine or integrate the API with any software, technology, services, or materials not authorized by
             Company;
           </li>
           <li>
-            <span />design or permit Your Application(s) to disable, override, or otherwise interfere with any
+            <span />
+            design or permit Your Application(s) to disable, override, or otherwise interfere with any
             Company-implemented communications to end users, consent screens, user settings, alerts, warning, or the
             like;
           </li>
           <li>
-            <span />use the API in any of Your Application(s) to replicate or attempt to replace the user experience of
-            the Company Offering; or
+            <span />
+            use the API in any of Your Application(s) to replicate or attempt to replace the user experience of the
+            Company Offering; or
           </li>
           <li>
-            <span />attempt to cloak or conceal your identity or the identity of Your Application(s) when requesting
+            <span />
+            attempt to cloak or conceal your identity or the identity of Your Application(s) when requesting
             authorization to use the API.
           </li>
         </ol>
@@ -145,10 +153,11 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
       <li>
         <u>No Support; Updates</u>. This Agreement does not entitle you to any support for the API. You acknowledge that
         we may update or modify the API from time to time and at our sole discretion (in each instance, an{' '}
-        <strong>"Update"</strong>), and may require you to obtain and use the most recent version(s). You are required
-        to make any such changes to Your Applications that are required for integration as a result of such Update at
-        your sole cost and expense. Updates may adversely affect how Your Applications communicate with the Company
-        Offering. Your continued use of the API following an Update constitutes binding acceptance of the Update.
+        <strong>"Update"</strong>
+        ), and may require you to obtain and use the most recent version(s). You are required to make any such changes
+        to Your Applications that are required for integration as a result of such Update at your sole cost and expense.
+        Updates may adversely affect how Your Applications communicate with the Company Offering. Your continued use of
+        the API following an Update constitutes binding acceptance of the Update.
       </li>
       <li>
         <u>No Fees</u>. You agree that no license fees or other payments will be due under this Agreement in exchange

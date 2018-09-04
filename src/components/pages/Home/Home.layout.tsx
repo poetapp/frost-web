@@ -16,7 +16,8 @@ export const HomeLayout = () => (
         <div>
           <LogoPoetWhite className={'Home__cover-page__box__logo'} />
           <h1 className={'Home__cover-page__box__title'}>
-            An Open API Layer <br />for Publishers
+            An Open API Layer <br />
+            for Publishers
           </h1>
           <p className={'Home__cover-page__box__description'}>
             Frost is an open API for developing integrations, registering works, and integrating your web app to the

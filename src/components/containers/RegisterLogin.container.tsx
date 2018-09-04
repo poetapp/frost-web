@@ -32,7 +32,10 @@ const mapDispatch = {
   onSubmitSignIn: Actions.SignIn.onSignIn,
 }
 
-export const RegisterLoginContainer = connect(mapStateToProps, mapDispatch)(
+export const RegisterLoginContainer = connect(
+  mapStateToProps,
+  mapDispatch
+)(
   class extends React.Component<RegisterLoginContainerProps, undefined> {
     readonly onSubmitSignUp = (data: DataFormSignUp): void => {
       const { onSubmitSignUp } = this.props

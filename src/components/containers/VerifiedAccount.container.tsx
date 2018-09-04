@@ -17,7 +17,10 @@ const mapDispatch = {
   onVerifiedAccount: Actions.VerifiedAccount.onVerifiedAccount,
 }
 
-export const VerifiedAccountContainer = connect(undefined, mapDispatch)(
+export const VerifiedAccountContainer = connect(
+  undefined,
+  mapDispatch
+)(
   class extends React.Component<VerifiedAccountContainerProps, undefined> {
     componentDidMount(): void {
       const { onVerifiedAccount } = this.props

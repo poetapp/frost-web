@@ -19,6 +19,9 @@ export abstract class PageLoader<State, Properties> {
   }
 
   protected container(): ComponentClass<object> {
-    return connect(this.select.bind(this), this.mapDispatchToProps())(this.component)
+    return connect(
+      this.select.bind(this),
+      this.mapDispatchToProps()
+    )(this.component)
   }
 }
