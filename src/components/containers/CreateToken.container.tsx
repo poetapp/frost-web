@@ -1,5 +1,6 @@
 import { Actions } from 'actions'
 import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
+import { parseJwt } from 'helpers'
 import { FrostState, StatusService, User, ModalState, Network } from 'interfaces/Props'
 import * as React from 'react'
 import { connect } from 'react-redux'
@@ -55,9 +56,12 @@ const deleteToken = (
   onDeleteApiToken({ token, apiToken })
 }
 
+const getApiTokenByNetwork = (apiTokens: ReadonlyArray<string>, network: Network): ReadonlyArray<string> =>
+  apiTokens.filter((apiToken: string) => parseJwt(apiToken).network === network)
+
 const createToken = (props: CreateTokenContainerProps): JSX.Element => (
   <CreateToken
-    boxToken={props.user.profile.apiTokens}
+    boxToken={getApiTokenByNetwork(props.user.profile.apiTokens, props.network)}
     showVerifiedAccount={props.user.profile.verified}
     sendEmailVarifiedAccount={() => props.onSendEmailVerifiedAccount({ token: props.user.token })}
     retryWait={props.sendEmailVerifiedAccount.retryWait}
