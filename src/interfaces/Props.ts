@@ -53,6 +53,7 @@ export interface FrostState {
 export interface JWT {
   readonly iat: Date
   readonly exp: Date
+  readonly network: Network
 }
 
 export interface ModalState {
