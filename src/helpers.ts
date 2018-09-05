@@ -1,4 +1,4 @@
-import { JWT } from 'interfaces/Props'
+import { JWT, Network } from 'interfaces/Props'
 
 const timestampToDateJS = (timestamp: number) => new Date(timestamp * 1000)
 
@@ -9,7 +9,7 @@ export const parseJwt = (token: string): JWT => {
   return {
     iat: timestampToDateJS(parsedToken.iat),
     exp: parsedToken.exp && timestampToDateJS(parsedToken.exp),
-    network: parsedToken.network,
+    network: parsedToken.network || Network.MAINNET,
   }
 }
 
