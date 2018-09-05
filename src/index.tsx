@@ -9,6 +9,8 @@ import { Actions } from 'actions'
 import { Layout } from 'components/Root'
 import { createPoetStore } from 'store'
 
+import 'react-toastify/dist/ReactToastify.css'
+
 async function init(): Promise<void> {
   const { store, pages } = await createPoetStore()
   const routes = pages
