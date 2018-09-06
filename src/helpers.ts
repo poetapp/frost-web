@@ -9,7 +9,7 @@ export const parseJwt = (token: string): JWT => {
   return {
     iat: timestampToDateJS(parsedToken.iat),
     exp: parsedToken.exp && timestampToDateJS(parsedToken.exp),
-    network: parsedToken.network || Network.MAINNET,
+    network: parsedToken.network || Network.TESTNET,
   }
 }
 
