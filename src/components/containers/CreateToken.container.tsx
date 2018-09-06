@@ -64,7 +64,8 @@ const getApiTokenByNetwork = (network: Network) => (apiTokens: ReadonlyArray<str
   apiTokens.filter((apiToken: string) => parseJwt(apiToken).network === network)
 
 const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
-const isActiveToggleNetwork = () => isActive(FeatureName.ToggleNetwork, getCurrentActiveFeatures({ initialFeatures }))
+const isActiveToggleNetwork = () =>
+  isActiveFeatureName(FeatureName.ToggleNetwork, getCurrentActiveFeatureNames({ initialFeatures }))
 const getTextButtonByNetwork = (network: Network) => `Get API Key for ${capitalize(network)}`
 const getTextButton = () => 'Get API Key'
 const getTextCreateTokenButton = (network: Network) =>
