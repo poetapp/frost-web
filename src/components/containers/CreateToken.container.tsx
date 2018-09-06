@@ -63,11 +63,11 @@ const deleteToken = (
 const getApiTokenByNetwork = (network: Network) => (apiTokens: ReadonlyArray<string>): ReadonlyArray<string> =>
   apiTokens.filter((apiToken: string) => parseJwt(apiToken).network === network)
 
-const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
+export const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
 const isActiveToggleNetwork = () =>
   isActiveFeatureName(FeatureName.ToggleNetwork, getCurrentActiveFeatureNames({ initialFeatures }))
-const getTextButtonByNetwork = (network: Network) => `Get API Key for ${capitalize(network)}`
-const getTextButton = () => 'Get API Key'
+export const getTextButtonByNetwork = (network: Network) => `Get API Key for ${capitalize(network)}`
+export const getTextButton = () => 'Get API Key'
 const getTextCreateTokenButton = (network: Network) =>
   ifElse(isActiveToggleNetwork, getTextButtonByNetwork, getTextButton)(network)
 const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, identity, () => undefined)(network)
