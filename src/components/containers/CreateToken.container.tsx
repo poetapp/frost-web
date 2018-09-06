@@ -1,4 +1,4 @@
-import { isActive, getCurrentActiveFeatures } from '@paralleldrive/react-feature-toggles'
+import { getCurrentActiveFeatureNames, isActiveFeatureName } from '@paralleldrive/feature-toggles'
 import { ifElse, identity } from 'ramda'
 import * as React from 'react'
 import { connect } from 'react-redux'
@@ -64,7 +64,8 @@ const getApiTokenByNetwork = (network: Network) => (apiTokens: ReadonlyArray<str
   apiTokens.filter((apiToken: string) => parseJwt(apiToken).network === network)
 
 const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
-const isActiveToggleNetwork = () => isActive('toggle-network', getCurrentActiveFeatures({ initialFeatures }))
+const isActiveToggleNetwork = () =>
+  isActiveFeatureName('toggle-network', getCurrentActiveFeatureNames({ initialFeatures }))
 const getTextButtonByNetwork = (network: Network) => `Get API Key for ${capitalize(network)}`
 const getTextButton = () => 'Get API Key'
 const getTextCreateTokenButton = (network: Network) =>
