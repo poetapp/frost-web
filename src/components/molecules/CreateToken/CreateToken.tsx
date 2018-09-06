@@ -20,9 +20,8 @@ interface CreateTokenProps {
   readonly onCreateApiToken: (event: React.SyntheticEvent) => void
   readonly submitDisabled: boolean
   readonly network: Network
+  readonly textCreateTokenButton: string
 }
-
-const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
 
 export const CreateToken = (props: CreateTokenProps) => (
   <div className={'CreateToken'}>
@@ -40,7 +39,7 @@ export const CreateToken = (props: CreateTokenProps) => (
     />
     <Button
       className={'CreateToken__button'}
-      text={`Get API Key for ${capitalize(props.network)}`}
+      text={props.textCreateTokenButton}
       onClick={props.onCreateApiToken}
       disabled={props.submitDisabled}
     />
