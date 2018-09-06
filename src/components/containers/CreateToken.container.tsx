@@ -6,7 +6,7 @@ import { Action } from 'redux'
 
 import { Actions } from 'actions'
 import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
-import { initialFeatures } from 'config/features'
+import { initialFeatures, FeatureName } from 'config/features'
 import { parseJwt } from 'helpers'
 import { FrostState, StatusService, User, ModalState, Network } from 'interfaces/Props'
 
@@ -64,8 +64,7 @@ const getApiTokenByNetwork = (network: Network) => (apiTokens: ReadonlyArray<str
   apiTokens.filter((apiToken: string) => parseJwt(apiToken).network === network)
 
 const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
-const isActiveToggleNetwork = () =>
-  isActiveFeatureName('toggle-network', getCurrentActiveFeatureNames({ initialFeatures }))
+const isActiveToggleNetwork = () => isActive(FeatureName.ToggleNetwork, getCurrentActiveFeatures({ initialFeatures }))
 const getTextButtonByNetwork = (network: Network) => `Get API Key for ${capitalize(network)}`
 const getTextButton = () => 'Get API Key'
 const getTextCreateTokenButton = (network: Network) =>
