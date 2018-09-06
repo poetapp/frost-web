@@ -7,6 +7,7 @@ import { Router, Route, browserHistory } from 'react-router'
 
 import { Actions } from 'actions'
 import { Layout } from 'components/Root'
+import { features } from 'feature-toggles/initialFeatures'
 import { createPoetStore } from 'store'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -58,7 +59,7 @@ async function init(): Promise<void> {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <FeatureToggles>
+        <FeatureToggles features={features}>
           <Router history={browserHistory}>
             <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
               {routes}
