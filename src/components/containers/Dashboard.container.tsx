@@ -2,7 +2,7 @@ import { DashboardTemplate } from 'components/templates/DashboardTemplate/Dashbo
 import { FrostState, NotificationBarState } from 'interfaces/Props'
 import * as React from 'react'
 
-import { toggleNetwork } from 'feature-toggles/features'
+import { toggleNetwork } from 'components/feature-toggles/features'
 import { connect } from 'react-redux'
 import { LogoutContainer } from './Logout.container'
 import { NavigationContainer } from './Navigation.container'

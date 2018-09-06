@@ -1,3 +1,4 @@
+import { getCurrentActiveFeatureNames } from '@paralleldrive/feature-toggles'
 import { FeatureToggles } from '@paralleldrive/react-feature-toggles'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
@@ -7,7 +8,7 @@ import { Router, Route, browserHistory } from 'react-router'
 
 import { Actions } from 'actions'
 import { Layout } from 'components/Root'
-import { features } from 'feature-toggles/initialFeatures'
+import { initialFeatures } from 'config/features'
 import { createPoetStore } from 'store'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -59,7 +60,7 @@ async function init(): Promise<void> {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <FeatureToggles features={features}>
+        <FeatureToggles features={getCurrentActiveFeatureNames({ initialFeatures })}>
           <Router history={browserHistory}>
             <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
               {routes}
