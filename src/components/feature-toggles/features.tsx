@@ -5,5 +5,9 @@ import { FeatureName } from 'config/features'
 import * as React from 'react'
 
 export const toggleNetwork = () => (
-  <Feature name={FeatureName.ToggleNetwork} inactiveComponent={Toggle} activeComponent={ToggleNetworkContainer} />
+  <Feature
+    name={FeatureName.ToggleNetwork}
+    inactiveComponent={Toggle as React.StatelessComponent}
+    activeComponent={ToggleNetworkContainer}
+  />
 )

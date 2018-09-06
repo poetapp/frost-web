@@ -1,4 +1,5 @@
-import { FeatureToggles, getCurrentActiveFeatures } from '@paralleldrive/react-feature-toggles'
+import { getCurrentActiveFeatureNames } from '@paralleldrive/feature-toggles'
+import { FeatureToggles } from '@paralleldrive/react-feature-toggles'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
@@ -59,7 +60,7 @@ async function init(): Promise<void> {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <FeatureToggles features={getCurrentActiveFeatures({ initialFeatures })}>
+        <FeatureToggles features={getCurrentActiveFeatureNames({ initialFeatures })}>
           <Router history={browserHistory}>
             <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
               {routes}
