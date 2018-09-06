@@ -3,6 +3,6 @@ import { Toggle } from 'components/atoms/Toggle/Toggle'
 import { ToggleNetworkContainer } from 'components/containers/ToggleNetwork.container'
 import * as React from 'react'
 
-export const toggleNetowork = () => (
+export const toggleNetwork = () => (
   <Feature name="toggle" inactiveComponent={Toggle} activeComponent={ToggleNetworkContainer} />
 )
