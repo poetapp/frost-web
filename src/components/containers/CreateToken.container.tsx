@@ -1,14 +1,15 @@
-import { Actions } from 'actions'
-import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
-import { initialFeatures } from 'config/features'
-import { parseJwt } from 'helpers'
-import { FrostState, StatusService, User, ModalState, Network } from 'interfaces/Props'
+import { isActive, getCurrentActiveFeatures } from '@paralleldrive/react-feature-toggles'
 import { ifElse, identity } from 'ramda'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
 
-import { isActive, getCurrentActiveFeatures } from '@paralleldrive/react-feature-toggles'
+import { Actions } from 'actions'
+import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
+import { initialFeatures } from 'config/features'
+import { parseJwt } from 'helpers'
+import { FrostState, StatusService, User, ModalState, Network } from 'interfaces/Props'
+
 interface DataAction {
   readonly token: string
 }
