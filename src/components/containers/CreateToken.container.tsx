@@ -71,12 +71,10 @@ export const getTextButton = () => 'Get API Key'
 const getTextCreateTokenButton = (network: Network) =>
   ifElse(isActiveToggleNetwork, getTextButtonByNetwork, getTextButton)(network)
 const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, identity, () => undefined)(network)
-const getApiTokensByFT = (network: Network) => (apiTokens: ReadonlyArray<string>) =>
-  ifElse(isActiveToggleNetwork, getApiTokenByNetwork(network), identity)(apiTokens)
 
 const createToken = (props: CreateTokenContainerProps): JSX.Element => (
   <CreateToken
-    boxToken={getApiTokensByFT(props.network)(props.user.profile.apiTokens)}
+    boxToken={getApiTokenByNetwork(props.network)(props.user.profile.apiTokens)}
     showVerifiedAccount={props.user.profile.verified}
     sendEmailVarifiedAccount={() => props.onSendEmailVerifiedAccount({ token: props.user.token })}
     retryWait={props.sendEmailVerifiedAccount.retryWait}
