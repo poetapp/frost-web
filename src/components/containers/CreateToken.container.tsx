@@ -1,10 +1,14 @@
-import { Actions } from 'actions'
-import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
-import { parseJwt } from 'helpers'
-import { FrostState, StatusService, User, ModalState, Network } from 'interfaces/Props'
+import { getCurrentActiveFeatureNames, isActiveFeatureName } from '@paralleldrive/feature-toggles'
+import { ifElse, identity } from 'ramda'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { Action } from 'redux'
+
+import { Actions } from 'actions'
+import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
+import { initialFeatures, FeatureName } from 'config/features'
+import { parseJwt } from 'helpers'
+import { FrostState, StatusService, User, ModalState, Network } from 'interfaces/Props'
 
 interface DataAction {
   readonly token: string
@@ -56,16 +60,27 @@ const deleteToken = (
   onDeleteApiToken({ token, apiToken })
 }
 
-const getApiTokenByNetwork = (apiTokens: ReadonlyArray<string>, network: Network): ReadonlyArray<string> =>
+const getApiTokenByNetwork = (network: Network) => (apiTokens: ReadonlyArray<string>): ReadonlyArray<string> =>
   apiTokens.filter((apiToken: string) => parseJwt(apiToken).network === network)
+
+export const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
+const isActiveToggleNetwork = () =>
+  isActiveFeatureName(FeatureName.ToggleNetwork, getCurrentActiveFeatureNames({ initialFeatures }))
+export const getTextButtonByNetwork = (network: Network) => `Get API Key for ${capitalize(network)}`
+export const getTextButton = () => 'Get API Key'
+const getTextCreateTokenButton = (network: Network) =>
+  ifElse(isActiveToggleNetwork, getTextButtonByNetwork, getTextButton)(network)
+const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, identity, () => undefined)(network)
+const getApiTokensByFT = (network: Network) => (apiTokens: ReadonlyArray<string>) =>
+  ifElse(isActiveToggleNetwork, getApiTokenByNetwork(network), identity)(apiTokens)
 
 const createToken = (props: CreateTokenContainerProps): JSX.Element => (
   <CreateToken
-    boxToken={getApiTokenByNetwork(props.user.profile.apiTokens, props.network)}
+    boxToken={getApiTokensByFT(props.network)(props.user.profile.apiTokens)}
     showVerifiedAccount={props.user.profile.verified}
     sendEmailVarifiedAccount={() => props.onSendEmailVerifiedAccount({ token: props.user.token })}
     retryWait={props.sendEmailVerifiedAccount.retryWait}
-    onCreateApiToken={() => props.onCreateApiToken({ token: props.user.token, network: props.network })}
+    onCreateApiToken={() => props.onCreateApiToken({ token: props.user.token, network: getNetworkByFT(props.network) })}
     submitDisabled={props.createApiTokens.loading}
     onDeleteToken={() => deleteToken(props.modal, props.onDeleteApiToken, props.user)}
     onShowModal={(apiToken: string) => props.onShowModal({ modal: MODAL_DELETE_TOKEN, data: { apiToken } })}
@@ -73,6 +88,7 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
     showDeleteModal={props.modal.modal === MODAL_DELETE_TOKEN}
     disabledButton={props.deleteApiToken.loading}
     network={props.network}
+    textCreateTokenButton={getTextCreateTokenButton(props.network)}
   />
 )
 
