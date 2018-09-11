@@ -5,7 +5,7 @@
   "scripts": {
     "start": "NODE_ENV=development node devServer.js",
     "start:production": "NODE_ENV=production node devServer.js",
-    "build:development": "POET_ENV=development webpack --mode=production",
+    "build:development": "POET_ENV=development webpack --mode=development",
     "build:testing": "POET_ENV=testing webpack --mode=production",
     "build:preview": "stylelint './src/**/*.scss' && tslint -p ./tsconfig.json && npm run build:testing",
     "build:staging": "POET_ENV=staging webpack --mode=production",
