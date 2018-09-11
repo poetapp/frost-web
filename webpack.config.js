@@ -58,7 +58,7 @@ function getPlugins(environment) {
     }),
     // new webpack.optimize.splitChunks({ name: "vendor", filename: "vendor.js" }),
     // new webpack.optimize.splitChunks({ name: 'meta', chunks: ['vendor'], filename: "meta.js" }),
-    // extractor,
+    extractor,
     new HtmlWebpackPlugin({ title: 'Poet App', template: 'src/index.html' }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
@@ -96,21 +96,6 @@ function getPlugins(environment) {
     ...plugins,
     ...environmentSpecificPlugins,
   ]
-}
-
-const devServer = {
-  hot: true,
-  noInfo: true,
-  proxy: {
-    '/api': {
-      target: process.env.FROST_API || `http://${HOST_API_PROXY}:${PORT_API}`,
-      secure: false,
-      pathRewrite: {'^/api' : ''}
-    }
-  },
-  historyApiFallback: {
-    index: 'index.html'
-  }
 }
 
 module.exports = {
@@ -179,7 +164,6 @@ module.exports = {
   },
 
   plugins: getPlugins(environment),
-  devServer
 }
 
 /*
