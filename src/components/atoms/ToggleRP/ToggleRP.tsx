@@ -8,7 +8,7 @@ interface ToggleProps extends ClassNameProps {
   readonly children?: any
   readonly disabled?: boolean
   readonly on?: boolean
-  readonly onClick?: () => void
+  readonly onClick?: (e: Event) => void
 }
 
 interface ToggleState {
@@ -20,14 +20,15 @@ const callAll = (...fns: Array<(...args: any[]) => void>) => (...args: any[]) =>
 const noop = () => ({})
 
 export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
+  static readonly defaultProps = {
+    onClick: noop,
+  }
+
   readonly state = {
     on: this.props.on ? true : false,
   }
 
-  readonly toggle = () =>
-    this.setState({
-      on: !this.state.on,
-    })
+  readonly toggle = () => this.setState(prevState => ({ on: !prevState.on }))
 
   readonly getToggleProps = (props: { readonly onClick?: any } = {}) => ({
     onClick: callAll(props.onClick, this.toggle),
@@ -45,8 +46,15 @@ export class ToggleRP extends React.Component<ToggleProps, ToggleState> {
       <label className={classNames('ToggleRP', this.props.className)}>
         <input
           id={'test-id-input'}
-          onClick={this.props.disabled ? noop : callAll(this.props.onClick, this.toggle)}
-          checked={this.state.on}
+          onClick={
+            this.props.disabled
+              ? noop
+              : (e: any) => {
+                  this.props.onClick(e)
+                  this.setState(prevState => ({ on: !prevState.on }))
+                }
+          }
+          defaultChecked={this.props.on}
           disabled={this.props.disabled}
           type={'checkbox'}
         />
