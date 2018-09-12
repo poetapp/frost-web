@@ -7,9 +7,8 @@
   ],
   "packageRules": [{
     "excludePackageNames": [
-      "react-router", 
-      "webpack-dev-server",
-      "@types/webpack-dev-server"
+      "react-router",
+      "sass-loader"
     ]
   }]
 }

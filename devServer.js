@@ -8,7 +8,8 @@ const HOST_WEBPACK_SERVER = '0.0.0.0'
 const PORT_API = 3000
 const HOST_API_PROXY = isDockerized ? 'nginx' : HOST_WEBPACK_SERVER
 
-const compiler = webpack(config)
+const mode = 'development'
+const compiler = webpack({ ...config, mode })
 const server = new webpackDevServer(compiler, {
   hot: true,
   noInfo: true,
