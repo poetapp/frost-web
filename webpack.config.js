@@ -56,8 +56,6 @@ function getPlugins(environment) {
       // set the current working directory for displaying module paths
       cwd: process.cwd(),
     }),
-    new webpack.optimize.CommonsChunkPlugin({ name: "vendor", filename: "vendor.js" }),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'meta', chunks: ['vendor'], filename: "meta.js" }),
     extractor,
     new HtmlWebpackPlugin({ title: 'Poet App', template: 'src/index.html' }),
     new webpack.NoEmitOnErrorsPlugin(),
@@ -163,7 +161,7 @@ module.exports = {
     ],
   },
 
-  plugins: getPlugins(environment)
+  plugins: getPlugins(environment),
 }
 
 /*

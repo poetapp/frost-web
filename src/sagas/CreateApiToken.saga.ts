@@ -1,12 +1,13 @@
-import { Frost } from '@poetapp/frost-client'
+import { Frost } from '@po.et/frost-client'
 import { Actions } from 'actions/index'
+import { Network } from 'interfaces/Props'
 import { SagaIterator, delay } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-async function CreateApiTokenFrost(apiToken: string): Promise<{ readonly apiToken: string }> {
+async function CreateApiTokenFrost(apiToken: string, network: Network): Promise<{ readonly apiToken: string }> {
   const frost = new Frost({ host: '/api' })
-  return await frost.createApiToken(apiToken)
+  return await frost.createApiToken(apiToken, network)
 }
 
 export function CreateApiTokenSaga(): () => IterableIterator<ForkEffect> {
@@ -19,8 +20,8 @@ function* GetApiTokens(action: any): SagaIterator {
   try {
     yield put(Actions.LoadingPage.onLoadingOn())
     yield put(Actions.NotificationBar.onResetNotificationBar())
-    const { token } = action.payload
-    const { apiToken } = yield call(CreateApiTokenFrost, token)
+    const { token, network } = action.payload
+    const { apiToken } = yield call(CreateApiTokenFrost, token, network)
     yield put(Actions.ApiTokens.onCreateApiTokenSuccess(apiToken))
     yield put(
       Actions.NotificationBar.onShowNotificationBar({
