@@ -104,7 +104,7 @@
     "@types/redux-saga": "0.10.5",
     "@types/sinon": "5.0.2",
     "@types/storybook__addon-actions": "3.4.1",
-    "@types/storybook__addon-info": "3.4.1",
+    "@types/storybook__addon-info": "3.4.2",
     "@types/storybook__addon-knobs": "3.4.1",
     "@types/storybook__addon-links": "3.3.2",
     "@types/storybook__react": "3.0.9",
