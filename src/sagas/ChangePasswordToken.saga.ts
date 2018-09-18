@@ -42,9 +42,17 @@ function* ChangePasswordToken(action: any): SagaIterator {
     yield call(delay, 300)
     yield put(Actions.ChangePasswordToken.onChangePasswordTokenClearError())
 
-    toast.error(e, {
-      className: 'toast',
-      autoClose: 2500,
-    })
+    try {
+      const { message } = JSON.parse(e)
+      toast.error(message, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    } catch (err) {
+      toast.error(e, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    }
   }
 }

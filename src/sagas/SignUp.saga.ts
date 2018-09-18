@@ -3,6 +3,7 @@ import { Actions } from 'actions/index'
 import { browserHistory } from 'react-router'
 import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
+const { toast } = require('react-toastify')
 
 async function signUpFrost(data: {
   readonly email: string
@@ -34,5 +35,17 @@ function* SignUp(action: any): SagaIterator {
     yield put(Actions.SignUp.onSignUpError(e))
     yield call(delay, 300)
     yield put(Actions.SignUp.onSignUpClearError())
+    try {
+      const { message } = JSON.parse(e)
+      toast.error(message, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    } catch (err) {
+      toast.error(e, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    }
   }
 }

@@ -35,9 +35,17 @@ function* SignIn(action: any): SagaIterator {
     yield put(Actions.SignIn.onSignInError(e))
     yield call(delay, 300)
     yield put(Actions.SignIn.onSignInClearError())
-    toast.error(e, {
-      className: 'toast',
-      autoClose: 2500,
-    })
+    try {
+      const { message } = JSON.parse(e)
+      toast.error(message, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    } catch (err) {
+      toast.error(e, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    }
   }
 }
