@@ -41,7 +41,7 @@ export function* SignUp(action: any): SagaIterator {
         className: 'toast',
         autoClose: 2500,
       })
-    } catch (e) {
+    } catch (err) {
       yield call(toast.error, e, {
         className: 'toast',
         autoClose: 2500,

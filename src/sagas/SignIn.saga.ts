@@ -37,7 +37,7 @@ export function* SignIn(action: any): SagaIterator {
         className: 'toast',
         autoClose: 2500,
       })
-    } catch (e) {
+    } catch (err) {
       yield put(Actions.LoadingPage.onLoadingFull())
       yield put(Actions.SignIn.onSignInError(e))
       yield call(delay, 300)

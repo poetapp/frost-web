@@ -113,14 +113,14 @@ describe('SignUp() Error - string', async (should: any) => {
 
   assert({
     given: 'next step',
-    should: 'clear error message',
+    should: 'parse json',
     actual: iterator.next().value,
     expected: call(JSON.parse, e),
   })
 
   assert({
     given: 'next step',
-    should: 'clear error message',
+    should: 'toast message',
     actual: iterator.next().value,
     expected: call(toast.error, e, {
         className: 'toast',
@@ -133,7 +133,7 @@ describe('SignUp() Error - JSON String with message property', async (should: an
   const { assert } = should()
   const email = 'test@email.com'
   const password = 'test'
-  const e = '{ "message": "test-token"}'
+  const e = '{ "message": "test-token" }'
   const iterator = SignUp(Actions.SignUp.onSignUp({ email, password }))
 
   assert({
@@ -173,14 +173,14 @@ describe('SignUp() Error - JSON String with message property', async (should: an
 
   assert({
     given: 'next step',
-    should: 'clear error message',
+    should: 'parse json string',
     actual: iterator.next().value,
     expected: call(JSON.parse, e),
   })
 
   assert({
     given: 'next step',
-    should: 'clear error message',
+    should: 'toast message',
     actual: iterator.next().value,
     expected: call(toast.error, 'test-token', {
       className: 'toast',

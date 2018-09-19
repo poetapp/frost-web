@@ -1,4 +1,3 @@
-import { Frost } from '@poetapp/frost-client'
 import { delay } from 'redux-saga'
 import { takeLatest, call, put } from 'redux-saga/effects'
 import { describe } from 'riteway'
@@ -83,14 +82,14 @@ describe('SignIn() Error', async (should: any) => {
     expected: put(Actions.LoadingPage.onLoadingOn()),
   })
 
-  {
-    assert({
-      given: 'next step',
-      should: 'fetch user from database',
-      actual: iterator.next().value,
-      expected: call(signInFrost, { email, password }),
-    })
-  }
+  assert({
+    given: 'next step',
+    should: 'fetch user from database',
+    actual: iterator.next().value,
+    expected: call(signInFrost, { email, password }),
+  })
+  
+  iterator.next()
 
   assert({
     given: 'next step and invalid user',
@@ -99,7 +98,12 @@ describe('SignIn() Error', async (should: any) => {
     expected: put(Actions.LoadingPage.onLoadingFull()),
   })
 
-  iterator.next()
+  assert({
+    given: 'next step and error',
+    should: 'set sign in error',
+    actual: iterator.next().value,
+    expected: put(Actions.SignIn.onSignInError({})),
+  })
 
   assert({
     given: 'next step',
