@@ -31,18 +31,18 @@ function* SignIn(action: any): SagaIterator {
     yield call(delay, 300)
     browserHistory.push('/dashboard')
   } catch (e) {
-    yield put(Actions.LoadingPage.onLoadingFull())
-    yield put(Actions.SignIn.onSignInError(e))
-    yield call(delay, 300)
-    yield put(Actions.SignIn.onSignInClearError())
     try {
-      const { message } = JSON.parse(e)
-      toast.error(message, {
+      const { message } = yield call(JSON.parse, e)
+      yield call(toast.error, message, {
         className: 'toast',
         autoClose: 2500,
       })
-    } catch (err) {
-      toast.error(e, {
+    } catch (e) {
+      yield put(Actions.LoadingPage.onLoadingFull())
+      yield put(Actions.SignIn.onSignInError(e))
+      yield call(delay, 300)
+      yield put(Actions.SignIn.onSignInClearError())
+      yield call(toast.error, e, {
         className: 'toast',
         autoClose: 2500,
       })
