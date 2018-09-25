@@ -1,10 +1,11 @@
 import { Frost } from '@poetapp/frost-client'
 import { Actions } from 'actions/index'
 import { browserHistory } from 'react-router'
+import { toast } from 'react-toastify'
 import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
-async function signUpFrost(data: {
+export async function signUpFrost(data: {
   readonly email: string
   readonly password: string
 }): Promise<{ readonly token: string }> {
@@ -19,7 +20,7 @@ export function SignUpSaga(): () => IterableIterator<ForkEffect> {
   }
 }
 
-function* SignUp(action: any): SagaIterator {
+export function* SignUp(action: any): SagaIterator {
   try {
     const { email, password } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
@@ -34,5 +35,17 @@ function* SignUp(action: any): SagaIterator {
     yield put(Actions.SignUp.onSignUpError(e))
     yield call(delay, 300)
     yield put(Actions.SignUp.onSignUpClearError())
+    try {
+      const { message } = yield call(JSON.parse, e)
+      yield call(toast.error, message, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    } catch (err) {
+      yield call(toast.error, e, {
+        className: 'toast',
+        autoClose: 2500,
+      })
+    }
   }
 }

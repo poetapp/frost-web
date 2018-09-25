@@ -14,7 +14,7 @@ export namespace Actions {
       type: SIGN_UP_SUCCESS,
       payload,
     })
-    export const onSignUpError = (payload?: object) => ({
+    export const onSignUpError = (payload?: string) => ({
       type: SIGN_UP_ERROR,
       payload,
     })
