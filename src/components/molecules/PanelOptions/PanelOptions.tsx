@@ -37,6 +37,6 @@ export const PanelOptions = (props: PanelOptionsProps) => (
         />
       </a>
     </div>
-    <FrostRunKit token={props.user.profile.apiTokens[0]} user={props.user.profile.email} />
+    <FrostRunKit token={props.user.profile.apiTokens[0]} email={props.user.profile.email} />
   </main>
 )

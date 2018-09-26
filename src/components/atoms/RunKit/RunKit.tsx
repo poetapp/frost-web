@@ -46,10 +46,10 @@ createWork(work).then(res => console.log(res))
 `
 
 interface FrostRunKitProps {
-  readonly user: string
+  readonly email: string
   readonly token: string
 }
 
 export const FrostRunKit = (props: FrostRunKitProps) => (
-  <Embed source={FrostRunKitSource} env={[`API_TOKEN=${props.token}`, `AUTHOR=${props.user}`]} />
+  <Embed source={FrostRunKitSource} env={[`API_TOKEN=${props.token}`, `AUTHOR=${props.email}`]} />
 )
