@@ -1,10 +1,14 @@
 import { BoxButton } from 'components/atoms/BoxButton/BoxButton'
+import { FrostRunKit } from 'components/atoms/RunKit/RunKit'
 import { Images } from 'images/Images'
+import { User } from 'interfaces/Props'
 import * as React from 'react'
 import { Link } from 'react-router'
 import './PanelOptions.scss'
 
-interface PanelOptionsProps {}
+interface PanelOptionsProps {
+  readonly user: User
+}
 
 export const PanelOptions = (props: PanelOptionsProps) => (
   <main className={'PanelOptions'}>
@@ -33,5 +37,6 @@ export const PanelOptions = (props: PanelOptionsProps) => (
         />
       </a>
     </div>
+    <FrostRunKit token={props.user.profile.apiTokens[0]} user={props.user.profile.email} />
   </main>
 )
