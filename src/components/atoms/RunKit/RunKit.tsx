@@ -1,7 +1,7 @@
 import * as React from 'react'
 const Embed = require('react-runkit')
 
-const helloSource = `const { Frost } = require('@po.et/frost-client')
+const FrostRunKitSource = `const { Frost } = require('@po.et/frost-client')
 const HipsterIpsum = require('hipsteripsum')
 
 async function createWork(work) {
@@ -42,7 +42,7 @@ const work = {
   content
 }
 
-createWork(work).then(res => getWork(res)).then(res => console.log(res))
+createWork(work).then(res => console.log(res))
 `
 
 interface FrostRunKitProps {
@@ -51,5 +51,5 @@ interface FrostRunKitProps {
 }
 
 export const FrostRunKit = (props: FrostRunKitProps) => (
-  <Embed source={helloSource} env={[`API_TOKEN=${props.token}`, `AUTHOR=${props.user}`]} />
+  <Embed source={FrostRunKitSource} env={[`API_TOKEN=${props.token}`, `AUTHOR=${props.user}`]} />
 )
