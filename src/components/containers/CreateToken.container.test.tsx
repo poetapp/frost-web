@@ -39,11 +39,11 @@ describe('CreateToken container getTextButton()', async (should: any) => {
 
   {
     const actual = getTextButton()
-    const expected = 'Get API Key'
+    const expected = 'Create New API Token'
 
     assert({
       given: 'getTextButton()',
-      should: `return 'Get API Key'`,
+      should: `return 'Create New API Token'`,
       actual,
       expected,
     })
