@@ -66,8 +66,8 @@ const getApiTokenByNetwork = (network: Network) => (apiTokens: ReadonlyArray<str
 export const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
 const isActiveToggleNetwork = () =>
   isActiveFeatureName(FeatureName.ToggleNetwork, getCurrentActiveFeatureNames({ initialFeatures }))
-export const getTextButtonByNetwork = (network: Network) => `Get API Key for ${capitalize(network)}`
-export const getTextButton = () => 'Get API Key'
+export const getTextButtonByNetwork = (network: Network) => `Create New API Token for ${capitalize(network)}`
+export const getTextButton = () => 'Create New API Token'
 const getTextCreateTokenButton = (network: Network) =>
   ifElse(isActiveToggleNetwork, getTextButtonByNetwork, getTextButton)(network)
 const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, identity, () => undefined)(network)

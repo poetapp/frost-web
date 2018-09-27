@@ -43,7 +43,7 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
             from time to time.
           </li>
           <li>
-            <strong>"API Key"</strong> means the security key Company makes available for you to access the API.
+            <strong>"API Token"</strong> means the security key Company makes available for you to access the API.
           </li>
           <li>
             <strong>"Company Marks"</strong> means Company's proprietary trademarks, trade names, branding, or logos
@@ -74,7 +74,7 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
         connection with the advertising, promotion, distribution, or sale of any other products or services. You
         acknowledge that there are no implied licenses granted under this Agreement. We reserve all rights that are not
         expressly granted. You may not use the API or any Company Mark for any other purpose without our prior written
-        consent. In order to use and access the API, you must obtain an API Key through the registration process
+        consent. In order to use and access the API, you must obtain an API Token through the registration process
         available at{' '}
         <a target="_blank" href="https://frost.po.et/">
           frost.po.et

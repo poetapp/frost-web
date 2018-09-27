@@ -23,11 +23,11 @@ describe('CreateToken container getTextButtonByNetwork()', async (should: any) =
 
   {
     const actual = getTextButtonByNetwork(Network.MAINNET)
-    const expected = 'Get API Key for Mainnet'
+    const expected = 'Create New API Token for Mainnet'
 
     assert({
       given: `a network: ${Network.MAINNET}`,
-      should: `return Get API Key for ${Network.MAINNET}`,
+      should: `return Create New API Token for ${Network.MAINNET}`,
       actual,
       expected,
     })
