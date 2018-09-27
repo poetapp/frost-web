@@ -1,5 +1,5 @@
 import { BoxButton } from 'components/atoms/BoxButton/BoxButton'
-import { FrostRunKit } from 'components/atoms/RunKit/RunKit'
+import { FrostRunKit } from 'components/atoms/FrostRunKit/FrostRunKit'
 import { Images } from 'images/Images'
 import { User } from 'interfaces/Props'
 import * as React from 'react'
@@ -37,6 +37,8 @@ export const PanelOptions = (props: PanelOptionsProps) => (
         />
       </a>
     </div>
-    <FrostRunKit token={props.user.profile.apiTokens[0]} email={props.user.profile.email} />
+    <div className={'PanelOptions__frost-run-kit'}>
+      <FrostRunKit token={props.user.profile.apiTokens[0]} email={props.user.profile.email} />
+    </div>
   </main>
 )

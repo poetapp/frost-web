@@ -37,12 +37,12 @@ const work = {
   name: content.split(' ').slice(0, 5).join (' '),
   datePublished: date.toISOString(),
   dateCreated: date.toISOString(),
-  author: author,
+  author,
   tags: content.split(' ').slice(5, 7).join (', '),
   content
 }
 
-createWork(work).then(res => console.log(res))
+createWork(work).then(res => getWork(res).then(res => console.log(res)))
 `
 
 interface FrostRunKitProps {
@@ -51,5 +51,5 @@ interface FrostRunKitProps {
 }
 
 export const FrostRunKit = (props: FrostRunKitProps) => (
-  <Embed source={FrostRunKitSource} env={[`API_TOKEN=${props.token}`, `AUTHOR=${props.email}`]} />
+  <Embed height="25px" source={FrostRunKitSource} env={[`API_TOKEN=${props.token}`, `AUTHOR=${props.email}`]} />
 )
