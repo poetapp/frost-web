@@ -1,9 +1,9 @@
 import { DashboardContainer } from 'components/containers/Dashboard.container'
-import { PanelOptionsContainer } from 'components/containers/PanelOptionContainer'
+import { PanelOptions } from 'components/molecules/PanelOptions/PanelOptions'
 import * as React from 'react'
 
 export const DashboardLayout = () => (
   <DashboardContainer>
-    <PanelOptionsContainer />
+    <PanelOptions />
   </DashboardContainer>
 )

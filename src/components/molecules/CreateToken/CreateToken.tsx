@@ -1,16 +1,21 @@
+import { getCurrentActiveFeatureNames, isActiveFeatureName } from '@paralleldrive/feature-toggles'
+import * as React from 'react'
+
 import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
+import { FrostRunKit } from 'components/atoms/FrostRunKit/FrostRunKit'
 import { DeleteToken } from 'components/modals/DeleteToken/DeleteToken'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
+import { initialFeatures, FeatureName } from 'config/features'
 import { Network } from 'interfaces/Props'
 
-import * as React from 'react'
 import './CreateToken.scss'
 
 interface CreateTokenProps {
   readonly boxToken: ReadonlyArray<string>
   readonly showVerifiedAccount: boolean
   readonly sendEmailVarifiedAccount: (event: React.SyntheticEvent) => void
+  readonly email: string
   readonly retryWait: boolean
   readonly onDeleteToken?: () => void
   readonly onCloseModal: () => void
@@ -24,30 +29,44 @@ interface CreateTokenProps {
 }
 
 export const CreateToken = (props: CreateTokenProps) => (
-  <div className={'CreateToken'}>
-    <header className={'CreateToken__header'}>
-      <h2 className={'CreateToken__header__title'}>API Tokens</h2>
-      <p className={'CreateToken__header__description'}>
-        Manage the ways that you authorize requests to the Frost API.
-      </p>
-    </header>
-    <BoxToken apiTokens={props.boxToken} onDeleteToken={props.onShowModal} />
-    <LegendVerifiedAccount
-      show={!props.showVerifiedAccount}
-      onClick={props.sendEmailVarifiedAccount}
-      retryWait={props.retryWait}
-    />
-    <Button
-      className={'CreateToken__button'}
-      text={props.textCreateTokenButton}
-      onClick={props.onCreateApiToken}
-      disabled={props.submitDisabled}
-    />
-    <DeleteToken
-      onDeleteToken={props.onDeleteToken}
-      show={props.showDeleteModal}
-      onClose={props.onCloseModal}
-      disabledButton={props.disabledButton}
-    />
+  <div className={'CreateTokenContainer'}>
+    <div className={'CreateToken'}>
+      <header className={'CreateTokenContainer__CreateToken__header'}>
+        <h2 className={'CreateTokenContainer__CreateToken__header__title'}>API Tokens</h2>
+        <p className={'CreateTokenContainer__CreateToken__header__description'}>
+          Manage the ways that you authorize requests to the Frost API.
+        </p>
+      </header>
+      <BoxToken apiTokens={props.boxToken} onDeleteToken={props.onShowModal} />
+      <LegendVerifiedAccount
+        show={!props.showVerifiedAccount}
+        onClick={props.sendEmailVarifiedAccount}
+        retryWait={props.retryWait}
+      />
+      <Button
+        className={'CreateTokenContainer__CreateToken__button'}
+        text={props.textCreateTokenButton}
+        onClick={props.onCreateApiToken}
+        disabled={props.submitDisabled}
+      />
+      <DeleteToken
+        onDeleteToken={props.onDeleteToken}
+        show={props.showDeleteModal}
+        onClose={props.onCloseModal}
+        disabledButton={props.disabledButton}
+      />
+    </div>
+    {isActiveFeatureName(FeatureName.RunKit, getCurrentActiveFeatureNames({ initialFeatures })) &&
+      props.network === 'testnet' && (
+        <div className={'CreateTokenContainer__frost-run-kit'}>
+          <header className={'CreateTokenContainer__frost-run-kit__header'}>
+            <h2 className={'CreateTokenContainer__frost-run-kit__header__title'}>RunKit Demo</h2>
+            <p className={'CreateTokenContainer__frost-run-kit__header__description'}>Create your first work!.</p>
+          </header>
+          <div className={'CreateTokenContainer__frost-run-kit__runkit'}>
+            <FrostRunKit token={props.boxToken[0]} email={props.email} />
+          </div>
+        </div>
+      )}
   </div>
 )

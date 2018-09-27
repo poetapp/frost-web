@@ -1,7 +1,7 @@
 @import "colors";
 
 .PanelOptions {
-  padding: 0 140px;
+  padding: 0 28px;
 
   &__welcome {
 
@@ -29,12 +29,5 @@
       margin: 0 20px 20px 0;
       text-decoration: none;
     }
-  }
-
-  &__frost-run-kit {
-    height: 40vh;
-    width: 620px;
-    padding-left:36px;
-    overflow: scroll;
   }
 }

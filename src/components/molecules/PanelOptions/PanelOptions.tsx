@@ -1,14 +1,10 @@
 import { BoxButton } from 'components/atoms/BoxButton/BoxButton'
-import { FrostRunKit } from 'components/atoms/FrostRunKit/FrostRunKit'
 import { Images } from 'images/Images'
-import { User } from 'interfaces/Props'
 import * as React from 'react'
 import { Link } from 'react-router'
 import './PanelOptions.scss'
 
-interface PanelOptionsProps {
-  readonly user: User
-}
+interface PanelOptionsProps {}
 
 export const PanelOptions = (props: PanelOptionsProps) => (
   <main className={'PanelOptions'}>
@@ -36,9 +32,6 @@ export const PanelOptions = (props: PanelOptionsProps) => (
           buttonText={'View Docs'}
         />
       </a>
-    </div>
-    <div className={'PanelOptions__frost-run-kit'}>
-      <FrostRunKit token={props.user.profile.apiTokens[0]} email={props.user.profile.email} />
     </div>
   </main>
 )
