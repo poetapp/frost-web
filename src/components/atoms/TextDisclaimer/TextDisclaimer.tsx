@@ -43,7 +43,7 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
             from time to time.
           </li>
           <li>
-            <strong>"API Token"</strong> means the security key Company makes available for you to access the API.
+            <strong>"API Token"</strong> means the security token Company makes available for you to access the API.
           </li>
           <li>
             <strong>"Company Marks"</strong> means Company's proprietary trademarks, trade names, branding, or logos
@@ -78,8 +78,8 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
         available at{' '}
         <a target="_blank" href="https://frost.po.et/">
           frost.po.et
-        </a>. You may not share your API Key with any third party, must keep your API Key and all login information
-        secure, and must use the API Key as your sole means of accessing the API. Your API Key may be revoked at any
+        </a>. You may not share your API Token with any third party, must keep your API Token and all login information
+        secure, and must use the API Token as your sole means of accessing the API. Your API Token may be revoked at any
         time by us.
       </li>
       <li>

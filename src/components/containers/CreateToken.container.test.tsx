@@ -23,11 +23,11 @@ describe('CreateToken container getTextButtonByNetwork()', async (should: any) =
 
   {
     const actual = getTextButtonByNetwork(Network.MAINNET)
-    const expected = 'Create New API Token for Mainnet'
+    const expected = 'Create API Token for Mainnet'
 
     assert({
       given: `a network: ${Network.MAINNET}`,
-      should: `return Create New API Token for ${Network.MAINNET}`,
+      should: `return Create API Token for ${Network.MAINNET}`,
       actual,
       expected,
     })
@@ -39,11 +39,11 @@ describe('CreateToken container getTextButton()', async (should: any) => {
 
   {
     const actual = getTextButton()
-    const expected = 'Create New API Token'
+    const expected = 'Create API Token'
 
     assert({
       given: 'getTextButton()',
-      should: `return 'Create New API Token'`,
+      should: `return 'Create API Token'`,
       actual,
       expected,
     })

@@ -23,7 +23,7 @@ test(`The initial api token list has a single token`, async t => {
   await t.expect(actual).eql(expected, should)
 })
 
-test(`The 'Create New API Token' action adds a new token to the list`, async t => {
+test(`The 'Create API Token' action adds a new token to the list`, async t => {
   const expected = 2
   const should = `Should have ${expected} api token(s)`
   await t.navigateTo(`${SITE}${pages.LOGIN}`)

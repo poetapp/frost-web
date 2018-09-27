@@ -18,7 +18,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
           image={Images.KeySmall}
           title={'API Tokens'}
           description={'Get started building out an integration on top of po.et using the frost API.'}
-          buttonText={'Create New API Token'}
+          buttonText={'Create API Token'}
         />
       </Link>
 
