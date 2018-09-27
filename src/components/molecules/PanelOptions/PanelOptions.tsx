@@ -16,9 +16,9 @@ export const PanelOptions = (props: PanelOptionsProps) => (
         <BoxButton
           className={'Panel PanelOptions__box-buttons__CreateToken'}
           image={Images.KeySmall}
-          title={'API Keys'}
+          title={'API Tokens'}
           description={'Get started building out an integration on top of po.et using the frost API.'}
-          buttonText={'Get API Key'}
+          buttonText={'Get API Token'}
         />
       </Link>
 

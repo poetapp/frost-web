@@ -9,7 +9,7 @@ const links: ReadonlyArray<any> = [
     link: '/dashboard',
   },
   {
-    label: 'API Keys',
+    label: 'API Tokens',
     link: '/token',
   },
   {
