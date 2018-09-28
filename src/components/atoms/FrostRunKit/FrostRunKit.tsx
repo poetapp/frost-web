@@ -1,38 +1,34 @@
 import * as React from 'react'
 const Embed = require('react-runkit')
 
-const FrostRunKitSource = `const { Frost } = require('@po.et/frost-client')
+const FrostRunKitSource = `// https://github.com/poetapp/frost-client
+const { Frost } = require('@po.et/frost-client')
+// HipsterIpsum gives us random content for this demo
 const HipsterIpsum = require('hipsteripsum')
 
 async function createWork(work) {
-  try {
-    const { workId } = await frost.createWork(token, work)
-    return workId
-  } catch(e) {
-    console.log(e)
-  }
+  const { workId } = await frost.createWork(token, work)
+  return workId
 }
 
 async function getWork (workId) {
-  try {
-    const work = await frost.getWork(token, workId)
-    return work
-  } catch(e) {
-    console.log(e)
-  }
+  const work = await frost.getWork(token, workId)
+  return work
+}
+
+function handleError(e) {
+  console.log(e)
 }
 
 const config = {
   host: 'https://api.frost.po.et',
   timeout: 10
 }
-const token = process.env.API_TOKEN
-const author = process.env.AUTHOR
 const frost = new Frost(config)
-
+const author = process.env.AUTHOR // your email address
+const token = process.env.API_TOKEN // your first test API Token
 const content = HipsterIpsum.get(1, false, true)
 const date = new Date()
-
 const work = {
   name: content.split(' ').slice(0, 5).join (' '),
   datePublished: date.toISOString(),
@@ -42,7 +38,7 @@ const work = {
   content
 }
 
-createWork(work).then(res => getWork(res).then(res => console.log(res)))
+createWork(work).then(r => getWork(r)).then(r => console.log(r)).catch(handleError)
 `
 
 interface FrostRunKitProps {
