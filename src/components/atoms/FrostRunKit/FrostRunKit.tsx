@@ -3,7 +3,7 @@ const Embed = require('react-runkit')
 
 const FrostRunKitSource = `// https://github.com/poetapp/frost-client
 const { Frost } = require('@po.et/frost-client')
-// HipsterIpsum gives us random content for this demo
+// HipsterIpsum creates random content for this demo
 const HipsterIpsum = require('hipsteripsum')
 
 async function createWork(work) {

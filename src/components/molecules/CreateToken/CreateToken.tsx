@@ -34,7 +34,7 @@ export const CreateToken = (props: CreateTokenProps) => (
       <header className={'CreateTokenContainer__CreateToken__header'}>
         <h2 className={'CreateTokenContainer__CreateToken__header__title'}>API Tokens</h2>
         <p className={'CreateTokenContainer__CreateToken__header__description'}>
-          Manage the ways that you authorize requests to the Frost API.
+          Manage your API tokens for authenticating with the Frost API.
         </p>
       </header>
       <BoxToken apiTokens={props.boxToken} onDeleteToken={props.onShowModal} />
@@ -60,8 +60,10 @@ export const CreateToken = (props: CreateTokenProps) => (
       props.network === 'testnet' && (
         <div className={'CreateTokenContainer__frost-run-kit'}>
           <header className={'CreateTokenContainer__frost-run-kit__header'}>
-            <h2 className={'CreateTokenContainer__frost-run-kit__header__title'}>RunKit Demo</h2>
-            <p className={'CreateTokenContainer__frost-run-kit__header__description'}>Create your first work!.</p>
+            <h2 className={'CreateTokenContainer__frost-run-kit__header__title'}>Sample Code</h2>
+            <p className={'CreateTokenContainer__frost-run-kit__header__description'}>
+              Try the sample code below to register a test work on Testnet.
+            </p>
           </header>
           <div className={'CreateTokenContainer__frost-run-kit__runkit'}>
             <FrostRunKit token={props.boxToken[0]} email={props.email} />
