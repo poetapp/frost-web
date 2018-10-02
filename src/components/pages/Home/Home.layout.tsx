@@ -19,8 +19,8 @@ export const HomeLayout = () => (
             An Open API Layer <br />for Publishers
           </h1>
           <p className={'Home__cover-page__box__description'}>
-            Frost is an open API for developing integrations, registering works, and integrating your web app to the
-            Po.et network, without having to build your own private key infrastructure.{' '}
+            Frost is an open API for developing integrations, registering works, and integrating your web app with the
+            Po.et Network, without having to build your own private key infrastructure.{' '}
           </p>
           <div className={'Home__cover-page__buttons'}>
             <a href={'https://docs.frost.po.et/docs'}>
@@ -40,7 +40,7 @@ export const HomeLayout = () => (
       <div className={'Home__what-frost__box'}>
         <h2 className={'Home__what-frost__box__title'}>Why Frost?</h2>
         <p className={'Home__what-frost__box__description'}>
-          The easiest way for content publishers and developers to interact with the Po.et network.
+          The easiest way for content publishers and developers to interact with the Po.et Network
         </p>
         <div className={'Home__what-frost__box__container-box-simple'}>
           <BoxSimple
@@ -49,7 +49,7 @@ export const HomeLayout = () => (
             title={'Build Integrations'}
             description={`Easily build upon our library of existing CMS
                   plugins or build custom integrations to register your
-                  creative works to the Po.et network.`}
+                  creative works on the Po.et Network.`}
           />
           <BoxSimple
             header={<img src={Images.NoKey} />}
@@ -57,16 +57,15 @@ export const HomeLayout = () => (
             title={'Private Key Management'}
             description={`Frost abstracts away the Po.et private key
                   infrastructure for easy integration. You can always
-                  migrate your content over later, or graduate to integrating
-                  directly to our node.`}
+                  change later to integrating directly with our node.`}
           />
           <BoxSimple
             header={<img src={Images.Documentation} />}
             className={'Home__what-frost__box__simple'}
             title={'A RESTful API'}
-            description={`Frost provides an easy to use, RESTful API
-                  right out of the box, and exposes an easy to use library,
-                  so you can focus on writing your application.`}
+            description={`Frost provides a simple, RESTful API right out
+                  of the box, and exposes an easy to use library so you
+                  can focus on writing your application.`}
           />
         </div>
       </div>
