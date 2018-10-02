@@ -11,7 +11,7 @@ export const FooterHome = (props: FooterHomeProps) => (
   <footer className={classNames('FooterHome', props.className)}>
     <div className={'FooterHome__container'}>
       <div className={'FooterHome__container__leftContent'}>
-        <a href={'https://po.et'} target={'_blank'}>
+        <a href={'https://www.po.et'} target={'_blank'}>
           <img src={Images.PoetBlack} />
         </a>
       </div>

@@ -23,7 +23,9 @@ export const NavigationList = (props: NavigationListProps) => (
           className={`NavigationList__item ${props.pathActive === link.link ? 'NavigationList__item--active' : ''}`}
         >
           {link.external && link.external === true ? (
-            <a href={link.link}>{link.label}</a>
+            <a href={link.link} target="_blank">
+              {link.label}
+            </a>
           ) : (
             <Link to={link.link}>{link.label}</Link>
           )}
