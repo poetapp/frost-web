@@ -26,9 +26,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
         <BoxButton
           image={Images.Book}
           title={'Documentation & Guides'}
-          description={
-            'View a list of getting started guides and full API documentation for interacting with the Po.et Network. '
-          }
+          description={'View the getting started guide and API documentation for interacting with the Po.et Network.'}
           buttonText={'View Docs'}
         />
       </a>
