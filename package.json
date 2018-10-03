@@ -102,7 +102,7 @@
     "@types/redux-devtools": "3.0.44",
     "@types/redux-persist": "4.3.1",
     "@types/redux-saga": "0.10.5",
-    "@types/sinon": "5.0.2",
+    "@types/sinon": "5.0.3",
     "@types/storybook__addon-actions": "3.4.1",
     "@types/storybook__addon-info": "3.4.2",
     "@types/storybook__addon-knobs": "3.4.1",
