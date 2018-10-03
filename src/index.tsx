@@ -15,8 +15,9 @@ import 'react-toastify/dist/ReactToastify.css'
 
 async function init(): Promise<void> {
   const { store, pages } = await createPoetStore()
+
   const routes = pages
-    .map((page: any, index: any) => page.routeHook('' + index))
+    .map((page: any, index: any) => page.routeHook('' + index, store))
     .reduce((a: any, b: any) => a.concat(b), [])
 
   function handlerRoutes(store: any, pathname: string): void {
@@ -58,8 +59,8 @@ async function init(): Promise<void> {
   }
 
   ReactDOM.render(
-    <AppContainer>
-      <Provider store={store}>
+    <Provider store={store}>
+      <AppContainer>
         <FeatureToggles features={getCurrentActiveFeatureNames({ initialFeatures })}>
           <Router history={browserHistory}>
             <Route component={Layout} onEnter={requireAuth(store)} onChange={onChange(store)}>
@@ -68,8 +69,8 @@ async function init(): Promise<void> {
             <Route path="*" onEnter={notFound} />
           </Router>
         </FeatureToggles>
-      </Provider>
-    </AppContainer>,
+      </AppContainer>
+    </Provider>,
     document.getElementById('app')
   )
 }

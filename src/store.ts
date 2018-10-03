@@ -1,9 +1,10 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
-import createSagaMiddleware from 'redux-saga'
-import { fork, ForkEffect } from 'redux-saga/effects'
-const { persistStore, autoRehydrate } = require('redux-persist')
 import { Actions } from 'actions'
 import 'extensions/Array'
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux'
+import { persistStore, persistReducer } from 'redux-persist'
+import storageSession from 'redux-persist/lib/storage/session'
+import createSagaMiddleware from 'redux-saga'
+import { fork, ForkEffect } from 'redux-saga/effects'
 
 import { PageLoader } from 'components/PageLoader'
 
@@ -67,11 +68,22 @@ export function createPoetStore(): Promise<{
       const signOutAction = Actions.SignOut.SIGN_OUT
       const rootReducer = (state: any, action: any) => appReducer(action.type === signOutAction ? {} : state, action)
 
-      const store = createStore(rootReducer, initialState, enhancer(applyMiddleware(sagaMiddleware), autoRehydrate()))
+      const persistConfig = {
+        key: 'frost',
+        storage: storageSession,
+        blacklist: ['apiTokens'],
+      }
 
+      const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+      const store = createStore(persistedReducer, initialState, enhancer(applyMiddleware(sagaMiddleware)))
       sagaMiddleware.run(bindSagas(pages))
 
-      persistStore(store, {}, () => resolve({ store, pages }))
+      persistStore(store, null, () => {
+        setTimeout(() => {
+          resolve({ store, pages })
+        }, 0)
+      })
     } catch (e) {
       reject(e)
     }

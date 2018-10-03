@@ -10,7 +10,7 @@ export abstract class PageLoader<State, Properties> {
   abstract readonly component: ComponentClass<Properties> | StatelessComponent<Properties>
 
   abstract initialState(): State
-  abstract routeHook(key: string): ReadonlyArray<JSX.Element>
+  abstract routeHook(key: string, store: any): ReadonlyArray<JSX.Element>
   abstract reducerHook<State>(): ReducerDescription<State>
   abstract sagaHook(): any
   abstract select(state: any, ownProps: any): Properties
