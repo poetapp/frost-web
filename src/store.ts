@@ -79,11 +79,7 @@ export function createPoetStore(): Promise<{
       const store = createStore(persistedReducer, initialState, enhancer(applyMiddleware(sagaMiddleware)))
       sagaMiddleware.run(bindSagas(pages))
 
-      persistStore(store, null, () => {
-        setTimeout(() => {
-          resolve({ store, pages })
-        }, 0)
-      })
+      persistStore(store, null, () => setTimeout(() => resolve({ store, pages }), 0))
     } catch (e) {
       reject(e)
     }
