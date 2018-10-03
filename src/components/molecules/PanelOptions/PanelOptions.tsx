@@ -17,7 +17,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
           className={'Panel PanelOptions__box-buttons__CreateToken'}
           image={Images.KeySmall}
           title={'API Tokens'}
-          description={'Get started building out an integration on top of po.et using the frost API.'}
+          description={'Get an API token and start building an integration on top of Po.et using the Frost API.'}
           buttonText={'Get API Token'}
         />
       </Link>
@@ -26,9 +26,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
         <BoxButton
           image={Images.Book}
           title={'Documentation & Guides'}
-          description={
-            'View a list of getting started guides and full API documentation for interacting with the Po.et Network. '
-          }
+          description={'View the getting started guide and API documentation for interacting with the Po.et Network.'}
           buttonText={'View Docs'}
         />
       </a>
