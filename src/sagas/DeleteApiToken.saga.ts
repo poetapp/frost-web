@@ -11,7 +11,7 @@ async function DeleteApiTokenFrost(token: string, tokenId: string): Promise<stri
 
 export function DeleteApiTokenSaga(): () => IterableIterator<ForkEffect> {
   return function*(): IterableIterator<ForkEffect> {
-    yield takeLatest(Actions.DeleteApiToken.DELETE_API_TOKEN, DeleteApiToken)
+    yield takeLatest(Actions.ApiTokens.DELETE_API_TOKEN, DeleteApiToken)
   }
 }
 
@@ -20,13 +20,13 @@ function* DeleteApiToken(action: any): SagaIterator {
     const { token, apiToken } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
     yield call(DeleteApiTokenFrost, token, apiToken)
-    yield put(Actions.DeleteApiToken.onDeleteApiTokenSuccess(apiToken))
+    yield put(Actions.ApiTokens.onDeleteApiTokenSuccess({ apiToken }))
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.Modal.onHideModal())
     yield call(delay, 300)
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
-    yield put(Actions.DeleteApiToken.onDeleteApiTokenError(e))
+    yield put(Actions.ApiTokens.onDeleteApiTokenError(e))
     const errorMessage = typeof e === 'object' ? e.message : e
     if (e.includes('Expired token')) {
       const message = 'Your session has expired. Please login again.'

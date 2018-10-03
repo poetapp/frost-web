@@ -39,9 +39,8 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   network: state.changeNetworkBitcoin.network,
 })
 
-const { onCreateApiToken } = Actions.ApiTokens
+const { onCreateApiToken, onDeleteApiToken } = Actions.ApiTokens
 const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
-const { onDeleteApiToken } = Actions.DeleteApiToken
 const { onShowModal, onHideModal } = Actions.Modal
 const mapDispatch = {
   onCreateApiToken,
