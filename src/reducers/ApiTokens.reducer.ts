@@ -25,5 +25,5 @@ export const apiTokens = (state: any = defaultState, action: any = {}) => {
         tokens: apitTokensFilter,
       }
   }
-  return state || defaultState
+  return state
 }
