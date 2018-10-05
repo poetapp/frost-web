@@ -8,7 +8,7 @@ import { Actions } from 'actions'
 import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
 import { initialFeatures, FeatureName } from 'config/features'
 import { parseJwt } from 'helpers'
-import { FrostState, StatusService, User, ModalState, Network } from 'interfaces/Props'
+import { FrostState, StatusService, User, ModalState, Network, ApiTokens } from 'interfaces/Props'
 
 interface DataAction {
   readonly token: string
@@ -16,6 +16,7 @@ interface DataAction {
 
 interface CreateTokenContainerProps {
   readonly user: User
+  readonly apiTokens: ApiTokens
   readonly sendEmailVerifiedAccount: StatusService
   readonly createApiTokens: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
@@ -30,6 +31,7 @@ interface CreateTokenContainerProps {
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   user: state.user,
+  apiTokens: state.apiTokens,
   sendEmailVerifiedAccount: state.sendEmailVerifiedAccount,
   createApiTokens: state.createApiTokens,
   modal: state.modal,
@@ -37,9 +39,8 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   network: state.changeNetworkBitcoin.network,
 })
 
-const { onCreateApiToken } = Actions.ApiTokens
+const { onCreateApiToken, onDeleteApiToken } = Actions.ApiTokens
 const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
-const { onDeleteApiToken } = Actions.DeleteApiToken
 const { onShowModal, onHideModal } = Actions.Modal
 const mapDispatch = {
   onCreateApiToken,
@@ -74,7 +75,7 @@ const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, ident
 
 const createToken = (props: CreateTokenContainerProps): JSX.Element => (
   <CreateToken
-    boxToken={getApiTokenByNetwork(props.network)(props.user.profile.apiTokens)}
+    boxToken={getApiTokenByNetwork(props.network)(props.apiTokens.tokens)}
     showVerifiedAccount={props.user.profile.verified}
     sendEmailVarifiedAccount={() => props.onSendEmailVerifiedAccount({ token: props.user.token })}
     retryWait={props.sendEmailVerifiedAccount.retryWait}

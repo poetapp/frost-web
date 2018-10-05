@@ -75,6 +75,10 @@ export namespace Actions {
     export const CREATE_API_TOKEN = 'CREATE_API_TOKEN'
     export const CREATE_API_TOKEN_SUCCESS = 'CREATE_API_TOKEN_SUCCESS'
     export const CREATE_API_TOKEN_ERROR = 'CREATE_API_TOKEN_ERROR'
+    export const DELETE_API_TOKEN = 'DELETE_API_TOKEN'
+    export const DELETE_API_TOKEN_SUCCESS = 'DELETE_API_TOKEN_SUCCESS'
+    export const DELETE_API_TOKEN_ERROR = 'DELETE_API_TOKEN_ERROR'
+    export const DELETE_API_TOKEN_CLEAR_ERROR = 'DELETE_API_TOKEN_CLEAR_ERROR'
     export const onGetApiTokens = (payload?: object) => ({
       type: GET_API_TOKENS,
       payload,
@@ -97,6 +101,22 @@ export namespace Actions {
     })
     export const onCreateApiTokenError = (payload?: object) => ({
       type: CREATE_API_TOKEN_ERROR,
+      payload,
+    })
+    export const onDeleteApiToken = (payload?: object) => ({
+      type: DELETE_API_TOKEN,
+      payload,
+    })
+    export const onDeleteApiTokenSuccess = (payload?: object) => ({
+      type: DELETE_API_TOKEN_SUCCESS,
+      payload,
+    })
+    export const onDeleteApiTokenError = (payload?: object) => ({
+      type: DELETE_API_TOKEN_ERROR,
+      payload,
+    })
+    export const onDeleteApiTokenClearError = (payload?: object) => ({
+      type: DELETE_API_TOKEN_CLEAR_ERROR,
       payload,
     })
   }
@@ -272,29 +292,6 @@ export namespace Actions {
 
     export const onHideModal = () => ({
       type: HIDE_MODAL,
-    })
-  }
-
-  export namespace DeleteApiToken {
-    export const DELETE_API_TOKEN = 'DELETE_API_TOKEN'
-    export const DELETE_API_TOKEN_SUCCESS = 'DELETE_API_TOKEN_SUCCESS'
-    export const DELETE_API_TOKEN_ERROR = 'DELETE_API_TOKEN_ERROR'
-    export const DELETE_API_TOKEN_CLEAR_ERROR = 'DELETE_API_TOKEN_CLEAR_ERROR'
-    export const onDeleteApiToken = (payload?: object) => ({
-      type: DELETE_API_TOKEN,
-      payload,
-    })
-    export const onDeleteApiTokenSuccess = (payload?: object) => ({
-      type: DELETE_API_TOKEN_SUCCESS,
-      payload,
-    })
-    export const onDeleteApiTokenError = (payload?: object) => ({
-      type: DELETE_API_TOKEN_ERROR,
-      payload,
-    })
-    export const onDeleteApiTokenClearError = (payload?: object) => ({
-      type: DELETE_API_TOKEN_CLEAR_ERROR,
-      payload,
     })
   }
   export namespace NotificationBar {

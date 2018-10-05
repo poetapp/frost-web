@@ -10,7 +10,7 @@ const defaultState = {
 
 export const deleteApiToken = (state: any, action: any) => {
   switch (action.type) {
-    case Actions.DeleteApiToken.DELETE_API_TOKEN:
+    case Actions.ApiTokens.DELETE_API_TOKEN:
       return {
         ...state,
         error: {
@@ -19,7 +19,7 @@ export const deleteApiToken = (state: any, action: any) => {
         },
         loading: true,
       }
-    case Actions.DeleteApiToken.DELETE_API_TOKEN_SUCCESS:
+    case Actions.ApiTokens.DELETE_API_TOKEN_SUCCESS:
       return {
         ...state,
         error: {
@@ -28,7 +28,7 @@ export const deleteApiToken = (state: any, action: any) => {
         },
         loading: false,
       }
-    case Actions.DeleteApiToken.DELETE_API_TOKEN_ERROR:
+    case Actions.ApiTokens.DELETE_API_TOKEN_ERROR:
       return {
         ...state,
         error: {

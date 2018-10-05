@@ -14,6 +14,7 @@ export function GetApiTokensSaga(): () => IterableIterator<ReadonlyArray<ForkEff
       takeLatest(Actions.SignIn.SIGN_IN_SUCCESS, GetApiTokens),
       takeLatest(Actions.SignUp.SIGN_UP_SUCCESS, GetApiTokens),
       takeLatest(Actions.SetTokenLogin.SET_TOKEN_LOGIN, GetApiTokens),
+      takeLatest(Actions.ApiTokens.GET_API_TOKENS, GetApiTokens),
     ]
   }
 }
@@ -21,9 +22,8 @@ export function GetApiTokensSaga(): () => IterableIterator<ReadonlyArray<ForkEff
 function* GetApiTokens(action: any): SagaIterator {
   try {
     const { token } = action.payload
-    const tokens = yield call(GetApiTokensFrost, token)
-
-    yield put(Actions.ApiTokens.onGetApiTokensSuccess(tokens.apiTokens))
+    const { apiTokens } = yield call(GetApiTokensFrost, token)
+    yield put(Actions.ApiTokens.onGetApiTokensSuccess({ apiTokens }))
   } catch (e) {
     yield put(Actions.ApiTokens.onGetApiTokensError(e))
     // Todo: Error message in UI

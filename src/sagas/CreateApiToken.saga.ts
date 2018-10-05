@@ -22,7 +22,7 @@ function* GetApiTokens(action: any): SagaIterator {
     yield put(Actions.NotificationBar.onResetNotificationBar())
     const { token, network } = action.payload
     const { apiToken } = yield call(CreateApiTokenFrost, token, network)
-    yield put(Actions.ApiTokens.onCreateApiTokenSuccess(apiToken))
+    yield put(Actions.ApiTokens.onCreateApiTokenSuccess({ apiToken }))
     yield put(
       Actions.NotificationBar.onShowNotificationBar({
         type: 'success',
