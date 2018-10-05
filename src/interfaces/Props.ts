@@ -6,7 +6,6 @@ export interface ApiToken extends JWT {
 }
 export interface Profile {
   readonly email: string
-  readonly apiTokens?: ReadonlyArray<string>
   readonly verified: boolean
   readonly createdAt: string
 }
@@ -34,8 +33,12 @@ export interface StatusService {
   readonly retryWait?: boolean
 }
 
+export interface ApiTokens {
+  readonly tokens: ReadonlyArray<string>
+}
 export interface FrostState {
   readonly user: User
+  readonly apiTokens: ApiTokens
   readonly router: Router
   readonly loadingPage: LoadingPage
   readonly changePasswordToken: StatusService
