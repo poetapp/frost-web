@@ -1,4 +1,5 @@
-import { getCurrentActiveFeatureNames, isActiveFeatureName } from '@paralleldrive/feature-toggles'
+import { isActiveFeatureName } from '@paralleldrive/feature-toggles'
+import { Feature } from '@paralleldrive/react-feature-toggles'
 import * as React from 'react'
 
 import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
@@ -6,7 +7,7 @@ import { Button } from 'components/atoms/Button/Button'
 import { FrostRunKit } from 'components/atoms/FrostRunKit/FrostRunKit'
 import { DeleteToken } from 'components/modals/DeleteToken/DeleteToken'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
-import { initialFeatures, FeatureName } from 'config/features'
+import { FeatureName } from 'config/features'
 import { Network } from 'interfaces/Props'
 
 import './CreateToken.scss'
@@ -56,19 +57,24 @@ export const CreateToken = (props: CreateTokenProps) => (
         disabledButton={props.disabledButton}
       />
     </div>
-    {isActiveFeatureName(FeatureName.RunKit, getCurrentActiveFeatureNames({ initialFeatures })) &&
-      props.network === 'testnet' && (
-        <div className={'CreateTokenContainer__frost-run-kit'}>
-          <header className={'CreateTokenContainer__frost-run-kit__header'}>
-            <h2 className={'CreateTokenContainer__frost-run-kit__header__title'}>Sample Code</h2>
-            <p className={'CreateTokenContainer__frost-run-kit__header__description'}>
-              Try the sample code below to register a test work on Testnet.
-            </p>
-          </header>
-          <div className={'CreateTokenContainer__frost-run-kit__runkit'}>
-            <FrostRunKit token={props.boxToken[0]} email={props.email} />
-          </div>
-        </div>
-      )}
+    <Feature>
+      {({ features }) =>
+        isActiveFeatureName(FeatureName.RunKit, features)
+          ? props.network === 'testnet' && (
+              <div className={'CreateTokenContainer__frost-run-kit'}>
+                <header className={'CreateTokenContainer__frost-run-kit__header'}>
+                  <h2 className={'CreateTokenContainer__frost-run-kit__header__title'}>Sample Code</h2>
+                  <p className={'CreateTokenContainer__frost-run-kit__header__description'}>
+                    Try the sample code below to register a test work on Testnet.
+                  </p>
+                </header>
+                <div className={'CreateTokenContainer__frost-run-kit__runkit'}>
+                  <FrostRunKit token={props.boxToken[0]} email={props.email} />
+                </div>
+              </div>
+            )
+          : null
+      }
+    </Feature>
   </div>
 )
