@@ -8,9 +8,7 @@ import { ToggleRP } from './ToggleRP'
 
 const render = ReactDOMServer.renderToStaticMarkup
 
-describe('<ToggleRP>{...children}</ToggleRP>', async (should: any) => {
-  const { assert } = should('')
-
+describe('<ToggleRP>{...children}</ToggleRP>', async (assert: any) => {
   {
     const $ = dom.load(render(<ToggleRP />))
     assert({

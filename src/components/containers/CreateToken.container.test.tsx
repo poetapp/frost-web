@@ -2,9 +2,7 @@ import { Network } from 'interfaces/Props'
 import { describe } from 'riteway'
 import { capitalize, getTextButtonByNetwork, getTextButton } from './CreateToken.container'
 
-describe('CreateToken container capitalize()', async (should: any) => {
-  const { assert } = should()
-
+describe('CreateToken container capitalize()', async (assert: any) => {
   {
     const actual = capitalize('hello')
     const expected = 'Hello'
@@ -18,9 +16,7 @@ describe('CreateToken container capitalize()', async (should: any) => {
   }
 })
 
-describe('CreateToken container getTextButtonByNetwork()', async (should: any) => {
-  const { assert } = should()
-
+describe('CreateToken container getTextButtonByNetwork()', async (assert: any) => {
   {
     const actual = getTextButtonByNetwork(Network.MAINNET)
     const expected = 'Create API Token for Mainnet'
@@ -34,9 +30,7 @@ describe('CreateToken container getTextButtonByNetwork()', async (should: any) =
   }
 })
 
-describe('CreateToken container getTextButton()', async (should: any) => {
-  const { assert } = should()
-
+describe('CreateToken container getTextButton()', async (assert: any) => {
   {
     const actual = getTextButton()
     const expected = 'Create API Token'
