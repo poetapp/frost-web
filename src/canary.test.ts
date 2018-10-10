@@ -2,9 +2,7 @@ import { describe } from 'riteway'
 
 const canSing = (gas: boolean) => !gas
 
-describe('canary canSing()', async (should: any) => {
-  const { assert } = should('')
-
+describe('canary canSing()', async (assert: any) => {
   {
     const gasPresent = false
 

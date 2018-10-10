@@ -6,9 +6,7 @@ import { apiTokens as reducer, defaultState } from './ApiTokens.reducer'
 const { onGetApiTokensSuccess, onCreateApiTokenSuccess, onDeleteApiTokenSuccess } = Actions.ApiTokens
 const createState = (obj?: any) => ({ ...defaultState, ...obj })
 
-describe('ApiTokens reducer', async (should: any) => {
-  const { assert } = should()
-
+describe('ApiTokens reducer', async (assert: any) => {
   assert({
     given: 'no arguments',
     should: 'return the default state',
