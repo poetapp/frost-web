@@ -33,11 +33,11 @@ describe('<ToggleMainnet>{...children}</ToggleMainnet>', async (assert: any) => 
 describe('isNetworkLive()', async (assert: any) => {
   {
     const actual = isNetworkLive(true)
-    const expected = 'mainnet'
+    const expected = 'live'
 
     assert({
       given: 'enabledMainnet true',
-      should: 'return mainnet',
+      should: 'return live',
       actual,
       expected,
     })
@@ -45,11 +45,11 @@ describe('isNetworkLive()', async (assert: any) => {
 
   {
     const actual = isNetworkLive(false)
-    const expected = 'testnet'
+    const expected = 'test'
 
     assert({
       given: 'enabledMainnet true',
-      should: 'return testnet',
+      should: 'return test',
       actual,
       expected,
     })
