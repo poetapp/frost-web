@@ -11,11 +11,11 @@ interface ToggleMainnetProps extends ClassNameProps {
   readonly onToogle?: (network: Network) => void
 }
 
-export const isNetworkMainnet = (enabledMainnet: boolean) => (enabledMainnet ? Network.LIVE : Network.TEST)
+export const isNetworkLive = (enabledMainnet: boolean) => (enabledMainnet ? Network.LIVE : Network.TEST)
 
 const onToogle = (event: Event, callback: (network: Network) => void) => {
   const checkbox = event.target as HTMLInputElement
-  callback(isNetworkMainnet(checkbox.checked))
+  callback(isNetworkLive(checkbox.checked))
 }
 
 export const ToggleMainnet = (props: ToggleMainnetProps) => (
