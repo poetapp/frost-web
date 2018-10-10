@@ -8,9 +8,7 @@ import { ToggleMainnet, isNetworkMainnet } from './ToggleMainnet'
 
 const render = ReactDOMServer.renderToStaticMarkup
 
-describe('<ToggleMainnet>{...children}</ToggleMainnet>', async (should: any) => {
-  const { assert } = should('')
-
+describe('<ToggleMainnet>{...children}</ToggleMainnet>', async (assert: any) => {
   {
     const $ = dom.load(render(<ToggleMainnet />))
     assert({
@@ -32,9 +30,7 @@ describe('<ToggleMainnet>{...children}</ToggleMainnet>', async (should: any) => 
   }
 })
 
-describe('isNetworkMainnet()', async (should: any) => {
-  const { assert } = should('')
-
+describe('isNetworkMainnet()', async (assert: any) => {
   {
     const actual = isNetworkMainnet(true)
     const expected = 'mainnet'

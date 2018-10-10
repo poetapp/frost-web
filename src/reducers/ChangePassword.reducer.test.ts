@@ -6,9 +6,7 @@ import { changePassword as reducer, defaultState } from './ChangePassword.reduce
 const { onChangePassword, onChangePasswordError, onChangePasswordSuccess } = Actions.ChangePassword
 const createState = (obj?: any) => ({ ...defaultState, ...obj })
 
-describe('changePassword reducer', async (should: any) => {
-  const { assert } = should()
-
+describe('changePassword reducer', async (assert: any) => {
   assert({
     given: 'no arguments',
     should: 'return the default state',
