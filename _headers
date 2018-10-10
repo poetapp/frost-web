@@ -1,5 +1,5 @@
 /*
-    Content-Security-Policy: script-src 'self'
+    Content-Security-Policy: require-sri-for script
     X-Frame-Options: DENY
     X-XSS-Protection: 1; mode=block
     X-Content-Type-Options: nosniff

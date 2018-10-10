@@ -1,48 +1,83 @@
 @import "colors";
 
-.CreateToken {
-  padding-left: 140px;
-  padding-top: 50px;
+.CreateTokenContainer {
+  display:flex;
+  flex-flow: row wrap;
+  padding-left: 28px;
+  padding-top: 28px;
 
-  &__header {
+  &__CreateToken {
 
-    &__title {
-      margin-bottom: 14px;
-      font-size: 24px;
-      font-weight: 600;
-      line-height: 33px;
-      color: $gondola;
+    &__header {
+
+      &__title {
+        margin-bottom: 14px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 33px;
+        color: $gondola;
+      }
+
+      &__description {
+        margin-bottom: 32px;
+        font-size: 10px;
+        line-height: 19px;
+        color: $night-rider2;
+      }
     }
 
-    &__description {
-      margin-bottom: 32px;
-      font-size: 10px;
-      line-height: 19px;
-      color: $night-rider2;
+    &__text {
+
+      &__title {
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 19px;
+        color: $gondola;
+      }
+
+      &__description {
+        margin-bottom: 14px;
+        font-size: 10px;
+        line-height: 19px;
+        color: $night-rider2;
+      }
+    }
+
+    &__button {
+      width: auto;
+      margin: 37px 0px 50px;
+      padding: 0px 10px;
     }
   }
 
-  &__text {
+  &__frost-run-kit {
+    width: 620px;
 
-    &__title {
-      margin-bottom: 10px;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 19px;
-      color: $gondola;
+    &__header {
+
+      &__title {
+        margin-bottom: 14px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 33px;
+        color: $gondola;
+      }
+
+      &__description {
+        margin-bottom: 32px;
+        font-size: 10px;
+        line-height: 19px;
+        color: $night-rider2;
+      }
     }
 
-    &__description {
-      margin-bottom: 14px;
-      font-size: 10px;
-      line-height: 19px;
-      color: $night-rider2;
+    &__runkit {
+      /* stylelint-disable */
+      height: calc(100vh - 188px);
+      /* stylelint-enable */
+      padding-left:36px;
+      overflow-y: scroll;
     }
-  }
-
-  &__button {
-    width: auto;
-    margin-top: 37px;
-    padding: 0px 10px;
   }
 }
