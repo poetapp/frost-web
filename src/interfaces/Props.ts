@@ -71,8 +71,8 @@ export interface NotificationBarState {
 }
 
 export enum Network {
-  MAINNET = 'mainnet',
-  TESTNET = 'testnet',
+  LIVE = 'live',
+  TEST = 'test',
 }
 export interface NetworkBitcoin {
   readonly network: Network

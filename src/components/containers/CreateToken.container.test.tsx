@@ -18,12 +18,12 @@ describe('CreateToken container capitalize()', async (assert: any) => {
 
 describe('CreateToken container getTextButtonByNetwork()', async (assert: any) => {
   {
-    const actual = getTextButtonByNetwork(Network.MAINNET)
-    const expected = 'Create API Token for Mainnet'
+    const actual = getTextButtonByNetwork(Network.LIVE)
+    const expected = 'Create API Token for Live'
 
     assert({
-      given: `a network: ${Network.MAINNET}`,
-      should: `return Create API Token for ${Network.MAINNET}`,
+      given: `a network: ${Network.LIVE}`,
+      should: `return Create API Token for ${Network.LIVE}`,
       actual,
       expected,
     })

@@ -3,7 +3,7 @@ import { Network } from 'interfaces/Props'
 const { onChangeNetwork } = Actions.ToogleNetworkBitcoin
 
 export const defaultState = {
-  network: Network.TESTNET,
+  network: Network.TEST,
 }
 
 export const changeNetworkBitcoin = (state: any = defaultState, action: any = {}) => {
