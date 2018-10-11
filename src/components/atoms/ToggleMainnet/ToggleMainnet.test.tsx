@@ -4,7 +4,7 @@ import * as dom from 'cheerio'
 import * as ReactDOMServer from 'react-dom/server'
 import { describe } from 'riteway'
 
-import { ToggleMainnet, isNetworkMainnet } from './ToggleMainnet'
+import { ToggleMainnet, isNetworkLive } from './ToggleMainnet'
 
 const render = ReactDOMServer.renderToStaticMarkup
 
@@ -30,26 +30,26 @@ describe('<ToggleMainnet>{...children}</ToggleMainnet>', async (assert: any) => 
   }
 })
 
-describe('isNetworkMainnet()', async (assert: any) => {
+describe('isNetworkLive()', async (assert: any) => {
   {
-    const actual = isNetworkMainnet(true)
-    const expected = 'mainnet'
+    const actual = isNetworkLive(true)
+    const expected = 'live'
 
     assert({
       given: 'enabledMainnet true',
-      should: 'return mainnet',
+      should: 'return live',
       actual,
       expected,
     })
   }
 
   {
-    const actual = isNetworkMainnet(false)
-    const expected = 'testnet'
+    const actual = isNetworkLive(false)
+    const expected = 'test'
 
     assert({
       given: 'enabledMainnet true',
-      should: 'return testnet',
+      should: 'return test',
       actual,
       expected,
     })

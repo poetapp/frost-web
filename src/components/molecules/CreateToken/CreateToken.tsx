@@ -60,7 +60,7 @@ export const CreateToken = (props: CreateTokenProps) => (
     <Feature>
       {({ features }) =>
         isActiveFeatureName(FeatureName.RunKit, features)
-          ? props.network === 'testnet' && (
+          ? props.network === 'test' && (
               <div className={'CreateTokenContainer__frost-run-kit'}>
                 <header className={'CreateTokenContainer__frost-run-kit__header'}>
                   <h2 className={'CreateTokenContainer__frost-run-kit__header__title'}>Sample Code</h2>

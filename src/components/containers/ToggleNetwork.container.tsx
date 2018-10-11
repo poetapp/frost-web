@@ -27,7 +27,7 @@ export const ToggleNetworkContainer = connect(mapStateToProps, mapDispatch)(
 
     render(): JSX.Element {
       const { network } = this.props
-      const on = network === Network.MAINNET
+      const on = network === Network.LIVE
       return <ToggleMainnet disabled={false} on={on} onToogle={this.onChangeNetwork} />
     }
   }

@@ -1,4 +1,4 @@
-import { Frost } from '@poetapp/frost-client'
+import { Frost } from '@po.et/frost-client'
 import { Actions } from 'actions/index'
 import { SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
