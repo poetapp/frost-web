@@ -55,7 +55,7 @@
   "dependencies": {
     "@paralleldrive/feature-toggles": "1.0.3",
     "@paralleldrive/react-feature-toggles": "2.0.2",
-    "@po.et/frost-client": "git://github.com/poetapp/frost-client.git#poet-js",
+    "@po.et/frost-client": "2.2.0",
     "classnames": "2.2.6",
     "formdata-polyfill": "3.0.12",
     "isomorphic-fetch": "2.2.1",
