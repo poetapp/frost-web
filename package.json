@@ -8,7 +8,7 @@
     "build:development": "POET_ENV=development webpack --mode=development",
     "build:testing": "POET_ENV=testing webpack --mode=production",
     "build:preview": "stylelint './src/**/*.scss' && tslint -p ./tsconfig.json && npm run build:testing",
-    "build:staging": "POET_ENV=staging webpack --mode=production",
+    "build:qa": "POET_ENV=qa webpack --mode=production",
     "build:production": "POET_ENV=production webpack --mode=production",
     "lint": "tslint -p ./tsconfig.json",
     "lint:fix": "tslint -p ./tsconfig.json --fix",
