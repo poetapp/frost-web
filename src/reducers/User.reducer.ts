@@ -42,10 +42,7 @@ export const user = (state: any, action: any) => {
     case Actions.SetTokenLogin.SET_TOKEN_LOGIN:
       return {
         ...state,
-        user: {
-          ...state.user,
-          token: action.payload.token,
-        },
+        token: action.payload.token,
       }
     case Actions.SignOut.SIGN_OUT:
       return {
