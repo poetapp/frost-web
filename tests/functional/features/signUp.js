@@ -14,7 +14,7 @@ test('Creates an account when sign up form data is valid', async t => {
   const expected = pages.DASHBOARD
   const userEmail = genEmail('foo')
 
-  await LoginRegisterPage.pageClass
+  await LoginRegisterPage.pageClass()
   await signUp(t, userEmail, password)
   const actual = getLocation('pathname')
 
@@ -27,13 +27,13 @@ test('Fails signup with an existing email address', async t => {
   const duplicateUserEmail = genEmail('foo')
 
   // Create a user account and logout.
-  await LoginRegisterPage.pageClass
+  await LoginRegisterPage.pageClass()
   await signUp(t, duplicateUserEmail, password)
-  await DashboardPage.pageClass
+  await DashboardPage.pageClass()
   await t.click(DashboardPage.logoutButton)
 
   // Create another user account with the same email address.
-  await LoginRegisterPage.pageClass
+  await LoginRegisterPage.pageClass()
   await signUp(t, duplicateUserEmail, password)
 
   // Do not end up on the dashboard page.
@@ -47,7 +47,7 @@ test('Fails signup without a valid email address', async t => {
   const should = `Should stay on the login page ${pages.LOGIN}`
   const expected = pages.LOGIN
 
-  await LoginRegisterPage.pageClass
+  await LoginRegisterPage.pageClass()
   await signUp(t, 'foo', password)
   const actual = getLocation('pathname')
 
@@ -59,7 +59,7 @@ test('Fails signup without a valid password', async t => {
   const expected = pages.LOGIN
   const userEmail = genEmail('foo')
 
-  await LoginRegisterPage.pageClass
+  await LoginRegisterPage.pageClass()
   await signUp(t, userEmail, 'password')
   const actual = getLocation('pathname')
 
@@ -71,7 +71,7 @@ test('Fails signup when not agreeing to the disclaimer', async t => {
   const expected = pages.LOGIN
   const userEmail = genEmail('foo')
 
-  await LoginRegisterPage.pageClass
+  await LoginRegisterPage.pageClass()
   await signUp(t, userEmail, password, { skipDisclaimer: true })
   const actual = getLocation('pathname')
 
