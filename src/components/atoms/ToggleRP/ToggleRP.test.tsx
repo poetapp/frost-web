@@ -63,8 +63,8 @@ describe('<ToggleRP>{...children}</ToggleRP>', async (assert: any) => {
       render(
         <ToggleRP>
           {({ on }: { readonly on: boolean }) => <button className={'test'}>{on ? 'ON' : 'NOT ON'}</button>}
-        </ToggleRP>
-      )
+        </ToggleRP>,
+      ),
     )
     assert({
       given: 'a button as children',
@@ -80,8 +80,8 @@ describe('<ToggleRP>{...children}</ToggleRP>', async (assert: any) => {
           {({ toggle, getToggleProps }: { readonly toggle: any; readonly getToggleProps: any }) => (
             <div className={'test'}>{toggle && getToggleProps ? 'ON' : 'NOT ON'}</div>
           )}
-        </ToggleRP>
-      )
+        </ToggleRP>,
+      ),
     )
     assert({
       given: 'a button as children',

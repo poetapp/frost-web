@@ -28,5 +28,5 @@ export const ForgotPasswordContainer = connect(undefined, mapDispatch)(
     render(): JSX.Element {
       return <ForgotPassword onSubmit={this.onForgotPassword} />
     }
-  }
+  },
 )

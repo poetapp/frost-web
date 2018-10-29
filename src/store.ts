@@ -49,7 +49,7 @@ function bindInitialState(pages: ReadonlyArray<PageLoader<any, any>>): any {
 
 export function createPoetStore(): Promise<{
   readonly store: any
-  readonly pages: any
+  readonly pages: any,
 }> {
   return new Promise((resolve, reject) => {
     try {

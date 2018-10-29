@@ -29,5 +29,5 @@ export const VerifiedAccountContainer = connect(undefined, mapDispatch)(
     render(): JSX.Element {
       return <VerifiedAccount />
     }
-  }
+  },
 )
