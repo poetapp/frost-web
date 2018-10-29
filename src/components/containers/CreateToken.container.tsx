@@ -54,7 +54,7 @@ const MODAL_DELETE_TOKEN = 'MODAL_DELETE_TOKEN'
 const deleteToken = (
   modal: ModalState,
   onDeleteApiToken: (payload: { readonly token: string; readonly apiToken: string }) => Action,
-  user: User
+  user: User,
 ) => {
   const { apiToken } = modal.data as { readonly apiToken: string }
   const { token } = user
