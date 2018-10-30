@@ -1,13 +1,15 @@
 import { Frost } from '@po.et/frost-client'
-import { Actions } from 'actions/index'
+import { Actions } from 'actions'
 import { SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
+
+import { Configuration } from 'configuration'
 
 async function GetProfileFrost(
   token: string,
   password: string
 ): Promise<{ readonly createdAt: number; readonly verified: boolean }> {
-  const frost = new Frost({ host: '/api' })
+  const frost = new Frost({ host: Configuration.frostApiUrl })
   return await frost.getProfile(token)
 }
 

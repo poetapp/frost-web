@@ -1,11 +1,13 @@
 import { Frost } from '@po.et/frost-client'
-import { Actions } from 'actions/index'
+import { Actions } from 'actions'
 import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
+import { Configuration } from 'configuration'
+
 async function GetApiTokensFrost(email: string): Promise<string> {
-  const frost = new Frost({ host: '/api' })
+  const frost = new Frost({ host: Configuration.frostApiUrl })
   return await frost.sendEmailForgotPassword(email)
 }
 
