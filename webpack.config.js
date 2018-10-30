@@ -73,6 +73,11 @@ function getPlugins(environment) {
   const nonDevelopmentPlugins = [
     new CopyWebpackPlugin([
       {
+        from: './_redirects',
+        to: './_redirects',
+        toType: "file",
+      },
+      {
         from: './_headers',
         to: './_headers',
         toType: "file",
