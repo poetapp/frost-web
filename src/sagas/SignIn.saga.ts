@@ -9,7 +9,7 @@ import { Configuration } from 'configuration'
 
 async function signInFrost(data: {
   readonly email: string
-  readonly password: string
+  readonly password: string,
 }): Promise<{ readonly token: string }> {
   const { email, password } = data
   const frost = new Frost({ host: Configuration.frostApiUrl })
