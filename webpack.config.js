@@ -146,10 +146,9 @@ module.exports = {
               includePaths: [path.resolve(__dirname, "./src/components/styles")],
               sourceMap: true,
             }
-          }
+          },
         ]
       },
-      { test: /\.json$/, use: 'json-loader' },
       { test: /\.svg$/, use: 'file-loader' },
       { test: /\.ico$/, use: 'file-loader?name=[name].[ext]' },
     ],
