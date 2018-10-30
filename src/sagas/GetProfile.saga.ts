@@ -7,7 +7,7 @@ import { Configuration } from 'configuration'
 
 async function GetProfileFrost(
   token: string,
-  password: string
+  password: string,
 ): Promise<{ readonly createdAt: number; readonly verified: boolean }> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
   return await frost.getProfile(token)
