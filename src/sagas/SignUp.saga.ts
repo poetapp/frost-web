@@ -6,7 +6,7 @@ import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
 async function signUpFrost(data: {
   readonly email: string
-  readonly password: string
+  readonly password: string,
 }): Promise<{ readonly token: string }> {
   const { email, password } = data
   const frost = new Frost({ host: '/api' })
