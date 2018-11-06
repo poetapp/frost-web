@@ -55,6 +55,10 @@ export class FrostRunKit extends React.Component<FrostRunKitProps, FrostRunKitSt
     token: '',
   }
 
+  componentDidCatch(): void {
+    this.setState(() => ({ token: '' }))
+  }
+
   componentWillReceiveProps(nextProps: FrostRunKitProps): void {
     this.setState(() => ({ token: nextProps.token }))
   }
