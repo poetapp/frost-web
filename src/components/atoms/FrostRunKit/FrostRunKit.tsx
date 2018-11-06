@@ -46,6 +46,30 @@ interface FrostRunKitProps {
   readonly token: string
 }
 
-export const FrostRunKit = (props: FrostRunKitProps) => (
-  <Embed height="25px" source={FrostRunKitSource} env={[`API_TOKEN=${props.token}`, `AUTHOR=${props.email}`]} />
-)
+interface FrostRunKitState {
+  readonly token: string
+}
+
+export class FrostRunKit extends React.Component<FrostRunKitProps, FrostRunKitState> {
+  readonly state = {
+    token: '',
+  }
+
+  componentWillReceiveProps(nextProps: FrostRunKitProps): void {
+    this.setState(() => ({ token: nextProps.token }))
+  }
+
+  render(): JSX.Element {
+    if (this.state.token !== '')
+      return (
+        <Embed
+          height="25px"
+          source={FrostRunKitSource}
+          env={[`API_TOKEN=${this.state.token}`, `AUTHOR=${this.props.email}`]} />
+      )
+    else
+      return (
+        <div>Loading...</div>
+      )
+  }
+}
