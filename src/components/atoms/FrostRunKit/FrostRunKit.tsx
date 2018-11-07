@@ -52,7 +52,7 @@ interface FrostRunKitState {
 
 export class FrostRunKit extends React.Component<FrostRunKitProps, FrostRunKitState> {
   readonly state = {
-    token: '',
+    token: this.props.token,
   }
 
   componentDidCatch(): void {
