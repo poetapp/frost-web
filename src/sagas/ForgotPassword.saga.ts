@@ -4,7 +4,7 @@ import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-import { Configuration } from 'configuration'
+import { Configuration } from 'Configuration'
 
 async function GetApiTokensFrost(email: string): Promise<string> {
   const frost = new Frost({ host: Configuration.frostApiUrl })

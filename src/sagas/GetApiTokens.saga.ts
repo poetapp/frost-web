@@ -3,7 +3,7 @@ import { Actions } from 'actions'
 import { SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
-import { Configuration } from 'configuration'
+import { Configuration } from 'Configuration'
 
 async function GetApiTokensFrost(apiToken: string): Promise<{ readonly apiTokens: ReadonlyArray<string> }> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
