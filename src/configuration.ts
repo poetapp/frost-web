@@ -8,8 +8,6 @@ const defaultConfiguration = {
   frostApiUrl: 'http://frost-api:3000',
 }
 
-const ConfigFromEnvFile: Configuration = require('Configuration')
-
 export const camelCaseToScreamingSnakeCase = (camelCase: string = '') =>
   camelCase.replace(/([A-Z])/g, capital => '_' + capital).toUpperCase()
 
@@ -51,7 +49,6 @@ const loadConfigurationFromEnv = (env: any): Partial<Configuration> => {
 export const mergeConfigs = (envVars: any = {}) => {
   const config = {
     ...defaultConfiguration,
-    ...ConfigFromEnvFile,
     ...loadConfigurationFromEnv(envVars),
   }
   return config
