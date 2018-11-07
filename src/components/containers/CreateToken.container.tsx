@@ -71,7 +71,7 @@ export const getTextButtonByNetwork = (network: Network) => `Create API Token fo
 export const getTextButton = () => 'Create API Token'
 const getTextCreateTokenButton = (network: Network) =>
   ifElse(isActiveToggleNetwork, getTextButtonByNetwork, getTextButton)(network)
-const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, identity, () => undefined)(network)
+const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, identity, (): any => undefined)(network)
 
 const createToken = (props: CreateTokenContainerProps): JSX.Element => (
   <CreateToken
