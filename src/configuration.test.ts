@@ -1,5 +1,5 @@
 import { describe } from 'riteway'
-import { camelCaseToScreamingSnakeCase, createEnvToConfigurationKeyMap, mergeConfigs } from './Configuration'
+import { camelCaseToScreamingSnakeCase, createEnvToConfigurationKeyMap, mergeConfigs } from './configuration'
 
 describe('camelCaseToScreamingSnakeCase()', async (assert) => {
   assert({
