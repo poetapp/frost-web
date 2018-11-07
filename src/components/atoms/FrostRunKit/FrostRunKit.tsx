@@ -21,7 +21,7 @@ function handleError(e) {
 }
 
 const config = {
-  host: 'https://api-testing.frost.po.et',
+  host: 'https://frost-api.qa.poetnetwork.net',
   timeout: 10
 }
 const frost = new Frost(config)
