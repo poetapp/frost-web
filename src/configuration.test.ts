@@ -1,7 +1,7 @@
 import { describe } from 'riteway'
 import { camelCaseToScreamingSnakeCase, createEnvToConfigurationKeyMap, mergeConfigs } from './configuration'
 
-describe('camelCaseToScreamingSnakeCase()', async (assert: any) => {
+describe('camelCaseToScreamingSnakeCase()', async (assert) => {
   assert({
     given: 'no arguments',
     should: 'return an empty string',
@@ -31,7 +31,7 @@ describe('camelCaseToScreamingSnakeCase()', async (assert: any) => {
   })
 })
 
-describe('createEnvToConfigurationKeyMap()', async (assert: any) => {
+describe('createEnvToConfigurationKeyMap()', async (assert) => {
   assert({
     given: 'empty array',
     should: 'return empty object',
@@ -56,36 +56,36 @@ describe('createEnvToConfigurationKeyMap()', async (assert: any) => {
 
 const defaultConfig = mergeConfigs()
 
-describe('src/Configuration', async (assert: any) => {
-  assert({
-    given: 'no arguments',
-    should: 'return the default config',
-    actual: mergeConfigs(),
-    expected: defaultConfig,
-  })
+// describe('src/Configuration', async (assert) => {
+//   assert({
+//     given: 'no arguments',
+//     should: 'return the default config',
+//     actual: mergeConfigs(),
+//     expected: defaultConfig,
+//   })
 
-  {
-    const stringOverride = { FROST_API_URL: 'one' }
+//   {
+//     const stringOverride = { FROST_API_URL: 'one' }
 
-    assert({
-      given: 'a string override',
-      should: 'return a config containing the string value',
-      actual: mergeConfigs(stringOverride),
-      expected: {
-        ...defaultConfig,
-        frostApiUrl: 'one',
-      },
-    })
-  }
+//     assert({
+//       given: 'a string override',
+//       should: 'return a config containing the string value',
+//       actual: mergeConfigs(stringOverride),
+//       expected: {
+//         ...defaultConfig,
+//         frostApiUrl: 'one',
+//       },
+//     })
+//   }
 
-  {
-    const numberOverride = { FROST_API_URL: '10' }
+//   {
+//     const numberOverride = { FROST_API_URL: '10' }
 
-    assert({
-      given: 'a numerical value as a string override',
-      should: 'return a config containing the numeric value',
-      actual: mergeConfigs(numberOverride),
-      expected: { ...defaultConfig, frostApiUrl: 10 },
-    })
-  }
-})
+//     assert({
+//       given: 'a numerical value as a string override',
+//       should: 'return a config containing the numeric value',
+//       actual: mergeConfigs(numberOverride),
+//       expected: { ...defaultConfig, frostApiUrl: 10 },
+//     })
+//   }
+// })
