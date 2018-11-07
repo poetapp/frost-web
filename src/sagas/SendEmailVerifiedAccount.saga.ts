@@ -3,9 +3,11 @@ import { Actions } from 'actions/index'
 import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
+import { Configuration } from 'configuration'
+
 async function SendEmailVerifiedAccountFrost(data: { readonly token: string }): Promise<string> {
   const { token } = data
-  const frost = new Frost({ host: '/api' })
+  const frost = new Frost({ host: Configuration.frostApiUrl })
   return await frost.sendEmailVerifyAccount(token)
 }
 
