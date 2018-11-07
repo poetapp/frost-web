@@ -5,7 +5,7 @@ import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 const { toast } = require('react-toastify')
 
-import { Configuration } from 'Configuration'
+import { Configuration } from 'configuration'
 
 async function signInFrost(data: {
   readonly email: string
