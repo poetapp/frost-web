@@ -22,7 +22,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
         />
       </Link>
 
-      <a href="https://docs.frost.po.et/docs" target="_blank">
+      <a href="https://github.com/poetapp/documentation" target="_blank">
         <BoxButton
           image={Images.Book}
           title={'Documentation & Guides'}

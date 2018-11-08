@@ -23,10 +23,10 @@ export const HomeLayout = () => (
             Po.et Network, without having to build your own private key infrastructure.{' '}
           </p>
           <div className={'Home__cover-page__buttons'}>
-            <a href={'https://docs.frost.po.et/docs'}>
+            <a href={'https://github.com/poetapp/documentation'}>
               <Button className={'Home__cover-page__box__btn-token'} text={'Get Started'} />
             </a>
-            <a href={'https://docs.frost.po.et/v0.1/reference'}>
+            <a href={'https://app.swaggerhub.com/apis-docs/po.et/frost-api/0.1.0#/'}>
               <Button className={'Home__cover-page__box__btn-started'} text={'API Docs'} />
             </a>
           </div>
