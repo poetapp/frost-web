@@ -46,12 +46,9 @@ const loadConfigurationFromEnv = (env: any): Partial<Configuration> => {
   return configurationFromEnv
 }
 
-export const getConfigurationWithDefaults = (envVars: any = {}) => {
-  const config = {
-    ...defaultConfiguration,
-    ...loadConfigurationFromEnv(envVars),
-  }
-  return config
-}
+export const getConfigurationWithDefaults = (envVars: any = {}) => ({
+  ...defaultConfiguration,
+  ...loadConfigurationFromEnv(envVars),
+})
 
 export const Configuration = getConfigurationWithDefaults(process.env)
