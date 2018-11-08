@@ -1,5 +1,5 @@
 import { describe } from 'riteway'
-import { camelCaseToScreamingSnakeCase, createEnvToConfigurationKeyMap, mergeConfigs, defaultConfiguration } from './configuration'
+import { camelCaseToScreamingSnakeCase, createEnvToConfigurationKeyMap, getConfigurationWithDefaults, defaultConfiguration } from './configuration'
 
 describe('camelCaseToScreamingSnakeCase()', async (assert) => {
   assert({
@@ -59,7 +59,7 @@ describe('src/Configuration', async (assert) => {
   assert({
     given: 'no arguments',
     should: 'return the default config',
-    actual: mergeConfigs(),
+    actual: getConfigurationWithDefaults(),
     expected: defaultConfiguration,
   })
 
@@ -69,7 +69,7 @@ describe('src/Configuration', async (assert) => {
     assert({
       given: 'a string override',
       should: 'return a config containing the string value',
-      actual: mergeConfigs(stringOverride),
+      actual: getConfigurationWithDefaults(stringOverride),
       expected: {
         ...defaultConfiguration,
         frostApiUrl: 'one',
@@ -83,7 +83,7 @@ describe('src/Configuration', async (assert) => {
     assert({
       given: 'a numerical value as a string override',
       should: 'return a config containing the numeric value',
-      actual: mergeConfigs(numberOverride),
+      actual: getConfigurationWithDefaults(numberOverride),
       expected: { ...defaultConfiguration, frostApiUrl: 10 },
     })
   }

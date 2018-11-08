@@ -46,7 +46,7 @@ const loadConfigurationFromEnv = (env: any): Partial<Configuration> => {
   return configurationFromEnv
 }
 
-export const mergeConfigs = (envVars: any = {}) => {
+export const getConfigurationWithDefaults = (envVars: any = {}) => {
   const config = {
     ...defaultConfiguration,
     ...loadConfigurationFromEnv(envVars),
@@ -54,4 +54,4 @@ export const mergeConfigs = (envVars: any = {}) => {
   return config
 }
 
-export const Configuration = mergeConfigs(process.env)
+export const Configuration = getConfigurationWithDefaults(process.env)
