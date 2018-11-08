@@ -5,7 +5,7 @@ interface Configuration {
 }
 
 export const defaultConfiguration: Configuration = {
-  frostApiUrl: 'http://frost-api:3000',
+  frostApiUrl: 'http://localhost:3000',
 }
 
 export const camelCaseToScreamingSnakeCase = (camelCase: string = '') =>
