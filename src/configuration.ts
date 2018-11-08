@@ -4,7 +4,7 @@ interface Configuration {
   readonly frostApiUrl: string
 }
 
-const defaultConfiguration = {
+export const defaultConfiguration: Configuration = {
   frostApiUrl: 'http://frost-api:3000',
 }
 
