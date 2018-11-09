@@ -1,5 +1,6 @@
 import * as React from 'react'
 const Embed = require('react-runkit')
+import { Configuration } from 'configuration'
 
 const FrostRunKitSource = `// https://github.com/poetapp/frost-client
 const { Frost } = require('@po.et/frost-client')
@@ -21,7 +22,7 @@ function handleError(e) {
 }
 
 const config = {
-  host: 'https://frost-api.qa.poetnetwork.net',
+  host: process.env.HOST, // frost-api url,
   timeout: 10
 }
 const frost = new Frost(config)
@@ -69,7 +70,7 @@ export class FrostRunKit extends React.Component<FrostRunKitProps, FrostRunKitSt
         <Embed
           height="25px"
           source={FrostRunKitSource}
-          env={[`API_TOKEN=${this.state.token}`, `AUTHOR=${this.props.email}`]} />
+          env={[`API_TOKEN=${this.state.token}`, `AUTHOR=${this.props.email}`, `HOST=${Configuration.frostApiUrl}`]} />
       )
     else
       return (
