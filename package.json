@@ -142,7 +142,7 @@
     "stylelint": "9.8.0",
     "testcafe": "0.23.1",
     "ts-node": "7.0.1",
-    "tsconfig-paths": "3.6.0",
+    "tsconfig-paths": "3.7.0",
     "tslint": "5.11.0",
     "tslint-immutable": "4.9.1",
     "typescript": "3.1.6",
