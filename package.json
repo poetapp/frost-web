@@ -140,7 +140,7 @@
     "storybook-addon-jsx": "5.4.0",
     "style-loader": "0.23.1",
     "stylelint": "9.8.0",
-    "testcafe": "0.23.1",
+    "testcafe": "0.23.2",
     "ts-node": "7.0.1",
     "tsconfig-paths": "3.7.0",
     "tslint": "5.11.0",
