@@ -21,11 +21,9 @@ const qa = environment === 'qa'
 const development = environment === 'development'
 const testing = environment === 'testing'
 const configurationPath = `./env/${environment}.json`
-const redirects = `./_redirects.${environment}`
 
 console.log("POET_ENV: ", environment)
 console.log("Configuration Path: ", configurationPath)
-console.log("redirects: ", redirects)
 
 const vendor = [
   'history',
@@ -62,7 +60,8 @@ function getPlugins(environment) {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify(environment)
+        NODE_ENV: JSON.stringify(environment),
+        FROST_API_URL: JSON.stringify(process.env.FROST_API_URL),
       }
     }),
     new webpack.NormalModuleReplacementPlugin(/\/iconv-loader$/, 'node-noop'), // See Note 1 at the bottom
@@ -75,7 +74,7 @@ function getPlugins(environment) {
   const nonDevelopmentPlugins = [
     new CopyWebpackPlugin([
       {
-        from: redirects,
+        from: './_redirects',
         to: './_redirects',
         toType: "file",
       },
@@ -122,7 +121,7 @@ module.exports = {
     alias: {
       Configuration: path.resolve(configurationPath)
     },
-    modules:  [
+    modules: [
       path.join(__dirname, "src"),
       "node_modules"
     ],
@@ -153,10 +152,9 @@ module.exports = {
               includePaths: [path.resolve(__dirname, "./src/components/styles")],
               sourceMap: true,
             }
-          }
+          },
         ]
       },
-      { test: /\.json$/, use: 'json-loader' },
       { test: /\.svg$/, use: 'file-loader' },
       { test: /\.ico$/, use: 'file-loader?name=[name].[ext]' },
     ],
