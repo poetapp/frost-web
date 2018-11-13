@@ -1,25 +1,15 @@
 const webpack = require('webpack')
 const webpackDevServer = require('webpack-dev-server')
 const config = require("./webpack.config.js")
-const isDockerized = process.env.DOCKER
 
 const PORT_WEBPACK_SERVER = process.env.PORT_WEBPACK_SERVER || 4000
 const HOST_WEBPACK_SERVER = '0.0.0.0'
-const PORT_API = 3000
-const HOST_API_PROXY = isDockerized ? 'nginx' : HOST_WEBPACK_SERVER
 
 const mode = 'development'
 const compiler = webpack({ ...config, mode })
 const server = new webpackDevServer(compiler, {
   hot: true,
   noInfo: true,
-  proxy: {
-    '/api': {
-      target: process.env.FROST_API || `http://${HOST_API_PROXY}:${PORT_API}`,
-      secure: false,
-      pathRewrite: {'^/api' : ''}
-    }
-  },
   historyApiFallback: {
     index: 'index.html'
   }

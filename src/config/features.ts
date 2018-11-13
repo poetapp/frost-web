@@ -7,11 +7,11 @@ export enum FeatureName {
 export const initialFeatures: ReadonlyArray<any> = [
   {
     name: FeatureName.ToggleNetwork,
-    isActive: false,
+    isActive: true,
   },
   {
     name: FeatureName.RunKit,
-    isActive: false,
+    isActive: true,
   },
   {
     name: FeatureName.Announcement,
