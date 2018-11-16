@@ -24,9 +24,9 @@ const extractValue = (value: any) => {
 }
 
 export const createEnvToConfigurationKeyMap: (
-  keys: ReadonlyArray<string>
+  keys: ReadonlyArray<string>,
 ) => {
-  readonly [index: string]: string
+  readonly [index: string]: string,
 } = pipe(map(toPair), fromPairs)
 
 const loadConfigurationFromEnv = (env: any): Partial<Configuration> => {
@@ -40,7 +40,7 @@ const loadConfigurationFromEnv = (env: any): Partial<Configuration> => {
         ...previousValue,
         [map[key]]: extractValue(value),
       }),
-      {}
+      {},
     )
   return configurationFromEnv
 }

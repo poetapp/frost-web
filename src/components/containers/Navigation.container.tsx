@@ -34,5 +34,5 @@ export const NavigationContainer = connect(mapStateToProps)(
 
       return <NavigationList links={links} pathActive={router.currentPath} />
     }
-  }
+  },
 )
