@@ -23,12 +23,11 @@ const extractValue = (value: any) => {
       : parseInt(coercedValue, 10)
 }
 
-export const createEnvToConfigurationKeyMap: (keys: ReadonlyArray<string>) => {
-  readonly [index: string]: string,
-} = pipe(
-  map(toPair),
-  fromPairs,
-)
+export const createEnvToConfigurationKeyMap: (
+  keys: ReadonlyArray<string>
+) => {
+  readonly [index: string]: string
+} = pipe(map(toPair), fromPairs)
 
 const loadConfigurationFromEnv = (env: any): Partial<Configuration> => {
   const map = createEnvToConfigurationKeyMap(keys(defaultConfiguration))
@@ -41,7 +40,7 @@ const loadConfigurationFromEnv = (env: any): Partial<Configuration> => {
         ...previousValue,
         [map[key]]: extractValue(value),
       }),
-      {},
+      {}
     )
   return configurationFromEnv
 }

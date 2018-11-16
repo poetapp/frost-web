@@ -29,7 +29,7 @@ function* GetApiTokens(action: any): SagaIterator {
       Actions.NotificationBar.onShowNotificationBar({
         type: 'success',
         message: 'API TOKEN SUCCESSFULLY CREATED',
-      }),
+      })
     )
     yield put(Actions.LoadingPage.onLoadingFull())
     yield call(delay, 2000)

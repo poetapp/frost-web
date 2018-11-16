@@ -70,11 +70,9 @@ export class FrostRunKit extends React.Component<FrostRunKitProps, FrostRunKitSt
         <Embed
           height="25px"
           source={FrostRunKitSource}
-          env={[`API_TOKEN=${this.state.token}`, `AUTHOR=${this.props.email}`, `HOST=${Configuration.frostApiUrl}`]} />
+          env={[`API_TOKEN=${this.state.token}`, `AUTHOR=${this.props.email}`, `HOST=${Configuration.frostApiUrl}`]}
+        />
       )
-    else
-      return (
-        <div>Loading...</div>
-      )
+    else return <div>Loading...</div>
   }
 }

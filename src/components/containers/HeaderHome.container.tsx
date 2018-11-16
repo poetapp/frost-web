@@ -18,5 +18,5 @@ export const HeaderHomeContainer = connect(mapStateToProps)(
 
       return <HeaderHome isLogged={!!user.token} />
     }
-  },
+  }
 )

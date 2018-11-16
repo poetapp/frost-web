@@ -41,5 +41,5 @@ export const ChangePasswordContainer = connect(mapStateToProps, mapDispatch)(
 
       return <ChangePassword onSubmit={this.onChangePassword} disabledButton={changePasswordToken.loading} />
     }
-  },
+  }
 )

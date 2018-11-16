@@ -26,5 +26,5 @@ export const LogoutContainer = connect(mapStateToProps, mapDispatch)(
 
       return <Logout email={profile.email} onLogout={onSignOut} />
     }
-  },
+  }
 )

@@ -19,7 +19,7 @@ const isDateAfterNow = (date: Date): boolean => moment().isAfter(date)
 const deleteToken = (
   event: React.MouseEvent<HTMLButtonElement>,
   onDeleteToken: (apiToken: string) => void,
-  apiToken: string,
+  apiToken: string
 ) => {
   event.preventDefault()
   onDeleteToken(apiToken)
@@ -45,7 +45,7 @@ const renderToken = (token: ApiToken, key: number, total: number, onDeleteToken?
         title={token.exp ? (isDateAfterNow(token.exp) ? '' : moment(token.exp).format('MM/DD/YYYY hh:mm a')) : 'Never'}
         className={classNames(
           'BoxToken__item__date',
-          token.exp ? (isDateAfterNow(token.exp) ? 'BoxToken__item__date__expired' : 'BoxToken__item__date__help') : '',
+          token.exp ? (isDateAfterNow(token.exp) ? 'BoxToken__item__date__expired' : 'BoxToken__item__date__help') : ''
         )}
       >
         {token.exp

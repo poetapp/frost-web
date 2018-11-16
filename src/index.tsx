@@ -71,7 +71,7 @@ async function init(): Promise<void> {
         </FeatureToggles>
       </AppContainer>
     </Provider>,
-    document.getElementById('app'),
+    document.getElementById('app')
   )
 }
 

@@ -30,5 +30,5 @@ export const ToggleNetworkContainer = connect(mapStateToProps, mapDispatch)(
       const on = network === Network.LIVE
       return <ToggleMainnet disabled={false} on={on} onToogle={this.onChangeNetwork} />
     }
-  },
+  }
 )

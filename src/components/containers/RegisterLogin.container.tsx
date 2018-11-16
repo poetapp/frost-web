@@ -56,5 +56,5 @@ export const RegisterLoginContainer = connect(mapStateToProps, mapDispatch)(
         />
       )
     }
-  },
+  }
 )
