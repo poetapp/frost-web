@@ -14,7 +14,7 @@ const links: ReadonlyArray<any> = [
   },
   {
     label: 'Documentation',
-    link: 'https://docs.frost.po.et/docs',
+    link: 'https://docs.poetnetwork.net/use-poet/getting-started.html',
     external: true,
   },
 ]

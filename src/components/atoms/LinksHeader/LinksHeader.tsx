@@ -6,10 +6,10 @@ interface LinksHeaderProps {}
 export const LinksHeader = (props: LinksHeaderProps) => (
   <ul className={'LinksHeader'}>
     <li className={'LinksHeader__item'}>
-      <a href={'https://docs.frost.po.et/docs'}>Get Started</a>
+      <a href={'https://docs.poetnetwork.net/use-poet/getting-started.html'}>Get Started</a>
     </li>
     <li className={'LinksHeader__item'}>
-      <a href={'https://docs.frost.po.et/v0.1/reference'}>API Docs</a>
+      <a href={'https://docs.poetnetwork.net/use-poet/poet-api.html'}>API Docs</a>
     </li>
     <li className={'LinksHeader__item'}>
       <a href={'https://gitter.im/poetapp'}>Developer Forum</a>
