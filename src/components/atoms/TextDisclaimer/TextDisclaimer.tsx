@@ -27,18 +27,18 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
           <li>
             <strong>"API"</strong> means the Frost application programming interface and any API Documentation or other
             API materials made available by Company on its website located at{' '}
-            <a target="_blank" href="https://frost.po.et/">
-              frost.po.et
+            <a target="_blank" href="https://frost.poetnetwork.net/">
+              frost.poetnetwork.net
             </a>{' '}
             and{' '}
-            <a target="_blank" href="https://api.frost.po.et/">
-              api.frost.po.et.
+            <a target="_blank" href="https://api.poetnetwork.net/">
+              api.poetnetwork.net.
             </a>
           </li>
           <li>
             <strong>"API Documentation"</strong> means the API documentation described at{' '}
-            <a target="_blank" href="https://docs.frost.po.et/">
-              docs.frost.po.et
+            <a target="_blank" href="https://docs.poetnetwork.net/use-poet/poet-api.html">
+              docs.poetnetwork.net
             </a>{' '}
             from time to time.
           </li>
