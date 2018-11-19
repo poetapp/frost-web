@@ -23,7 +23,7 @@ export const RegisterLogin = (props: RegisterLoginProps) => (
         <LogoPoetBlack className={'RegisterLogin__LogoFrost'} />
       </Link>
       <h1 className="RegisterLogin__title">
-        Poet Api is an open API for publishers and content creators to interact with the Po.et Network.
+        Po.et Api is an open API for publishers and content creators to interact with the Po.et Network.
       </h1>
       <div className={'row'}>
         <div className={'col-4 RegisterLogin_signUp'}>

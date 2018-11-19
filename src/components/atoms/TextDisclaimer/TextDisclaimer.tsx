@@ -12,7 +12,7 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
     <p>
       This API License Agreement (this <strong>"Agreement"</strong>) is a binding contract between you ("you" or "your")
       and Poet Technology Limited (<strong>"Company," "we,"</strong> or <strong>"us"</strong>). This Agreement governs
-      your access to and use of the Poet Api application programming interface.
+      your access to and use of the Po.et Api application programming interface.
     </p>
     <p>
       BY CLICKING THE "I ACCEPT" BUTTON YOU (A) ACKNOWLEDGE THAT YOU HAVE READ AND UNDERSTAND THIS AGREEMENT; (B)
@@ -25,7 +25,7 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
         <u>Definitions</u>
         <ol className={'TextDisclaimer__title__number-list__letter-list'}>
           <li>
-            <strong>"API"</strong> means the Poet Api application programming interface
+            <strong>"API"</strong> means the Po.et Api application programming interface
             and any API Documentation or other API materials made available by Company
             on its website located at{' '}
             <a target="_blank" href="https://explorer.poetnetwork.net/">

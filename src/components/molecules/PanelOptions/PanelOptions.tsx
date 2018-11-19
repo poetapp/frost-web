@@ -9,7 +9,7 @@ interface PanelOptionsProps {}
 export const PanelOptions = (props: PanelOptionsProps) => (
   <main className={'PanelOptions'}>
     <div className={'PanelOptions__welcome'}>
-      <h2>Welcome to Poet Api</h2>
+      <h2>Welcome to Po.et Api</h2>
     </div>
     <div className={'PanelOptions__box-buttons'}>
       <Link to={'/token'}>
@@ -17,7 +17,7 @@ export const PanelOptions = (props: PanelOptionsProps) => (
           className={'Panel PanelOptions__box-buttons__CreateToken'}
           image={Images.KeySmall}
           title={'API Tokens'}
-          description={'Get an API token and start building an integration on top of Po.et using the Poet API.'}
+          description={'Get an API token and start building an integration on top of Po.et using the Po.et API.'}
           buttonText={'Get API Token'}
         />
       </Link>
