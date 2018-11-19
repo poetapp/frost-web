@@ -18,7 +18,7 @@ export const DeleteToken = (props: DeleteTokenProps) => (
       </header>
       <main>
         <p className={'DeleteToken__text'}>
-          Any applications or scripts using this token will no longer be able to access the Poet API. You cannot undo
+          Any applications or scripts using this token will no longer be able to access the Po.et API. You cannot undo
           this action.
         </p>
       </main>

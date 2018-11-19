@@ -12,7 +12,7 @@ export const VerifiedAccount = () => (
         <LogoFrost className="VerifiedAccount__LogoFrost" />
       </Link>
       <h1 className="VerifiedAccount__title">
-        Poet Api is an open API for publishers and content creators to interact with the Po.et Network.
+        Po.et Api is an open API for publishers and content creators to interact with the Po.et Network.
       </h1>
     </div>
   </ToastPage>
