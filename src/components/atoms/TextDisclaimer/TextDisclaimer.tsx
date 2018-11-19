@@ -12,7 +12,7 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
     <p>
       This API License Agreement (this <strong>"Agreement"</strong>) is a binding contract between you ("you" or "your")
       and Poet Technology Limited (<strong>"Company," "we,"</strong> or <strong>"us"</strong>). This Agreement governs
-      your access to and use of the Frost application programming interface.
+      your access to and use of the Po.et API application programming interface.
     </p>
     <p>
       BY CLICKING THE "I ACCEPT" BUTTON YOU (A) ACKNOWLEDGE THAT YOU HAVE READ AND UNDERSTAND THIS AGREEMENT; (B)
@@ -25,10 +25,11 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
         <u>Definitions</u>
         <ol className={'TextDisclaimer__title__number-list__letter-list'}>
           <li>
-            <strong>"API"</strong> means the Frost application programming interface and any API Documentation or other
-            API materials made available by Company on its website located at{' '}
-            <a target="_blank" href="https://frost.poetnetwork.net/">
-              frost.poetnetwork.net
+            <strong>"API"</strong> means the Po.et API application programming interface
+            and any API Documentation or other API materials made available by Company
+            on its website located at{' '}
+            <a target="_blank" href="https://explorer.poetnetwork.net/">
+              explorer.poetnetwork.net
             </a>{' '}
             and{' '}
             <a target="_blank" href="https://api.poetnetwork.net/">
@@ -76,8 +77,8 @@ export const TextDisclaimer = (props: TextDisclaimerProps) => (
         expressly granted. You may not use the API or any Company Mark for any other purpose without our prior written
         consent. In order to use and access the API, you must obtain an API Token through the registration process
         available at{' '}
-        <a target="_blank" href="https://frost.po.et/">
-          frost.po.et
+        <a target="_blank" href="explorer.poetnetwork.net">
+          explorer.po.et
         </a>. You may not share your API Token with any third party, must keep your API Token and all login information
         secure, and must use the API Token as your sole means of accessing the API. Your API Token may be revoked at any
         time by us.

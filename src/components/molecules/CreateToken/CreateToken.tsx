@@ -35,7 +35,7 @@ export const CreateToken = (props: CreateTokenProps) => (
       <header className={'CreateTokenContainer__CreateToken__header'}>
         <h2 className={'CreateTokenContainer__CreateToken__header__title'}>API Tokens</h2>
         <p className={'CreateTokenContainer__CreateToken__header__description'}>
-          Manage your API tokens for authenticating with the Frost API.
+          Manage your API tokens for authenticating with the Po.et API.
         </p>
       </header>
       <BoxToken apiTokens={props.boxToken} onDeleteToken={props.onShowModal} />

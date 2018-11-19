@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Link } from 'react-router'
 
-import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { LogoPoetBlack } from 'components/atoms/LogoPoetBlack/LogoPoetBlack'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import { SignIn } from 'components/molecules/Forms/SignIn/SignIn'
 import { SignUp } from 'components/molecules/Forms/SignUp/SignUp'
@@ -20,10 +20,10 @@ export const RegisterLogin = (props: RegisterLoginProps) => (
   <ToastPage>
     <div className="RegisterLogin">
       <Link to={'/'}>
-        <LogoFrost className="RegisterLogin__LogoFrost" />
+        <LogoPoetBlack className={'RegisterLogin__LogoFrost'} />
       </Link>
       <h1 className="RegisterLogin__title">
-        Frost is an open API for publishers and content creators to interact with the Po.et Network.
+        Po.et API is an open API for publishers and content creators to interact with the Po.et Network.
       </h1>
       <div className={'row'}>
         <div className={'col-4 RegisterLogin_signUp'}>

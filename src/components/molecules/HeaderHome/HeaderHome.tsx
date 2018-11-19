@@ -1,6 +1,6 @@
 import { Button } from 'components/atoms/Button/Button'
 import { LinksHeader } from 'components/atoms/LinksHeader/LinksHeader'
-import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { LogoPoetWhite } from 'components/atoms/LogoPoetWhite/LogoPoetWhite'
 import * as React from 'react'
 import { Link } from 'react-router'
 import './HeaderHome.scss'
@@ -12,7 +12,7 @@ interface HeaderHomeProps {
 export const HeaderHome = (props: HeaderHomeProps) => (
   <header className={'Header_home'}>
     <div className={'Header_home__box'}>
-      <LogoFrost className={'Header_home__box__logo'} />
+      <LogoPoetWhite className={'Header_home__box__logo'} />
       <div className={'Header_home__box__right'}>
         {props.isLogged ? (
           <Link to={'/dashboard'}>

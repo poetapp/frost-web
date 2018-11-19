@@ -5,103 +5,37 @@ $home-small-screen: 48rem;
 .Home {
   background-color: $ghost-white;
 
-  &__cover-page {
-    background-color: $black-rock;
-    min-height: 43.56rem;
-
-    &__box {
-      display: flex;
-      flex-direction: column-reverse;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-      margin: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      padding-top: 1.25rem;
-      max-width: 60rem;
-      @media screen and (min-width: $home-small-screen) {
-        flex-direction: row;
-        align-items: flex-start;
-        padding-top: 6.5rem;
-      }
-
-      &__logo {
-        width: 5rem;
-        margin-bottom: 1.25rem;
-        margin-left: 50%;
-        margin-top: 1.25rem;
-        transform: translateX(-50%);
-        @media screen and (min-width: $home-small-screen) {
-          width: 7.5rem;
-          margin-left: 0%;
-          margin-top: auto;
-          transform: translateX(0%);
-        }
-      }
-
-      &__title {
-        margin-bottom: .625rem;
-        text-align: center;
-        font-family: $arvo;
-        font-size: 1.875rem;
-        font-weight: 800;
-        line-height: 3.69rem;
-        color: $white;
-        @media screen and (min-width: $home-small-screen) {
-          text-align: left;
-          font-size: 3.31rem;
-          line-height: 4.3rem;
-        }
-      }
-
-      &__description {
-        margin-bottom: 1rem;
-        padding: 0em .625rem;
-        text-align: center;
-        font-size: 1rem;
-        line-height: 1.56rem;
-        color: $gainsboro;
-        @media screen and (min-width: $home-small-screen) {
-          margin-bottom: 2rem;
-          padding-right: 6.5rem;
-          text-align: left;
-          font-size: 1.25rem;
-          line-height: 1.8rem;
-        }
-      }
-
-      &__btn-token {
-        width: 10rem;
-        margin: 0em 0em 1rem;
-        @media screen and (min-width: 50rem) {
-          margin: auto 1.3rem auto auto;
-        }
-      }
-
-      &__btn-started {
-        width: 10rem;
-        margin-bottom: 1rem;
-        background-color: $white;
-        color: $cornflower-blue;
-      }
-
-      &__logo-frost-only {
-        width:35vw;
-        @media screen and (min-width: 56.25rem) {
-          width: auto;
-        }
-      }
+  &__btn-token {
+    width: 10rem;
+    margin: 0em 0em 1rem;
+    @media screen and (min-width: 50rem) {
+      margin: auto 1.3rem auto auto;
     }
+  }
 
-    &__buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      @media screen and (min-width: $home-small-screen) {
-        flex-direction: row;
-        align-items: flex-start;
-      }
+  &__btn-started {
+    width: 10rem;
+    margin-bottom: 1rem;
+    background-color: $white;
+    color: $cornflower-blue;
+  }
+
+  &__logo-frost-only {
+    width:35vw;
+    @media screen and (min-width: 56.25rem) {
+      width: auto;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    @media screen and (min-width: $home-small-screen) {
+      flex-direction: row;
+      align-items: flex-start;
     }
   }
 
