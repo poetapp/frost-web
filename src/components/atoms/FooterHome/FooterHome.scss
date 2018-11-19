@@ -9,6 +9,10 @@ $footer-small-screen: 37.5rem;
     margin-top: 4.69rem;
   }
 
+  a {
+    color: $poet-green;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
