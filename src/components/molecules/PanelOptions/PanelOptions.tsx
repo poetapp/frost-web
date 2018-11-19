@@ -9,7 +9,7 @@ interface PanelOptionsProps {}
 export const PanelOptions = (props: PanelOptionsProps) => (
   <main className={'PanelOptions'}>
     <div className={'PanelOptions__welcome'}>
-      <h2>Welcome to Po.et Api</h2>
+      <h2>Welcome to Po.et API</h2>
     </div>
     <div className={'PanelOptions__box-buttons'}>
       <Link to={'/token'}>
