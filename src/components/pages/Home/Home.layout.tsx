@@ -13,7 +13,7 @@ export const HomeLayout = () => (
     <HeaderHomeContainer />
     <section className={'Home__what-frost'}>
       <div className={'Home__what-frost__box'}>
-        <h2 className={'Home__what-frost__box__title'}>Why Po.et Api?</h2>
+        <h2 className={'Home__what-frost__box__title'}>Why Po.et API?</h2>
         <p className={'Home__what-frost__box__description'}>
           The easiest way for content publishers and developers to interact with the Po.et Network
         </p>
@@ -30,7 +30,7 @@ export const HomeLayout = () => (
             header={<img src={Images.NoKey} />}
             className={'Home__what-frost__box__simple'}
             title={'Private Key Management'}
-            description={`Po.et Api abstracts away the Po.et private key
+            description={`Po.et API abstracts away the Po.et private key
                   infrastructure for easy integration. You can always
                   change later to integrating directly with our node.`}
           />
@@ -38,7 +38,7 @@ export const HomeLayout = () => (
             header={<img src={Images.Documentation} />}
             className={'Home__what-frost__box__simple'}
             title={'A RESTful API'}
-            description={`Po.et Api provides a simple, RESTful API right out
+            description={`Po.et API provides a simple, RESTful API right out
                   of the box, and exposes an easy to use library so you
                   can focus on writing your application.`}
           />
