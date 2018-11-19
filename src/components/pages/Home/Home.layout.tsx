@@ -11,34 +11,9 @@ import './Home.style.scss'
 export const HomeLayout = () => (
   <main className={'Home'}>
     <HeaderHomeContainer />
-    <section className={'Home__cover-page'}>
-      <div className={'Home__cover-page__box'}>
-        <div>
-          <LogoPoetWhite className={'Home__cover-page__box__logo'} />
-          <h1 className={'Home__cover-page__box__title'}>
-            An Open API Layer <br />for Publishers
-          </h1>
-          <p className={'Home__cover-page__box__description'}>
-            Frost is an open API for developing integrations, registering works, and integrating your web app with the
-            Po.et Network, without having to build your own private key infrastructure.{' '}
-          </p>
-          <div className={'Home__cover-page__buttons'}>
-            <a href={'https://docs.poetnetwork.net/use-poet/getting-started.html'}>
-              <Button className={'Home__cover-page__box__btn-token'} text={'Get Started'} />
-            </a>
-            <a href={'https://docs.poetnetwork.net/use-poet/poet-api.html'}>
-              <Button className={'Home__cover-page__box__btn-started'} text={'API Docs'} />
-            </a>
-          </div>
-        </div>
-        <div>
-          <LogoFrostOnly className={'Home__cover-page__box__logo-frost-only'} />
-        </div>
-      </div>
-    </section>
     <section className={'Home__what-frost'}>
       <div className={'Home__what-frost__box'}>
-        <h2 className={'Home__what-frost__box__title'}>Why Frost?</h2>
+        <h2 className={'Home__what-frost__box__title'}>Why Poet Api?</h2>
         <p className={'Home__what-frost__box__description'}>
           The easiest way for content publishers and developers to interact with the Po.et Network
         </p>
@@ -55,7 +30,7 @@ export const HomeLayout = () => (
             header={<img src={Images.NoKey} />}
             className={'Home__what-frost__box__simple'}
             title={'Private Key Management'}
-            description={`Frost abstracts away the Po.et private key
+            description={`Poet Api abstracts away the Po.et private key
                   infrastructure for easy integration. You can always
                   change later to integrating directly with our node.`}
           />
@@ -63,10 +38,18 @@ export const HomeLayout = () => (
             header={<img src={Images.Documentation} />}
             className={'Home__what-frost__box__simple'}
             title={'A RESTful API'}
-            description={`Frost provides a simple, RESTful API right out
+            description={`Poet Api provides a simple, RESTful API right out
                   of the box, and exposes an easy to use library so you
                   can focus on writing your application.`}
           />
+        </div>
+        <div className={'Home__buttons'}>
+          <a href={'https://docs.poetnetwork.net/use-poet/getting-started.html'}>
+            <Button className={'Home__btn-token'} text={'Get Started'} />
+          </a>
+          <a href={'https://docs.poetnetwork.net/use-poet/poet-api.html'}>
+            <Button className={'Home__btn-started'} text={'API Docs'} />
+          </a>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import { LoadingPage } from 'components/atoms/LoadingPage/LoadingPage'
-import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { LogoPoetWhite } from 'components/atoms/LogoPoetWhite/LogoPoetWhite'
 import { NotificationBar } from 'components/atoms/NotificationBar/NotificationBar'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import { NotificationBarState } from 'interfaces/Props'
@@ -25,7 +25,7 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) => (
         <nav className={'Dashboard__nav'}>
           <header className={'Dashboard__nav__header'}>
             <Link to={'/'}>
-              <LogoFrost className={'Dashboard__nav__header__logo'} />
+              <LogoPoetWhite className={'Dashboard__nav__header__logo'} />
             </Link>
           </header>
           <props.navigation />

@@ -14,7 +14,7 @@ export const ChangePasswordTokenLayout = () => (
           <LogoFrost className="ChangePasswordToken__LogoFrost" />
         </Link>
         <h1 className="ChangePasswordToken__title">
-          Frost is an open API for publishers and content creators to interact with the Po.et Network.
+          Poet Api is an open API for publishers and content creators to interact with the Po.et Network.
         </h1>
         <div className={'row'}>
           <div className={'col-4'}>
