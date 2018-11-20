@@ -1,7 +1,9 @@
 @import "colors";
 
 .PanelOptions {
+  flex-grow: 1;
   padding: 0 28px;
+  background-color: $sand-stone;
 
   &__welcome {
 

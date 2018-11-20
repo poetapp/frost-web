@@ -1,3 +1,5 @@
+@import "colors";
+
 .SignIn {
   position: relative;
 
@@ -6,5 +8,9 @@
     right: 0px;
     bottom: 10px;
     font-size: 12px;
+  }
+
+  a {
+    color: $poet-green;
   }
 }

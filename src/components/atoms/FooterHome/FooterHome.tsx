@@ -17,7 +17,7 @@ export const FooterHome = (props: FooterHomeProps) => (
       </div>
       <div className={'FooterHome__container__rightContent'}>
         <span>
-          © 2018 POET TECHNOLOGY LIMITED | <Link to={'/privacy'}>PRIVACY</Link>
+          © 2017-{new Date().getFullYear()} POET TECHNOLOGY LIMITED | <Link to={'/privacy'}>PRIVACY</Link>
         </span>
       </div>
     </div>
