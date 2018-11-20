@@ -3,8 +3,8 @@ $header-home-small-screen: 37.5rem;
 
 .Header_home {
   height: 100%;
-  border: 1px solid $black-russian2;
-  background-color: $black-rock2;
+  border: 1px solid $poet-green2;
+  background-color: $poet-green;
   @media screen and (min-width: $header-home-small-screen) {
     height: 5rem;
   }
