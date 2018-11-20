@@ -55,6 +55,29 @@ export namespace Actions {
     })
   }
 
+  export namespace PostWork {
+    export const POST_WORK = 'POST_WORK'
+    export const POST_WORK_SUCCESS = 'POST_WORK_SUCCESS'
+    export const POST_WORK_ERROR = 'POST_WORK_ERROR'
+    export const POST_WORK_CLEAR_ERROR = 'POST_WORK_CLEAR_ERROR'
+    export const onPostWork = (payload?: object) => ({
+      type: POST_WORK,
+      payload,
+    })
+    export const onPostWorkSuccess = (payload?: object) => ({
+      type: POST_WORK_SUCCESS,
+      payload,
+    })
+    export const onPostWorkError = (payload?: string) => ({
+      type: POST_WORK_ERROR,
+      payload,
+    })
+    export const onPostWorkClearError = (payload?: object) => ({
+      type: POST_WORK_CLEAR_ERROR,
+      payload,
+    })
+  }
+
   export namespace Router {
     export const ROUTER_ON_ENTER = 'ROUTER_ON_ENTER'
     export const ROUTER_ON_CHANGE = 'ROUTER_ON_CHANGE'
