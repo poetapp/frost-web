@@ -34,13 +34,6 @@ describe('postWork reducer', async assert => {
   })
 
   assert({
-    given: 'state with a workId and POST_WORK action',
-    should: 'default state with loading true',
-    actual: postWork(createState({ workId }), Actions.PostWork.onPostWork()),
-    expected: createState({ loading: true }),
-  })
-
-  assert({
     given: 'default state and POST_WORK_SUCCESS action',
     should: 'default state with the workId',
     actual: postWork(defaultState, Actions.PostWork.onPostWorkSuccess({ workId })),
@@ -52,6 +45,13 @@ describe('postWork reducer', async assert => {
     should: 'default state with the workId',
     actual: postWork(createState({ loading: true }), Actions.PostWork.onPostWorkSuccess({ workId })),
     expected: { ...defaultState, workId },
+  })
+
+  assert({
+    given: 'state with loading true and workId and POST_WORK_CLEAR_SUCCESS action',
+    should: 'default state',
+    actual: postWork(createState({ loading: true }), Actions.PostWork.onPostWorkClearSuccess()),
+    expected: defaultState,
   })
 
   {

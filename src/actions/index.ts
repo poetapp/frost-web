@@ -58,6 +58,7 @@ export namespace Actions {
   export namespace PostWork {
     export const POST_WORK = 'POST_WORK'
     export const POST_WORK_SUCCESS = 'POST_WORK_SUCCESS'
+    export const POST_WORK_CLEAR_SUCCESS = 'POST_WORK_CLEAR_SUCCESS'
     export const POST_WORK_ERROR = 'POST_WORK_ERROR'
     export const POST_WORK_CLEAR_ERROR = 'POST_WORK_CLEAR_ERROR'
     export const onPostWork = (payload?: object) => ({
@@ -67,6 +68,10 @@ export namespace Actions {
     export const onPostWorkSuccess = (payload?: object) => ({
       type: POST_WORK_SUCCESS,
       payload,
+    })
+    export const onPostWorkClearSuccess = (payload?: object) => ({
+      type: POST_WORK_CLEAR_SUCCESS,
+      payload
     })
     export const onPostWorkError = (payload?: string) => ({
       type: POST_WORK_ERROR,
