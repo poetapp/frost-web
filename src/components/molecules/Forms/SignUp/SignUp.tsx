@@ -4,6 +4,7 @@ import { Checkbox } from 'components/molecules/Checkbox/Checkbox'
 import { Form } from 'components/molecules/Form/Form'
 import * as React from 'react'
 import { Link } from 'react-router'
+import './SignUp.scss'
 
 interface SignUpProps {
   readonly onSubmit: (event: any) => any
@@ -69,50 +70,52 @@ export class SignUp extends React.Component<SignUpProps, undefined> {
     const { onSubmit, disabledButton } = this.props
 
     return (
-      <Form
-        onSubmit={onSubmit}
-        onValidate={this.onValidate}
-        legend={'Sign Up'}
-        textButton={'Sign Up'}
-        disabledButton={disabledButton}
-        formRef={(el: HTMLFormElement) => (this.mutableForm = el)}
-      >
-        <Input
-          name={'email'}
-          type={'email'}
-          placeholder={'Email'}
-          required
-          inputRef={(el: HTMLInputElement) => (this.mutableEmailInput = el)}
-          onChange={this.onChangeEmail}
-        />
-        <InputPassword
-          name={'password'}
-          type={'password'}
-          placeholder={'Password'}
-          minLength={10}
-          maxLength={30}
-          complexity={{
-            lowerCase: 1,
-            upperCase: 1,
-            numeric: 1,
-            symbol: 1,
-          }}
-          required
-          inputRef={(el: HTMLInputElement) => (this.mutablePasswordInput = el)}
-        />
-        <Input
-          name={'confirmPassword'}
-          type={'password'}
-          placeholder={'Repeat Password'}
-          onChange={this.onChangeRepeatPassword.bind(this)}
-          minLength={10}
-          maxLength={30}
-          required
-        />
-        <Checkbox name={'testnet'} required>
-          I have read the legal <Link to={'/disclaimer'}>disclaimer</Link>
-        </Checkbox>
-      </Form>
+      <div className={'SignUp'}>
+        <Form
+          onSubmit={onSubmit}
+          onValidate={this.onValidate}
+          legend={'Sign Up'}
+          textButton={'Sign Up'}
+          disabledButton={disabledButton}
+          formRef={(el: HTMLFormElement) => (this.mutableForm = el)}
+        >
+          <Input
+            name={'email'}
+            type={'email'}
+            placeholder={'Email'}
+            required
+            inputRef={(el: HTMLInputElement) => (this.mutableEmailInput = el)}
+            onChange={this.onChangeEmail}
+          />
+          <InputPassword
+            name={'password'}
+            type={'password'}
+            placeholder={'Password'}
+            minLength={10}
+            maxLength={30}
+            complexity={{
+              lowerCase: 1,
+              upperCase: 1,
+              numeric: 1,
+              symbol: 1,
+            }}
+            required
+            inputRef={(el: HTMLInputElement) => (this.mutablePasswordInput = el)}
+          />
+          <Input
+            name={'confirmPassword'}
+            type={'password'}
+            placeholder={'Repeat Password'}
+            onChange={this.onChangeRepeatPassword.bind(this)}
+            minLength={10}
+            maxLength={30}
+            required
+          />
+          <Checkbox name={'testnet'} required>
+            I have read the legal <Link to={'/disclaimer'}>disclaimer</Link>
+          </Checkbox>
+        </Form>
+      </div>
     )
   }
 }

@@ -2,6 +2,10 @@
 
 .TextDisclaimer {
 
+  a {
+    color: $poet-green;
+  }
+
   &__title {
     margin-bottom:2rem;
     text-align: center;

@@ -1,8 +1,6 @@
 import { BoxSimple } from 'components/atoms/BoxSimple/BoxSimple'
 import { Button } from 'components/atoms/Button/Button'
 import { FooterHome } from 'components/atoms/FooterHome/FooterHome'
-import { LogoFrostOnly } from 'components/atoms/LogoFrostOnly/LogoFrostOnly'
-import { LogoPoetWhite } from 'components/atoms/LogoPoetWhite/LogoPoetWhite'
 import { HeaderHomeContainer } from 'components/containers/HeaderHome.container'
 import { Images } from 'images/Images'
 import * as React from 'react'
@@ -30,7 +28,7 @@ export const HomeLayout = () => (
             header={<img src={Images.NoKey} />}
             className={'Home__what-frost__box__simple'}
             title={'Private Key Management'}
-            description={`Po.et API abstracts away the Po.et private key
+            description={`Po.et API abstracts away the private key
                   infrastructure for easy integration. You can always
                   change later to integrating directly with our node.`}
           />

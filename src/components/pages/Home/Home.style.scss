@@ -3,7 +3,7 @@
 $home-small-screen: 48rem;
 
 .Home {
-  background-color: $ghost-white;
+  background-color: $white;
 
   &__btn-token {
     width: 10rem;
@@ -17,7 +17,7 @@ $home-small-screen: 48rem;
     width: 10rem;
     margin-bottom: 1rem;
     background-color: $white;
-    color: $cornflower-blue;
+    color: $poet-green;
   }
 
   &__logo-frost-only {
@@ -83,6 +83,10 @@ $home-small-screen: 48rem;
           margin-right: 2.8rem;
         }
 
+        &:first-child {
+          margin-top: -.85rem;
+        }
+
         &:last-child {
           margin-right: 0em;
         }
@@ -99,7 +103,7 @@ $home-small-screen: 48rem;
           font-size: 1.56rem;
           font-weight: bold;
           line-height: 1.75rem;
-          color: $cornflower-blue;
+          color: $poet-green;
         }
 
         &__description {
