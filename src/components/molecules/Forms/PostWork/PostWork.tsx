@@ -7,11 +7,11 @@ interface PostWorkProps {
   readonly onSubmit: (event: any) => any
   readonly disabledButton?: boolean
   readonly serverErrors?: any
-  readonly form?: any
+  readonly email: string
 }
 
 export const PostWork = (props: PostWorkProps) => {
-  const { onSubmit, disabledButton } = props
+  const { onSubmit, disabledButton, email } = props
   return (
     <Form
       onSubmit={onSubmit}
@@ -28,7 +28,7 @@ export const PostWork = (props: PostWorkProps) => {
       <Input
         name={'author'}
         type={'text'}
-        placeholder={'Author'}
+        placeholder={`${email}`}
         required
       />
       <Input
@@ -46,7 +46,7 @@ export const PostWork = (props: PostWorkProps) => {
       <Input
         name={'content'}
         type={'text'}
-        placeholder={'Post a work to the Po.et!'}
+        placeholder={'Post a work to the Po.et Network!'}
         required
       />
     </Form>
