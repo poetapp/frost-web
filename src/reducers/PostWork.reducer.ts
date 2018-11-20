@@ -18,6 +18,7 @@ export const postWork = (state: any = defaultState, action: any = {}) => {
           status: false,
           message: '',
         },
+        workId: '',
         loading: true,
       }
     case Actions.PostWork.POST_WORK_SUCCESS:
