@@ -28,7 +28,7 @@ export const HomeLayout = () => (
             header={<img src={Images.NoKey} />}
             className={'Home__what-frost__box__simple'}
             title={'Private Key Management'}
-            description={`Po.et API abstracts away the Po.et private key
+            description={`Po.et API abstracts away the private key
                   infrastructure for easy integration. You can always
                   change later to integrating directly with our node.`}
           />
