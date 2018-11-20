@@ -1,8 +1,6 @@
 import { BoxSimple } from 'components/atoms/BoxSimple/BoxSimple'
 import { Button } from 'components/atoms/Button/Button'
 import { FooterHome } from 'components/atoms/FooterHome/FooterHome'
-import { LogoFrostOnly } from 'components/atoms/LogoFrostOnly/LogoFrostOnly'
-import { LogoPoetWhite } from 'components/atoms/LogoPoetWhite/LogoPoetWhite'
 import { HeaderHomeContainer } from 'components/containers/HeaderHome.container'
 import { Images } from 'images/Images'
 import * as React from 'react'

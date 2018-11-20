@@ -83,6 +83,10 @@ $home-small-screen: 48rem;
           margin-right: 2.8rem;
         }
 
+        &:first-child {
+          margin-top: -.85rem;
+        }
+
         &:last-child {
           margin-right: 0em;
         }
