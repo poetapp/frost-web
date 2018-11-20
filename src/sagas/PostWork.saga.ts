@@ -1,6 +1,5 @@
 import { Frost } from '@po.et/frost-client'
 import { Actions } from 'actions'
-import { browserHistory } from 'react-router'
 import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
@@ -41,6 +40,8 @@ function* PostWork(action: any): SagaIterator {
     const { workId } = yield call(postWorkFrost, { token, work })
     yield put(Actions.PostWork.onPostWorkSuccess({ workId }))
     yield put(Actions.LoadingPage.onLoadingFull())
+    yield call(delay, 1500)
+    yield put(Actions.PostWork.onPostWorkClearSuccess())
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.PostWork.onPostWorkError(e))
