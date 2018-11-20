@@ -41,8 +41,6 @@ function* PostWork(action: any): SagaIterator {
     const { workId } = yield call(postWorkFrost, { token, work })
     yield put(Actions.PostWork.onPostWorkSuccess({ workId }))
     yield put(Actions.LoadingPage.onLoadingFull())
-    yield call(delay, 300)
-    browserHistory.push('/dashboard')
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.PostWork.onPostWorkError(e))
