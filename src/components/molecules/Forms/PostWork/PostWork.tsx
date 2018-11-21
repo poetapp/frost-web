@@ -28,7 +28,7 @@ export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
     content: 'Post a work to the Po.et Network!',
   }
 
-  handleChange(e: any) {
+  handleChange(e: any): void {
     const { name, value } = e.target
     this.setState(state => ({
       ...state,

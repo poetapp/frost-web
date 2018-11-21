@@ -38,7 +38,9 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) => {
               <props.logout />
             </div>
             <NotificationBar type={props.notificationBar.type} action={props.notificationBar.action}>
-              {props.notificationBar.type === 'link-success' ? <a className={'Dashboard__body__link'} href={props.notificationBar.message}>See Work Here!</a> : props.notificationBar.message}
+              {props.notificationBar.type === 'link-success' ?
+              <a className={'Dashboard__body__link'} href={props.notificationBar.message}>See Work Here!</a> :
+              props.notificationBar.message}
             </NotificationBar>
           </header>
           {props.children}
