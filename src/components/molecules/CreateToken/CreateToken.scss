@@ -3,6 +3,7 @@
 .CreateTokenContainer {
   display:flex;
   flex-flow: row wrap;
+  flex-grow: 1;
   padding-left: 28px;
   padding-top: 28px;
   background-color: $sand-stone;
