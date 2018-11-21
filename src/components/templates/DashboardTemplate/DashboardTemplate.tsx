@@ -18,7 +18,8 @@ interface DashboardTemplatetProps {
   readonly notificationBar: NotificationBarState
 }
 
-export const DashboardTemplate = (props: DashboardTemplatetProps) => (
+export const DashboardTemplate = (props: DashboardTemplatetProps) => {
+  return (
   <LoadingPage>
     <ToastPage>
       <main className={'Dashboard d-flex'}>
@@ -37,7 +38,7 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) => (
               <props.logout />
             </div>
             <NotificationBar type={props.notificationBar.type} action={props.notificationBar.action}>
-              {props.notificationBar.message}
+              {props.notificationBar.type === 'link-success' ? <a className={'Dashboard__body__link'} href={props.notificationBar.message}>See Work Here!</a> : props.notificationBar.message}
             </NotificationBar>
           </header>
           {props.children}
@@ -46,3 +47,4 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) => (
     </ToastPage>
   </LoadingPage>
 )
+  }

@@ -5,7 +5,6 @@ export const defaultState = {
     status: false,
     message: '',
   },
-  workId: '',
   loading: false,
 }
 
@@ -19,26 +18,6 @@ export const postWork = (state: any = defaultState, action: any = {}) => {
           message: '',
         },
         loading: true,
-      }
-    case Actions.PostWork.POST_WORK_SUCCESS:
-      return {
-        ...state,
-        workId: action.payload.workId,
-        error: {
-          status: false,
-          message: '',
-        },
-        loading: false,
-      }
-    case Actions.PostWork.POST_WORK_CLEAR_SUCCESS:
-      return {
-        ...state,
-        workId: '',
-        error: {
-          status: false,
-          message: '',
-        },
-        loading: false,
       }
     case Actions.PostWork.POST_WORK_ERROR:
       return {

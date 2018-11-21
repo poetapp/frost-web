@@ -63,9 +63,18 @@ export const CreateToken = (props: CreateTokenProps) => (
       {({ features }) =>
         isActiveFeatureName(FeatureName.PostWork, features)
           ? props.network !== 'test' && (
-              <div className={'CreateTokenContainer__post-work'}>
+            <div className={'CreateTokenContainer__post-work'}>
+                <header className={'CreateTokenContainer__post-work__header'}>
+                  <h2 className={'CreateTokenContainer__post-work__header__title'}>Post a Work</h2>
+                  <p className={'CreateTokenContainer__post-work__header__description'}>
+                    Post a work to the Po.et network!
+                  </p>
+                </header>
+                <div className={'CreateTokenContainer__post-work__form'}>
                 <PostWork onSubmit={props.onPostWork} email={props.email}/>
               </div>
+              </div>
+
             )
           : null
       }

@@ -16,6 +16,11 @@
     color: $eucalyptus;
   }
 
+  &__link-success {
+    background-color: $padua;
+    color: $eucalyptus;
+  }
+
   &__fade-in {
     animation-duration: .5s;
     animation-fill-mode: both;

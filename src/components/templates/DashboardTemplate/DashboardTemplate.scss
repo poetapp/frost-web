@@ -31,6 +31,17 @@
     flex-direction: column;
     flex-grow: 1;
 
+    &__link {
+      font-size: 1.5rem;
+      color: $white;
+      text-decoration: none;
+
+      &:hover {
+        color: $white;
+        text-decoration: none;
+      }
+    }
+
     &__header {
       height: 64px;
       border-bottom: 1px solid rgba(0,0,0,0.11);

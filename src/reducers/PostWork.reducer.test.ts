@@ -9,14 +9,10 @@ const createState = ({
     message: '',
   },
   loading = false,
-  workId = '',
 } = {}) => ({
   error,
   loading,
-  workId,
 })
-
-const workId = 'testWorkId'
 
 describe('postWork reducer', async assert => {
   assert({
@@ -34,21 +30,7 @@ describe('postWork reducer', async assert => {
   })
 
   assert({
-    given: 'default state and POST_WORK_SUCCESS action',
-    should: 'default state with the workId',
-    actual: postWork(defaultState, Actions.PostWork.onPostWorkSuccess({ workId })),
-    expected: { ...defaultState, workId },
-  })
-
-  assert({
-    given: 'state with loading true and POST_WORK_SUCCESS action',
-    should: 'default state with the workId',
-    actual: postWork(createState({ loading: true }), Actions.PostWork.onPostWorkSuccess({ workId })),
-    expected: { ...defaultState, workId },
-  })
-
-  assert({
-    given: 'state with loading true and workId and POST_WORK_CLEAR_SUCCESS action',
+    given: 'state with loading true and POST_WORK_CLEAR_SUCCESS action',
     should: 'default state',
     actual: postWork(createState({ loading: true }), Actions.PostWork.onPostWorkClearSuccess()),
     expected: defaultState,

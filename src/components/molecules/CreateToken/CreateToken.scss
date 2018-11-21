@@ -3,6 +3,7 @@
 .CreateTokenContainer {
   display:flex;
   flex-flow: row wrap;
+  flex-grow: 1;
   padding-left: 28px;
   padding-top: 28px;
   background-color: $sand-stone;
@@ -79,6 +80,28 @@
       /* stylelint-enable */
       padding-left:36px;
       overflow-y: scroll;
+    }
+  }
+
+  &__post-work {
+    width: 620px;
+    margin-left: 1rem;
+
+    &__header {
+      margin-bottom: -.85rem;
+
+      &__title {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 33px;
+        color: $gondola;
+      }
+
+      &__description {
+        font-size: 10px;
+        line-height: 19px;
+        color: $night-rider2;
+      }
     }
   }
 }

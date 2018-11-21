@@ -49,22 +49,39 @@ export class Input extends React.Component<InputProps, undefined> {
       value,
     } = this.props
 
-    return (
+    if (type === 'text-area')
+      return (
+        <textarea
+          name={name}
+          value={value && value}
+          required={required}
+          placeholder={placeholder}
+          className={classNames('Input', className)}
+          onChange={e => this.onEvent(e, onChange, this.props)}
+          onKeyUp={e => this.onEvent(e, onKeyUp, this.props)}
+          onFocus={e => this.onEvent(e, onFocus, this.props)}
+          {...(maxLength ? { maxLength } : {})}
+          {...(minLength ? { minLength } : {})}
+          {...(autoFocus ? { autoFocus: true } : {})}
+          ref={inputRef}
+        />
+      )
+    else return (
       <input
-        name={name}
-        type={type}
-        value={value && value}
-        required={required}
-        placeholder={placeholder}
-        className={classNames('Input', className)}
-        onChange={e => this.onEvent(e, onChange, this.props)}
-        onKeyUp={e => this.onEvent(e, onKeyUp, this.props)}
-        onFocus={e => this.onEvent(e, onFocus, this.props)}
-        {...(maxLength ? { maxLength } : {})}
-        {...(minLength ? { minLength } : {})}
-        {...(autoFocus ? { autoFocus: true } : {})}
-        ref={inputRef}
-      />
+          name={name}
+          type={type}
+          value={value && value}
+          required={required}
+          placeholder={placeholder}
+          className={classNames('Input', className)}
+          onChange={e => this.onEvent(e, onChange, this.props)}
+          onKeyUp={e => this.onEvent(e, onKeyUp, this.props)}
+          onFocus={e => this.onEvent(e, onFocus, this.props)}
+          {...(maxLength ? { maxLength } : {})}
+          {...(minLength ? { minLength } : {})}
+          {...(autoFocus ? { autoFocus: true } : {})}
+          ref={inputRef}
+        />
     )
   }
 }

@@ -1,0 +1,32 @@
+@import "colors";
+
+.PostWork {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+
+  &__name {
+    width: 45%;
+    margin-right: 1rem;
+  }
+
+  &__author {
+    width: 45%;
+  }
+
+  &__datePublished {
+    width: 45%;
+    margin-right: 1rem;
+  }
+
+  &__dateCreated {
+    width: 45%;
+  }
+
+  &__content {
+    height: 5rem;
+    width: calc(90% + 1rem);
+    margin-top: 1.5rem;
+  }
+}

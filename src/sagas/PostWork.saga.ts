@@ -2,6 +2,7 @@ import { Frost } from '@po.et/frost-client'
 import { Actions } from 'actions'
 import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
+const { toast } = require('react-toastify')
 
 import { Configuration } from 'configuration'
 import { WorkAttributes } from 'interfaces/Props'
@@ -26,14 +27,24 @@ function* PostWork(action: any): SagaIterator {
     const { token, work } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
     const { workId } = yield call(postWorkFrost, { token, work })
-    yield put(Actions.PostWork.onPostWorkSuccess({ workId }))
     yield put(Actions.LoadingPage.onLoadingFull())
-    yield call(delay, 1500)
-    console.log(workId)
-    yield put(Actions.PostWork.onPostWorkClearSuccess())
+    yield put(
+      Actions.NotificationBar.onShowNotificationBar({
+        type: 'link-success',
+        message: `http://localhost:3001/works/${workId}`,
+      }),
+    )
+    yield call(delay, 8000)
+    yield put(Actions.NotificationBar.onHideNotificationBar())
+    yield call(delay, 2000)
+    yield put(Actions.NotificationBar.onResetNotificationBar())
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.PostWork.onPostWorkError(e))
+    toast.error(e.message, {
+      className: 'toast',
+      autoClose: 2500,
+    })
     yield call(delay, 300)
     yield put(Actions.PostWork.onPostWorkClearError())
   }

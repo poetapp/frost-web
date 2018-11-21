@@ -6,7 +6,7 @@ import './Form.scss'
 require('formdata-polyfill')
 
 interface FormProps {
-  readonly legend: string
+  readonly legend?: string
   readonly children?: React.ReactNode
   readonly textButton: string
   readonly onValidate?: (data: any, elements: any) => boolean
@@ -32,7 +32,7 @@ export class Form extends React.Component<FormProps, undefined> {
 
     return (
       <form className="Form" onSubmit={event => this.onSubmit(event, onSubmit, onValidate)} ref={formRef}>
-        <legend className="Form__legend">{legend}</legend>
+        <legend className="Form__legend">{legend && legend}</legend>
         <div className="row">
           <div className="col-12">{children}</div>
           <div className="col-6 submit-button">
