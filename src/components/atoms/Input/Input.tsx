@@ -7,6 +7,7 @@ import './Input.scss'
 interface InputProps extends ClassNameProps {
   readonly name: string
   readonly type: string
+  readonly value?: string
   readonly placeholder?: string
   readonly required?: boolean
   readonly minLength?: number
@@ -45,12 +46,14 @@ export class Input extends React.Component<InputProps, undefined> {
       minLength,
       autoFocus,
       inputRef,
+      value,
     } = this.props
 
     return (
       <input
         name={name}
         type={type}
+        value={value && value}
         required={required}
         placeholder={placeholder}
         className={classNames('Input', className)}

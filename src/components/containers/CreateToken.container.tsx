@@ -8,7 +8,7 @@ import { Actions } from 'actions'
 import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
 import { initialFeatures, FeatureName } from 'config/features'
 import { parseJwt } from 'helpers'
-import { FrostState, StatusService, User, ModalState, Network, ApiTokens } from 'interfaces/Props'
+import { FrostState, StatusService, User, ModalState, Network, ApiTokens, WorkAttributes } from 'interfaces/Props'
 
 interface DataAction {
   readonly token: string
@@ -21,6 +21,7 @@ interface CreateTokenContainerProps {
   readonly createApiTokens: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
   readonly onCreateApiToken?: (data: { readonly token: string; readonly network: Network }) => Action
+  readonly onPostWork?: (data: { readonly token: string; readonly work: WorkAttributes }) => Action
   readonly onShowModal?: (payload: { readonly modal: string; readonly data: object }) => Action
   readonly onHideModal?: () => Action
   readonly onDeleteApiToken?: (payload: { readonly token: string; readonly apiToken: string }) => Action
@@ -42,12 +43,14 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
 const { onCreateApiToken, onDeleteApiToken } = Actions.ApiTokens
 const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
 const { onShowModal, onHideModal } = Actions.Modal
+const { onPostWork } = Actions.PostWork
 const mapDispatch = {
   onCreateApiToken,
   onSendEmailVerifiedAccount,
   onDeleteApiToken,
   onShowModal,
   onHideModal,
+  onPostWork,
 }
 const MODAL_DELETE_TOKEN = 'MODAL_DELETE_TOKEN'
 
@@ -89,6 +92,7 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
     network={props.network}
     textCreateTokenButton={getTextCreateTokenButton(props.network)}
     email={props.user.profile.email}
+    onPostWork={e => props.onPostWork({ token: props.user.token, work: e })}
   />
 )
 

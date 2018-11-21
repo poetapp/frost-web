@@ -4,19 +4,7 @@ import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
 
 import { Configuration } from 'configuration'
-
-export interface ClaimAttributes {
-  readonly [key: string]: string
-}
-
-export interface WorkAttributes extends ClaimAttributes {
-  readonly name: string
-  readonly datePublished: string
-  readonly dateCreated: string
-  readonly author: string
-  readonly tags?: string
-  readonly text: string
-}
+import { WorkAttributes } from 'interfaces/Props'
 
 async function postWorkFrost(data: {
   readonly token: string
@@ -41,6 +29,7 @@ function* PostWork(action: any): SagaIterator {
     yield put(Actions.PostWork.onPostWorkSuccess({ workId }))
     yield put(Actions.LoadingPage.onLoadingFull())
     yield call(delay, 1500)
+    console.log(workId)
     yield put(Actions.PostWork.onPostWorkClearSuccess())
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())

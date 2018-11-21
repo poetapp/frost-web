@@ -15,38 +15,38 @@ export const PostWork = (props: PostWorkProps) => {
   return (
     <Form
       onSubmit={onSubmit}
-      legend={'Sign Up'}
-      textButton={'Sign Up'}
+      legend={'Post a Work!'}
+      textButton={'Post Work'}
       disabledButton={disabledButton}
     >
       <Input
         name={'name'}
         type={'text'}
-        placeholder={'Name'}
+        value={'My First Work!'}
         required
       />
       <Input
         name={'author'}
         type={'text'}
-        placeholder={`${email}`}
+        value={`${email}`}
         required
       />
       <Input
         name={'datePublished'}
         type={'text'}
-        placeholder={`${new Date().toISOString()}`}
+        value={`${new Date().toISOString()}`}
         required
       />
       <Input
         name={'dateCreated'}
         type={'text'}
-        placeholder={`${new Date().toISOString()}`}
+        value={`${new Date().toISOString()}`}
         required
       />
       <Input
         name={'content'}
         type={'text'}
-        placeholder={'Post a work to the Po.et Network!'}
+        value={'Post a work to the Po.et Network!'}
         required
       />
     </Form>
