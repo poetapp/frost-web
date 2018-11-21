@@ -26,7 +26,9 @@
 
   &__content {
     height: 5rem;
+    /* stylelint-disable */
     width: calc(90% + 1rem);
+    /* stylelint-enable */
     margin-top: 1.5rem;
   }
 }
