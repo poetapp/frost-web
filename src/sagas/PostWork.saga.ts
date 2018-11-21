@@ -28,12 +28,10 @@ function* PostWork(action: any): SagaIterator {
     yield put(Actions.LoadingPage.onLoadingOn())
     const { workId } = yield call(postWorkFrost, { token, work })
     yield put(Actions.LoadingPage.onLoadingFull())
-    yield put(
-      Actions.NotificationBar.onShowNotificationBar({
+    yield put(Actions.NotificationBar.onShowNotificationBar({
         type: 'link-success',
-        message: `http://localhost:3001/works/${workId}`,
-      }),
-    )
+        message: `http://explorer-mainnet.poetnetwork.net/works/${workId}`,
+      }))
     yield call(delay, 8000)
     yield put(Actions.NotificationBar.onHideNotificationBar())
     yield call(delay, 2000)
