@@ -25,9 +25,10 @@
   }
 
   &__content {
-    height: 5rem;
+    height: 4rem;
     /* stylelint-disable */
     width: calc(90% + 1rem);
+    margin-bottom: .75rem;
     /* stylelint-enable */
     margin-top: 1.5rem;
   }

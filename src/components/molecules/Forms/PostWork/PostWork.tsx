@@ -37,12 +37,17 @@ export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
     }))
   }
 
+  onValidate(): boolean {
+    return true
+  }
+
   render(): JSX.Element {
     const { onSubmit, disabledButton, email } = this.props
     return (
       <div className={'PostWork'}>
         <Form
           legend={''}
+          onValidate={this.onValidate}
           onSubmit={onSubmit}
           textButton={'Post Work'}
           disabledButton={disabledButton}
@@ -50,7 +55,7 @@ export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
           <Input
             name={'name'}
             type={'text'}
-            placeholder={this.state.name}
+            value={this.state.name}
             required
             className="PostWork__name"
             onChange={this.handleChange.bind(this)}
@@ -58,7 +63,7 @@ export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
           <Input
             name={'author'}
             type={'text'}
-            placeholder={this.state.author}
+            value={this.state.author}
             required
             className="PostWork__author"
             onChange={this.handleChange.bind(this)}
@@ -66,7 +71,7 @@ export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
           <Input
             name={'datePublished'}
             type={'text'}
-            placeholder={this.state.datePublished}
+            value={this.state.datePublished}
             required
             className={'PostWork__datePublished'}
             onChange={this.handleChange.bind(this)}
@@ -74,7 +79,7 @@ export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
           <Input
             name={'dateCreated'}
             type={'text'}
-            placeholder={this.state.dateCreated}
+            value={this.state.dateCreated}
             required
             className={'PostWork__dateCreated'}
             onChange={this.handleChange.bind(this)}
@@ -82,7 +87,7 @@ export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
           <Input
             name={'content'}
             type={'text-area'}
-            placeholder={this.state.content}
+            value={this.state.content}
             required
             className={'PostWork__content'}
             onChange={this.handleChange.bind(this)}

@@ -92,9 +92,9 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
     network={props.network}
     textCreateTokenButton={getTextCreateTokenButton(props.network)}
     email={props.user.profile.email}
-    onPostWork={e => props.onPostWork({
+    onPostWork={(data: WorkAttributes) => props.onPostWork({
       token: getApiTokenByNetwork(props.network)(props.apiTokens.tokens)[0],
-      work: e,
+      work: data,
     })}
   />
 )
