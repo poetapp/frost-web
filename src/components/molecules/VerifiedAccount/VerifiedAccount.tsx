@@ -1,4 +1,4 @@
-import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { LogoPoetBlack } from 'components/atoms/LogoPoetBlack/LogoPoetBlack'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import * as React from 'react'
 import { Link } from 'react-router'
@@ -9,7 +9,7 @@ export const VerifiedAccount = () => (
   <ToastPage>
     <div className="VerifiedAccount">
       <Link to={'/'}>
-        <LogoFrost className="VerifiedAccount__LogoFrost" />
+        <LogoPoetBlack className="VerifiedAccount__LogoPoetBlack" />
       </Link>
       <h1 className="VerifiedAccount__title">
         Po.et API is an open API for publishers and content creators to interact with the Po.et Network.
