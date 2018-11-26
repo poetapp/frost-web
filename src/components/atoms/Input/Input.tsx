@@ -7,6 +7,7 @@ import './Input.scss'
 interface InputProps extends ClassNameProps {
   readonly name: string
   readonly type: string
+  readonly value?: string
   readonly placeholder?: string
   readonly required?: boolean
   readonly minLength?: number
@@ -45,23 +46,43 @@ export class Input extends React.Component<InputProps, undefined> {
       minLength,
       autoFocus,
       inputRef,
+      value,
     } = this.props
 
-    return (
-      <input
-        name={name}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className={classNames('Input', className)}
-        onChange={e => this.onEvent(e, onChange, this.props)}
-        onKeyUp={e => this.onEvent(e, onKeyUp, this.props)}
-        onFocus={e => this.onEvent(e, onFocus, this.props)}
-        {...(maxLength ? { maxLength } : {})}
-        {...(minLength ? { minLength } : {})}
-        {...(autoFocus ? { autoFocus: true } : {})}
-        ref={inputRef}
-      />
-    )
+    if (type === 'text-area')
+      return (
+        <textarea
+          value={value && value}
+          name={name}
+          required={required}
+          placeholder={placeholder}
+          className={classNames('Input', className)}
+          onChange={e => this.onEvent(e, onChange, this.props)}
+          onKeyUp={e => this.onEvent(e, onKeyUp, this.props)}
+          onFocus={e => this.onEvent(e, onFocus, this.props)}
+          {...(maxLength ? { maxLength } : {})}
+          {...(minLength ? { minLength } : {})}
+          {...(autoFocus ? { autoFocus: true } : {})}
+          ref={inputRef}
+        />
+      )
+    else
+      return (
+        <input
+          value={value && value}
+          name={name}
+          type={type}
+          required={required}
+          placeholder={placeholder}
+          className={classNames('Input', className)}
+          onChange={e => this.onEvent(e, onChange, this.props)}
+          onKeyUp={e => this.onEvent(e, onKeyUp, this.props)}
+          onFocus={e => this.onEvent(e, onFocus, this.props)}
+          {...(maxLength ? { maxLength } : {})}
+          {...(minLength ? { minLength } : {})}
+          {...(autoFocus ? { autoFocus: true } : {})}
+          ref={inputRef}
+        />
+      )
   }
 }
