@@ -6,9 +6,10 @@ import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
 import { FrostRunKit } from 'components/atoms/FrostRunKit/FrostRunKit'
 import { DeleteToken } from 'components/modals/DeleteToken/DeleteToken'
+import { PostWork } from 'components/molecules/Forms/PostWork/PostWork'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
 import { FeatureName } from 'config/features'
-import { Network } from 'interfaces/Props'
+import { Network, WorkAttributes } from 'interfaces/Props'
 
 import './CreateToken.scss'
 
@@ -24,6 +25,7 @@ interface CreateTokenProps {
   readonly showDeleteModal: boolean
   readonly disabledButton: boolean
   readonly onCreateApiToken: (event: React.SyntheticEvent) => void
+  readonly onPostWork: (event: WorkAttributes) => void
   readonly submitDisabled: boolean
   readonly network: Network
   readonly textCreateTokenButton: string
@@ -57,6 +59,25 @@ export const CreateToken = (props: CreateTokenProps) => (
         disabledButton={props.disabledButton}
       />
     </div>
+    <Feature>
+      {({ features }) =>
+        isActiveFeatureName(FeatureName.PostWork, features)
+          ? props.network !== 'test' && (
+            <div className={'CreateTokenContainer__post-work'}>
+                <header className={'CreateTokenContainer__post-work__header'}>
+                  <h2 className={'CreateTokenContainer__post-work__header__title'}>Post a Work</h2>
+                  <p className={'CreateTokenContainer__post-work__header__description'}>
+                    Post a work to the Po.et network!
+                  </p>
+                </header>
+                <div className={'CreateTokenContainer__post-work__form'}>
+                <PostWork onSubmit={props.onPostWork} email={props.email} />
+              </div>
+              </div>
+             )
+          : null
+      }
+    </Feature>
     <Feature>
       {({ features }) =>
         isActiveFeatureName(FeatureName.RunKit, features)
