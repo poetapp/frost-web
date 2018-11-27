@@ -1,6 +1,9 @@
 @import 'colors';
 
 .Announcement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   padding: .5rem;
   border-radius: .5rem;
