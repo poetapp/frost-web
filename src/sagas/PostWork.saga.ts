@@ -30,7 +30,9 @@ export function* PostWork(action: any): SagaIterator {
     yield call(delay, 3000)
     yield put(Actions.NotificationBar.onHideNotificationBar())
     yield call(delay, 2000)
+    yield put(Actions.PostWork.onPostWorkSuccess())
     yield put(Actions.NotificationBar.onResetNotificationBar())
+    yield call(delay, 300)
     yield call(redirectToWork, workId)
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
