@@ -15,6 +15,6 @@ export const initialFeatures: ReadonlyArray<any> = [
   },
   {
     name: FeatureName.Announcement,
-    isActive: false,
+    isActive: true,
   },
 ]
