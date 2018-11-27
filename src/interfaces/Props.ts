@@ -42,6 +42,7 @@ export interface FrostState {
   readonly router: Router
   readonly loadingPage: LoadingPage
   readonly changePasswordToken: StatusService
+  readonly postWork: StatusService
   readonly signIn: StatusService
   readonly signUp: StatusService
   readonly sendEmailVerifiedAccount: StatusService
@@ -76,4 +77,17 @@ export enum Network {
 }
 export interface NetworkBitcoin {
   readonly network: Network
+}
+
+export interface ClaimAttributes {
+  readonly [key: string]: string
+}
+
+export interface WorkAttributes extends ClaimAttributes {
+  readonly name: string
+  readonly datePublished: string
+  readonly dateCreated: string
+  readonly author: string
+  readonly tags?: string
+  readonly text: string
 }

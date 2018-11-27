@@ -5,7 +5,7 @@ import { describe } from 'riteway'
 
 import { Actions } from '../actions/index'
 import { PostWorkSaga, PostWork, redirectToWork } from './PostWork.saga'
-import { WorkAttributes } from '@po.et/frost-client'
+import { WorkAttributes } from '../interfaces/Props'
 import { Configuration } from '../configuration'
 
 const createWork = ({
