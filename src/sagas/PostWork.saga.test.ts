@@ -4,7 +4,7 @@ import { takeLatest, call, put } from 'redux-saga/effects'
 import { describe } from 'riteway'
 
 import { Actions } from '../actions/index'
-import { PostWorkSaga, PostWork } from './PostWork.saga'
+import { PostWorkSaga, PostWork, redirectToWork } from './PostWork.saga'
 import { WorkAttributes } from '@po.et/frost-client';
 import { Configuration } from '../configuration';
 
@@ -79,15 +79,22 @@ describe('PostWork() Success', async assert => {
     actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onShowNotificationBar({
       type: 'success',
-      message: `${workId}`,
+      message: `Success! Your Work ID is ${workId}. Redirecting to Explorer-web...`,
     })),
   })
 
   assert({
     given: 'next step',
-    should: 'delay 8000',
+    should: 'delay 2000',
     actual: iterator.next().value,
-    expected: call(delay, 8000),
+    expected: call(delay, 2000),
+  })
+
+  assert({
+    given: 'next step',
+    should: 'redirect to works explorer',
+    actual: iterator.next().value,
+    expected: call(redirectToWork, workId),
   })
 
   assert({

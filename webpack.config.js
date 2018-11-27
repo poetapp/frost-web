@@ -62,6 +62,7 @@ function getPlugins(environment) {
       'process.env': {
         NODE_ENV: JSON.stringify(environment),
         FROST_API_URL: JSON.stringify(process.env.FROST_API_URL),
+        MAIN_EXPLORER_URL: JSON.stringify(process.env.MAIN_EXPLORER_URL),
       }
     }),
     new webpack.NormalModuleReplacementPlugin(/\/iconv-loader$/, 'node-noop'), // See Note 1 at the bottom
