@@ -42,7 +42,7 @@ export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
   }
 
   render(): JSX.Element {
-    const { onSubmit, disabledButton, email } = this.props
+    const { onSubmit, disabledButton } = this.props
     return (
       <div className={'PostWork'}>
         <Form
