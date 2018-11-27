@@ -85,16 +85,9 @@ describe('PostWork() Success', async assert => {
 
   assert({
     given: 'next step',
-    should: 'delay 2000',
+    should: 'delay 3000',
     actual: iterator.next().value,
-    expected: call(delay, 2000),
-  })
-
-  assert({
-    given: 'next step',
-    should: 'redirect to works explorer',
-    actual: iterator.next().value,
-    expected: call(redirectToWork, workId),
+    expected: call(delay, 3000),
   })
 
   assert({
@@ -116,6 +109,13 @@ describe('PostWork() Success', async assert => {
     should: 'reset notifaction bar',
     actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onResetNotificationBar()),
+  })
+
+  assert({
+    given: 'next step',
+    should: 'redirect to works explorer',
+    actual: iterator.next().value,
+    expected: call(redirectToWork, workId),
   })
 })
 
