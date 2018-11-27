@@ -25,7 +25,7 @@ interface CreateTokenProps {
   readonly showDeleteModal: boolean
   readonly disabledButton: boolean
   readonly onCreateApiToken: (event: React.SyntheticEvent) => void
-  readonly onPostWork: (event: WorkAttributes) => void
+  readonly onPostWork?: (data: object) => void
   readonly postWorkDisabled: boolean
   readonly submitDisabled: boolean
   readonly network: Network

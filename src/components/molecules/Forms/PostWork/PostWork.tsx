@@ -20,7 +20,7 @@ interface PostWorkState {
   readonly content: string
 }
 
-export class PostWork extends React.Component <PostWorkProps, PostWorkState> {
+export class PostWork extends React.Component<PostWorkProps, PostWorkState> {
   readonly state = {
     name: 'My First Work!',
     author: this.props.email,

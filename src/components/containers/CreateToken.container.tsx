@@ -27,7 +27,7 @@ interface CreateTokenContainerProps {
   readonly modal: ModalState
   readonly deleteApiToken: StatusService
   readonly network: Network
-  readonly onPostWork?: (data: { readonly token: string; readonly work: WorkAttributes }) => void
+  readonly onPostWork?: (payload: { readonly token: string, readonly work: WorkAttributes }) => Action
   readonly postWork: StatusService
 }
 
