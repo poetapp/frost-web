@@ -26,6 +26,7 @@ interface CreateTokenProps {
   readonly disabledButton: boolean
   readonly onCreateApiToken: (event: React.SyntheticEvent) => void
   readonly onPostWork: (event: WorkAttributes) => void
+  readonly postWorkDisabled: boolean
   readonly submitDisabled: boolean
   readonly network: Network
   readonly textCreateTokenButton: string
@@ -71,7 +72,11 @@ export const CreateToken = (props: CreateTokenProps) => (
                   </p>
                 </header>
                 <div className={'CreateTokenContainer__post-work__form'}>
-                <PostWork onSubmit={props.onPostWork} email={props.email} />
+                <PostWork
+                  onSubmit={props.onPostWork}
+                  disabledButton={props.postWorkDisabled}
+                  email={props.email}
+                />
               </div>
               </div>
              )

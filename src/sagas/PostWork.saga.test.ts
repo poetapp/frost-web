@@ -5,8 +5,8 @@ import { describe } from 'riteway'
 
 import { Actions } from '../actions/index'
 import { PostWorkSaga, PostWork, redirectToWork } from './PostWork.saga'
-import { WorkAttributes } from '@po.et/frost-client';
-import { Configuration } from '../configuration';
+import { WorkAttributes } from '@po.et/frost-client'
+import { Configuration } from '../configuration'
 
 const createWork = ({
   name = 'name',
@@ -108,7 +108,21 @@ describe('PostWork() Success', async assert => {
     given: 'next step',
     should: 'reset notifaction bar',
     actual: iterator.next().value,
+    expected: put(Actions.PostWork.onPostWorkSuccess()),
+  })
+
+  assert({
+    given: 'next step',
+    should: 'reset notifaction bar',
+    actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onResetNotificationBar()),
+  })
+
+  assert({
+    given: 'next step',
+    should: 'delay 300',
+    actual: iterator.next().value,
+    expected: call(delay, 300),
   })
 
   assert({

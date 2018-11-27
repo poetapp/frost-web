@@ -21,13 +21,14 @@ interface CreateTokenContainerProps {
   readonly createApiTokens: StatusService
   readonly onSendEmailVerifiedAccount?: (data: DataAction) => Action
   readonly onCreateApiToken?: (data: { readonly token: string; readonly network: Network }) => Action
-  readonly onPostWork?: (data: { readonly token: string; readonly work: WorkAttributes }) => Action
   readonly onShowModal?: (payload: { readonly modal: string; readonly data: object }) => Action
   readonly onHideModal?: () => Action
   readonly onDeleteApiToken?: (payload: { readonly token: string; readonly apiToken: string }) => Action
   readonly modal: ModalState
   readonly deleteApiToken: StatusService
   readonly network: Network
+  readonly onPostWork?: (data: { readonly token: string; readonly work: WorkAttributes }) => void
+  readonly postWork: StatusService
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
@@ -38,6 +39,7 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   modal: state.modal,
   deleteApiToken: state.deleteApiToken,
   network: state.changeNetworkBitcoin.network,
+  postWork: state.postWork,
 })
 
 const { onCreateApiToken, onDeleteApiToken } = Actions.ApiTokens
@@ -96,6 +98,7 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
       token: getApiTokenByNetwork(props.network)(props.apiTokens.tokens)[0],
       work: data,
     })}
+    postWorkDisabled={props.postWork.loading}
   />
 )
 

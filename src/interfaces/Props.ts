@@ -42,6 +42,7 @@ export interface FrostState {
   readonly router: Router
   readonly loadingPage: LoadingPage
   readonly changePasswordToken: StatusService
+  readonly postWork: StatusService
   readonly signIn: StatusService
   readonly signUp: StatusService
   readonly sendEmailVerifiedAccount: StatusService
