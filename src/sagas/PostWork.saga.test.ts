@@ -4,7 +4,7 @@ import { takeLatest, call, put } from 'redux-saga/effects'
 import { describe } from 'riteway'
 
 import { Actions } from '../actions/index'
-import { PostWorkSaga, PostWork, redirectToWork } from './PostWork.saga'
+import { PostWorkSaga, PostWork } from './PostWork.saga'
 import { WorkAttributes } from '../interfaces/Props'
 import { Configuration } from '../configuration'
 
@@ -79,7 +79,7 @@ describe('PostWork() Success', async assert => {
     actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onShowNotificationBar({
       type: 'success',
-      message: `Success! Your Work ID is ${workId}. Redirecting to Explorer-web...`,
+      message: `Success! ${Configuration.mainExplorerUrl}/works/${workId}`,
     })),
   })
 
