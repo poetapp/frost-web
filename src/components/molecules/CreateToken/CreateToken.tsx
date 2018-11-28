@@ -17,7 +17,6 @@ interface CreateTokenProps {
   readonly boxToken: ReadonlyArray<string>
   readonly showVerifiedAccount: boolean
   readonly sendEmailVarifiedAccount: (event: React.SyntheticEvent) => void
-  readonly email: string
   readonly retryWait: boolean
   readonly onDeleteToken?: () => void
   readonly onCloseModal: () => void
@@ -95,7 +94,7 @@ export const CreateToken = (props: CreateTokenProps) => (
                   </p>
                 </header>
                 <div className={'CreateTokenContainer__frost-run-kit__runkit'}>
-                  <FrostRunKit token={props.boxToken[0]} email={props.email} />
+                  <FrostRunKit token={props.boxToken[0]} />
                 </div>
               </div>
             )
