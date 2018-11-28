@@ -93,7 +93,7 @@ export const CreateToken = (props: CreateTokenProps) => (
                   </p>
                 </header>
                 <div className={'CreateTokenContainer__frost-run-kit__runkit'}>
-                  <FrostRunKit token={props.boxToken[0]} email={props.email} />
+                  <FrostRunKit token={props.boxToken[0]} />
                 </div>
               </div>
             )
