@@ -22,11 +22,10 @@ function handleError(e) {
 }
 
 const config = {
-  host: process.env.HOST, // frost-api url,
+  host: process.env.HOST, // poet-api url,
   timeout: 10
 }
 const frost = new Frost(config)
-const author = process.env.AUTHOR // your email address
 const token = process.env.API_TOKEN // your first test API Token
 const content = HipsterIpsum.get(1, false, true)
 const date = new Date()
@@ -34,8 +33,8 @@ const work = {
   name: content.split(' ').slice(0, 5).join (' '),
   datePublished: date.toISOString(),
   dateCreated: date.toISOString(),
-  author,
-  tags: content.split(' ').slice(5, 7).join (', '),
+  author: content.split(' ').slice(5, 7).join (' '),
+  tags: content.split(' ').slice(7, 9).join (', '),
   content
 }
 
@@ -43,7 +42,6 @@ createWork(work).then(r => getWork(r)).then(r => console.log(r)).catch(handleErr
 `
 
 interface FrostRunKitProps {
-  readonly email: string
   readonly token: string
 }
 
@@ -70,7 +68,7 @@ export class FrostRunKit extends React.Component<FrostRunKitProps, FrostRunKitSt
         <Embed
           height="25px"
           source={FrostRunKitSource}
-          env={[`API_TOKEN=${this.state.token}`, `AUTHOR=${this.props.email}`, `HOST=${Configuration.frostApiUrl}`]}
+          env={[`API_TOKEN=${this.state.token}`, `HOST=${Configuration.frostApiUrl}`]}
         />
       )
     else return <div>Loading...</div>
