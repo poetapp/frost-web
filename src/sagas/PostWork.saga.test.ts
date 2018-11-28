@@ -4,7 +4,7 @@ import { takeLatest, call, put } from 'redux-saga/effects'
 import { describe } from 'riteway'
 
 import { Actions } from '../actions/index'
-import { PostWorkSaga, PostWork, redirectToWork } from './PostWork.saga'
+import { PostWorkSaga, PostWork } from './PostWork.saga'
 import { WorkAttributes } from '../interfaces/Props'
 import { Configuration } from '../configuration'
 
@@ -12,21 +12,21 @@ const createWork = ({
   name = 'name',
   dateCreated = new Date().toISOString(),
   datePublished = new Date().toISOString(),
-  text = 'test',
+  content = 'test',
   tags = 'test',
   author = 'author'
 }: WorkAttributes = {
   name: 'name',
   dateCreated: new Date().toISOString(),
   datePublished: new Date().toISOString(),
-  text: 'test',
+  content: 'test',
   tags: 'test',
   author: 'author'
 }) => ({
   name,
   dateCreated,
   datePublished,
-  text,
+  content,
   tags,
   author
 })
@@ -79,15 +79,15 @@ describe('PostWork() Success', async assert => {
     actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onShowNotificationBar({
       type: 'success',
-      message: `Success! Your Work ID is ${workId}. Redirecting to Explorer-web...`,
+      message: `Success! ${Configuration.mainExplorerUrl}/works/${workId}`,
     })),
   })
 
   assert({
     given: 'next step',
-    should: 'delay 3000',
+    should: 'delay 8000',
     actual: iterator.next().value,
-    expected: call(delay, 3000),
+    expected: call(delay, 8000),
   })
 
   assert({
@@ -123,13 +123,6 @@ describe('PostWork() Success', async assert => {
     should: 'delay 300',
     actual: iterator.next().value,
     expected: call(delay, 300),
-  })
-
-  assert({
-    given: 'next step',
-    should: 'redirect to works explorer',
-    actual: iterator.next().value,
-    expected: call(redirectToWork, workId),
   })
 })
 
