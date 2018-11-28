@@ -17,7 +17,6 @@ interface CreateTokenProps {
   readonly boxToken: ReadonlyArray<string>
   readonly showVerifiedAccount: boolean
   readonly sendEmailVarifiedAccount: (event: React.SyntheticEvent) => void
-  readonly email: string
   readonly retryWait: boolean
   readonly onDeleteToken?: () => void
   readonly onCloseModal: () => void
@@ -62,7 +61,7 @@ export const CreateToken = (props: CreateTokenProps) => (
     </div>
     <Feature>
       {({ features }) =>
-        isActiveFeatureName(FeatureName.PostWork, features)
+        isActiveFeatureName(FeatureName.WorkClaimForm, features)
           ? props.network !== 'test' && (
             <div className={'CreateTokenContainer__post-work'}>
                 <header className={'CreateTokenContainer__post-work__header'}>
@@ -75,7 +74,6 @@ export const CreateToken = (props: CreateTokenProps) => (
                 <PostWork
                   onSubmit={props.onPostWork}
                   disabledButton={props.postWorkDisabled}
-                  email={props.email}
                 />
               </div>
               </div>

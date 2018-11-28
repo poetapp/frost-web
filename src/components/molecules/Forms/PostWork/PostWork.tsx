@@ -9,7 +9,6 @@ interface PostWorkProps {
   readonly onSubmit: (event: any) => any
   readonly disabledButton?: boolean
   readonly serverErrors?: any
-  readonly email: string
 }
 
 const onValidate = () => true
