@@ -66,7 +66,7 @@ export interface ModalState {
   readonly data: object
 }
 export interface NotificationBarState {
-  readonly type?: 'success' | 'fail'
+  readonly type?: 'success' | 'fail' | 'link-success'
   readonly action?: 'fade-in' | 'fade-out' | 'hide'
   readonly message?: string
 }
