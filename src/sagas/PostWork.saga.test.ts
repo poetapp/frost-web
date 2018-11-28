@@ -78,8 +78,8 @@ describe('PostWork() Success', async assert => {
     should: 'set workId in notification bar',
     actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onShowNotificationBar({
-      type: 'success',
-      message: `Success! ${Configuration.mainExplorerUrl}/works/${workId}`,
+      type: 'link-success',
+      message: `${Configuration.mainExplorerUrl}/works/${workId}`,
     })),
   })
 

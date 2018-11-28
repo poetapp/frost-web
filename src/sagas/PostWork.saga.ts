@@ -21,8 +21,8 @@ export function* PostWork(action: any): SagaIterator {
     const { workId } = yield call([FrostClient, FrostClient.createWork], token, work)
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.NotificationBar.onShowNotificationBar({
-      type: 'success',
-      message: `Success! ${Configuration.mainExplorerUrl}/works/${workId}`,
+      type: 'link-success',
+      message: `${Configuration.mainExplorerUrl}/works/${workId}`,
     }))
     yield call(delay, 8000)
     yield put(Actions.NotificationBar.onHideNotificationBar())
