@@ -57,6 +57,7 @@
     "@paralleldrive/react-feature-toggles": "2.0.2",
     "@po.et/frost-client": "2.3.0",
     "classnames": "2.2.6",
+    "clipboard": "2.0.4",
     "formdata-polyfill": "3.0.13",
     "isomorphic-fetch": "2.2.1",
     "moment": "2.22.2",
