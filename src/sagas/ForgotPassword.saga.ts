@@ -8,7 +8,7 @@ import { Configuration } from 'configuration'
 
 async function GetApiTokensFrost(email: string): Promise<string> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.sendEmailForgotPassword(email)
+  return frost.sendEmailForgotPassword(email)
 }
 
 export function ForgotPasswordSaga(): () => IterableIterator<ForkEffect> {

@@ -13,7 +13,7 @@ async function signInFrost(data: {
 }): Promise<{ readonly token: string }> {
   const { email, password } = data
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.login(email, password)
+  return frost.login(email, password)
 }
 
 export function SignInSaga(): () => IterableIterator<ForkEffect> {

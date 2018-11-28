@@ -9,7 +9,7 @@ import { Configuration } from 'configuration'
 
 async function CreateApiTokenFrost(apiToken: string, network: Network): Promise<{ readonly apiToken: string }> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.createApiToken(apiToken, network)
+  return frost.createApiToken(apiToken, network)
 }
 
 export function CreateApiTokenSaga(): () => IterableIterator<ForkEffect> {
