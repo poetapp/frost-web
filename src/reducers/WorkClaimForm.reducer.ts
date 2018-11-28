@@ -8,7 +8,7 @@ export const defaultState = {
   loading: false,
 }
 
-export const WorkClaimForm = (state: any = defaultState, action: any = {}) => {
+export const workClaimForm = (state: any = defaultState, action: any = {}) => {
   switch (action.type) {
     case Actions.WorkClaimForm.SUBMIT:
       return {
