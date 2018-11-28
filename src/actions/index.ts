@@ -55,25 +55,25 @@ export namespace Actions {
     })
   }
 
-  export namespace PostWork {
-    export const POST_WORK = 'POST_WORK'
-    export const POST_WORK_SUCCESS = 'POST_WORK_SUCCESS'
-    export const POST_WORK_ERROR = 'POST_WORK_ERROR'
-    export const POST_WORK_CLEAR_ERROR = 'POST_WORK_CLEAR_ERROR'
-    export const onPostWork = (payload?: object) => ({
-      type: POST_WORK,
+  export namespace WorkClaimForm {
+    export const SUBMIT = 'SUBMIT_WORK_CLAIM_FORM'
+    export const SUBMIT_SUCCESS = 'SUBMIT_WORK_CLAIM_FORM_SUCCESS'
+    export const SUBMIT_ERROR = 'SUBMIT WORK_CLAIM_FORM_ERROR'
+    export const SUBMIT_CLEAR_ERROR = 'SUBMIT WORK_CLAIM_FORM_CLEAR_ERROR'
+    export const onSubmit = (payload?: object) => ({
+      type: SUBMIT,
       payload,
     })
-    export const onPostWorkSuccess = (payload?: object) => ({
-      type: POST_WORK_SUCCESS,
+    export const onSubmitSuccess = (payload?: object) => ({
+      type: SUBMIT_SUCCESS,
       payload,
     })
-    export const onPostWorkError = (payload?: string) => ({
-      type: POST_WORK_ERROR,
+    export const onSubmitError = (payload?: string) => ({
+      type: SUBMIT_ERROR,
       payload,
     })
-    export const onPostWorkClearError = (payload?: object) => ({
-      type: POST_WORK_CLEAR_ERROR,
+    export const onSubmitClearError = (payload?: object) => ({
+      type: SUBMIT_CLEAR_ERROR,
       payload,
     })
   }
