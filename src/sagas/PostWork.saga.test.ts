@@ -85,9 +85,9 @@ describe('PostWork() Success', async assert => {
 
   assert({
     given: 'next step',
-    should: 'delay 3000',
+    should: 'delay 8000',
     actual: iterator.next().value,
-    expected: call(delay, 3000),
+    expected: call(delay, 8000),
   })
 
   assert({
@@ -123,13 +123,6 @@ describe('PostWork() Success', async assert => {
     should: 'delay 300',
     actual: iterator.next().value,
     expected: call(delay, 300),
-  })
-
-  assert({
-    given: 'next step',
-    should: 'redirect to works explorer',
-    actual: iterator.next().value,
-    expected: call(redirectToWork, workId),
   })
 })
 

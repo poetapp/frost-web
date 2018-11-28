@@ -8,9 +8,6 @@ import { Configuration } from 'configuration'
 
 const FrostClient = new Frost({ host: Configuration.frostApiUrl })
 
-export const redirectToWork = (workId: string) =>
-  window.location.assign(`${Configuration.mainExplorerUrl}/works/${workId}`)
-
 export function PostWorkSaga(): () => IterableIterator<ForkEffect> {
   return function*(): IterableIterator<ForkEffect> {
     yield takeLatest(Actions.PostWork.POST_WORK, PostWork)
@@ -25,15 +22,14 @@ export function* PostWork(action: any): SagaIterator {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.NotificationBar.onShowNotificationBar({
       type: 'success',
-      message: `Success! Your Work ID is ${workId}. Redirecting to Explorer-web...`,
+      message: `Success! ${Configuration.mainExplorerUrl}/works/${workId}`,
     }))
-    yield call(delay, 3000)
+    yield call(delay, 8000)
     yield put(Actions.NotificationBar.onHideNotificationBar())
     yield call(delay, 2000)
     yield put(Actions.PostWork.onPostWorkSuccess())
     yield put(Actions.NotificationBar.onResetNotificationBar())
     yield call(delay, 300)
-    yield call(redirectToWork, workId)
   } catch (e) {
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.PostWork.onPostWorkError(e))

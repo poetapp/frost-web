@@ -57,7 +57,6 @@ export const PostWork = (props: PostWorkProps) => {
           name={'tags'}
           type={'text'}
           placeholder={'Tags: Seperate By Commas'}
-          required
           className={'PostWork__tags'}
         />
         <Input
