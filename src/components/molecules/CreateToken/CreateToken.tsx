@@ -16,6 +16,7 @@ interface CreateTokenProps {
   readonly boxToken: ReadonlyArray<string>
   readonly showVerifiedAccount: boolean
   readonly sendEmailVarifiedAccount: (event: React.SyntheticEvent) => void
+  readonly email: string
   readonly retryWait: boolean
   readonly onDeleteToken?: () => void
   readonly onCloseModal: () => void
