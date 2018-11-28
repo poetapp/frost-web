@@ -1,3 +1,6 @@
+import { getCurrentActiveFeatureNames, isActiveFeatureName } from '@paralleldrive/feature-toggles'
+
+import { initialFeatures, FeatureName } from 'config/features'
 import { JWT, Network } from 'interfaces/Props'
 
 const timestampToDateJS = (timestamp: number) => new Date(timestamp * 1000)
@@ -31,3 +34,7 @@ export const getParsedForm = (
     return { currentData, elements }
   }, defaultValue)
 }
+
+export const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
+export const getTextButtonByNetwork = (network: Network) => `Create API Token for ${capitalize(network)}`
+export const getTextButton = () => 'Create API Token'

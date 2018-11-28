@@ -7,7 +7,7 @@ import { Action } from 'redux'
 import { Actions } from 'actions'
 import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
 import { initialFeatures, FeatureName } from 'config/features'
-import { parseJwt } from 'helpers'
+import { parseJwt, getTextButton, getTextButtonByNetwork  } from 'helpers'
 import { FrostState, StatusService, User, ModalState, Network, ApiTokens, WorkAttributes } from 'interfaces/Props'
 
 interface DataAction {
@@ -69,11 +69,8 @@ const deleteToken = (
 const getApiTokenByNetwork = (network: Network) => (apiTokens: ReadonlyArray<string>): ReadonlyArray<string> =>
   apiTokens.filter((apiToken: string) => parseJwt(apiToken).network === network)
 
-export const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
 const isActiveToggleNetwork = () =>
   isActiveFeatureName(FeatureName.ToggleNetwork, getCurrentActiveFeatureNames({ initialFeatures }))
-export const getTextButtonByNetwork = (network: Network) => `Create API Token for ${capitalize(network)}`
-export const getTextButton = () => 'Create API Token'
 const getTextCreateTokenButton = (network: Network) =>
   ifElse(isActiveToggleNetwork, getTextButtonByNetwork, getTextButton)(network)
 const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, identity, always(undefined))(network)

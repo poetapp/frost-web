@@ -9,7 +9,7 @@ import { DeleteToken } from 'components/modals/DeleteToken/DeleteToken'
 import { PostWork } from 'components/molecules/Forms/PostWork/PostWork'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
 import { FeatureName } from 'config/features'
-import { Network, WorkAttributes } from 'interfaces/Props'
+import { Network } from 'interfaces/Props'
 
 import './CreateToken.scss'
 
