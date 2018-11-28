@@ -12,21 +12,21 @@ const createWork = ({
   name = 'name',
   dateCreated = new Date().toISOString(),
   datePublished = new Date().toISOString(),
-  text = 'test',
+  content = 'test',
   tags = 'test',
   author = 'author'
 }: WorkAttributes = {
   name: 'name',
   dateCreated: new Date().toISOString(),
   datePublished: new Date().toISOString(),
-  text: 'test',
+  content: 'test',
   tags: 'test',
   author: 'author'
 }) => ({
   name,
   dateCreated,
   datePublished,
-  text,
+  content,
   tags,
   author
 })

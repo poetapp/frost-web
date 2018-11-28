@@ -89,5 +89,5 @@ export interface WorkAttributes extends ClaimAttributes {
   readonly dateCreated: string
   readonly author: string
   readonly tags?: string
-  readonly text: string
+  readonly content: string
 }
