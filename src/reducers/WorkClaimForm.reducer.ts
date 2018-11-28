@@ -8,9 +8,9 @@ export const defaultState = {
   loading: false,
 }
 
-export const postWork = (state: any = defaultState, action: any = {}) => {
+export const WorkClaimForm = (state: any = defaultState, action: any = {}) => {
   switch (action.type) {
-    case Actions.PostWork.POST_WORK:
+    case Actions.WorkClaimForm.SUBMIT:
       return {
         ...state,
         error: {
@@ -19,7 +19,7 @@ export const postWork = (state: any = defaultState, action: any = {}) => {
         },
         loading: true,
       }
-    case Actions.PostWork.POST_WORK_SUCCESS:
+    case Actions.WorkClaimForm.SUBMIT_SUCCESS:
       return {
         ...state,
         error: {
@@ -28,7 +28,7 @@ export const postWork = (state: any = defaultState, action: any = {}) => {
         },
         loading: false,
       }
-    case Actions.PostWork.POST_WORK_ERROR:
+    case Actions.WorkClaimForm.SUBMIT_ERROR:
       return {
         ...state,
         error: {
@@ -37,7 +37,7 @@ export const postWork = (state: any = defaultState, action: any = {}) => {
         },
         loading: false,
       }
-    case Actions.PostWork.POST_WORK_CLEAR_ERROR:
+    case Actions.WorkClaimForm.SUBMIT_CLEAR_ERROR:
       return {
         ...state,
         error: {

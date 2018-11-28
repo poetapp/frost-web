@@ -1,6 +1,6 @@
 import { describe } from 'riteway'
  import { Actions } from '../actions/index'
-import { postWork, defaultState } from './PostWork.reducer'
+import { WorkClaimForm, defaultState } from './WorkClaimForm.reducer'
 
 const createState = ({
   error = {
@@ -13,26 +13,26 @@ const createState = ({
   loading,
 })
 
-describe('postWork reducer', async assert => {
+describe('WorkClaimForm reducer', async assert => {
 
   assert({
     given: 'no arguments',
     should: 'defaultState',
-    actual: postWork(),
+    actual: WorkClaimForm(),
     expected: defaultState,
   })
 
   assert({
     given: 'default state and POST_WORK action',
     should: 'loading true',
-    actual: postWork(defaultState, Actions.PostWork.onPostWork()),
+    actual: WorkClaimForm(defaultState, Actions.WorkClaimForm.onSubmit()),
     expected: createState({ loading: true }),
   })
 
   assert({
     given: 'loading true and POST_WORK_SUCCESS action',
     should: 'default state',
-    actual: postWork(defaultState, Actions.PostWork.onPostWorkSuccess()),
+    actual: WorkClaimForm(defaultState, Actions.WorkClaimForm.onSubmitSuccess()),
     expected: defaultState,
   })
 
@@ -42,7 +42,7 @@ describe('postWork reducer', async assert => {
     assert({
       given: 'default state and POST_WORK_ERROR action',
       should: 'state with error ',
-      actual: postWork(defaultState, Actions.PostWork.onPostWorkError(e)),
+      actual: WorkClaimForm(defaultState, Actions.WorkClaimForm.onSubmitError(e)),
       expected: createState({
         error: {
           status: true,
@@ -58,7 +58,7 @@ describe('postWork reducer', async assert => {
     assert({
       given: 'state with error message and POST_WORK_ERROR action',
       should: 'state with new error message ',
-      actual: postWork(createState({ error: { status: true, message: 'not-test' } }), Actions.PostWork.onPostWorkError(e)),
+      actual: WorkClaimForm(createState({ error: { status: true, message: 'not-test' } }), Actions.WorkClaimForm.onSubmitError(e)),
       expected: createState({
         error: {
           status: true,
@@ -71,7 +71,7 @@ describe('postWork reducer', async assert => {
   assert({
     given: 'default state and POST_WORK_CLEAR_ERROR action',
     should: 'default state',
-    actual: postWork(defaultState, Actions.PostWork.onPostWorkClearError()),
+    actual: WorkClaimForm(defaultState, Actions.WorkClaimForm.onSubmitClearError()),
     expected: defaultState,
   })
 
@@ -80,7 +80,7 @@ describe('postWork reducer', async assert => {
     assert({
       given: 'state with error message and POST_WORK_CLEAR_ERROR action',
       should: 'default state ',
-      actual: postWork(createState({ error: { status: true, message: e } }), Actions.PostWork.onPostWorkClearError()),
+      actual: WorkClaimForm(createState({ error: { status: true, message: e } }), Actions.WorkClaimForm.onSubmitClearError()),
       expected: defaultState,
     })
   }

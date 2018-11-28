@@ -4,7 +4,7 @@ import { takeLatest, call, put } from 'redux-saga/effects'
 import { describe } from 'riteway'
 
 import { Actions } from '../actions/index'
-import { PostWorkSaga, PostWork } from './PostWork.saga'
+import { WorkClaimFormSaga, WorkClaimForm } from './WorkClaimForm.saga'
 import { WorkAttributes } from '../interfaces/Props'
 import { Configuration } from '../configuration'
 
@@ -31,23 +31,23 @@ const createWork = ({
   author
 })
 
-describe('PostWork Saga', async assert => {
-  const iterator = PostWorkSaga()()
+describe('WorkClaimForm Saga', async assert => {
+  const iterator = WorkClaimFormSaga()()
   
   assert({
     given: 'post work action',
     should: 'handle post work request',
     actual: iterator.next().value,
-    expected: takeLatest(Actions.PostWork.POST_WORK, PostWork),
+    expected: takeLatest(Actions.WorkClaimForm.SUBMIT, WorkClaimForm),
   })
 })
 
-describe('PostWork() Success', async assert => {
+describe('WorkClaimForm() Success', async assert => {
   const token = 'test-token'
   const work = createWork()
   const workId = 'testWorkId'
 
-  const iterator = PostWork(Actions.PostWork.onPostWork({ work, token }))
+  const iterator = WorkClaimForm(Actions.WorkClaimForm.onSubmit({ work, token }))
 
   assert({
     given: 'post work action',
@@ -108,7 +108,7 @@ describe('PostWork() Success', async assert => {
     given: 'next step',
     should: 'reset notifaction bar',
     actual: iterator.next().value,
-    expected: put(Actions.PostWork.onPostWorkSuccess()),
+    expected: put(Actions.WorkClaimForm.onSubmitSuccess()),
   })
 
   assert({
@@ -126,12 +126,12 @@ describe('PostWork() Success', async assert => {
   })
 })
 
-describe('PostWork() Error', async assert => {
+describe('WorkClaimForm() Error', async assert => {
   const token = 'test-token'
   const work = createWork()
   const error = 'test error'
 
-  const iterator = PostWork(Actions.PostWork.onPostWork({ work, token }))
+  const iterator = WorkClaimForm(Actions.WorkClaimForm.onSubmit({ work, token }))
 
   assert({
     given: 'post work action',
@@ -151,7 +151,7 @@ describe('PostWork() Error', async assert => {
     given: 'next step',
     should: 'set error message',
     actual: iterator.next().value,
-    expected: put(Actions.PostWork.onPostWorkError(error)),
+    expected: put(Actions.WorkClaimForm.onSubmitError(error)),
   })
 
   assert({
@@ -165,6 +165,6 @@ describe('PostWork() Error', async assert => {
     given: 'next step',
     should: 'clear error message',
     actual: iterator.next().value,
-    expected: put(Actions.PostWork.onPostWorkClearError()),
+    expected: put(Actions.WorkClaimForm.onSubmitClearError()),
   })
 })
