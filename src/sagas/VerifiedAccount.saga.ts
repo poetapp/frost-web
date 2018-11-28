@@ -9,7 +9,7 @@ import { Configuration } from 'configuration'
 
 async function GetApiTokensFrost(token: string, password: string): Promise<{ readonly token: string }> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.verifyAccount(token)
+  return frost.verifyAccount(token)
 }
 
 export function VerifiedAccountSaga(): () => IterableIterator<ForkEffect> {

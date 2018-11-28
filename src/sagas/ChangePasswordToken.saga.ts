@@ -9,7 +9,7 @@ import { Configuration } from 'configuration'
 
 async function ChangePasswordTokenFrost(token: string, password: string): Promise<{ readonly token: string }> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.changePasswordWithToken(token, password)
+  return frost.changePasswordWithToken(token, password)
 }
 
 export function ChangePasswordTokenSaga(): () => IterableIterator<ForkEffect> {

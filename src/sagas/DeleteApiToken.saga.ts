@@ -8,7 +8,7 @@ import { Configuration } from 'configuration'
 
 async function DeleteApiTokenFrost(token: string, tokenId: string): Promise<string> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.removeApiToken(token, tokenId)
+  return frost.removeApiToken(token, tokenId)
 }
 
 export function DeleteApiTokenSaga(): () => IterableIterator<ForkEffect> {
