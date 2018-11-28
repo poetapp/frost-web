@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@po.et/stylelint-rules": "1.1.4",
-    "@po.et/tslint-rules": "2.0.3",
+    "@po.et/tslint-rules": "2.1.0",
     "@storybook/addon-actions": "3.4.11",
     "@storybook/addon-info": "3.4.11",
     "@storybook/addon-knobs": "3.4.11",
@@ -139,7 +139,7 @@
     "source-map-loader": "0.2.4",
     "storybook-addon-jsx": "6.0.0",
     "style-loader": "0.23.1",
-    "stylelint": "9.8.0",
+    "stylelint": "9.9.0",
     "testcafe": "0.23.2",
     "ts-node": "7.0.1",
     "tsconfig-paths": "3.7.0",

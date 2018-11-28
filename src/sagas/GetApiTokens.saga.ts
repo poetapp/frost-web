@@ -7,7 +7,7 @@ import { Configuration } from 'configuration'
 
 async function GetApiTokensFrost(apiToken: string): Promise<{ readonly apiTokens: ReadonlyArray<string> }> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.getApiTokens(apiToken)
+  return frost.getApiTokens(apiToken)
 }
 
 export function GetApiTokensSaga(): () => IterableIterator<ReadonlyArray<ForkEffect>> {

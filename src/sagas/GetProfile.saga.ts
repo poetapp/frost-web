@@ -10,7 +10,7 @@ async function GetProfileFrost(
   password: string,
 ): Promise<{ readonly createdAt: number; readonly verified: boolean }> {
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.getProfile(token)
+  return frost.getProfile(token)
 }
 
 export function GetProfileSaga(): () => IterableIterator<ReadonlyArray<ForkEffect>> {
