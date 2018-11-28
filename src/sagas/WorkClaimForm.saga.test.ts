@@ -35,7 +35,7 @@ describe('WorkClaimForm Saga', async assert => {
   const iterator = WorkClaimFormSaga()()
   
   assert({
-    given: 'post work action',
+    given: 'Work Claim Form Submit Action',
     should: 'handle post work request',
     actual: iterator.next().value,
     expected: takeLatest(Actions.WorkClaimForm.SUBMIT, WorkClaimForm),
@@ -50,7 +50,7 @@ describe('WorkClaimForm() Success', async assert => {
   const iterator = WorkClaimForm(Actions.WorkClaimForm.onSubmit({ work, token }))
 
   assert({
-    given: 'post work action',
+    given: 'Work Claim Form Submit Action',
     should: 'set loading status',
     actual: iterator.next().value,
     expected: put(Actions.LoadingPage.onLoadingOn()),
@@ -134,7 +134,7 @@ describe('WorkClaimForm() Error', async assert => {
   const iterator = WorkClaimForm(Actions.WorkClaimForm.onSubmit({ work, token }))
 
   assert({
-    given: 'post work action',
+    given: 'Work Claim Form Submit Action',
     should: 'set loading status',
     actual: iterator.next().value,
     expected: put(Actions.LoadingPage.onLoadingOn()),
