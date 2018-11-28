@@ -1,5 +1,5 @@
 import * as classNames from 'classnames'
-import * as ClipboardJS from 'clipboard'
+import * as Clipboard from 'clipboard'
 
 import { ClassNameProps } from 'interfaces/Props'
 import * as React from 'react'
@@ -14,7 +14,7 @@ export class CopyableText extends React.Component<CopyableTextProps> {
   private mutableTooltip: HTMLDivElement
 
   componentDidMount(): void {
-    const clipboard = new ClipboardJS(this.mutableClipboard)
+    const clipboard = new Clipboard(this.mutableClipboard)
     clipboard.on('success', this.onSuccessClipboard.bind(this))
   }
 
