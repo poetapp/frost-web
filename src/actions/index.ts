@@ -58,7 +58,7 @@ export namespace Actions {
   export namespace WorkClaimForm {
     export const SUBMIT = 'SUBMIT_WORK_CLAIM_FORM'
     export const SUBMIT_SUCCESS = 'SUBMIT_WORK_CLAIM_FORM_SUCCESS'
-    export const SUBMIT_ERROR = 'SUBMIT WORK_CLAIM_FORM_ERROR'
+    export const SUBMIT_ERROR = 'SUBMIT_WORK_CLAIM_FORM_ERROR'
     export const SUBMIT_CLEAR_ERROR = 'SUBMIT WORK_CLAIM_FORM_CLEAR_ERROR'
     export const onSubmit = (payload?: object) => ({
       type: SUBMIT,
