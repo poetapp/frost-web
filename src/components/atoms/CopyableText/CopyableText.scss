@@ -2,17 +2,13 @@
 
 .copyable-hash {
   display: inline-flex;
+  position: relative;
   flex-direction: row-reverse;
   align-items: center;
-
-  input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
+  cursor: pointer;
 
   .tooltip {
-    position: fixed;
+    position: absolute;
     padding: 4px;
     border-radius: 4px;
     background: $black;
@@ -20,18 +16,10 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity .4s;
+    z-index: -1;
   }
 
   &.tooltip-visible .tooltip {
     opacity: 1;
-  }
-}
-
-.copyable-hash-no-button {
-  @extend .copyable-hash;
-  cursor: pointer;
-
-  button {
-    display: none;
   }
 }
