@@ -38,7 +38,10 @@ export const DashboardTemplate = (props: DashboardTemplatetProps) => (
             </div>
             <NotificationBar type={props.notificationBar.type} action={props.notificationBar.action}>
               {props.notificationBar.type === 'link-success' ?
-              <a target='blank' className={'Dashboard__body__link'} href={props.notificationBar.message}>See Work Here!</a> :
+              <a target="blank"
+                className={'Dashboard__body__link'}
+                href={props.notificationBar.message}>
+                See Work Here!</a> :
               props.notificationBar.message}
             </NotificationBar>
           </header>
