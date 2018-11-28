@@ -8,7 +8,7 @@ import { Configuration } from 'configuration'
 async function SendEmailVerifiedAccountFrost(data: { readonly token: string }): Promise<string> {
   const { token } = data
   const frost = new Frost({ host: Configuration.frostApiUrl })
-  return await frost.sendEmailVerifyAccount(token)
+  return frost.sendEmailVerifyAccount(token)
 }
 
 export function SendEmailVerifiedAccountSaga(): () => IterableIterator<ForkEffect> {
