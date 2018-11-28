@@ -7,7 +7,7 @@ import './Input.scss'
 interface InputProps extends ClassNameProps {
   readonly name: string
   readonly type: string
-  readonly value?: string
+  readonly defaultValue?: string
   readonly placeholder?: string
   readonly required?: boolean
   readonly minLength?: number
@@ -46,13 +46,13 @@ export class Input extends React.Component<InputProps, undefined> {
       minLength,
       autoFocus,
       inputRef,
-      value,
+      defaultValue,
     } = this.props
 
     if (type === 'text-area')
       return (
         <textarea
-          value={value && value}
+          defaultValue={defaultValue}
           name={name}
           required={required}
           placeholder={placeholder}
@@ -69,7 +69,7 @@ export class Input extends React.Component<InputProps, undefined> {
     else
       return (
         <input
-          value={value && value}
+          defaultValue={defaultValue}
           name={name}
           type={type}
           required={required}
