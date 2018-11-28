@@ -69,18 +69,18 @@ describe('WorkClaimForm reducer', async assert => {
   }
 
   assert({
-    given: 'default state and SUBMIT_CLEAR_ERROR action',
+    given: 'default state and CLEAR_ERROR action',
     should: 'default state',
-    actual: workClaimForm(defaultState, Actions.WorkClaimForm.onSubmitClearError()),
+    actual: workClaimForm(defaultState, Actions.WorkClaimForm.onClearError()),
     expected: defaultState,
   })
 
   {
     const e = 'test'
     assert({
-      given: 'state with error message and SUBMIT_CLEAR_ERROR action',
+      given: 'state with error message and CLEAR_ERROR action',
       should: 'default state ',
-      actual: workClaimForm(createState({ error: { status: true, message: e } }), Actions.WorkClaimForm.onSubmitClearError()),
+      actual: workClaimForm(createState({ error: { status: true, message: e } }), Actions.WorkClaimForm.onClearError()),
       expected: defaultState,
     })
   }

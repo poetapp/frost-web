@@ -37,7 +37,7 @@ export const workClaimForm = (state: any = defaultState, action: any = {}) => {
         },
         loading: false,
       }
-    case Actions.WorkClaimForm.SUBMIT_CLEAR_ERROR:
+    case Actions.WorkClaimForm.CLEAR_ERROR:
       return {
         ...state,
         error: {

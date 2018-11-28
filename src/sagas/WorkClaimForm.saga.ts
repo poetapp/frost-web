@@ -38,6 +38,6 @@ export function* WorkClaimForm(action: any): SagaIterator {
       autoClose: 2500,
     })
     yield call(delay, 300)
-    yield put(Actions.WorkClaimForm.onSubmitClearError())
+    yield put(Actions.WorkClaimForm.onClearError())
   }
 }
