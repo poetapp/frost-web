@@ -1,7 +1,7 @@
 export enum FeatureName {
   ToggleNetwork = 'toggle-network',
   RunKit = 'run-kit',
-  PostWork = 'post-work',
+  WorkClaimForm = 'work-claim-form',
 }
 
 export const initialFeatures: ReadonlyArray<any> = [
@@ -14,7 +14,7 @@ export const initialFeatures: ReadonlyArray<any> = [
     isActive: true,
   },
   {
-    name: FeatureName.PostWork,
+    name: FeatureName.WorkClaimForm,
     isActive: true,
   },
 ]
