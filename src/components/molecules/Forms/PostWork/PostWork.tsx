@@ -12,88 +12,62 @@ interface PostWorkProps {
   readonly email: string
 }
 
-interface PostWorkState {
-  readonly name: string
-  readonly author: string
-  readonly datePublished: string
-  readonly dateCreated: string
-  readonly content: string
-}
+const onValidate = () => true
 
-export class PostWork extends React.Component<PostWorkProps, PostWorkState> {
-  readonly state = {
-    name: 'My First Work!',
-    author: this.props.email,
-    datePublished: new Date().toISOString(),
-    dateCreated: new Date().toISOString(),
-    content: 'Post a work to the Po.et Network!',
-  }
-
-  handleChange(e: any): void {
-    const { name, value } = e.target
-    this.setState(state => ({
-      ...state,
-      [name]: value,
-    }))
-  }
-
-  onValidate(): boolean {
-    return true
-  }
-
-  render(): JSX.Element {
-    const { onSubmit, disabledButton } = this.props
-    return (
-      <div className={'PostWork'}>
-        <Form
-          legend={''}
-          onValidate={this.onValidate}
-          onSubmit={onSubmit}
-          textButton={'Post Work'}
-          disabledButton={disabledButton}
-        >
-          <Input
-            name={'name'}
-            type={'text'}
-            value={this.state.name}
-            required
-            className="PostWork__name"
-            onChange={this.handleChange.bind(this)}
-          />
-          <Input
-            name={'author'}
-            type={'text'}
-            value={this.state.author}
-            required
-            className="PostWork__author"
-            onChange={this.handleChange.bind(this)}
-          />
-          <Input
-            name={'datePublished'}
-            type={'text'}
-            value={this.state.datePublished}
-            required
-            className={'PostWork__datePublished'}
-            onChange={this.handleChange.bind(this)}
-          />
-          <Input
-            name={'dateCreated'}
-            type={'text'}
-            value={this.state.dateCreated}
-            required
-            className={'PostWork__dateCreated'}
-            onChange={this.handleChange.bind(this)}
-          />
-          <Input
-            name={'content'}
-            type={'text-area'}
-            value={this.state.content}
-            required
-            className={'PostWork__content'}
-            onChange={this.handleChange.bind(this)}
-          />
-        </Form>
-      </div>
-    )
-  }
+export const PostWork = (props: PostWorkProps) => {
+  const { onSubmit, disabledButton } = props
+  return (
+    <div className={'PostWork'}>
+      <Form
+        legend={''}
+        onValidate={onValidate}
+        onSubmit={onSubmit}
+        textButton={'Post Work'}
+        disabledButton={disabledButton}
+      >
+        <Input
+          name={'name'}
+          type={'text'}
+          placeholder={'Claim Name'}
+          required
+          className="PostWork__name"
+        />
+        <Input
+          name={'author'}
+          type={'text'}
+          placeholder={'Your Name'}
+          required
+          className="PostWork__author"
+        />
+        <Input
+          name={'datePublished'}
+          type={'text'}
+          defaultValue={new Date().toISOString()}
+          required
+          className={'PostWork__datePublished'}
+        />
+        <Input
+          name={'dateCreated'}
+          type={'text'}
+          defaultValue={new Date().toISOString()}
+          required
+          className={'PostWork__dateCreated'}
+        />
+        <Input
+          name={'tags'}
+          type={'text'}
+          placeholder={'Tags: Seperate By Commas'}
+          required
+          className={'PostWork__tags'}
+        />
+        <Input
+          name={'content'}
+          type={'text-area'}
+          placeholder={'Claim Content'}
+          required
+          className={'PostWork__content'}
+        />
+      </Form>
+    </div>
+  )
 }

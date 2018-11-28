@@ -7,27 +7,32 @@
   width: 100%;
 
   &__name {
-    width: 45%;
-    margin-right: 1rem;
+    width: 49%;
+    margin-right: .5rem;
   }
 
   &__author {
-    width: 45%;
+    width: 49%;
   }
 
   &__datePublished {
-    width: 45%;
-    margin-right: 1rem;
+    width: 32.66%;
+    margin-right: .25rem;
   }
 
   &__dateCreated {
-    width: 45%;
+    width: 32.66%;
+    margin-right: .25rem;
+  }
+
+  &__tags {
+    width: 32.66%;
   }
 
   &__content {
     height: 4rem;
     /* stylelint-disable */
-    width: calc(90% + 1rem);
+    width: calc(98% + .5rem);
     margin-bottom: .75rem;
     /* stylelint-enable */
     margin-top: 1.5rem;
