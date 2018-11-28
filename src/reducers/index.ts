@@ -9,7 +9,7 @@ import { getApiTokens } from './GetApiTokens.reducer'
 import { loadingPage } from './LoadingPage.reducer'
 import { modal } from './Modal.reducer'
 import { notificationBar } from './NotificationBar.reducer'
-import { WorkClaimForm } from './WorkClaimForm.reducer'
+import { workClaimForm } from './WorkClaimForm.reducer'
 import { profile } from './Profile.reducer'
 import { router } from './Router.reducer'
 import { sendEmailVerifiedAccount } from './SendEmailVerifiedAccount.reducer'
@@ -37,5 +37,5 @@ export const reducers = {
   notificationBar,
   changeNetworkBitcoin,
   apiTokens,
-  WorkClaimForm,
+  workClaimForm,
 }
