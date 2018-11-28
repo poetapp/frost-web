@@ -3,9 +3,9 @@ import * as React from 'react'
 import { Input } from 'components/atoms/Input/Input'
 import { Form } from 'components/molecules/Form/Form'
 
-import './PostWork.scss'
+import './WorkClaimForm.scss'
 
-interface PostWorkProps {
+interface WorkClaimFormProps {
   readonly onSubmit: (event: any) => any
   readonly disabledButton?: boolean
   readonly serverErrors?: any
@@ -14,10 +14,10 @@ interface PostWorkProps {
 
 const onValidate = () => true
 
-export const PostWork = (props: PostWorkProps) => {
+export const WorkClaimForm = (props: WorkClaimFormProps) => {
   const { onSubmit, disabledButton } = props
   return (
-    <div className={'PostWork'}>
+    <div className={'WorkClaimForm'}>
       <Form
         legend={''}
         onValidate={onValidate}
@@ -30,41 +30,41 @@ export const PostWork = (props: PostWorkProps) => {
           type={'text'}
           placeholder={'Claim Name'}
           required
-          className="PostWork__name"
+          className="WorkClaimForm__name"
         />
         <Input
           name={'author'}
           type={'text'}
           placeholder={'Your Name'}
           required
-          className="PostWork__author"
+          className="WorkClaimForm__author"
         />
         <Input
           name={'datePublished'}
           type={'text'}
           defaultValue={new Date().toISOString()}
           required
-          className={'PostWork__datePublished'}
+          className={'WorkClaimForm__datePublished'}
         />
         <Input
           name={'dateCreated'}
           type={'text'}
           defaultValue={new Date().toISOString()}
           required
-          className={'PostWork__dateCreated'}
+          className={'WorkClaimForm__dateCreated'}
         />
         <Input
           name={'tags'}
           type={'text'}
           placeholder={'Tags: Seperate By Commas'}
-          className={'PostWork__tags'}
+          className={'WorkClaimForm__tags'}
         />
         <Input
           name={'content'}
           type={'text-area'}
           placeholder={'Claim Content'}
           required
-          className={'PostWork__content'}
+          className={'WorkClaimForm__content'}
         />
       </Form>
     </div>
