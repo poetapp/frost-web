@@ -165,6 +165,6 @@ describe('WorkClaimForm() Error', async assert => {
     given: 'next step',
     should: 'clear error message',
     actual: iterator.next().value,
-    expected: put(Actions.WorkClaimForm.onSubmitClearError()),
+    expected: put(Actions.WorkClaimForm.onClearError()),
   })
 })
