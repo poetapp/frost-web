@@ -1,4 +1,4 @@
-import { LogoFrost } from 'components/atoms/LogoFrost/LogoFrost'
+import { LogoPoetBlack } from 'components/atoms/LogoPoetBlack/LogoPoetBlack'
 import { ToastPage } from 'components/atoms/ToastPage/ToastPage'
 import { ChangePasswordContainer } from 'components/containers/ChangePassword.container'
 import { LoadingPageContainer } from 'components/containers/LoadingPage.container'
@@ -11,7 +11,7 @@ export const ChangePasswordTokenLayout = () => (
     <ToastPage>
       <div className="ChangePasswordToken">
         <Link to={'/'}>
-          <LogoFrost className="ChangePasswordToken__LogoFrost" />
+          <LogoPoetBlack className="ChangePasswordToken__LogoPoetBlack" />
         </Link>
         <h1 className="ChangePasswordToken__title">
           Po.et API is an open API for publishers and content creators to interact with the Po.et Network.

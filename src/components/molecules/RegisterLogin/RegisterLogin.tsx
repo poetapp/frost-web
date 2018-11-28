@@ -20,7 +20,7 @@ export const RegisterLogin = (props: RegisterLoginProps) => (
   <ToastPage>
     <div className="RegisterLogin">
       <Link to={'/'}>
-        <LogoPoetBlack className={'RegisterLogin__LogoFrost'} />
+        <LogoPoetBlack className={'RegisterLogin__LogoPoetBlack'} />
       </Link>
       <h1 className="RegisterLogin__title">
         Po.et API is an open API for publishers and content creators to interact with the Po.et Network.
