@@ -88,7 +88,6 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
     disabledButton={props.deleteApiToken.loading}
     network={props.network}
     textCreateTokenButton={getTextCreateTokenButton(props.network)}
-    email={props.user.profile.email}
   />
 )
 
