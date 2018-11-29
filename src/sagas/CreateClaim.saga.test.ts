@@ -96,7 +96,7 @@ describe('handleOnCreateClaim()', async assert => {
   })
 })
 
-describe('WorkClaimForm() Success', async assert => {
+describe('handleOnCreateClaimSuccess', async assert => {
   const workId = 'testWorkId'
 
   const iterator = handleOnCreateClaimSuccess(Actions.CreateClaim.onCreateClaimSuccess({ workId }))
@@ -141,7 +141,7 @@ describe('WorkClaimForm() Success', async assert => {
 })
 
 
-describe('WorkClaimForm() Error', async assert => {
+describe('handleOnCreateClaimError', async assert => {
   const error = 'test error'
 
   const iterator = handleOnCreateClaimError(Actions.CreateClaim.onCreateClaimError(error))
