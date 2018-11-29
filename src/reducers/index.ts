@@ -4,6 +4,7 @@ import { changePassword } from './ChangePassword.reducer'
 import { changePasswordToken } from './ChangePasswordToken.reducer'
 import { createApiTokens } from './CreateApiTokens.reducer'
 import { createClaim } from './CreateClaim.reducer'
+import { createClaim } from './CreateClaim.reducer'
 import { deleteApiToken } from './DeleteApiToken.reducer'
 import { forgotPassword } from './ForgotPassword.reducer'
 import { getApiTokens } from './GetApiTokens.reducer'
@@ -17,7 +18,6 @@ import { signIn } from './SignIn.reducer'
 import { signUp } from './SignUp.reducer'
 import { user } from './User.reducer'
 import { verifiedAccount } from './VerfiedAccount.reducer'
-import { createClaim } from './CreateClaim.reducer'
 
 export const reducers = {
   signIn,
