@@ -5,7 +5,7 @@ import { describe } from 'riteway'
 const { toast } = require('react-toastify')
 
 import { Actions } from '../actions/index'
-import { WorkClaimFormSaga, handleOnWorkClaimSubmit, handleOnWorkClaimSubmitSuccess, handleOnWorkClaimSubmitError } from './WorkClaimForm.saga'
+import { CreateClaimSaga, handleOnCreateClaim, handleOnCreateClaimSuccess, handleOnCreateClaimError } from './WorkClaimForm.saga'
 import { WorkAttributes } from '../interfaces/Props'
 import { Configuration } from '../configuration'
 
@@ -32,37 +32,37 @@ const createWork = ({
   author
 })
 
-describe('WorkClaimForm Saga', async assert => {
-  const iterator = WorkClaimFormSaga()()
+describe('CreateClaimSaga Saga', async assert => {
+  const iterator = CreateClaimSaga()();
   
   assert({
     given: 'Work Claim Form Submit Action',
     should: 'handle post work request',
     actual: iterator.next().value,
-    expected: takeLatest(Actions.WorkClaimForm.SUBMIT, handleOnWorkClaimSubmit),
+    expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM, handleOnCreateClaim),
   })
 
   assert({
     given: 'Work Claim Form Submit Success Action',
     should: 'handle post work request',
     actual: iterator.next().value,
-    expected: takeLatest(Actions.WorkClaimForm.SUBMIT_SUCCESS, handleOnWorkClaimSubmitSuccess),
+    expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM_SUCCESS, handleOnCreateClaimSuccess),
   })
 
   assert({
     given: 'Work Claim Form Submit Error Action',
     should: 'handle post work request',
     actual: iterator.next().value,
-    expected: takeLatest(Actions.WorkClaimForm.SUBMIT_ERROR, handleOnWorkClaimSubmitError),
+    expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM_ERROR, handleOnCreateClaimError),
   })
 })
 
-describe('handleOnWorkClaimSubmit()', async assert => {
+describe('handleOnCreateClaim()', async assert => {
   const token = 'test-token'
   const work = createWork()
   const workId = 'testWorkId'
 
-  const iterator = handleOnWorkClaimSubmit(Actions.WorkClaimForm.onSubmit({ work, token }))
+  const iterator = handleOnCreateClaim(Actions.CreateClaim.onCreateClaim({ work, token }))
 
   assert({
     given: 'Work Claim Form Submit Action',
@@ -92,14 +92,14 @@ describe('handleOnWorkClaimSubmit()', async assert => {
     given: 'next step',
     should: 'reset notifaction bar',
     actual: iterator.next().value,
-    expected: put(Actions.WorkClaimForm.onSubmitSuccess({ workId })),
+    expected: put(Actions.CreateClaim.onCreateClaimSuccess({ workId })),
   })
 })
 
 describe('WorkClaimForm() Success', async assert => {
   const workId = 'testWorkId'
 
-  const iterator = handleOnWorkClaimSubmitSuccess(Actions.WorkClaimForm.onSubmitSuccess({ workId }))
+  const iterator = handleOnCreateClaimSuccess(Actions.CreateClaim.onCreateClaimSuccess({ workId }))
 
   assert({
     given: 'Work Claim Form Submit Success Action',
@@ -144,7 +144,7 @@ describe('WorkClaimForm() Success', async assert => {
 describe('WorkClaimForm() Error', async assert => {
   const error = 'test error'
 
-  const iterator = handleOnWorkClaimSubmitError(Actions.WorkClaimForm.onSubmitError(error))
+  const iterator = handleOnCreateClaimError(Actions.CreateClaim.onCreateClaimError(error))
 
   assert({
     given: 'Work Claim Form Submit Error Action',
@@ -174,6 +174,6 @@ describe('WorkClaimForm() Error', async assert => {
     given: 'next step',
     should: 'clear error message',
     actual: iterator.next().value,
-    expected: put(Actions.WorkClaimForm.onClearError()),
+    expected: put(Actions.CreateClaim.onCreateClaimClearError()),
   })
 })

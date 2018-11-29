@@ -8,9 +8,9 @@ export const defaultState = {
   loading: false,
 }
 
-export const workClaimForm = (state: any = defaultState, action: any = {}) => {
+export const createClaim = (state: any = defaultState, action: any = {}) => {
   switch (action.type) {
-    case Actions.WorkClaimForm.SUBMIT:
+    case Actions.CreateClaim.CREATE_CLAIM:
       return {
         ...state,
         error: {
@@ -19,7 +19,7 @@ export const workClaimForm = (state: any = defaultState, action: any = {}) => {
         },
         loading: true,
       }
-    case Actions.WorkClaimForm.SUBMIT_SUCCESS:
+    case Actions.CreateClaim.CREATE_CLAIM_SUCCESS:
       return {
         ...state,
         error: {
@@ -28,7 +28,7 @@ export const workClaimForm = (state: any = defaultState, action: any = {}) => {
         },
         loading: false,
       }
-    case Actions.WorkClaimForm.SUBMIT_ERROR:
+    case Actions.CreateClaim.CREATE_CLAIM_ERROR:
       return {
         ...state,
         error: {
@@ -37,7 +37,7 @@ export const workClaimForm = (state: any = defaultState, action: any = {}) => {
         },
         loading: false,
       }
-    case Actions.WorkClaimForm.CLEAR_ERROR:
+    case Actions.CreateClaim.CREATE_CLAIM_CLEAR_ERROR:
       return {
         ...state,
         error: {

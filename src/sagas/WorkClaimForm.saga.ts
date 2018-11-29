@@ -8,29 +8,29 @@ import { Configuration } from 'configuration'
 
 const FrostClient = new Frost({ host: Configuration.frostApiUrl })
 
-export function WorkClaimFormSaga(): () => IterableIterator<ForkEffect> {
+export function CreateClaimSaga(): () => IterableIterator<ForkEffect> {
   return function*(): IterableIterator<ForkEffect> {
-    yield takeLatest(Actions.WorkClaimForm.SUBMIT, handleOnWorkClaimSubmit)
-    yield takeLatest(Actions.WorkClaimForm.SUBMIT_SUCCESS, handleOnWorkClaimSubmitSuccess)
-    yield takeLatest(Actions.WorkClaimForm.SUBMIT_ERROR, handleOnWorkClaimSubmitError)
+    yield takeLatest(Actions.CreateClaim.CREATE_CLAIM, handleOnCreateClaim)
+    yield takeLatest(Actions.CreateClaim.CREATE_CLAIM_SUCCESS, handleOnCreateClaimSuccess)
+    yield takeLatest(Actions.CreateClaim.CREATE_CLAIM_ERROR, handleOnCreateClaimError)
   }
 }
 
-export function* handleOnWorkClaimSubmit(action: any): SagaIterator {
+export function* handleOnCreateClaim(action: any): SagaIterator {
   try {
     const { token, work } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
     const { workId } = yield call([FrostClient, FrostClient.createWork], token, work)
     yield put(Actions.LoadingPage.onLoadingFull())
-    yield put(Actions.WorkClaimForm.onSubmitSuccess({ workId }))
+    yield put(Actions.CreateClaim.onCreateClaimSuccess({ workId }))
   } catch (error) {
-    if (error.message) yield put(Actions.WorkClaimForm.onSubmitError(error.message))
-    else yield put(Actions.WorkClaimForm.onSubmitError(error))
+    if (error.message) yield put(Actions.CreateClaim.onCreateClaimError(error.message))
+    else yield put(Actions.CreateClaim.onCreateClaimError(error))
 
   }
 }
 
-export function* handleOnWorkClaimSubmitSuccess({ payload: { workId } }: any): SagaIterator {
+export function* handleOnCreateClaimSuccess({ payload: { workId } }: any): SagaIterator {
   yield put(Actions.NotificationBar.onShowNotificationBar({
     type: 'link-success',
     message: `${Configuration.mainExplorerUrl}/works/${workId}`,
@@ -41,12 +41,12 @@ export function* handleOnWorkClaimSubmitSuccess({ payload: { workId } }: any): S
   yield put(Actions.NotificationBar.onResetNotificationBar())
 }
 
-export function* handleOnWorkClaimSubmitError({ payload: error }: any): SagaIterator {
+export function* handleOnCreateClaimError({ payload: error }: any): SagaIterator {
   yield put(Actions.LoadingPage.onLoadingFull())
   yield call(toast.error, error, {
     className: 'toast',
     autoClose: 2500,
   })
   yield call(delay, 300)
-  yield put(Actions.WorkClaimForm.onClearError())
+  yield put(Actions.CreateClaim.onCreateClaimClearError())
 }
