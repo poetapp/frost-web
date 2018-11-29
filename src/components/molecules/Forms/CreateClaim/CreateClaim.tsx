@@ -3,21 +3,20 @@ import * as React from 'react'
 import { Input } from 'components/atoms/Input/Input'
 import { Form } from 'components/molecules/Form/Form'
 
-import './WorkClaimForm.scss'
+import './CreateClaim.scss'
 
-interface WorkClaimFormProps {
+interface CreateClaimProps {
   readonly onSubmit: (event: any) => any
   readonly disabledButton?: boolean
   readonly serverErrors?: any
-  readonly email: string
 }
 
 const onValidate = () => true
 
-export const WorkClaimForm = (props: WorkClaimFormProps) => {
+export const CreateClaim = (props: CreateClaimProps) => {
   const { onSubmit, disabledButton } = props
   return (
-    <div className={'WorkClaimForm'}>
+    <div className={'CreateClaim'}>
       <Form
         legend={''}
         onValidate={onValidate}
@@ -30,41 +29,41 @@ export const WorkClaimForm = (props: WorkClaimFormProps) => {
           type={'text'}
           placeholder={'Claim Name'}
           required
-          className="WorkClaimForm__name"
+          className="CreateClaim__name"
         />
         <Input
           name={'author'}
           type={'text'}
           placeholder={'Your Name'}
           required
-          className="WorkClaimForm__author"
+          className="CreateClaim__author"
         />
         <Input
           name={'datePublished'}
           type={'text'}
           defaultValue={new Date().toISOString()}
           required
-          className={'WorkClaimForm__datePublished'}
+          className={'CreateClaim__datePublished'}
         />
         <Input
           name={'dateCreated'}
           type={'text'}
           defaultValue={new Date().toISOString()}
           required
-          className={'WorkClaimForm__dateCreated'}
+          className={'CreateClaim__dateCreated'}
         />
         <Input
           name={'tags'}
           type={'text'}
           placeholder={'Tags: Seperate By Commas'}
-          className={'WorkClaimForm__tags'}
+          className={'CreateClaim__tags'}
         />
         <Input
           name={'content'}
           type={'text-area'}
           placeholder={'Claim Content'}
           required
-          className={'WorkClaimForm__content'}
+          className={'CreateClaim__content'}
         />
       </Form>
     </div>
