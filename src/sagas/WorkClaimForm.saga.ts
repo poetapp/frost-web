@@ -10,34 +10,43 @@ const FrostClient = new Frost({ host: Configuration.frostApiUrl })
 
 export function WorkClaimFormSaga(): () => IterableIterator<ForkEffect> {
   return function*(): IterableIterator<ForkEffect> {
-    yield takeLatest(Actions.WorkClaimForm.SUBMIT, WorkClaimForm)
+    yield takeLatest(Actions.WorkClaimForm.SUBMIT, handleOnWorkClaimSubmit)
+    yield takeLatest(Actions.WorkClaimForm.SUBMIT_SUCCESS, handleOnWorkClaimSubmitSuccess)
+    yield takeLatest(Actions.WorkClaimForm.SUBMIT_ERROR, handleOnWorkClaimSubmitError)
   }
 }
 
-export function* WorkClaimForm(action: any): SagaIterator {
+export function* handleOnWorkClaimSubmit(action: any): SagaIterator {
   try {
     const { token, work } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
     const { workId } = yield call([FrostClient, FrostClient.createWork], token, work)
     yield put(Actions.LoadingPage.onLoadingFull())
-    yield put(Actions.NotificationBar.onShowNotificationBar({
-      type: 'link-success',
-      message: `${Configuration.mainExplorerUrl}/works/${workId}`,
-    }))
-    yield call(delay, 8000)
-    yield put(Actions.NotificationBar.onHideNotificationBar())
-    yield call(delay, 2000)
-    yield put(Actions.WorkClaimForm.onSubmitSuccess())
-    yield put(Actions.NotificationBar.onResetNotificationBar())
-    yield call(delay, 300)
-  } catch (e) {
-    yield put(Actions.LoadingPage.onLoadingFull())
-    yield put(Actions.WorkClaimForm.onSubmitError(e))
-    toast.error(e.message, {
-      className: 'toast',
-      autoClose: 2500,
-    })
-    yield call(delay, 300)
-    yield put(Actions.WorkClaimForm.onClearError())
+    yield put(Actions.WorkClaimForm.onSubmitSuccess({ workId }))
+  } catch (error) {
+    if (error.message) yield put(Actions.WorkClaimForm.onSubmitError(error.message))
+    else yield put(Actions.WorkClaimForm.onSubmitError(error))
+
   }
+}
+
+export function* handleOnWorkClaimSubmitSuccess({ payload: { workId } }: any): SagaIterator {
+  yield put(Actions.NotificationBar.onShowNotificationBar({
+    type: 'link-success',
+    message: `${Configuration.mainExplorerUrl}/works/${workId}`,
+  }))
+  yield call(delay, 3000)
+  yield put(Actions.NotificationBar.onHideNotificationBar())
+  yield call(delay, 2000)
+  yield put(Actions.NotificationBar.onResetNotificationBar())
+}
+
+export function* handleOnWorkClaimSubmitError({ payload: error }: any): SagaIterator {
+  yield put(Actions.LoadingPage.onLoadingFull())
+  yield call(toast.error, error, {
+    className: 'toast',
+    autoClose: 2500,
+  })
+  yield call(delay, 300)
+  yield put(Actions.WorkClaimForm.onClearError())
 }
