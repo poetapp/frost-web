@@ -55,28 +55,28 @@ export namespace Actions {
     })
   }
 
-  export namespace WorkClaimForm {
-    export const SUBMIT = 'SUBMIT_WORK_CLAIM_FORM'
-    export const SUBMIT_SUCCESS = 'SUBMIT_WORK_CLAIM_FORM_SUCCESS'
-    export const SUBMIT_ERROR = 'SUBMIT_WORK_CLAIM_FORM_ERROR'
-    export const CLEAR_ERROR = 'WORK_CLAIM_FORM_CLEAR_ERROR'
+  export namespace CreateClaim {
+    export const CREATE_CLAIM = 'CREATE_CLAIM'
+    export const CREATE_CLAIM_SUCCESS = 'CREATE_CLAIM_SUCCESS'
+    export const CREATE_CLAIM_ERROR = 'CREATE_CLAIM_ERROR'
+    export const CREATE_CLAIM_CLEAR_ERROR = 'CREATE_CLAIM_CLEAR_ERROR'
   }
 
-  export namespace WorkClaimForm {
-    export const onSubmit = (payload?: object) => ({
-      type: SUBMIT,
+  export namespace CreateClaim {
+    export const onCreateClaim = (payload?: object) => ({
+      type: CREATE_CLAIM,
       payload,
     })
-    export const onSubmitSuccess = (payload?: object) => ({
-      type: SUBMIT_SUCCESS,
+    export const onCreateClaimSuccess = (payload?: object) => ({
+      type: CREATE_CLAIM_SUCCESS,
       payload,
     })
-    export const onSubmitError = (payload?: string) => ({
-      type: SUBMIT_ERROR,
+    export const onCreateClaimError = (payload?: string) => ({
+      type: CREATE_CLAIM_ERROR,
       payload,
     })
-    export const onClearError = (payload?: object) => ({
-      type: CLEAR_ERROR,
+    export const onCreateClaimClearError = (payload?: object) => ({
+      type: CREATE_CLAIM_CLEAR_ERROR,
       payload,
     })
   }

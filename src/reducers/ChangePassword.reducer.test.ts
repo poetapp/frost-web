@@ -45,7 +45,7 @@ describe('changePassword reducer', async (assert: any) => {
     const actual = reducer(currentState, onChangePassword())
 
     assert({
-      given: `a current state and an action "${onChangePassword().type}"`,
+      given: `a current state and an action '${onChangePassword().type}'`,
       should: 'set loading to true, error status to false and clear the error message',
       actual,
       expected,
@@ -72,7 +72,7 @@ describe('changePassword reducer', async (assert: any) => {
     const actual = reducer(currentState, onChangePasswordSuccess())
 
     assert({
-      given: `a current state and an action "${onChangePasswordSuccess().type}"`,
+      given: `a current state and an action '${onChangePasswordSuccess().type}'`,
       should: 'set loading to false, error status to false and clear the error message',
       actual,
       expected,
@@ -99,7 +99,7 @@ describe('changePassword reducer', async (assert: any) => {
     const actual = reducer(currentState, onChangePasswordError({ msg: 'crash' }))
 
     assert({
-      given: `a current state and an action "${onChangePasswordError().type}"`,
+      given: `a current state and an action '${onChangePasswordError().type}'`,
       should: 'set loading to false, error status to true and contain an error message',
       actual,
       expected,
