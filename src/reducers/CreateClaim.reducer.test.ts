@@ -1,6 +1,6 @@
 import { describe } from 'riteway'
  import { Actions } from '../actions/index'
-import { createClaim, defaultState } from './WorkClaimForm.reducer'
+import { createClaim, defaultState } from './CreateClaim.reducer'
 
 const createState = ({
   error = {

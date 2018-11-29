@@ -10,7 +10,7 @@ import { SignInSaga } from './SignIn.saga'
 import { SignOutSaga } from './SignOut.saga'
 import { SignUpSaga } from './SignUp.saga'
 import { VerifiedAccountSaga } from './VerifiedAccount.saga'
-import { WorkClaimFormSaga } from './WorkClaimForm.saga'
+import { CreateClaimSaga } from './CreateClaim.saga'
 export const sagas: ReadonlyArray<any> = [
   SignUpSaga,
   SignInSaga,
@@ -24,5 +24,5 @@ export const sagas: ReadonlyArray<any> = [
   DeleteApiTokenSaga,
   CreateApiTokenSaga,
   RouterSaga,
-  WorkClaimFormSaga,
+  CreateClaimSaga,
 ]

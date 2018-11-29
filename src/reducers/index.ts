@@ -16,7 +16,7 @@ import { signIn } from './SignIn.reducer'
 import { signUp } from './SignUp.reducer'
 import { user } from './User.reducer'
 import { verifiedAccount } from './VerfiedAccount.reducer'
-import { createClaim } from './WorkClaimForm.reducer'
+import { createClaim } from './CreateClaim.reducer'
 
 export const reducers = {
   signIn,

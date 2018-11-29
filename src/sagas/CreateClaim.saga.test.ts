@@ -5,7 +5,7 @@ import { describe } from 'riteway'
 const { toast } = require('react-toastify')
 
 import { Actions } from '../actions/index'
-import { CreateClaimSaga, handleOnCreateClaim, handleOnCreateClaimSuccess, handleOnCreateClaimError } from './WorkClaimForm.saga'
+import { CreateClaimSaga, handleOnCreateClaim, handleOnCreateClaimSuccess, handleOnCreateClaimError } from './CreateClaim.saga'
 import { WorkAttributes } from '../interfaces/Props'
 import { Configuration } from '../configuration'
 

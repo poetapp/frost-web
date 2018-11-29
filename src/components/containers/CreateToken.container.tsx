@@ -27,8 +27,8 @@ interface CreateTokenContainerProps {
   readonly modal: ModalState
   readonly deleteApiToken: StatusService
   readonly network: Network
-  readonly onSubmitWork?: (payload: { readonly token: string, readonly work: WorkAttributes }) => Action
-  readonly workClaimForm: StatusService
+  readonly onCreateClaim?: (payload: { readonly token: string, readonly work: WorkAttributes }) => Action
+  readonly createClaim: StatusService
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
@@ -39,20 +39,20 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   modal: state.modal,
   deleteApiToken: state.deleteApiToken,
   network: state.changeNetworkBitcoin.network,
-  workClaimForm: state.workClaimForm,
+  createClaim: state.createClaim,
 })
 
 const { onCreateApiToken, onDeleteApiToken } = Actions.ApiTokens
 const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
 const { onShowModal, onHideModal } = Actions.Modal
-const { onSubmit: onSubmitWork } = Actions.WorkClaimForm
+const { onCreateClaim } = Actions.CreateClaim
 const mapDispatch = {
   onCreateApiToken,
   onSendEmailVerifiedAccount,
   onDeleteApiToken,
   onShowModal,
   onHideModal,
-  onSubmitWork,
+  onCreateClaim,
 }
 const MODAL_DELETE_TOKEN = 'MODAL_DELETE_TOKEN'
 
@@ -90,11 +90,11 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
     disabledButton={props.deleteApiToken.loading}
     network={props.network}
     textCreateTokenButton={getTextCreateTokenButton(props.network)}
-    onSubmitWork={(data: WorkAttributes) => props.onSubmitWork({
+    onCreateClaim={(data: WorkAttributes) => props.onCreateClaim({
       token: getApiTokenByNetwork(props.network)(props.apiTokens.tokens)[0],
       work: data,
     })}
-    workClaimFormDisabled={props.workClaimForm.loading}
+    createClaimDisabled={props.createClaim.loading}
   />
 )
 

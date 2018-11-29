@@ -6,7 +6,7 @@ import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
 import { FrostRunKit } from 'components/atoms/FrostRunKit/FrostRunKit'
 import { DeleteToken } from 'components/modals/DeleteToken/DeleteToken'
-import { PostWork } from 'components/molecules/Forms/PostWork/PostWork'
+import { CreateClaim } from 'components/molecules/Forms/CreateClaim/CreateClaim'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
 import { FeatureName } from 'config/features'
 import { Network } from 'interfaces/Props'
@@ -24,8 +24,8 @@ interface CreateTokenProps {
   readonly showDeleteModal: boolean
   readonly disabledButton: boolean
   readonly onCreateApiToken: (event: React.SyntheticEvent) => void
-  readonly onSubmitWork?: (data: object) => void
-  readonly workClaimFormDisabled: boolean
+  readonly onCreateClaim?: (data: object) => void
+  readonly createClaimDisabled: boolean
   readonly submitDisabled: boolean
   readonly network: Network
   readonly textCreateTokenButton: string
@@ -71,9 +71,9 @@ export const CreateToken = (props: CreateTokenProps) => (
                   </p>
                 </header>
                 <div className={'CreateTokenContainer__post-work__form'}>
-                <PostWork
-                  onSubmit={props.onSubmitWork}
-                  disabledButton={props.workClaimFormDisabled}
+                <CreateClaim
+                  onSubmit={props.onCreateClaim}
+                  disabledButton={props.createClaimDisabled}
                 />
               </div>
               </div>
