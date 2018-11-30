@@ -26,7 +26,6 @@ export function* handleOnCreateClaim(action: any): SagaIterator {
   } catch (error) {
     if (error.message) yield put(Actions.CreateClaim.onCreateClaimError(error.message))
     else yield put(Actions.CreateClaim.onCreateClaimError(error))
-
   }
 }
 

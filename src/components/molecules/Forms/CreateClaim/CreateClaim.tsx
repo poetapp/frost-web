@@ -6,7 +6,7 @@ import { Form } from 'components/molecules/Form/Form'
 import './CreateClaim.scss'
 
 interface CreateClaimProps {
-  readonly onSubmit: (event: any) => any
+  readonly onSubmit: (event: Event) => any
   readonly disabledButton?: boolean
   readonly serverErrors?: any
 }
