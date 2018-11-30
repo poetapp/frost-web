@@ -5,7 +5,7 @@ import './NotificationBar.scss'
 
 interface NotificationBarProps {
   readonly children?: React.ReactNode
-  readonly type?: 'success' | 'fail'
+  readonly type?: 'success' | 'fail' | 'link-success'
   readonly action?: 'fade-in' | 'fade-out' | 'hide'
 }
 

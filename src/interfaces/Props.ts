@@ -42,6 +42,7 @@ export interface FrostState {
   readonly router: Router
   readonly loadingPage: LoadingPage
   readonly changePasswordToken: StatusService
+  readonly createClaim: StatusService
   readonly signIn: StatusService
   readonly signUp: StatusService
   readonly sendEmailVerifiedAccount: StatusService
@@ -65,7 +66,7 @@ export interface ModalState {
   readonly data: object
 }
 export interface NotificationBarState {
-  readonly type?: 'success' | 'fail'
+  readonly type?: 'success' | 'fail' | 'link-success'
   readonly action?: 'fade-in' | 'fade-out' | 'hide'
   readonly message?: string
 }
@@ -76,4 +77,17 @@ export enum Network {
 }
 export interface NetworkBitcoin {
   readonly network: Network
+}
+
+export interface ClaimAttributes {
+  readonly [key: string]: string
+}
+
+export interface WorkAttributes extends ClaimAttributes {
+  readonly name: string
+  readonly datePublished: string
+  readonly dateCreated: string
+  readonly author: string
+  readonly tags?: string
+  readonly content: string
 }

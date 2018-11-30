@@ -1,5 +1,6 @@
 import { ChangePasswordTokenSaga } from './ChangePasswordToken.saga'
 import { CreateApiTokenSaga } from './CreateApiToken.saga'
+import { CreateClaimSaga } from './CreateClaim.saga'
 import { DeleteApiTokenSaga } from './DeleteApiToken.saga'
 import { ForgotPasswordSaga } from './ForgotPassword.saga'
 import { GetApiTokensSaga } from './GetApiTokens.saga'
@@ -23,4 +24,5 @@ export const sagas: ReadonlyArray<any> = [
   DeleteApiTokenSaga,
   CreateApiTokenSaga,
   RouterSaga,
+  CreateClaimSaga,
 ]
