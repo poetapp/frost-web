@@ -6,9 +6,18 @@
   justify-content: space-around;
   width: 100%;
 
+  &__first {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__last {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__name {
     width: 49%;
-    margin-right: .5rem;
   }
 
   &__author {
@@ -17,12 +26,10 @@
 
   &__datePublished {
     width: 32.66%;
-    margin-right: .25rem;
   }
 
   &__dateCreated {
     width: 32.66%;
-    margin-right: .25rem;
   }
 
   &__tags {
@@ -31,9 +38,6 @@
 
   &__content {
     height: 4rem;
-    /* stylelint-disable */
-    width: calc(98% + .5rem);
-    /* stylelint-enable */
     margin-bottom: .75rem;
     margin-top: 1.5rem;
   }
