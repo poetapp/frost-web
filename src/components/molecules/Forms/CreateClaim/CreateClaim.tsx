@@ -24,20 +24,23 @@ export const CreateClaim = (props: CreateClaimProps) => {
         textButton={'Post Work'}
         disabledButton={disabledButton}
       >
-        <Input
-          name={'name'}
-          type={'text'}
-          placeholder={'Claim Name'}
-          required
-          className="CreateClaim__name"
-        />
-        <Input
-          name={'author'}
-          type={'text'}
-          placeholder={'Your Name'}
-          required
-          className="CreateClaim__author"
-        />
+      <div className={'CreateClaim__first'}>
+          <Input
+            name={'name'}
+            type={'text'}
+            placeholder={'Claim Name'}
+            required
+            className="CreateClaim__name"
+          />
+          <Input
+            name={'author'}
+            type={'text'}
+            placeholder={'Your Name'}
+            required
+            className="CreateClaim__author"
+          />
+      </div>
+      <div className={'CreateClaim__last'}>
         <Input
           name={'datePublished'}
           type={'text'}
@@ -58,6 +61,7 @@ export const CreateClaim = (props: CreateClaimProps) => {
           placeholder={'Tags: Seperate By Commas'}
           className={'CreateClaim__tags'}
         />
+        </div>
         <Input
           name={'content'}
           type={'text-area'}
