@@ -44,21 +44,21 @@ describe('CreateClaimSaga Saga', async assert => {
   
   assert({
     given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM}`,
-    should: 'handle post work request',
+    should: 'handle create claim request',
     actual: iterator.next().value,
     expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM, handleOnCreateClaim),
   })
 
   assert({
     given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM_SUCCESS}`,
-    should: 'handle post work request',
+    should: 'handle create claim request',
     actual: iterator.next().value,
     expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM_SUCCESS, handleOnCreateClaimSuccess),
   })
 
   assert({
     given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM_ERROR}`,
-    should: 'handle post work request',
+    should: 'handle create claim request',
     actual: iterator.next().value,
     expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM_ERROR, handleOnCreateClaimError),
   })
@@ -80,7 +80,7 @@ describe('handleOnCreateClaim()', async assert => {
 
   assert({
     given: 'next step',
-    should: 'post work with frost',
+    should: 'create claim with frost',
     actual: iterator.next().value,
     expected: call([frost, frost.createWork], token, work),
   })
