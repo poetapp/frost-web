@@ -1,8 +1,8 @@
 import { Frost } from '@po.et/frost-client'
 import { Actions } from 'actions'
+import { toast } from 'react-toastify'
 import { delay, SagaIterator } from 'redux-saga'
 import { call, takeLatest, put, ForkEffect } from 'redux-saga/effects'
-const { toast } = require('react-toastify')
 
 import { Configuration } from 'configuration'
 

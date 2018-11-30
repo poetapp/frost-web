@@ -1,13 +1,20 @@
 import { Frost } from '@po.et/frost-client'
+import { toast } from 'react-toastify'
 import { delay } from 'redux-saga'
 import { takeLatest, call, put } from 'redux-saga/effects'
 import { describe } from 'riteway'
-const { toast } = require('react-toastify')
 
 import { Actions } from '../actions/index'
-import { CreateClaimSaga, handleOnCreateClaim, handleOnCreateClaimSuccess, handleOnCreateClaimError } from './CreateClaim.saga'
+import { 
+  CreateClaimSaga,
+  handleOnCreateClaim, 
+  handleOnCreateClaimSuccess, 
+  handleOnCreateClaimError 
+} from './CreateClaim.saga'
 import { WorkAttributes } from '../interfaces/Props'
 import { Configuration } from '../configuration'
+
+const frost = new Frost({ host: Configuration.frostApiUrl })
 
 const createWork = ({
   name = 'name',
@@ -36,21 +43,21 @@ describe('CreateClaimSaga Saga', async assert => {
   const iterator = CreateClaimSaga()();
   
   assert({
-    given: 'Work Claim Form Submit Action',
+    given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM}`,
     should: 'handle post work request',
     actual: iterator.next().value,
     expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM, handleOnCreateClaim),
   })
 
   assert({
-    given: 'Work Claim Form Submit Success Action',
+    given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM_SUCCESS}`,
     should: 'handle post work request',
     actual: iterator.next().value,
     expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM_SUCCESS, handleOnCreateClaimSuccess),
   })
 
   assert({
-    given: 'Work Claim Form Submit Error Action',
+    given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM_ERROR}`,
     should: 'handle post work request',
     actual: iterator.next().value,
     expected: takeLatest(Actions.CreateClaim.CREATE_CLAIM_ERROR, handleOnCreateClaimError),
@@ -65,21 +72,18 @@ describe('handleOnCreateClaim()', async assert => {
   const iterator = handleOnCreateClaim(Actions.CreateClaim.onCreateClaim({ work, token }))
 
   assert({
-    given: 'Work Claim Form Submit Action',
+    given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM}`,
     should: 'set loading status',
     actual: iterator.next().value,
     expected: put(Actions.LoadingPage.onLoadingOn()),
   })
 
-  {
-    const frost = new Frost({ host: Configuration.frostApiUrl })
-    assert({
-      given: 'next step',
-      should: 'post work with frost',
-      actual: iterator.next().value,
-      expected: call([frost, frost.createWork], token, work),
-    })
-  }
+  assert({
+    given: 'next step',
+    should: 'post work with frost',
+    actual: iterator.next().value,
+    expected: call([frost, frost.createWork], token, work),
+  })
 
   assert({
     given: 'next step',
@@ -90,7 +94,7 @@ describe('handleOnCreateClaim()', async assert => {
 
   assert({
     given: 'next step',
-    should: 'reset notifaction bar',
+    should: 'reset notification bar',
     actual: iterator.next().value,
     expected: put(Actions.CreateClaim.onCreateClaimSuccess({ workId })),
   })
@@ -102,8 +106,8 @@ describe('handleOnCreateClaimSuccess', async assert => {
   const iterator = handleOnCreateClaimSuccess(Actions.CreateClaim.onCreateClaimSuccess({ workId }))
 
   assert({
-    given: 'Work Claim Form Submit Success Action',
-    should: 'set workId in notification bar',
+    given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM_SUCCESS}`,
+    should: 'show notification bar with link to work',
     actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onShowNotificationBar({
       type: 'link-success',
@@ -113,28 +117,28 @@ describe('handleOnCreateClaimSuccess', async assert => {
 
   assert({
     given: 'next step',
-    should: 'delay 3000',
+    should: 'wait before hiding notification bar',
     actual: iterator.next().value,
     expected: call(delay, 3000),
   })
 
   assert({
     given: 'next step',
-    should: 'hide notifaction bar',
+    should: 'hide notification bar',
     actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onHideNotificationBar()),
   })
 
   assert({
     given: 'next step',
-    should: 'delay 2000',
+    should: 'wait before resetting the notification bar',
     actual: iterator.next().value,
     expected: call(delay, 2000),
   })
 
   assert({
     given: 'next step',
-    should: 'reset notifaction bar',
+    should: 'reset notification bar',
     actual: iterator.next().value,
     expected: put(Actions.NotificationBar.onResetNotificationBar()),
   })
@@ -147,7 +151,7 @@ describe('handleOnCreateClaimError', async assert => {
   const iterator = handleOnCreateClaimError(Actions.CreateClaim.onCreateClaimError(error))
 
   assert({
-    given: 'Work Claim Form Submit Error Action',
+    given: `Action with the type ${Actions.CreateClaim.CREATE_CLAIM_ERROR}`,
     should: 'set loading to complete',
     actual: iterator.next().value,
     expected: put(Actions.LoadingPage.onLoadingFull()),
@@ -155,7 +159,7 @@ describe('handleOnCreateClaimError', async assert => {
 
   assert({
     given: 'next step',
-    should: 'delay 300',
+    should: 'call toast with error message',
     actual: iterator.next().value,
     expected: call(toast.error, error, {
     className: 'toast',
@@ -165,7 +169,7 @@ describe('handleOnCreateClaimError', async assert => {
 
   assert({
     given: 'next step',
-    should: 'delay 300',
+    should: 'wait before clearing the error message',
     actual: iterator.next().value,
     expected: call(delay, 300),
   })
