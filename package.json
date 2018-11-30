@@ -108,7 +108,7 @@
     "@types/storybook__addon-knobs": "3.4.1",
     "@types/storybook__addon-links": "3.3.3",
     "@types/storybook__react": "3.0.9",
-    "@types/webpack": "4.4.19",
+    "@types/webpack": "4.4.20",
     "@types/webpack-dev-middleware": "2.0.2",
     "@types/webpack-dev-server": "2.9.6",
     "@types/webpack-hot-middleware": "2.16.4",
