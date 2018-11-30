@@ -1,0 +1,44 @@
+@import 'colors';
+
+.CreateClaim {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+
+  &__first {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__last {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    width: 49%;
+  }
+
+  &__author {
+    width: 49%;
+  }
+
+  &__datePublished {
+    width: 32.66%;
+  }
+
+  &__dateCreated {
+    width: 32.66%;
+  }
+
+  &__tags {
+    width: 32.66%;
+  }
+
+  &__content {
+    height: 4rem;
+    margin-bottom: .75rem;
+    margin-top: 1.5rem;
+  }
+}
