@@ -2,10 +2,12 @@ import { map, pipe, fromPairs, keys } from 'ramda'
 
 interface Configuration {
   readonly frostApiUrl: string
+  readonly mainExplorerUrl: string
 }
 
 export const defaultConfiguration: Configuration = {
   frostApiUrl: 'http://localhost:3000',
+  mainExplorerUrl: 'http://localhost:3001',
 }
 
 export const camelCaseToScreamingSnakeCase = (camelCase: string = '') =>

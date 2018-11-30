@@ -3,6 +3,7 @@ import { changeNetworkBitcoin } from './ChangeNetworkBitcoin.reducer'
 import { changePassword } from './ChangePassword.reducer'
 import { changePasswordToken } from './ChangePasswordToken.reducer'
 import { createApiTokens } from './CreateApiTokens.reducer'
+import { createClaim } from './CreateClaim.reducer'
 import { deleteApiToken } from './DeleteApiToken.reducer'
 import { forgotPassword } from './ForgotPassword.reducer'
 import { getApiTokens } from './GetApiTokens.reducer'
@@ -36,4 +37,5 @@ export const reducers = {
   notificationBar,
   changeNetworkBitcoin,
   apiTokens,
+  createClaim,
 }
