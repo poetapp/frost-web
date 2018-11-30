@@ -15,6 +15,6 @@ export const initialFeatures: ReadonlyArray<any> = [
   },
   {
     name: FeatureName.WorkClaimForm,
-    isActive: true,
+    isActive: false,
   },
 ]
