@@ -8,10 +8,6 @@ $large-screen: 96.5rem;
   padding-left: 28px;
   padding-top: 28px;
   background-color: $sand-stone;
-  @media screen and (min-width: $large-screen) {
-    justify-content: space-evenly;
-    padding-left: 0px;
-  }
 
   &__CreateToken {
 
@@ -100,5 +96,12 @@ $large-screen: 96.5rem;
         color: $night-rider2;
       }
     }
+  }
+}
+
+.CreateClaim {
+  @media screen and (min-width: $large-screen) {
+    justify-content: space-evenly;
+    padding-left: 0px;
   }
 }
