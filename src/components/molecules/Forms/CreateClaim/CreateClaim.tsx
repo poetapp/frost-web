@@ -1,8 +1,12 @@
+import * as classNames from 'classnames'
 import * as React from 'react'
 
+import { Button } from 'components/atoms/Button/Button'
 import { Input } from 'components/atoms/Input/Input'
 import { Form } from 'components/molecules/Form/Form'
+import { getParsedForm } from 'helpers'
 
+import { render } from 'react-dom'
 import './CreateClaim.scss'
 
 interface CreateClaimProps {
@@ -13,63 +17,82 @@ interface CreateClaimProps {
 
 const onValidate = () => true
 
-export const CreateClaim = (props: CreateClaimProps) => {
-  const { onSubmit, disabledButton } = props
-  return (
-    <div className={'CreateClaim'}>
-      <Form
-        legend={''}
-        onValidate={onValidate}
-        onSubmit={onSubmit}
-        textButton={'Post Work'}
-        disabledButton={disabledButton}
-      >
-      <div className={'CreateClaim__first'}>
-          <Input
-            name={'name'}
-            type={'text'}
-            placeholder={'Claim Name'}
-            required
-            className="CreateClaim__name"
-          />
-          <Input
-            name={'author'}
-            type={'text'}
-            placeholder={'Your Name'}
-            required
-            className="CreateClaim__author"
-          />
+export class CreateClaim extends React.Component<CreateClaimProps, undefined> {
+  readonly onSubmit = (
+    event: any,
+    submit = (data: object, elements: any) => ({}),
+  ): void => {
+    event.preventDefault()
+    const form = event.target
+    const { currentData, elements } = getParsedForm(form)
+    submit(currentData, elements)
+  }
+
+  render(): JSX.Element {
+    const { onSubmit, disabledButton } = this.props
+    return (
+      <div className={'CreateClaim'}>
+        <form
+          onSubmit={event => this.onSubmit(event, onSubmit)}
+        >
+          <div className="row">
+            <div className="col-12">
+              <label htmlFor="name" className={'CreateClaim__label'}>
+                Claim Name
+                <Input
+                  name={'name'}
+                  type={'text'}
+                  placeholder={'name/title of the work'}
+                  required
+                  className={classNames('CreateClaim__label__name')}
+                />
+              </label>
+              <label htmlFor="author" className="CreateClaim__label">
+                Your Name
+                <Input
+                  name={'author'}
+                  type={'text'}
+                  placeholder={'the author’s name'}
+                  required
+                  className={'CreateClaim__label__author'}
+                />
+              </label>
+              <label htmlFor="dateCreated" className="CreateClaim__label">
+                Date Created
+                <Input
+                  name={'dateCreated'}
+                  type={'text'}
+                  defaultValue={new Date().toISOString()}
+                  required
+                  className={'CreateClaim__label__dateCreated'}
+                />
+              </label>
+              <label htmlFor="tags" className="CreateClaim__label">
+                Tags
+                <Input
+                  name={'tags'}
+                  type={'text'}
+                  placeholder={'separate with commas'}
+                  className={'CreateClaim__label__tags'}
+                />
+              </label>
+              <label htmlFor="content" className="CreateClaim__label">
+                Claim Content
+                <Input
+                  name={'content'}
+                  type={'text-area'}
+                  placeholder={'the body of content for your work'}
+                  required
+                  className={'CreateClaim__label__content'}
+                />
+              </label>
+            </div>
+            <div className="col-6 submit-button">
+              <Button text={'Create Claim'} disabled={disabledButton} />
+            </div>
+          </div>
+        </form>
       </div>
-      <div className={'CreateClaim__last'}>
-        <Input
-          name={'datePublished'}
-          type={'text'}
-          defaultValue={new Date().toISOString()}
-          required
-          className={'CreateClaim__datePublished'}
-        />
-        <Input
-          name={'dateCreated'}
-          type={'text'}
-          defaultValue={new Date().toISOString()}
-          required
-          className={'CreateClaim__dateCreated'}
-        />
-        <Input
-          name={'tags'}
-          type={'text'}
-          placeholder={'Tags: Seperate By Commas'}
-          className={'CreateClaim__tags'}
-        />
-        </div>
-        <Input
-          name={'content'}
-          type={'text-area'}
-          placeholder={'Claim Content'}
-          required
-          className={'CreateClaim__content'}
-        />
-      </Form>
-    </div>
-  )
+    )
+  }
 }

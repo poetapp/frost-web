@@ -61,16 +61,16 @@ export const CreateToken = (props: CreateTokenProps) => (
     </div>
     <Feature>
       {({ features }) =>
-        isActiveFeatureName(FeatureName.WorkClaimForm, features)
+        isActiveFeatureName(FeatureName.CreateClaimForm, features)
           ? props.network !== 'test' && (
-            <div className={'CreateTokenContainer__post-work'}>
-                <header className={'CreateTokenContainer__post-work__header'}>
-                  <h2 className={'CreateTokenContainer__post-work__header__title'}>Post a Work</h2>
-                  <p className={'CreateTokenContainer__post-work__header__description'}>
-                    Post a work to the Po.et network!
+            <div className={'CreateTokenContainer__create-claim'}>
+                <header className={'CreateTokenContainer__create-claim__header'}>
+                  <h2 className={'CreateTokenContainer__create-claim__header__title'}>Create a Claim</h2>
+                  <p className={'CreateTokenContainer__create-claim__header__description'}>
+                    Create a claim on the Po.et network!
                   </p>
                 </header>
-                <div className={'CreateTokenContainer__post-work__form'}>
+                <div className={'CreateTokenContainer__create-claim__form'}>
                 <CreateClaim
                   onSubmit={props.onCreateClaim}
                   disabledButton={props.createClaimDisabled}
