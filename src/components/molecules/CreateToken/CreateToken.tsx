@@ -6,6 +6,7 @@ import { BoxToken } from 'components/atoms/BoxToken/BoxToken'
 import { Button } from 'components/atoms/Button/Button'
 import { FrostRunKit } from 'components/atoms/FrostRunKit/FrostRunKit'
 import { DeleteToken } from 'components/modals/DeleteToken/DeleteToken'
+import { CreateClaim } from 'components/molecules/Forms/CreateClaim/CreateClaim'
 import { LegendVerifiedAccount } from 'components/molecules/LegendVerifiedAccount/LegendVerifiedAccount'
 import { FeatureName } from 'config/features'
 import { Network } from 'interfaces/Props'
@@ -23,6 +24,8 @@ interface CreateTokenProps {
   readonly showDeleteModal: boolean
   readonly disabledButton: boolean
   readonly onCreateApiToken: (event: React.SyntheticEvent) => void
+  readonly onCreateClaim?: (data: object) => void
+  readonly createClaimDisabled: boolean
   readonly submitDisabled: boolean
   readonly network: Network
   readonly textCreateTokenButton: string
@@ -56,6 +59,28 @@ export const CreateToken = (props: CreateTokenProps) => (
         disabledButton={props.disabledButton}
       />
     </div>
+    <Feature>
+      {({ features }) =>
+        isActiveFeatureName(FeatureName.WorkClaimForm, features)
+          ? props.network !== 'test' && (
+            <div className={'CreateTokenContainer__post-work'}>
+                <header className={'CreateTokenContainer__post-work__header'}>
+                  <h2 className={'CreateTokenContainer__post-work__header__title'}>Post a Work</h2>
+                  <p className={'CreateTokenContainer__post-work__header__description'}>
+                    Post a work to the Po.et network!
+                  </p>
+                </header>
+                <div className={'CreateTokenContainer__post-work__form'}>
+                <CreateClaim
+                  onSubmit={props.onCreateClaim}
+                  disabledButton={props.createClaimDisabled}
+                />
+              </div>
+              </div>
+             )
+          : null
+      }
+    </Feature>
     <Feature>
       {({ features }) =>
         isActiveFeatureName(FeatureName.RunKit, features)

@@ -1,6 +1,6 @@
 import { Network } from 'interfaces/Props'
 import { describe } from 'riteway'
-import { capitalize, getTextButtonByNetwork, getTextButton } from './CreateToken.container'
+import { capitalize, getTextButtonByNetwork, getTextButton } from './helpers'
 
 describe('CreateToken container capitalize()', async (assert: any) => {
   {

@@ -38,7 +38,7 @@ describe('ApiTokens reducer', async (assert: any) => {
     const actual = reducer(currentState, onGetApiTokensSuccess(payload))
 
     assert({
-      given: `a current state and an action "${onGetApiTokensSuccess().type}"`,
+      given: `a current state and an action '${onGetApiTokensSuccess().type}'`,
       should: 'set the new state',
       actual,
       expected,
@@ -58,7 +58,7 @@ describe('ApiTokens reducer', async (assert: any) => {
     const actual = reducer(currentState, onCreateApiTokenSuccess(payload))
 
     assert({
-      given: `a current state and an action "${onCreateApiTokenSuccess().type}"`,
+      given: `a current state and an action '${onCreateApiTokenSuccess().type}'`,
       should: 'add new api token',
       actual,
       expected,
@@ -78,7 +78,7 @@ describe('ApiTokens reducer', async (assert: any) => {
     const actual = reducer(currentState, onDeleteApiTokenSuccess(payload))
 
     assert({
-      given: `a current state and an action "${onDeleteApiTokenSuccess().type}"`,
+      given: `a current state and an action '${onDeleteApiTokenSuccess().type}'`,
       should: 'remove the api token',
       actual,
       expected,

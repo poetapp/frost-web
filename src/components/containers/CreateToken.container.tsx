@@ -7,8 +7,8 @@ import { Action } from 'redux'
 import { Actions } from 'actions'
 import { CreateToken } from 'components/molecules/CreateToken/CreateToken'
 import { initialFeatures, FeatureName } from 'config/features'
-import { parseJwt } from 'helpers'
-import { FrostState, StatusService, User, ModalState, Network, ApiTokens } from 'interfaces/Props'
+import { parseJwt, getTextButton, getTextButtonByNetwork  } from 'helpers'
+import { FrostState, StatusService, User, ModalState, Network, ApiTokens, WorkAttributes } from 'interfaces/Props'
 
 interface DataAction {
   readonly token: string
@@ -27,6 +27,8 @@ interface CreateTokenContainerProps {
   readonly modal: ModalState
   readonly deleteApiToken: StatusService
   readonly network: Network
+  readonly onCreateClaim?: (payload: { readonly token: string, readonly work: WorkAttributes }) => Action
+  readonly createClaim: StatusService
 }
 
 const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
@@ -37,17 +39,20 @@ const mapStateToProps = (state: FrostState): CreateTokenContainerProps => ({
   modal: state.modal,
   deleteApiToken: state.deleteApiToken,
   network: state.changeNetworkBitcoin.network,
+  createClaim: state.createClaim,
 })
 
 const { onCreateApiToken, onDeleteApiToken } = Actions.ApiTokens
 const { onSendEmailVerifiedAccount } = Actions.SendEmailVerifiedAccount
 const { onShowModal, onHideModal } = Actions.Modal
+const { onCreateClaim } = Actions.CreateClaim
 const mapDispatch = {
   onCreateApiToken,
   onSendEmailVerifiedAccount,
   onDeleteApiToken,
   onShowModal,
   onHideModal,
+  onCreateClaim,
 }
 const MODAL_DELETE_TOKEN = 'MODAL_DELETE_TOKEN'
 
@@ -64,11 +69,8 @@ const deleteToken = (
 const getApiTokenByNetwork = (network: Network) => (apiTokens: ReadonlyArray<string>): ReadonlyArray<string> =>
   apiTokens.filter((apiToken: string) => parseJwt(apiToken).network === network)
 
-export const capitalize = ([first, ...rest]: string) => first.toUpperCase() + rest.join('').toLowerCase()
 const isActiveToggleNetwork = () =>
   isActiveFeatureName(FeatureName.ToggleNetwork, getCurrentActiveFeatureNames({ initialFeatures }))
-export const getTextButtonByNetwork = (network: Network) => `Create API Token for ${capitalize(network)}`
-export const getTextButton = () => 'Create API Token'
 const getTextCreateTokenButton = (network: Network) =>
   ifElse(isActiveToggleNetwork, getTextButtonByNetwork, getTextButton)(network)
 const getNetworkByFT = (network: Network) => ifElse(isActiveToggleNetwork, identity, always(undefined))(network)
@@ -88,6 +90,11 @@ const createToken = (props: CreateTokenContainerProps): JSX.Element => (
     disabledButton={props.deleteApiToken.loading}
     network={props.network}
     textCreateTokenButton={getTextCreateTokenButton(props.network)}
+    onCreateClaim={(data: WorkAttributes) => props.onCreateClaim({
+      token: getApiTokenByNetwork(props.network)(props.apiTokens.tokens)[0],
+      work: data,
+    })}
+    createClaimDisabled={props.createClaim.loading}
   />
 )
 
