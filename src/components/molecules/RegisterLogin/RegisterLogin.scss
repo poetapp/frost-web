@@ -11,6 +11,9 @@ $small-screen: 41.25rem;
   &__LogoPoetBlack {
     margin-top: 102px;
     max-width: 221px;
+    @media screen and (max-width: $small-screen) {
+      margin-top: 2rem;
+    }
   }
 
   &__title {
@@ -19,6 +22,9 @@ $small-screen: 41.25rem;
     font-size: 20px;
     line-height: 29px;
     color: $night-rider;
+    @media screen and (max-width: $small-screen) {
+      margin-bottom: 3rem;
+    }
   }
 
   &__container {
@@ -53,6 +59,7 @@ $small-screen: 41.25rem;
       padding-right: 1.25rem;
       max-width: 20rem;
       @media screen and (max-width: $small-screen) {
+        margin-bottom: 1rem;
         margin-top: 3rem;
       }
     }
