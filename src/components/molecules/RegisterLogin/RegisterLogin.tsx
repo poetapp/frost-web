@@ -25,8 +25,8 @@ export const RegisterLogin = (props: RegisterLoginProps) => (
       <h1 className="RegisterLogin__title">
         Po.et API is an open API for publishers and content creators to interact with the Po.et Network.
       </h1>
-      <div className={'row'}>
-        <div className={'col-4 RegisterLogin_signUp'}>
+      <div className={'RegisterLogin__container'}>
+        <div className={'RegisterLogin__container__signUp'}>
           <SignUp
             onSubmit={props.onSubmitSignUp}
             disabledButton={props.signUp.loading}
@@ -34,9 +34,9 @@ export const RegisterLogin = (props: RegisterLoginProps) => (
           />
         </div>
         <div className={'col-2'}>
-          <hr className={'RegisterLogin__vertical-line'} />
+          <hr className={'RegisterLogin__container__vertical-line'} />
         </div>
-        <div className={'col-4 RegisterLogin__signIn'}>
+        <div className={'RegisterLogin__container__signIn'}>
           <SignIn
             onSubmit={props.onSubmitSignIn}
             disabledButton={props.signIn.loading}

@@ -1,12 +1,19 @@
 @import "colors";
+$small-screen: 41.25rem;
 
 .RegisterLogin {
   margin: auto;
   max-width: 960px;
+  @media screen and (max-width: $small-screen) {
+    max-width: 20rem;
+  }
 
   &__LogoPoetBlack {
     margin-top: 102px;
     max-width: 221px;
+    @media screen and (max-width: $small-screen) {
+      margin-top: 2rem;
+    }
   }
 
   &__title {
@@ -15,19 +22,46 @@
     font-size: 20px;
     line-height: 29px;
     color: $night-rider;
+    @media screen and (max-width: $small-screen) {
+      margin-bottom: 3rem;
+    }
   }
 
-  &__vertical-line {
-    position: absolute;
-    left: 50%;
-    top: -8px;
-    height: 100%;
-    border-left: 1px solid $nobel;
-    opacity: 0.21;
-  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-width: $small-screen) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-  &__signIn {
-    padding-left: 0px;
-    padding-right: 30px;
+    &__vertical-line {
+      position: absolute;
+      left: 50%;
+      top: -8px;
+      height: 100%;
+      border-left: 1px solid $nobel;
+      opacity: 0.21;
+      @media screen and (max-width: $small-screen) {
+        display: none;
+      }
+    }
+
+    &__signUp {
+      padding-left: 0rem;
+      padding-right: 1.25rem;
+      max-width: 20rem;
+    }
+
+    &__signIn {
+      padding-left: 0rem;
+      padding-right: 1.25rem;
+      max-width: 20rem;
+      @media screen and (max-width: $small-screen) {
+        margin-bottom: 1rem;
+        margin-top: 3rem;
+      }
+    }
   }
 }
