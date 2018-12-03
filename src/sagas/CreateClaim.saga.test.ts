@@ -82,7 +82,13 @@ describe('handleOnCreateClaim()', async assert => {
     given: 'next step',
     should: 'create claim with frost',
     actual: iterator.next().value,
-    expected: call([frost, frost.createWork], token, work),
+    expected: call(
+      [frost, frost.createWork],
+      token,
+      {
+        ...work,
+        datePublished: new Date().toISOString(),
+      }),
   })
 
   assert({

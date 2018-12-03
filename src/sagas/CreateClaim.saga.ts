@@ -20,7 +20,13 @@ export function* handleOnCreateClaim(action: any): SagaIterator {
   try {
     const { token, work } = action.payload
     yield put(Actions.LoadingPage.onLoadingOn())
-    const { workId } = yield call([FrostClient, FrostClient.createWork], token, work)
+    const { workId } = yield call(
+      [FrostClient, FrostClient.createWork],
+      token,
+      {
+        ...work,
+        datePublished: new Date().toISOString(),
+      })
     yield put(Actions.LoadingPage.onLoadingFull())
     yield put(Actions.CreateClaim.onCreateClaimSuccess({ workId }))
   } catch (error) {
