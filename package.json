@@ -130,7 +130,7 @@
     "jsonwebtoken": "8.4.0",
     "lint-staged": "7.3.0",
     "local-web-server": "2.6.0",
-    "node-sass": "4.10.0",
+    "node-sass": "4.11.0",
     "nyc": "github:poetapp/nyc#fbc2ed1",
     "postcss-loader": "3.0.0",
     "react-hot-loader": "3.1.3",
