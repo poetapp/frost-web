@@ -1,4 +1,5 @@
 @import "colors";
+@import "fonts";
 
 .RegisterLogin {
   margin: auto;
@@ -23,6 +24,14 @@
     height: 100%;
     border-left: 1px solid $nobel;
     opacity: 0.21;
+  }
+
+  &__signUp {
+    margin-bottom: 2.25rem;
+    font-family: $arvo;
+    font-size: 26px;
+    line-height: 32px;
+    color: $gondola;
   }
 
   &__signIn {
