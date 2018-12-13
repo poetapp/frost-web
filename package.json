@@ -95,7 +95,7 @@
     "@types/node-sass": "3.10.32",
     "@types/prop-types": "15.5.8",
     "@types/ramda": "0.26.0",
-    "@types/react": "16.7.16",
+    "@types/react": "16.7.17",
     "@types/react-dom": "16.0.11",
     "@types/react-hot-loader": "3.0.6",
     "@types/react-redux": "4.4.47",
