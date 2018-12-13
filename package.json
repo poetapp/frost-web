@@ -60,7 +60,7 @@
     "clipboard": "2.0.4",
     "formdata-polyfill": "3.0.13",
     "isomorphic-fetch": "2.2.1",
-    "moment": "2.22.2",
+    "moment": "2.23.0",
     "prop-types": "15.6.2",
     "ramda": "0.26.1",
     "react": "16.6.3",
