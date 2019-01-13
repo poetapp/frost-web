@@ -13,7 +13,7 @@ export const HomeLayout = () => (
       <div className={'Home__what-frost__box'}>
         <h2 className={'Home__what-frost__box__title'}>Why Po.et API?</h2>
         <p className={'Home__what-frost__box__description'}>
-          The easiest way for content publishers and developers to interact with the Po.et Network
+          The easiest way for content publishers and developers to interact with the Po.et asdasd
         </p>
         <div className={'Home__what-frost__box__container-box-simple'}>
           <BoxSimple
